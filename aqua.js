@@ -209,7 +209,7 @@
           }
          if (get_iPad === 'Yes'){
 		    document.getElementById("date").readOnly = true;
-              document.getElementById("message").readOnly = true;
+              document.getElementById("message").readOnly = false;
 		   document.getElementById('qrcode').style.display = 'none';
                document.getElementById('logins').style.display = 'none';
              document.getElementById('removeYes').style.display = 'none';
