@@ -581,6 +581,59 @@ var utcTime = date.toUTCString();
       }
        
        
+        var loadtoday =  function(){
+         var db = firebase.firestore();
+	 let todaysdate = new Date().toISOString().slice(0, 10);
+	 var count = 0;
+	 var start = new Date();
+         start.setHours(0,0,0,0);
+         var end = new Date(start.getTime());
+         end.setHours(23,59,59,999);
+         start = new Date(start.getTime() - (start.getTimezoneOffset() * 60000)).toISOString();
+         end = new Date(end.getTime() - (end.getTimezoneOffset() * 60000)).toISOString();	 
+         console.log(start);
+         console.log(end);		  
+         var lines = "";
+	       
+         let todays = new Date().toLocaleDateString();
+         var header = "<head><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
+	 var title = "<center><h2>Active Visitor Schedule(s) for: " + todays + "</h2><a href='https://aquavisitorsystem.github.io/'></a><br><br></center>";      
+         db.collection("messages").where("date", ">=",start).where("date", "<=",end).where("remove", "==","No").orderBy("date","desc")
+    .get()
+    .then((querySnapshot) => {
+	 console.log("Snapshot:" + querySnapshot.size); 
+        var cnt = querySnapshot.size;
+	document.write(title);
+	document.write("<center><h3>Find schedule and Tap 'Select'</b></center></h3><br>");
+        if (cnt === 0){
+		 var nodata = "<br>No data found<br>";
+	  document.write(nodata);
+	}else{
+	        document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
+
+	}
+         querySnapshot.forEach((doc) => {
+		var nodata = "";
+            // doc.data() is never undefined for query doc snapshots
+            console.log(doc.id, " => ", doc.data());
+	    var dates = new Date(doc.data().date).toLocaleString();
+  	    document.write('<tr><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td><a href="https://aquavisitorsystem.github.io/?iPadid=' + doc.data().key + '">Select</a></td></tr>');
+	});
+		   document.write("</table>");
+		// let sendingText = "https://aquameeting.github.io/?ipad=Yes"
+	           document.head.innerHTML = header;
+    }) 
+    .catch((error) => {
+         console.log("Error getting documents: ", error);
+          document.write(title);
+          document.write("<br>If schedule not found below, click <a href='" +  "https://aquameeting.github.io"   + "'>here</a> to continue<br>");
+	  var nodata = "<br>No data found<br>";
+	  document.write(nodata);
+          document.head.innerHTML = header;
+    });
+      }
+       
+       
        
          var loaddball =  function(data){
         var db = firebase.firestore();
@@ -883,7 +936,13 @@ if (g_all == 'no') {
        loadinactive();
 } else {
   console.log('string IS empty');
-}   	
+}   
+
+if (g_all == 'today') {
+       loadtoday();
+} else {
+  console.log('string IS empty');
+}  
 
 // empty string
 if ((id_active === 'No') && (userid != null && userid != '')) {
