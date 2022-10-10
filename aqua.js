@@ -582,7 +582,7 @@ var utcTime = date.toUTCString();
        
        
         var loadtoday =  function(){
-         var db = firebase.firestore();
+           var db = firebase.firestore();
 	 let todaysdate = new Date().toISOString().slice(0, 10);
 	 var count = 0;
 	 var start = new Date();
@@ -604,12 +604,13 @@ var utcTime = date.toUTCString();
 	 console.log("Snapshot:" + querySnapshot.size); 
         var cnt = querySnapshot.size;
 	document.write(title);
-	document.write("<center><h3>Find schedule and Tap 'Select'</b></center></h3><br>");
+	//document.write("<center><h3>Find your schedule and Tap 'Select'</b></center></h3>If your schedule is not found below, click <a href='" +  "https://aquameeting.github.io/?ipad=Yes"   + "'>here</a> to continue!<br><br>");
         if (cnt === 0){
 		 var nodata = "<br>No data found<br>";
 	  document.write(nodata);
 	}else{
-	        document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
+	   var dates = new Date(doc.data().date).toLocaleString();
+          document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
 
 	}
          querySnapshot.forEach((doc) => {
