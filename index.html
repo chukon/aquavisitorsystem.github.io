@@ -131,10 +131,10 @@ tr:nth-child(even) {
     var mobile = (/iphone|ipod|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()));  
     if (mobile) { 
         alert("MOBILE DEVICE!!");
-        $('.help').hide();
+        document.getElementById("help").style.display = "none"
     } 
     else 
     { 
-       alert("NOT A MOBILE DEVICE!!"); 
+       //alert("NOT A MOBILE DEVICE!!"); 
     }
 </script> 
