@@ -129,14 +129,14 @@ tr:nth-child(even) {
 <script src="aqua.js"></script>
 <script type="text/javascript"> 
 // detect user agent
-	var mobile = navigator.userAgent.toLowerCase();
-	var result = false;
+	 var ua = navigator.userAgent;
+         var isMobile = /Android|webOS|iPhone|iPad|iPod/i.test(ua);
+	var isIPadPro = /Macintosh/.test(navigator.userAgent) && 'ontouchend' in document;
         console.log("Is mobile?: " + mobile);
-	if (mobile) {
-		result = true;
+	if (isMobile || isIPadPro) {
+		document.getElementById("help").style.display = "none"
 		alert("on mobile: " + navigator.platform); // display the platform you're on.
 		var userAgent = navigator.userAgent.toLowerCase();
 		console.log("Device Type:" + userAgent);
-		document.getElementById("help").style.display = "none"
 	}
 </script> 
