@@ -129,7 +129,7 @@ tr:nth-child(even) {
 <script src="aqua.js"></script>
 <script type="text/javascript"> 
 // detect user agent
-	var mobile = (/iphone|ipod|android|blackberry|android|webos|iphone|ipad|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()));
+	var mobile = navigator.userAgent.toLowerCase();
 	var result = false;
         console.log("Is mobile?: " + mobile);
 	if (mobile) {
