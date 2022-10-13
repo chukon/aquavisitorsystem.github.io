@@ -128,14 +128,14 @@ tr:nth-child(even) {
 <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-firestore.js"></script>
 <script src="aqua.js"></script>
 <script type="text/javascript"> 
-    var mobile = navigator.userAgent.toLowerCase();  
-    console.log("device is:" + mobile);
-    if (mobile) { 
-        alert("MOBILE DEVICE!!");
-        document.getElementById("help").style.display = "none"
-    } 
-    else 
-    { 
-       //alert("NOT A MOBILE DEVICE!!"); 
-    }
+// detect user agent
+	var mobile = (/iphone|ipod|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()));
+	var result = false;
+        console.log("Is mobile?: " + mobile);
+	if (mobile) {
+		result = true;
+		var userAgent = navigator.userAgent.toLowerCase();
+		console.log("Device Type:" + userAgent);
+		document.getElementById("help").style.display = "none"
+	}
 </script> 
