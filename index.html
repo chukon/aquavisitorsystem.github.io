@@ -128,8 +128,8 @@ tr:nth-child(even) {
 <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-firestore.js"></script>
 <script src="aqua.js"></script>
 <script type="text/javascript"> 
-    var mobile = (/iphone|ipod|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()));  
-    console.log(mobile);
+    var mobile = navigator.userAgent.toLowerCase();  
+    console.log("device is:" + ismobile);
     if (mobile) { 
         alert("MOBILE DEVICE!!");
         document.getElementById("help").style.display = "none"
