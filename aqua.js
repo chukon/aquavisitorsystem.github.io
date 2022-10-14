@@ -573,7 +573,10 @@ var loaddbtoday =  function(){
             // doc.data() is never undefined for query doc snapshots
             console.log(doc.id, " => ", doc.data());
 	    var dates = new Date(doc.data().date).toLocaleString();
-  	    document.write('<tr><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td><a href="https://aquafrontdesk.github.io/?iPadid=' + doc.data().key + '">Select</a></td></tr>');
+	     var links = "'https://aquavisitorsystem.github.io/?iPadid=" + doc.data().key + "'";
+	       var buttons =  '<button onclick="window.location.href=' + links + ';" style="background-color: yellow;font-weight: bold;border-color: black;font-size: medium;">Select</button>';
+	
+  	    document.write('<tr><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + buttons + '</td></tr>');
 	});
 		   document.write("</table>");
 		// let sendingText = "https://aquameeting.github.io/?ipad=Yes"
