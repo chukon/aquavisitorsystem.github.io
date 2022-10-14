@@ -289,7 +289,7 @@ var utcTime = date.toUTCString();
 	   document.cookie = "checkin=" + get_id + "; expires=" + utcTime + ";";
 	  //document.cookie = "YOUR_COOKIE=yes; expires=" + utcTime + ";";
 	   document.write("<center>");
-	  document.write('<img id="logo" src="aqua.jpg" width="500px">');
+	  document.write('<img id="logo" src="aqua.jpg" width="550px">');
 	    document.write("<p style='font-size:47px;line-height: 0;'>Guest: <b>" + varFName + " " + varLName + "</b></p>");
 	  document.write('<canvas id="qrcodes"></canvas>');
 	  document.write("<p style='font-size:25px;color: black;'>Company: " + varcp + "</p>");
@@ -300,7 +300,7 @@ var utcTime = date.toUTCString();
   backgroundAlpha: 1,
   foreground: '#000000',
   foregroundAlpha: 1,
-  level: 'H',
+  level: 'L',
   size: 230,
   value: varwebsite
 });
@@ -323,7 +323,7 @@ var utcTime = date.toUTCString();
            set_checkout(data);
 	    document.write('<body style="font-family: sans-serif;color: blue;">');
            	   document.write("<center>");
-	  document.write('<img id="logo" src="aqua.jpg" width="500px">');
+	  document.write('<img id="logo" src="aqua.jpg" width="550px">');
 	    document.write("<p style='font-size:47px;'>Thank you, " + varFName + " " + varLName + "</p>");
           document.write("<p style='font-size:25px;color: black;'>You have been successfully checked out!</p>");
            document.write("<p style='font-size:20px;color: black;'>Please dispose of your badge before leaving reception/lobby!</p>");
@@ -355,7 +355,7 @@ var utcTime = date.toUTCString();
        console.log("Error getting documents: ", error);
 		  document.write('<body style="font-family: sans-serif;color: blue;">');
            	   document.write("<center>");
-	  document.write('<img id="logo" src="aqua.jpg" width="500px">');
+	  document.write('<img id="logo" src="aqua.jpg" width="550px">');
             document.write("<p style='font-size:20px;color: blue;'>This QR code has expired or is invalid!</p>");
 	  document.write("<p style='font-size:20px;color: black;'>Please dispose of your badge before leaving reception/lobby!</p>");
             document.write("<p style='font-size:20px;color: blue;'>Have a great day!</p>");
