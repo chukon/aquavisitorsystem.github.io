@@ -553,7 +553,7 @@ var loaddbtoday =  function(){
 	       
          let todays = new Date().toLocaleDateString();
          var header = "<head><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
-	 var title = "<center><h2>Active Visitor Schedule(s) for: " + todays + "</h2><a href='https://aquafrontdesk.github.io/'></a><br><br></center>";      
+	 var title = "<center><h2>Active Visitor Schedule(s) for: " + todays + "</h2><a href='https://aquafrontdesk.github.io/'></a><br></center>";      
          db.collection("messages").where("date", ">=",start).where("date", "<=",end).where("remove", "==","No").orderBy("date","desc")
     .get()
     .then((querySnapshot) => {
