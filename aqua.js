@@ -289,7 +289,7 @@ var utcTime = date.toUTCString();
 	   document.cookie = "checkin=" + get_id + "; expires=" + utcTime + ";";
 	  //document.cookie = "YOUR_COOKIE=yes; expires=" + utcTime + ";";
 	   document.write("<center>");
-	  document.write('<img id="logo" src="aqua.jpg" width="800px">');
+	  document.write('<img id="logo" src="aqua.jpg" width="750px">');
 	    document.write("<p style='font-size:47px;line-height: 0.9;margin: 15;'>Guest: <b>" + varFName + " " + varLName + "</b></p>");
 	  document.write('<canvas id="qrcodes"></canvas>');
 	  document.write("<p style='font-size:25px;color: black;margin: 15;'>Company: " + varcp + "</p>");
