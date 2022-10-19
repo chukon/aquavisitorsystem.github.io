@@ -563,7 +563,7 @@ var loaddbtoday =  function(){
 	 var links = "'https://aquameeting.github.io/?ipad=Yes'";
 	  var buttons =  '<button onclick="window.location.href=' + links + ';" style="background-color: yellow;font-weight: bold;border-color: black;font-size: medium;">HERE</button>';
 	
-	document.write("<center><h3>Find your schedule and Tap 'Select'</b></h3>If your schedule is not found below, click " + buttons + "<br><br></center>"); 
+	document.write("<center><h3>Find your schedule and Tap 'Select'</b></h3>If your schedule is not found below, tap " + buttons + "<br><br></center>"); 
 		       // "https://aquameeting.github.io/?ipad=Yes"   + "'>here</a> to continue!<br><br>");
         if (cnt === 0){
 		 var nodata = "<br>No data found<br>";
