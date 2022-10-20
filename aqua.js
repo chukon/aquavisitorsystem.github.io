@@ -228,7 +228,7 @@
 		 document.getElementById("remove").innerHTML = "If needed, update 'Guest' fields above then tap 'Update' button below";
 		 document.getElementById('update_db').style.width = 'min-content';
 		  document.getElementById('checkin').style.display = 'block';
-		 
+		  document.getElementById('back').style.display = 'none';
 		  
 	 }
            var website = doc.data().key + '&checkin=Now';
