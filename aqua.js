@@ -152,7 +152,7 @@
        document.getElementById('submit_msg').style.visibility = 'hidden';
        document.getElementById("update_db").disabled = false;
         document.getElementById("submit_msg").disabled = true;
-	       document.getElementById('back').style.display = 'block';
+	document.getElementById('back').style.display = 'block';
     })
     .catch((error) => {
        document.getElementById("update_db").disabled = true;
@@ -202,6 +202,7 @@
              document.getElementById("remove").innerHTML  = "Status: InActive";
              document.getElementById("removeNo").innerHTML = "<a href='" + removewebsiteNo + "'>Click here to update status to: Active</a>";
              document.getElementById("removeYes").innerHTML = "";
+		  	 document.getElementById('back').style.display = 'block';
           }
            if (doc.data().remove === 'No'){
 		
@@ -209,6 +210,7 @@
              document.getElementById("remove").innerHTML  = "Status: Active";
              document.getElementById("removeNo").innerHTML = "";
               document.getElementById("removeYes").innerHTML = "<a href='" + removewebsiteYes + "'>Click here to update status to: InActive</a><br>";
+		   	 document.getElementById('back').style.display = 'block';
           }
          if (get_iPad === 'Yes'){
 		
@@ -250,7 +252,7 @@
         document.getElementById('submit_msg').style.visibility = 'hidden';
          document.getElementById("update_db").disabled = false;
         document.getElementById("submit_msg").disabled = true;
-		 document.getElementById('back').style.display = 'block';
+	
     })
     .catch((error) => {
        console.log("Error getting documents: ", error);
