@@ -225,16 +225,14 @@
       document.getElementById('get_msg').style.display = 'none';
 		 document.getElementById('update_db').innerText = 'Update';
 		  document.getElementById("emaillink").innerHTML = "";
-		 document.getElementById("remove").innerHTML = "If needed, update above fields > tap 'Update' button. <b>TAP GREEN BUTTON BELOW TO CHECK-IN/OUT</b>";
+		 document.getElementById("remove").innerHTML = "If needed, update above fields > tap 'Update' button. <b style="color: red;">TAP GREEN BUTTON BELOW TO CHECK-IN/OUT</b>";
 		  document.getElementById('remove').style.fontWeight = 'normal';
 		 document.getElementById('update_db').style.width = 'min-content';
 		  document.getElementById('checkin').style.display = 'block';
 		  document.getElementById('back').style.display = 'none';
 		  document.getElementById('update_db').style.backgroundColor = 'CORNFLOWERBLUE';
 		  document.getElementById('checkin').innerText = 'TAP HERE TO CHECK-IN/OUT...';
-		 //font-weight: 700;
-		  document.getElementById('checkin').style.fontWeight = '700';
-		  
+		  document.getElementById('checkin').style.fontWeight = '700';		  
 	 }
            var website = doc.data().key + '&checkin=Now';
 	// var emailwebsite2 = document.getElementById("bitly").value; //document.getElementById("bitly").value;
