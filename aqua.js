@@ -568,7 +568,7 @@ var loaddbtoday =  function(){
 		 var nodata = "<br>No data found<br>";
 	  document.write(nodata);
 	}else{
-			  document.write("<table style='font-size: small;'>  <tr>   <th>First Name</th>    <th>Last Name</th>    <th>Company</th>     <th>Date/Time</th>      <th>Aqua Employee</th><th></th>  </tr>");
+			  document.write("<table style='font-size: small;'>  <tr>   <th>First Name</th>    <th>Last Name</th>    <th>Company</th>     <th>Date/Time</th>      <th>Visiting</th><th></th>  </tr>");
    
 	}
          querySnapshot.forEach((doc) => {
