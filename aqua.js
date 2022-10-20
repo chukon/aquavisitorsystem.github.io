@@ -465,7 +465,7 @@ var utcTime = date.toUTCString();
 		 var nodata = "<br>No data found<br>";
 	         document.write(nodata);
 	}else{
-		document.write("<table style='font-size: small;'>  <tr>    <th>Aqua Employee</th>    <th>First Name</th>    <th>Last Name</th>    <th>Company</th>     <th>Date/Time</th>      <th>Email</th>       <th>Purpose of Visit</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
+		document.write("<table style='font-size: small;'>  <tr>    <th>Creator</th>    <th>First Name</th>    <th>Last Name</th>    <th>Company</th>     <th>Date/Time</th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
    
 	}
         querySnapshot.forEach((doc) => {
@@ -498,7 +498,7 @@ var utcTime = date.toUTCString();
 		 var nodata = "<br>No data found<br>";
 	  document.write(nodata);
 	}else{
-	  document.write("<table style='font-size: small;'>  <tr>    <th>Aqua Employee</th>    <th>First Name</th>    <th>Last Name</th>    <th>Company</th>     <th>Date/Time</th>      <th>Email</th>       <th>Purpose of Visit</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
+	  document.write("<table style='font-size: small;'>  <tr>    <th>Creator</th>    <th>First Name</th>    <th>Last Name</th>    <th>Company</th>     <th>Date/Time</th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
 	}
         querySnapshot.forEach((doc) => {
             console.log(doc.id, " => ", doc.data());
@@ -528,7 +528,7 @@ var utcTime = date.toUTCString();
 		 var nodata = "<br>No data found<br>";
 	  document.write(nodata);
 	}else{
-	  document.write("<table style='font-size: small;'>  <tr>    <th>Aqua Employee</th>    <th>First Name</th>    <th>Last Name</th>    <th>Company</th>     <th>Date/Time</th>      <th>Email</th>       <th>Purpose of Visit</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
+	  document.write("<table style='font-size: small;'>  <tr>    <th>Creator</th>    <th>First Name</th>    <th>Last Name</th>    <th>Company</th>     <th>Date/Time</th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
 	}
         querySnapshot.forEach((doc) => {
             console.log(doc.id, " => ", doc.data());
@@ -543,6 +543,58 @@ var utcTime = date.toUTCString();
     });
       }
        
+  var loadtoday =  function(){
+           var db = firebase.firestore();
+	 let todaysdate = new Date();
+	 var count = 0;
+
+         var lines = "";
+	var today = new Date();
+	 var x;
+   document.write("");
+   var name=prompt("Please choose one of the following\r\n1) Enter date to search (Example: 10/12/2022) > Click [Ok]\r\n2) Click [Ok] for today's date","Enter Date");
+    if (name!="Enter Date"){
+   }else{
+       var d = new Date();
+     var myDate = new Date(d).toLocaleDateString('en-US');   
+     name = myDate.toString();
+   }	
+	console.log(name);
+	var  todays = new Date().toLocaleDateString('en-US');  
+         var header = "<head><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
+	 var title = "<center><h1>Aqua-Aerobic Systems Visitor System</h1><h2>Visitor(s) for: " + name + "</h2></center><center><a href='https://aquavisitorsystem.github.io/'>Go Home</a></center><br>";         
+	 db.collection("messages").where("messages", "==",name).where("remove", "==","No").orderBy("date","desc")
+    .get()
+    .then((querySnapshot) => {
+	 console.log("Snapshot:" + querySnapshot.size); 
+        var cnt = querySnapshot.size;
+	document.write(title);
+	//document.write("<center><h3>Find your name and Tap 'Check-In'</b></center></h3>If your name is not found below, click <a href='" +  "https://ignitemeeting.github.io/?ipad=Yes"   + "'>here</a> to continue!<br><br><center>");
+        if (cnt === 0){
+		 var nodata = "<br>No data found<br>";
+	  document.write(nodata);
+	}else{
+	document.write("<table style='font-size: small;'>  <tr>    <th>Creator</th>    <th>First Name</th>    <th>Last Name</th>    <th>Company</th>     <th>Date/Time</th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");	
+	}
+         querySnapshot.forEach((doc) => {
+		var nodata = "";
+            // doc.data() is never undefined for query doc snapshots
+         var dates = new Date(doc.data().date).toLocaleString();
+     document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
+	 });
+		   document.write("</table>");
+		// let sendingText = "https://ignitemeeting.github.io/?ipad=Yes"
+	           document.head.innerHTML = header;
+    }) 
+    .catch((error) => {
+         console.log("Error getting documents: ", error);
+          document.write(title);
+	  var nodata = "<br>No data found<br>";
+	  document.write(nodata);
+          document.head.innerHTML = header;
+    });
+      }
+  
 var loaddbtoday =  function(){
          var db = firebase.firestore();
 	 let todaysdate = new Date().toISOString().slice(0, 10);
@@ -625,7 +677,7 @@ var loaddbtoday =  function(){
 		 var nodata = "<br>No data found<br>";
 	  document.write(nodata);
 	}else{
-	   document.write("<table style='font-size: small;'>  <tr>    <th>Aqua Employee</th>    <th>First Name</th>    <th>Last Name</th>    <th>Company</th>     <th>Date/Time</th>      <th>Email</th>       <th>Purpose of Visit</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
+	   document.write("<table style='font-size: small;'>  <tr>    <th>Creator</th>    <th>First Name</th>    <th>Last Name</th>    <th>Company</th>     <th>Date/Time</th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
  
 	}
         querySnapshot.forEach((doc) => {
