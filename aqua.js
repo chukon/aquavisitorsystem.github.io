@@ -554,6 +554,8 @@ var utcTime = date.toUTCString();
    document.write("");
    var name=prompt("Please choose one of the following\r\n1) Enter date to search (Example: 10/12/2022) > Click [Ok]\r\n2) Click [Ok] for today's date","Enter Date");
     if (name!="Enter Date"){
+       var d = new Date(name).toISOString();
+       name = d;
    }else{
        var d = new Date();
      var myDate = new Date(d).toLocaleDateString('en-US');   
