@@ -570,6 +570,7 @@ var utcTime = date.toUTCString();
          end.setHours(23,59,59,999);
        strStart =  start.toISOString();
        strEnd =  end.toISOString();
+     var d = new Date();
      var myDate = new Date(d).toLocaleDateString('en-US');   
      name = myDate.toString();
    }	
