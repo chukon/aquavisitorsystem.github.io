@@ -568,7 +568,7 @@ var loaddbtoday =  function(){
 		 var nodata = "<br>No data found<br>";
 	  document.write(nodata);
 	}else{
-			  document.write("<table style='font-size: small;'>  <tr>   <th>First Name</th>    <th>Last Name</th>    <th>Company</th>     <th>Date/Time</th>      <th>Email</th><th></th>  </tr>");
+			  document.write("<table style='font-size: small;'>  <tr>   <th>First Name</th>    <th>Last Name</th>    <th>Company</th>     <th>Date/Time</th>      <th>Aqua Employee</th><th></th>  </tr>");
    
 	}
          querySnapshot.forEach((doc) => {
@@ -579,7 +579,7 @@ var loaddbtoday =  function(){
 	     var links = "'https://aquavisitorsystem.github.io/?iPadid=" + doc.data().key + "'";
 	       var buttons =  '<button onclick="window.location.href=' + links + ';" style="background-color: yellow;font-weight: bold;border-color: black;font-size: medium;">Select</button>';
 	
-  	    document.write('<tr><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + buttons + '</td></tr>');
+  	    document.write('<tr><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().message + '</td><td>' + buttons + '</td></tr>');
 	});
 		   document.write("</table>");
 		// let sendingText = "https://aquameeting.github.io/?ipad=Yes"
