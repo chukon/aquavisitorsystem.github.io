@@ -547,17 +547,29 @@ var utcTime = date.toUTCString();
            var db = firebase.firestore();
 	 let todaysdate = new Date();
 	 var count = 0;
-
+	 var strStart;
+	  var strEnd; 
+         var start = new Date();
+	   var end = new Date();
          var lines = "";
 	var today = new Date();
 	 var x;
    document.write("");
    var name=prompt("Please choose one of the following\r\n1) Enter date to search (Example: 10/12/2022) > Click [Ok]\r\n2) Click [Ok] for today's date","Enter Date");
     if (name!="Enter Date"){
-       var d = new Date(name).toISOString();
-       name = d;
+	  start = new Date(name);
+         start.setHours(0,0,0,0);
+        end = new Date(start.getTime());
+         end.setHours(23,59,59,999);
+       strStart =  start.toISOString();
+       strEnd =  end.toISOString();
    }else{
-       var d = new Date();
+    	 // start = new Date(name);
+         start.setHours(0,0,0,0);
+        end = new Date(start.getTime());
+         end.setHours(23,59,59,999);
+       strStart =  start.toISOString();
+       strEnd =  end.toISOString();
      var myDate = new Date(d).toLocaleDateString('en-US');   
      name = myDate.toString();
    }	
@@ -565,7 +577,7 @@ var utcTime = date.toUTCString();
 	var  todays = new Date().toLocaleDateString('en-US');  
          var header = "<head><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
 	 var title = "<center><h1>Aqua-Aerobic Systems Visitor System</h1><h2>Visitor(s) for: " + name + "</h2></center><center><a href='https://aquavisitorsystem.github.io/'>Go Home</a></center><br>";         
-	 db.collection("messages").where("date", "==",name).where("remove", "==","No").orderBy("lastname","desc")
+	 db.collection("messages").where("date", ">=",strStart).where("date", "<=",strEnd).where("remove", "==","No").orderBy("date","desc").orderBy("lastname","asc")
     .get()
     .then((querySnapshot) => {
 	 console.log("Snapshot:" + querySnapshot.size); 
