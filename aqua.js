@@ -230,6 +230,9 @@
 		  document.getElementById('checkin').style.display = 'block';
 		  document.getElementById('back').style.display = 'none';
 		  document.getElementById('update_db').style.backgroundColor = 'CORNFLOWERBLUE';
+		  document.getElementById('checkin').innerText = 'TAP HERE TO CHECK-IN/OUT...';
+		 //font-weight: 700;
+		  document.getElementById('checkin').style.fontWeight = '700';
 		  
 	 }
            var website = doc.data().key + '&checkin=Now';
