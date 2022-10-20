@@ -229,6 +229,7 @@
 		 document.getElementById('update_db').style.width = 'min-content';
 		  document.getElementById('checkin').style.display = 'block';
 		  document.getElementById('back').style.display = 'none';
+		  document.getElementById('update_db').style.backgroundColor = 'CORNFLOWERBLUE';
 		  
 	 }
            var website = doc.data().key + '&checkin=Now';
