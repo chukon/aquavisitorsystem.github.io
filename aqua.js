@@ -152,6 +152,7 @@
        document.getElementById('submit_msg').style.visibility = 'hidden';
        document.getElementById("update_db").disabled = false;
         document.getElementById("submit_msg").disabled = true;
+	       document.getElementById('back').style.display = 'block';
     })
     .catch((error) => {
        document.getElementById("update_db").disabled = true;
@@ -194,6 +195,7 @@
 	document.getElementById("emaillink").innerHTML = "<a href='mailto:" + doc.data().email + "?subject=Upcoming Meeting at Aqua-Aerobic Systems on " + dates + "&body=" + doc.data().firstname + " " + doc.data().lastname + ",%0D%0A%0D%0AMeeting Date/Time: " + dates + "%0D%0A%0D%0APurpose of Meeting : " + doc.data().message + "%0D%0A%0D%0AA unique QR code can be used to Check-in at the iPad stand in our lobby.%0D%0A%0D%0APlease use the below link to get your QR code.%0D%0A" + document.getElementById("bitly").value + "%0D%0A%0D%0AWatch below video to learn how to use our check-in/check-out system:%0D%0A" + video + "'>Click here to create email to guest...</a>";
         console.log("Remove:" + doc.data().remove);
           if (doc.data().remove === 'Yes'){
+		
             document.getElementById('qrcode').style.display = 'none';
             document.getElementById('emaillink').style.display = 'none';
              document.getElementById('removeYes').style.display = 'none';
@@ -202,12 +204,14 @@
              document.getElementById("removeYes").innerHTML = "";
           }
            if (doc.data().remove === 'No'){
+		
              document.getElementById('removeNo').style.display = 'none';
              document.getElementById("remove").innerHTML  = "Status: Active";
              document.getElementById("removeNo").innerHTML = "";
               document.getElementById("removeYes").innerHTML = "<a href='" + removewebsiteYes + "'>Click here to update status to: InActive</a><br>";
           }
          if (get_iPad === 'Yes'){
+		
 		    document.getElementById("date").readOnly = false;
               document.getElementById("message").readOnly = false;
 		   document.getElementById('qrcode').style.display = 'none';
@@ -246,6 +250,7 @@
         document.getElementById('submit_msg').style.visibility = 'hidden';
          document.getElementById("update_db").disabled = false;
         document.getElementById("submit_msg").disabled = true;
+		 document.getElementById('back').style.display = 'block';
     })
     .catch((error) => {
        console.log("Error getting documents: ", error);
@@ -432,6 +437,7 @@ var utcTime = date.toUTCString();
         });
                  document.getElementById('update_db').style.visibility = 'visible';
         document.getElementById('submit_msg').style.visibility = 'hidden';
+	       document.getElementById('back').style.display = 'block';
     })
     .catch((error) => {
         console.log("Error getting documents: ", error);
