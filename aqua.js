@@ -907,9 +907,10 @@ if (login.value != null &&  login.value != '' && fname.value != null &&  fname.v
         document.getElementById('meetingfields').style.display = 'block';
         document.getElementById('submit_msg').style.display = 'block';
        document.getElementById('update_db').style.display = 'none';
-       document.getElementById('get_id').style.display = 'block';
+       document.getElementById('get_id').style.display = 'none';
       document.getElementById('get_msg').style.display = 'block';
-         document.getElementById('get_id2').style.display = 'block';
+         document.getElementById('get_id2').style.display = 'none';
+	       
        }
        
          var updateschedule = function(){
