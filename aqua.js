@@ -749,12 +749,14 @@ var loaddbtoday =  function(){
          console.log("LoginName: " + username);
           if (username  === null || username === '') {
                alert("Enter your Network Login ID above & try again!");
+          }else if (username  === 'all') {
+		loaddbeverything();
           }else{
-             var data = {
+		 var data = {
           "userid": username
-        }
+		 }
            loaddball(data);
-          }
+	  }
        }
 
 
