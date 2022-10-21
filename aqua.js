@@ -937,6 +937,8 @@ if (login.value != null &&  login.value != '' && fname.value != null &&  fname.v
        document.getElementById('get_id').style.display = 'block';
       document.getElementById('get_msg').style.display = 'block';
           document.getElementById('get_id2').style.display = 'block';
+	document.getElementById('login').innerText = 'Aqua Employee Network ID OR Keyword';
+        document.getElementById('checkin').innerText = 'Examples: [Network ID]ckonkol, keywords: today, date, all, inactive';
        }
        
        // <button id="checkin" type="button">Everything look ok? Tap Here to Check-In</button>
