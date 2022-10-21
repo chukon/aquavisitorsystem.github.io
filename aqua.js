@@ -732,6 +732,10 @@ var loaddbtoday =  function(){
 			  
           }else if (username  === 'all') {
 		loaddbeverything();
+          }else if (username  === 'date') {
+		loadtoday();
+          }else if (username  === 'inactive') {
+		loadinactive();
           }else{
              var data = {
           "userid": username
