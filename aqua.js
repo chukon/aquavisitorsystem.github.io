@@ -937,7 +937,7 @@ if (login.value != null &&  login.value != '' && fname.value != null &&  fname.v
        document.getElementById('update_db').style.display = 'none';
        document.getElementById('get_id').style.display = 'block';
       document.getElementById('get_msg').style.display = 'block';
-          document.getElementById('get_id2').style.display = 'block';
+          document.getElementById('get_id2').style.display = 'none';
  document.getElementById('loginlabel').innerText = 'Aqua Employee Network ID OR Keyword';
   document.getElementsByName('login')[0].placeholder = 'Examples: [Network ID] ckonkol | keywords: today, date, all, inactive';
        }
