@@ -784,7 +784,7 @@ var loaddbtoday =  function(){
             var username = document.getElementById("login").value;
          console.log("LoginName: " + username);
           if (username  === null || username === '') {
-               alert("Enter your Network Login ID above & try again!");
+               alert("Please enter Network Login ID or keyword above & try again!");
 			  
           }else if (username  === 'all') {
 		loaddbeverything();
