@@ -961,7 +961,7 @@ if (login.value != null &&  login.value != '' && fname.value != null &&  fname.v
       document.getElementById("submit_msg").addEventListener("click", contact_submit);
        document.getElementById("update_db").addEventListener("click",update_submit);
        document.getElementById("get_id").addEventListener("click",getloginname);
-   document.getElementById("get_id").addEventListener("keypress", getloginname);
+   document.getElementById("login").addEventListener("keypress", getloginname);
              document.getElementById("get_msg").addEventListener("click", loadweb);
             document.getElementById("get_id2").addEventListener("click", getloginname2);
             document.getElementById("schedule").addEventListener("click", schedule);
