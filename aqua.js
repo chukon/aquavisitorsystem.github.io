@@ -102,6 +102,7 @@
 	   checkout:""
 }) .then(function(doc) {
     console.log("doc updated");
+		 alert("Success!\nCheck-in/check-out data has been reset!");
             window.location = "https://aquavisitorsystem.github.io/?id=" + key;
   }).catch(function(error) {
     console.log("Error getting document:", error);
@@ -1125,7 +1126,6 @@ if ((id_remove === 'Yes') && (id != null && id != '')) {
    let text = "Are you sure you want to reset check-in/check-out data?\n\nThis cannot be undone!";
   if (confirm(text) == true) {
      updatereset(data);
-    alert("Success!\nCheck-in/check-out data has been reset!");
   } else {
      alert("Cancelled!\nCheck-in/check-out reset has been cancelled!");
   }
