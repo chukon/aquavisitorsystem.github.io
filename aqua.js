@@ -1122,7 +1122,13 @@ if ((id_remove === 'Yes') && (id != null && id != '')) {
   var data = {
           "id": id
         }
-      updatereset(data);
+   let text = "Are you sure you want to reset check-in/check-out data?\n\nThis cannot be undone!";
+  if (confirm(text) == true) {
+     updatereset(data);
+  } else {
+     alert("You canceled!");
+  }
+     
 } else {
   console.log('string IS empty');
 }     
