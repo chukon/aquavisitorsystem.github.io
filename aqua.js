@@ -1125,8 +1125,9 @@ if ((id_remove === 'Yes') && (id != null && id != '')) {
    let text = "Are you sure you want to reset check-in/check-out data?\n\nThis cannot be undone!";
   if (confirm(text) == true) {
      updatereset(data);
+    alert("Success!\nCheck-in/check-out data has been reset!");
   } else {
-     alert("You canceled!");
+     alert("Cancelled!\nCheck-in/check-out reset has been cancelled!");
   }
      
 } else {
