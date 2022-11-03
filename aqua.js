@@ -941,6 +941,7 @@ if (login.value != null &&  login.value != '' && fname.value != null &&  fname.v
        document.getElementById('get_msg').style.display = 'block';
            document.getElementById('get_id').style.display = 'none';
        document.getElementById('get_id2').style.display = 'none';
+      document.getElementById('reset').style.display = 'none';
        }
        
        var getall = function(){
