@@ -941,7 +941,6 @@ if (login.value != null &&  login.value != '' && fname.value != null &&  fname.v
        document.getElementById('get_msg').style.display = 'block';
            document.getElementById('get_id').style.display = 'none';
        document.getElementById('get_id2').style.display = 'none';
-      document.getElementById('reset').style.display = 'none';
        }
        
        var getall = function(){
@@ -1159,6 +1158,7 @@ if (id != null && id != '') {
         document.getElementById('getall').style.display = 'none';
 	 document.getElementById('header').style.display = 'none';
 	 document.getElementById('logo').style.display = 'none';
+	 document.getElementById('reset').style.display = 'none';
   console.log('string is NOT empty');
   var website = g_iPadid + '&checkin=Now';	
  var cwebsite = "https://aquameeting.github.io/?key=" + website;
