@@ -94,6 +94,20 @@
   });
       }
       
+         var updatereset = function(data){
+        var db = firebase.firestore();
+          var key = data["id"];
+        db.collection("messages").doc(key).update({
+           checkin: "",
+	   checkout:""
+}) .then(function(doc) {
+    console.log("doc updated");
+            window.location = "https://aquavisitorsystem.github.io/?id=" + key;
+  }).catch(function(error) {
+    console.log("Error getting document:", error);
+  });
+      }
+      
         var updateremoveYes = function(data){
         var db = firebase.firestore();
           var key = data["id"];
@@ -189,6 +203,8 @@
 	    document.getElementById("date").value = doc.data().date;
             document.getElementById("email").value = doc.data().email;
             document.getElementById("message").value = doc.data().message;
+	    var reset = "https://aquavisitorsystem.github.io/?id=" + doc.data().key + "&Remove=Reset";
+	   document.getElementById("reset").innerHTML = "<a href='" + reset + "'>Click here to reset check-in/check-out data</a>";
             var removewebsiteYes = "https://aquavisitorsystem.github.io/?id=" + doc.data().key + "&Remove=Yes";
            var removewebsiteNo = "https://aquavisitorsystem.github.io/?id=" + doc.data().key + "&Remove=No";
 	var video = "https://youtu.be/6hxZn-wAfwY";
@@ -1100,7 +1116,16 @@ if ((id_remove === 'Yes') && (id != null && id != '')) {
       updateremoveNO(data);
 } else {
   console.log('string IS empty');
-}       
+}      
+
+ if ((id_remove === 'Reset') && (id != null && id != '')) {
+  var data = {
+          "id": id
+        }
+      updatereset(data);
+} else {
+  console.log('string IS empty');
+}     
       
       
 if (id != null && id != '') {
