@@ -1064,28 +1064,26 @@ if (g_today != null && g_today != '') {
 	
 	    
 // empty string
-//sentence.toLowerCase()
-
-if (g_all  === 'yes') {
+if (g_all == 'yes') {
        loaddbeverything();
 } else {
   console.log('string IS empty');
 }   
 
-if (g_all === 'no') {
+if (g_all == 'no') {
        loadinactive();
 } else {
   console.log('string IS empty');
 }   
 
-if (g_all === 'today') {
+if (g_all == 'today') {
        loadtoday();
 } else {
   console.log('string IS empty');
 }  
 
 // empty string
-if ((id_active === 'no') && (userid != null && userid != '')) {
+if ((id_active === 'No') && (userid != null && userid != '')) {
    var data = {
           "userid": userid,
         }
@@ -1094,7 +1092,7 @@ if ((id_active === 'no') && (userid != null && userid != '')) {
   console.log('string IS empty');
 }     
       
-if ((id_active === 'yes') && (userid != null && userid != '')) {
+if ((id_active === 'Yes') && (userid != null && userid != '')) {
    var data = {
           "userid": userid,
         }
@@ -1103,7 +1101,7 @@ if ((id_active === 'yes') && (userid != null && userid != '')) {
   console.log('string IS empty');
 }    
       
-if ((id_remove === 'yes') && (id != null && id != '')) {
+if ((id_remove === 'Yes') && (id != null && id != '')) {
   var data = {
           "id": id
         }
@@ -1112,7 +1110,7 @@ if ((id_remove === 'yes') && (id != null && id != '')) {
   console.log('string IS empty');
 }      
       
- if ((id_remove === 'no') && (id != null && id != '')) {
+ if ((id_remove === 'No') && (id != null && id != '')) {
   var data = {
           "id": id
         }
@@ -1121,7 +1119,7 @@ if ((id_remove === 'yes') && (id != null && id != '')) {
   console.log('string IS empty');
 }      
 
- if ((id_remove === 'reset') && (id != null && id != '')) {
+ if ((id_remove === 'Reset') && (id != null && id != '')) {
   var data = {
           "id": id
         }
