@@ -487,7 +487,6 @@ var utcTime = date.toUTCString();
 	         document.write(nodata);
 	}else{
 		document.write("<table style='font-size: small;'>  <tr>    <th>Creator</th>    <th>First Name</th>    <th>Last Name</th>    <th>Company</th>     <th>Date/Time</th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
-   
 	}
         querySnapshot.forEach((doc) => {
             // doc.data() is never undefined for query doc snapshots
@@ -532,6 +531,44 @@ var utcTime = date.toUTCString();
     .catch((error) => {
         console.log("Error getting documents: ", error);
     });
+      }
+       
+        var loadname =  function(data){
+        var db = firebase.firestore();
+          var get_login  = data["userid"];
+         if (get_login  === null || get_login === '') {
+               alert("Enter your Network Login ID above & try again!");
+          }else{
+       get_login  = get_login.toString();
+     var title = "<center><h1>Aqua-Aerobic Systems Check-in/out Visitor Schedule</h1><h2>Active Visitor Schedule(s) for: " + get_login + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+     console.log(get_login);
+      var header = "<style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
+      var lines = "";
+            let today = new Date().toISOString().slice(0, 10);
+         db.collection("messages").where("lastname", "==",get_login).where("remove", "==","No").orderBy("date","desc")
+    .get()
+    .then((querySnapshot) => {
+          var cnt = querySnapshot.size;
+		  document.write(title);
+	 if (cnt === 0){
+		 var nodata = "<br>No data found<br>";
+	         document.write(nodata);
+	}else{
+		document.write("<table style='font-size: small;'>  <tr>    <th>Creator</th>    <th>First Name</th>    <th>Last Name</th>    <th>Company</th>     <th>Date/Time</th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
+	}
+        querySnapshot.forEach((doc) => {
+            // doc.data() is never undefined for query doc snapshots
+            console.log(doc.id, " => ", doc.data());
+	   var dates = new Date(doc.data().date).toLocaleString();
+          document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
+        });
+                  document.write("</table>");
+       document.head.innerHTML = header;
+    })
+    .catch((error) => {
+        console.log("Error getting documents: ", error);
+    });
+           }
       }
        
         var loadinactive =  function(){
@@ -813,6 +850,11 @@ var loaddbtoday =  function(){
 		loaddbeverything();
           }else if (username.toLowerCase()  === 'today') {
 		loadtodayschedule();
+           }else if (username.toLowerCase()  === 'name') {
+		    var data = {
+          "userid": username
+        }
+		loadname(data);
           }else{
              var data = {
           "userid": username
