@@ -1064,19 +1064,19 @@ if (g_today != null && g_today != '') {
 	    
 // empty string
 //sentence.toLowerCase()
-if (g_all.toLowerCase() == 'yes') {
+if (g_all.toLowerCase()  === 'yes') {
        loaddbeverything();
 } else {
   console.log('string IS empty');
 }   
 
-if (g_all.toLowerCase() == 'no') {
+if (g_all.toLowerCase() === 'no') {
        loadinactive();
 } else {
   console.log('string IS empty');
 }   
 
-if (g_all.toLowerCase() == 'today') {
+if (g_all.toLowerCase() === 'today') {
        loadtoday();
 } else {
   console.log('string IS empty');
