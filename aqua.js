@@ -477,7 +477,7 @@ var utcTime = date.toUTCString();
       var header = "<style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
       var lines = "";
             let today = new Date().toISOString().slice(0, 10);
-         db.collection("messages").where("login", "==",get_login).where("remove", "==","No").orderBy("date","desc")
+         db.collection("messages").where("login", "==",get_login).where("remove", "==","No").orderBy("date","asc")
     .get()
     .then((querySnapshot) => {
           var cnt = querySnapshot.size;
@@ -509,7 +509,7 @@ var utcTime = date.toUTCString();
     var lines = "";
             let today = new Date().toISOString().slice(0, 10);
 	   var title = "<center><h1>Aqua-Aerobic Systems Check-in/out Visitor Schedule</h1><h2>Active Visitor Schedule(s) </h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
-         db.collection("messages").where("remove", "==","No").orderBy("date","desc")
+         db.collection("messages").where("remove", "==","No").orderBy("date","asc")
     .get()
     .then((querySnapshot) => {
 	   var cnt = querySnapshot.size;
@@ -546,7 +546,7 @@ var utcTime = date.toUTCString();
       var header = "<style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
       var lines = "";
             let today = new Date().toISOString().slice(0, 10);
-         db.collection("messages").where("lastname", "==",get_login).where("remove", "==","No").orderBy("date","desc")
+         db.collection("messages").where("lastname", "==",get_login).where("remove", "==","No").orderBy("date","asc")
     .get()
     .then((querySnapshot) => {
           var cnt = querySnapshot.size;
@@ -579,7 +579,7 @@ var utcTime = date.toUTCString();
     var lines = "";
             let today = new Date().toISOString().slice(0, 10);
 	   var title = "<center><h1>Aqua-Aerobic Systems Check-in/out Visitor Schedule</h1><h2>In-Active Visitor Schedule(s) </h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
-         db.collection("messages").where("remove", "==","Yes").orderBy("date","desc")
+         db.collection("messages").where("remove", "==","Yes").orderBy("date","asc")
     .get()
     .then((querySnapshot) => {
 	   var cnt = querySnapshot.size;
@@ -638,7 +638,7 @@ var utcTime = date.toUTCString();
 	var  todays = new Date().toLocaleDateString('en-US');  
          var header = "<head><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
 	 var title = "<center><h1>Aqua-Aerobic Systems Visitor System</h1><h2>Visitor(s) for: " + name + "</h2></center><center><a href='https://aquavisitorsystem.github.io/'>Go Home</a></center><br>";         
-	 db.collection("messages").where("date", ">=",strStart).where("date", "<=",strEnd).where("remove", "==","No").orderBy("date","desc").orderBy("lastname","asc")
+	 db.collection("messages").where("date", ">=",strStart).where("date", "<=",strEnd).where("remove", "==","No").orderBy("date","asc").orderBy("lastname","asc")
     .get()
     .then((querySnapshot) => {
 	 console.log("Snapshot:" + querySnapshot.size); 
@@ -694,7 +694,7 @@ var loadtodayschedule =  function(){
 	var  todays = new Date().toLocaleDateString('en-US');  
          var header = "<head><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
 	 var title = "<center><h1>Aqua-Aerobic Systems Visitor System</h1><h2>Visitor(s) for: " + name + "</h2></center><center><a href='https://aquavisitorsystem.github.io/'>Go Home</a></center><br>";         
-	 db.collection("messages").where("date", ">=",strStart).where("date", "<=",strEnd).where("remove", "==","No").orderBy("date","desc").orderBy("lastname","asc")
+	 db.collection("messages").where("date", ">=",strStart).where("date", "<=",strEnd).where("remove", "==","No").orderBy("date","asc").orderBy("lastname","asc")
     .get()
     .then((querySnapshot) => {
 	 console.log("Snapshot:" + querySnapshot.size); 
@@ -743,7 +743,7 @@ var loaddbtoday =  function(){
          let todays = new Date().toLocaleDateString();
          var header = "<head><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
 	 var title = "<center><h2>Active Visitor Schedule(s) for: " + todays + "</h2></center>";      
-         db.collection("messages").where("date", ">=",start).where("date", "<=",end).where("remove", "==","No").orderBy("date","desc")
+         db.collection("messages").where("date", ">=",start).where("date", "<=",end).where("remove", "==","No").orderBy("date","asc")
     .get()
     .then((querySnapshot) => {
 	 console.log("Snapshot:" + querySnapshot.size); 
@@ -799,7 +799,7 @@ var loaddbtoday =  function(){
      
 		  var lines = "";
             let today = new Date().toISOString().slice(0, 10);
-         db.collection("messages").where("login", "==",get_login).where("remove", "==","Yes").orderBy("date","desc")
+         db.collection("messages").where("login", "==",get_login).where("remove", "==","Yes").orderBy("date","asc")
     .get()
     .then((querySnapshot) => {
 		   var cnt = querySnapshot.size;
