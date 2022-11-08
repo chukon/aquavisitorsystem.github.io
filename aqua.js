@@ -533,10 +533,11 @@ var utcTime = date.toUTCString();
     });
       }
        
-        var loadname =  function(data){
+        var loadname =  function(){
         var db = firebase.firestore();
-          var get_login  = data["userid"];
-         if (get_login  === null || get_login === '') {
+		
+		 var get_login=prompt("Enter last name to search","Enter Last Name");
+         if (get_login  === null || get_login === "Enter Last Name") {
                alert("Enter your Network Login ID above & try again!");
           }else{
        get_login  = get_login.toString();
@@ -570,6 +571,7 @@ var utcTime = date.toUTCString();
     });
            }
       }
+		
        
         var loadinactive =  function(){
        var db = firebase.firestore();
