@@ -798,20 +798,20 @@ var loaddbtoday =  function(){
        
        var getloginname = function(){
             var username = document.getElementById("login").value;
-	    uaername = username.toLowerCase();
+	   
          console.log("LoginName: " + username.toLowerCase());
-          if (username  === null || username === '') {
+          if (username.toLowerCase()  === null || username === '') {
                alert("Please enter Network Login ID or keyword above & try again!");
 			  
-          }else if (username  === 'all') {
+          }else if (username.toLowerCase()  === 'all') {
 		loaddbeverything();
-          }else if (username  === 'date') {
+          }else if (username.toLowerCase()  === 'date') {
 		loadtoday();
-          }else if (username  === 'inactive') {
+          }else if (username.toLowerCase()  === 'inactive') {
 		loadinactive();
-          }else if (username  === 'active') {
+          }else if (username.toLowerCase()  === 'active') {
 		loaddbeverything();
-          }else if (username  === 'today') {
+          }else if (username.toLowerCase()  === 'today') {
 		loadtodayschedule();
           }else{
              var data = {
