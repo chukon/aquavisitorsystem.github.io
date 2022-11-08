@@ -799,7 +799,7 @@ var loaddbtoday =  function(){
        var getloginname = function(){
             var username = document.getElementById("login").value;
 	    uaername = username.toLowerCase();
-         console.log("LoginName: " + username);
+         console.log("LoginName: " + username.toLowerCase());
           if (username  === null || username === '') {
                alert("Please enter Network Login ID or keyword above & try again!");
 			  
