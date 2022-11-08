@@ -798,6 +798,7 @@ var loaddbtoday =  function(){
        
        var getloginname = function(){
             var username = document.getElementById("login").value;
+	    uaername = username.toLowerCase();
          console.log("LoginName: " + username);
           if (username  === null || username === '') {
                alert("Please enter Network Login ID or keyword above & try again!");
@@ -1064,9 +1065,6 @@ if (g_today != null && g_today != '') {
 	    
 // empty string
 //sentence.toLowerCase()
-g_all = g_all.toLowerCase();
-id_remove = id_remove.toLowerCase();
-id_active = id_active.toLowerCase();
 
 if (g_all  === 'yes') {
        loaddbeverything();
