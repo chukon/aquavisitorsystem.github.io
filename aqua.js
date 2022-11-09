@@ -362,7 +362,7 @@ var utcTime = date.toUTCString();
 	     document.write("</center>");
     document.write('</body>');
 	   var data = {
-	   "login":  varAqua',
+	   "login":  varAqua,
           "fname": varFName,
           "lname": varLName,
           "email": varEmail,
