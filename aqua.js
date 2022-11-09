@@ -329,10 +329,11 @@ $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
            varAqua = doc.data().login;
 	   varcp =  doc.data().company;
         }); 
-		 
+	console.log("key_msg:" + key_msg);
+		 console.log("key_email:" +  key_email);
              console.log("key_checkin:" + key_checkin);
     console.log("key_checkout:" + key_checkout);
-    console.log("keyid" + get_id);
+    console.log("keyid:" + get_id);
   if ((key_checkin === null || key_checkin === '') && (key_checkout === null || key_checkout === '')){
 	    document.getElementById("checkedin").value = 'No';
 	   console.log("checkedin ID: No");
