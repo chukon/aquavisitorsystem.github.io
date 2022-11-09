@@ -13,6 +13,8 @@
       document.getElementById("update_db").disabled = true;
       document.getElementById('update_db').style.visibility = 'hidden';
       
+      var key_msg  = "";
+     var  key_email = "";
       var key_checkin = "";
       var key_checkout = "";
       var gbit = "";
