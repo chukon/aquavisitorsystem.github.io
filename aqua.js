@@ -337,6 +337,7 @@ $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
   if ((key_checkin === null || key_checkin === '') && (key_checkout === null || key_checkout === '')){
 	    document.getElementById("checkedin").value = 'No';
 	   console.log("checkedin ID: No");
+	  console.log("id:" + data["id"]);
            set_checkin(data);	
            document.write('<body style="font-family: sans-serif;color: black;">');
 	  var timeToAdd = 1000 * 60 * 60 * 24 * 7 * 4 * 6;
