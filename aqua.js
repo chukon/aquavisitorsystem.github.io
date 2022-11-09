@@ -96,10 +96,6 @@
       
       
       var sendsms = function(data){
-    var header = "<script type='text/javascript' src='https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js'></script>";
-	header = header + "<script type='text/javascript'>(function(){emailjs.init('fxGG0I_OLtZPd1zPM');})();</script>";
-     document.write("");
-    document.head.innerHTML = header;
 	 var templateParams = {
     from_name: data["fname"] + ' ' + data["lname"],
     to_name: data["msg"],
