@@ -287,7 +287,7 @@ var data = {
     template_params: {
         'from_name': data["fromname"],
         'to_name:': data["toname"],
-	 'to_email': data["toemail"];
+	 'to_email': data["toemail"]
     }
 };
  
