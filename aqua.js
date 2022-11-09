@@ -101,9 +101,9 @@
      document.write("");
     document.head.innerHTML = header;
 	 var templateParams = {
-    from_name: doc.data().fname + ' ' + doc.data().fname,
-    to_name: doc.data().msg,
-    to_email: doc.data().login + '@aqua-aerobic.com'
+    from_name: data["fname"] + ' ' + data["lname"],
+    to_name: data["msg"];,
+    to_email: data["login"] + '@aqua-aerobic.com'
 };
  
 emailjs.send('service_4ri2l4i', 'template_checkedin', templateParams)
@@ -363,6 +363,7 @@ var utcTime = date.toUTCString();
     // document.write("<br><br>Thanks for your patience!");
 	     document.write("</center>");
     document.write('</body>');
+	  
     sendsms(data);
     console.log("checkin successful");
   }else if ((key_checkin !=null && key_checkin != '') && (key_checkout === null || key_checkout === '')){
