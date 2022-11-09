@@ -278,7 +278,33 @@
     });
       }
        
-  
+  var sendsms = function(data){
+	// code fragment
+var data = {
+    service_id: 'service_4ri2l4i',
+    template_id: 'template_checkedin',
+    user_id: 'fxGG0I_OLtZPd1zPM',
+    template_params: {
+        'from_name': data["fromname"],
+        'to_name:': data["toname"];,
+	 'to_email': data["toemail"];
+    }
+};
+ 
+$.ajax('https://api.emailjs.com/api/v1.0/email/send', {
+    type: 'POST',
+    data: JSON.stringify(data),
+    contentType: 'application/json'
+}).done(function() {
+    alert('Your mail is sent!');
+}).fail(function(error) {
+    alert('Oops... ' + JSON.stringify(error));
+});  
+	  
+  }
+	  
+	  
+	  
        
        var get_checkin_data = function(data){
 	  var d = new Date();
@@ -289,8 +315,10 @@
     .get()
     .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
+	    key_checkin = doc.data().checkin;
            key_checkin = doc.data().checkin;
-           key_checkout = doc.data().checkout;
+           key_msg = doc.data().message;
+	   key_email = doc.data().email;
            varFName = doc.data().firstname;
            varLName = doc.data().lastname;
             var dates = new Date(doc.data().date).toLocaleString();
@@ -299,6 +327,7 @@
            varAqua = doc.data().login;
 	   varcp =  doc.data().company;
         }); 
+		 
              console.log("key_checkin:" + key_checkin);
     console.log("key_checkout:" + key_checkout);
     console.log("keyid" + get_id);
@@ -342,6 +371,12 @@ var utcTime = date.toUTCString();
     // document.write("<br><br>Thanks for your patience!");
 	     document.write("</center>");
     document.write('</body>');
+	   var data = {
+	   "toemail": varAqua + 'aqua-aerobic.com',
+          "fromname": g_fname + ' ' + g_lname,
+         "toname": g_message
+        }
+	sendsms(data);   
     console.log("checkin successful");
   }else if ((key_checkin !=null && key_checkin != '') && (key_checkout === null || key_checkout === '')){
 	   console.log("checkedin ID: Yes");
