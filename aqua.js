@@ -102,7 +102,7 @@
     document.head.innerHTML = header;
 	 var templateParams = {
     from_name: data["fname"] + ' ' + data["lname"],
-    to_name: data["msg"];,
+    to_name: data["msg"],
     to_email: data["login"] + '@aqua-aerobic.com'
 };
  
