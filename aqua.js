@@ -1284,7 +1284,7 @@ if (checkin === 'walkin'){
 		 var data1 = {
           "checkin": checkin,
            "id": g_fname + g_lname + g_date
-        }
+        } 
   get_checkin_data(data1);
         });
     }else{
