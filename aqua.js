@@ -96,17 +96,23 @@
       
       
       var sendsms = function(data){
-	      const accountSid = 'ACb932825d8fe369fd8ca979dab2892b74';
-const authToken = '5591e0a9a973b929ec11dad8ba287de3';
-const client = require('twilio')(accountSid, authToken);
+    var header = "<script type='text/javascript' src='https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js'></script>";
+	header = header + "<script type='text/javascript'>(function(){emailjs.init('fxGG0I_OLtZPd1zPM');})();</script>";
+     document.write("");
+    document.head.innerHTML = header;
+	 var templateParams = {
+    from_name: doc.data().fname + ' ' + doc.data().fname,
+    to_name: doc.data().msg,
+    to_email: doc.data().login + '@aqua-aerobic.com'
+};
+ 
+emailjs.send('service_4ri2l4i', 'template_checkedin', templateParams)
+    .then(function(response) {
+       console.log('SUCCESS!', response.status, response.text);
+    }, function(error) {
+       console.log('FAILED...', error);
+    });
 
-client.messages
-  .create({
-     body: data["fname"] + ' ' +  data["lname"] + ' has arrived. Please make your way up front!',
-     from: '+18654197432',
-     to: '+4172317247'
-   })
-  .then(message => console.log(message.sid));    
       }
       
          var updatereset = function(data){
@@ -357,7 +363,7 @@ var utcTime = date.toUTCString();
     // document.write("<br><br>Thanks for your patience!");
 	     document.write("</center>");
     document.write('</body>');
-   // sendsms(data);
+    sendsms(data);
     console.log("checkin successful");
   }else if ((key_checkin !=null && key_checkin != '') && (key_checkout === null || key_checkout === '')){
 	   console.log("checkedin ID: Yes");
