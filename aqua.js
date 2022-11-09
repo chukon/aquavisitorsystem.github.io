@@ -518,7 +518,7 @@ var utcTime = date.toUTCString();
 		 var nodata = "<br>No data found<br>";
 	  document.write(nodata);
 	}else{
-	  document.write("<table style='font-size: small;'>  <tr>    <th>Creator</th>    <th>First Name</th>    <th>Last Name</th>    <th>Company</th>     <th onclick='sortTable(4)'>Date/Time</th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
+	  document.write("<table  id='report' style='font-size: small;'>  <tr>    <th>Creator</th>    <th>First Name</th>    <th>Last Name</th>    <th>Company</th>     <th onclick='sortTable(4)'>Date/Time</th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
 	}
         querySnapshot.forEach((doc) => {
             console.log(doc.id, " => ", doc.data());
@@ -1278,7 +1278,7 @@ if (checkin === 'walkin'){
 
 function sortTable(n) {
   var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-  table = document.getElementById("myTable");
+  table = document.getElementById("report");
   switching = true;
   //Set the sorting direction to ascending:
   dir = "asc"; 
