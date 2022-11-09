@@ -518,7 +518,7 @@ var utcTime = date.toUTCString();
 		 var nodata = "<br>No data found<br>";
 	  document.write(nodata);
 	}else{
-	  document.write("<table  id='report' style='font-size: small;'>  <tr>    <th>Creator</th>    <th>First Name</th>    <th>Last Name</th>    <th>Company</th>     <th onclick='sortTable(4)'>Date/Time</th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
+	  document.write("<table  id='report' style='font-size: small;'>  <tr>    <th>Creator</th>    <th>First Name</th>    <th style='cursor: pointer;' onclick='sortTable(2)'>Last Name</th>    <th>Company</th>     <th style='cursor: pointer;' onclick='sortTable(4)'>Date/Time</th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
 	}
         querySnapshot.forEach((doc) => {
             console.log(doc.id, " => ", doc.data());
