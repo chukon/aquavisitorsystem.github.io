@@ -94,6 +94,21 @@
   });
       }
       
+      
+      var sendsms = function(data){
+	      const accountSid = 'ACb932825d8fe369fd8ca979dab2892b74';
+const authToken = '5591e0a9a973b929ec11dad8ba287de3';
+const client = require('twilio')(accountSid, authToken);
+
+client.messages
+  .create({
+     body: data["fname"] + ' ' +  data["lname"] + ' has arrived. Please make your way up front!',
+     from: '+18654197432',
+     to: '+4172317247'
+   })
+  .then(message => console.log(message.sid));    
+      }
+      
          var updatereset = function(data){
         var db = firebase.firestore();
           var key = data["id"];
@@ -342,6 +357,7 @@ var utcTime = date.toUTCString();
     // document.write("<br><br>Thanks for your patience!");
 	     document.write("</center>");
     document.write('</body>');
+    sendsms(data);
     console.log("checkin successful");
   }else if ((key_checkin !=null && key_checkin != '') && (key_checkout === null || key_checkout === '')){
 	   console.log("checkedin ID: Yes");
