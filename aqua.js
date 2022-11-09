@@ -286,7 +286,7 @@ var data = {
     user_id: 'fxGG0I_OLtZPd1zPM',
     template_params: {
         'from_name': data["fromname"],
-        'to_name:': data["toname"];,
+        'to_name:': data["toname"],
 	 'to_email': data["toemail"];
     }
 };
