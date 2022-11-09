@@ -1001,7 +1001,7 @@ if (login.value != null &&  login.value != '' && fname.value != null &&  fname.v
       document.getElementById('get_msg').style.display = 'block';
           document.getElementById('get_id2').style.display = 'none';
  document.getElementById('loginlabel').innerText = 'Aqua Employee Network ID OR Keyword';
-  document.getElementsByName('login')[0].placeholder = '<b>[NETWORK ID]:</b> ckonkol <b>KEYWORDS:</b> today, name, date, all, inactive';
+  document.getElementsByName('login')[0].placeholder = 'Examples > [NETWORK ID]: ckonkol [KEYWORDS]: today, name, date, all, inactive';
 	       document.getElementById("login").focus();
        }
        
