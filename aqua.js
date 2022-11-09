@@ -94,23 +94,6 @@
   });
       }
       
-      
-      var sendsms = function(data){
-	 var templateParams = {
-    from_name: data["fname"] + ' ' + data["lname"],
-    to_name: data["msg"],
-    to_email: data["login"] + '@aqua-aerobic.com'
-};
- 
-emailjs.send('service_4ri2l4i', 'template_checkedin', templateParams)
-    .then(function(response) {
-       console.log('SUCCESS!', response.status, response.text);
-    }, function(error) {
-       console.log('FAILED...', error);
-    });
-
-      }
-      
          var updatereset = function(data){
         var db = firebase.firestore();
           var key = data["id"];
@@ -297,7 +280,7 @@ emailjs.send('service_4ri2l4i', 'template_checkedin', templateParams)
        
   
        
-       var get_checkin_data = function(data){ 
+       var get_checkin_data = function(data){
 	  var d = new Date();
           var NowTime = new Date(d).toLocaleString();
         var db = firebase.firestore();
@@ -306,8 +289,6 @@ emailjs.send('service_4ri2l4i', 'template_checkedin', templateParams)
     .get()
     .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
-		varEmail = doc.data().email;
-             varmsg = doc.data().message;
            key_checkin = doc.data().checkin;
            key_checkout = doc.data().checkout;
            varFName = doc.data().firstname;
@@ -361,14 +342,6 @@ var utcTime = date.toUTCString();
     // document.write("<br><br>Thanks for your patience!");
 	     document.write("</center>");
     document.write('</body>');
-	   var data = {
-	   "login":  varAqua,
-          "fname": varFName,
-          "lname": varLName,
-          "email": varEmail,
-         "msg": varmsg 
-        }
-    sendsms(data);
     console.log("checkin successful");
   }else if ((key_checkin !=null && key_checkin != '') && (key_checkout === null || key_checkout === '')){
 	   console.log("checkedin ID: Yes");
@@ -1284,7 +1257,7 @@ if (checkin === 'walkin'){
 		 var data1 = {
           "checkin": checkin,
            "id": g_fname + g_lname + g_date
-        } 
+        }
   get_checkin_data(data1);
         });
     }else{
