@@ -113,8 +113,8 @@
       }
 	 
    var sendcheckedin = function(){
-	   if (cc_email === 'walkin@aqua-aerobic.com'){
-		cc_email = 'ckonkol@aqua-aerobic.com';   
+	   if (varto_name === 'walkin@aqua-aerobic.com'){
+		varto_name = 'ckonkol@aqua-aerobic.com';   
 	   }
    var templateParams = {
      "from_name" : varfrom_name,
