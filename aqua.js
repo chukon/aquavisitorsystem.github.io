@@ -122,7 +122,7 @@
          "to_email" : varto_email,
           "cc_email" : cc_email
 };
-   emailjs.send('service_4ri2l4i', 'template_checkedin', templateParams)
+   emailjs.send('service_aqua', 'template_checkedin', templateParams)
     .then(function(response) {
        console.log('SUCCESS!', response.status, response.text);
     }, function(error) {
