@@ -112,9 +112,6 @@
   });
       }
 	 
-   const serviceID = 'service_4ri2l4i';
-   const templateID = 'template_checkedin';
-	 
    var sendcheckedin = function(){
    var templateParams = {
      "from_name" : varfrom_name,
@@ -122,11 +119,11 @@
          "to_email" : varto_email,
           "cc_email" : cc_email
 };
-   emailjs.sendForm(serviceID, templateID, templateParams)
-    .then(() => {
-      alert('Sent!');
-    }, (err) => {
-      alert(JSON.stringify(err));
+   emailjs.send('service_4ri2l4i', 'template_checkedin', templateParams)
+    .then(function(response) {
+       console.log('SUCCESS!', response.status, response.text);
+    }, function(error) {
+       console.log('FAILED...', error);
     });
 		
 	}
