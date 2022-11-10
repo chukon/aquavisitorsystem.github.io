@@ -323,7 +323,7 @@
 	   varcp =  doc.data().company;
 	   //Send email data
            varfrom_name = varFName + ' ' + varLName;
-           varto_email = varAqua;
+           varto_email = varAqua + '@aqua-aerobic.com';
            varto_name = doc.data().message;
         }); 
              console.log("key_checkin:" + key_checkin);
