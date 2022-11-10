@@ -16,7 +16,7 @@
       var varfrom_name = "";
       var varto_email = "";
       var varto_name = "";
-      var cc_email = "ckonkol@aqua-aerobic.com";
+      var cc_email = "ckonkol@aqua-aerobic.com;ckonkol@gmail.com";
       var key_checkin = "";
       var key_checkout = "";
       var gbit = "";
@@ -113,6 +113,9 @@
       }
 	 
    var sendcheckedin = function(){
+	   if (cc_email === 'walkin@aqua-aerobic.com'){
+		cc_email = 'ckonkol@aqua-aerobic.com';   
+	   }
    var templateParams = {
      "from_name" : varfrom_name,
          "to_name" : varto_name,
