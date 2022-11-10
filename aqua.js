@@ -329,6 +329,10 @@
              console.log("key_checkin:" + key_checkin);
     console.log("key_checkout:" + key_checkout);
     console.log("keyid" + get_id);
+		   console.log("varfrom_name" + varfrom_name);
+		   console.log("varto_email" + varto_email);
+		   console.log("varto_name" + varto_name);
+		   console.log("cc_email" + cc_email);
   if ((key_checkin === null || key_checkin === '') && (key_checkout === null || key_checkout === '')){
 	    document.getElementById("checkedin").value = 'No';
 	   console.log("checkedin ID: No");
