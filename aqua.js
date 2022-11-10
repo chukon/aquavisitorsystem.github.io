@@ -16,7 +16,7 @@
       var varfrom_name = "";
       var varto_email = "";
       var varto_name = "";
-      var cc_email = "ckonkol@aqua-aerobic.com;ckonkol@gmail.com";
+      var cc_email = "ckonkol@aqua-aerobic.com";
       var key_checkin = "";
       var key_checkout = "";
       var gbit = "";
@@ -374,7 +374,7 @@ var utcTime = date.toUTCString();
 	     document.write("</center>");
     document.write('</body>');
     console.log("checkin successful");
-   //sendcheckedin();
+   sendcheckedin();
   }else if ((key_checkin !=null && key_checkin != '') && (key_checkout === null || key_checkout === '')){
 	   console.log("checkedin ID: Yes");
 	    document.getElementById("checkedin").value = 'Yes';
