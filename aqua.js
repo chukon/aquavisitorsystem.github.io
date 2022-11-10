@@ -115,7 +115,7 @@
    const serviceID = 'service_4ri2l4i';
    const templateID = 'template_checkedin';
 	 
-   var sendcheckedin = function{
+   var sendcheckedin = function(){
    var templateParams = {
      "from_name" : varfrom_name,
          "to_name" : varto_name,
