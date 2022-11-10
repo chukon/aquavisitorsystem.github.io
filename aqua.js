@@ -13,6 +13,10 @@
       document.getElementById("update_db").disabled = true;
       document.getElementById('update_db').style.visibility = 'hidden';
       
+      var varfrom_name = "";
+      var varto_email = "";
+      var varto_name = "";
+      var cc_email = "ckonkol@aqua-aerobic.com";
       var key_checkin = "";
       var key_checkout = "";
       var gbit = "";
@@ -107,6 +111,27 @@
     console.log("Error getting document:", error);
   });
       }
+	 
+   const serviceID = 'service_4ri2l4i';
+   const templateID = 'template_checkedin';
+	 
+   var sendcheckedin = function{
+   var templateParams = {
+     "from_name" : varfrom_name,
+         "to_name" : varto_name,
+         "to_email" : varto_email,
+          "cc_email" : cc_email
+};
+   emailjs.sendForm(serviceID, templateID, templateParams)
+    .then(() => {
+      btn.value = 'Send Email';
+      alert('Sent!');
+    }, (err) => {
+      btn.value = 'Send Email';
+      alert(JSON.stringify(err));
+    });
+		
+	}
       
         var updateremoveYes = function(data){
         var db = firebase.firestore();
@@ -298,6 +323,10 @@
            varDT = dates;
            varAqua = doc.data().login;
 	   varcp =  doc.data().company;
+	   //Send email data
+           varfrom_name = varFName + ' ' + varLName;
+           varto_email = varAqua;
+           varto_name = doc.data().messages;
         }); 
              console.log("key_checkin:" + key_checkin);
     console.log("key_checkout:" + key_checkout);
@@ -343,6 +372,7 @@ var utcTime = date.toUTCString();
 	     document.write("</center>");
     document.write('</body>');
     console.log("checkin successful");
+    sendcheckedin();
   }else if ((key_checkin !=null && key_checkin != '') && (key_checkout === null || key_checkout === '')){
 	   console.log("checkedin ID: Yes");
 	    document.getElementById("checkedin").value = 'Yes';
