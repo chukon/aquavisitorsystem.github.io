@@ -124,10 +124,8 @@
 };
    emailjs.sendForm(serviceID, templateID, templateParams)
     .then(() => {
-      btn.value = 'Send Email';
       alert('Sent!');
     }, (err) => {
-      btn.value = 'Send Email';
       alert(JSON.stringify(err));
     });
 		
@@ -326,7 +324,7 @@
 	   //Send email data
            varfrom_name = varFName + ' ' + varLName;
            varto_email = varAqua;
-           varto_name = doc.data().messages;
+           varto_name = doc.data().message;
         }); 
              console.log("key_checkin:" + key_checkin);
     console.log("key_checkout:" + key_checkout);
