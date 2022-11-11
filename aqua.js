@@ -1036,6 +1036,7 @@ if (login.value != null &&  login.value != '' && fname.value != null &&  fname.v
   document.getElementsByName('login')[0].placeholder = '[NETWORK ID] example: ckonkol [KEYWORDS] today, name, date, all, inactive';
 	          document.getElementById("login").addEventListener("keypress", getSchedule2);
 	       document.getElementById("login").focus();
+	          document.getElementById('emaillabel').style.display = 'none';
        }
        
        // <button id="checkin" type="button">Everything look ok? Tap Here to Check-In</button>
