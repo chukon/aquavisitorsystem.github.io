@@ -1066,10 +1066,15 @@ if (login.value != null &&  login.value != '' && fname.value != null &&  fname.v
 function getSchedule(e) {
 	console.log(e.keyCode);
 	var key = e.keyCode;
-	      if (key >= 48 && key <= 90) {
+	      if (key >= 48 && key <= 57) || (key >= 65 && key <= 90) {
+		       e.preventDefault();
+		        return true;
               }else{
-		      e.preventDefault();
+		       return false;
 	      }
+        }
+
+        return false;
 }
 
 function getSchedule2(e) {
@@ -1077,6 +1082,8 @@ function getSchedule2(e) {
               e.preventDefault();
 		getloginname();      
 	      }
+	
+	
 }
    //iPadid
 	    
