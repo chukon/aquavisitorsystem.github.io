@@ -397,7 +397,7 @@ var utcTime = date.toUTCString();
 	     document.write("</center>");
     document.write('</body>');
     console.log("checkin successful");
-   sendcheckedin();
+  // sendcheckedin();
   }else if ((key_checkin !=null && key_checkin != '') && (key_checkout === null || key_checkout === '')){
 	   console.log("checkedin ID: Yes");
 	    document.getElementById("checkedin").value = 'Yes';
