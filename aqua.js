@@ -518,7 +518,7 @@ var utcTime = date.toUTCString();
 		 var nodata = "<br>No data found<br>";
 	         document.write(nodata);
 	}else{
-		document.write("<table id='report' style='font-size: small;'>  <tr>    <th>Emp Email</th>    <th>First Name</th>    <th  style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th  style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
+		document.write("<table id='report' style='font-size: small;'>  <tr>    <th>Creator</th>    <th>First Name</th>    <th  style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th  style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
 	}
         querySnapshot.forEach((doc) => {
             // doc.data() is never undefined for query doc snapshots
@@ -550,7 +550,7 @@ var utcTime = date.toUTCString();
 		 var nodata = "<br>No data found<br>";
 	  document.write(nodata);
 	}else{
-	  document.write("<table  id='report' style='font-size: small;'>  <tr>    <th>Emp Email</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
+	  document.write("<table  id='report' style='font-size: small;'>  <tr>    <th>Creator</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
 	}
         querySnapshot.forEach((doc) => {
             console.log(doc.id, " => ", doc.data());
@@ -587,7 +587,7 @@ var utcTime = date.toUTCString();
 		 var nodata = "<br>No data found<br>";
 	         document.write(nodata);
 	}else{
-		document.write("<table id='report' style='font-size: small;'>  <tr>    <th>Emp Email</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
+		document.write("<table id='report' style='font-size: small;'>  <tr>    <th>Creator</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
 	}
         querySnapshot.forEach((doc) => {
             // doc.data() is never undefined for query doc snapshots
@@ -620,7 +620,7 @@ var utcTime = date.toUTCString();
 		 var nodata = "<br>No data found<br>";
 	  document.write(nodata);
 	}else{
-	  document.write("<table id='report' style='font-size: small;'>  <tr>    <th>Emp Email</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
+	  document.write("<table id='report' style='font-size: small;'>  <tr>    <th>Creator</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
 	}
         querySnapshot.forEach((doc) => {
             console.log(doc.id, " => ", doc.data());
@@ -681,7 +681,7 @@ var utcTime = date.toUTCString();
 		 var nodata = "<br>No data found<br>";
 	  document.write(nodata);
 	}else{
-	document.write("<table id='report' style='font-size: small;'>  <tr>    <th>Emp Email</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");	
+	document.write("<table id='report' style='font-size: small;'>  <tr>    <th>Creator</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");	
 	}
          querySnapshot.forEach((doc) => {
 		var nodata = "";
@@ -737,7 +737,7 @@ var loadtodayschedule =  function(){
 		 var nodata = "<br>No data found<br>";
 	  document.write(nodata);
 	}else{
-	document.write("<table id='report' style='font-size: small;'>  <tr>    <th>Emp Email</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");	
+	document.write("<table id='report' style='font-size: small;'>  <tr>    <th>Creator</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");	
 	}
          querySnapshot.forEach((doc) => {
 		var nodata = "";
@@ -840,7 +840,7 @@ var loaddbtoday =  function(){
 		 var nodata = "<br>No data found<br>";
 	  document.write(nodata);
 	}else{
-	   document.write("<table id='report' style='font-size: small;'>  <tr>    <th>Emp Email</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
+	   document.write("<table id='report' style='font-size: small;'>  <tr>    <th>Creator</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
  
 	}
         querySnapshot.forEach((doc) => {
@@ -1032,11 +1032,9 @@ if (login.value != null &&  login.value != '' && fname.value != null &&  fname.v
        document.getElementById('get_id').style.display = 'block';
       document.getElementById('get_msg').style.display = 'block';
           document.getElementById('get_id2').style.display = 'none';
- document.getElementById('loginlabel').innerText = 'Aqua Employee User ID OR Keyword';
-  document.getElementsByName('login')[0].placeholder = '[KEYWORDS] today, name, date, all, inactive';
-	          document.getElementById("login").addEventListener("keypress", getSchedule2);
+ document.getElementById('loginlabel').innerText = 'Aqua Employee Network ID OR Keyword';
+  document.getElementsByName('login')[0].placeholder = '[NETWORK ID] example: ckonkol [KEYWORDS] today, name, date, all, inactive';
 	       document.getElementById("login").focus();
-	          document.getElementById('emaillabel').style.display = 'none';
        }
        
        // <button id="checkin" type="button">Everything look ok? Tap Here to Check-In</button>
@@ -1064,23 +1062,10 @@ if (login.value != null &&  login.value != '' && fname.value != null &&  fname.v
 	    document.getElementById("checkin").addEventListener("click", gocheckin);
 
 function getSchedule(e) {
-	console.log(e.keyCode);
-	var key = e.keyCode;
-	      if (key >= 48 && key <= 57 || key >= 65 && key <= 90 || key >= 97 && key <= 122){
-		      console.log("allow")
-              }else{
-		       e.preventDefault();
-		       console.log("block")
-	      }
-}
-
-function getSchedule2(e) {
 	      if (e.key === "Enter") {
               e.preventDefault();
 		getloginname();      
 	      }
-	
-	
 }
    //iPadid
 	    
