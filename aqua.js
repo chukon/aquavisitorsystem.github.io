@@ -1032,8 +1032,9 @@ if (login.value != null &&  login.value != '' && fname.value != null &&  fname.v
        document.getElementById('get_id').style.display = 'block';
       document.getElementById('get_msg').style.display = 'block';
           document.getElementById('get_id2').style.display = 'none';
- document.getElementById('loginlabel').innerText = 'Aqua Employee Network ID OR Keyword';
+ document.getElementById('loginlabel').innerText = 'Aqua Employee User ID OR Keyword';
   document.getElementsByName('login')[0].placeholder = '[NETWORK ID] example: ckonkol [KEYWORDS] today, name, date, all, inactive';
+	          document.getElementById("login").addEventListener("keypress", getSchedule2);
 	       document.getElementById("login").focus();
        }
        
@@ -1062,6 +1063,12 @@ if (login.value != null &&  login.value != '' && fname.value != null &&  fname.v
 	    document.getElementById("checkin").addEventListener("click", gocheckin);
 
 function getSchedule(e) {
+	      if (e.key >= 48 && e.key <= 57) {
+                  e.preventDefault();
+              }
+}
+
+function getSchedule2(e) {
 	      if (e.key === "Enter") {
               e.preventDefault();
 		getloginname();      
