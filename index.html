@@ -68,6 +68,14 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
       </style>  
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("fxGG0I_OLtZPd1zPM");
+   })();
+</script>
     <title>Aqua Visitor System</title>
   </head>
 <div id="loading">
@@ -84,8 +92,9 @@ tr:nth-child(even) {
       <input type="hidden" id="id" name="id"> 
      <div id="checkedin"></div>
       <div id="logins">
-       <label for="login" id="loginlabel" style="color: black;font-weight: bold;">Aqua Employee Guest is Visiting (Email)</label><br>
-<input type="text" id="login" name="login" pattern="^[a-zA-Z]+$" placeholder="aqua employee userid | example:ckonkol" style="background-color: lightyellow;width: 400px;text-transform: lowercase;" required=""><label for="login" id="emaillabel" style="color: black;font-weight: bold;">@aqua-aerobic.com</label>
+       <label for="login" id="loginlabel" style="color: black;font-weight: bold;">Aqua Employee Guest is Visiting (Network ID)</label>
+     <input type="text" id="login" name="login" placeholder="Please enter the Aqua Employee Network ID the Guest is Visiting. Example: ckonkol" style="background-color: lightyellow;">
+      </div>
     <div id="meetingfields">
       <label for="fname" style="color: black;font-weight: bold;">Guest First Name</label>
       <input type="text" id="fname" name="fname" placeholder="Enter guest first name..">
@@ -147,11 +156,3 @@ tr:nth-child(even) {
 		console.log("Device Type:" + userAgent);
 	}
 </script> 
-	<script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
-</script>
-<script type="text/javascript">
-   (function(){
-      emailjs.init("fxGG0I_OLtZPd1zPM");
-   })();
-</script>
