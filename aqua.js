@@ -130,6 +130,25 @@
     });
 		
 	}
+   
+    var sendcheckedout = function(){
+	   if (varto_name === 'walkin@aqua-aerobic.com'){
+		varto_name = 'ckonkol@aqua-aerobic.com';   
+	   }
+   var templateParams = {
+     "from_name" : varfrom_name,
+         "to_name" : varto_name,
+         "to_email" : varto_email,
+          "cc_email" : cc_email
+};
+   emailjs.send('service_aqua', 'template_checkedout', templateParams)
+    .then(function(response) {
+       console.log('SUCCESS!', response.status, response.text);
+    }, function(error) {
+       console.log('FAILED...', error);
+    });
+		
+	}
       
         var updateremoveYes = function(data){
         var db = firebase.firestore();
@@ -394,6 +413,7 @@ var utcTime = date.toUTCString();
 	   document.write("</center>");
     document.write('</body>');
     console.log("checkout successful");
+    sendcheckedout();
   }else if ((key_checkin !=null && key_checkin != '') && (key_checkout !=null && key_checkout != '') ){
            //qr code used already
 	   console.log("checkedin ID: Yes");
