@@ -92,9 +92,8 @@ tr:nth-child(even) {
       <input type="hidden" id="id" name="id"> 
      <div id="checkedin"></div>
       <div id="logins">
-       <label for="login" id="loginlabel" style="color: black;font-weight: bold;">Aqua Employee Guest is Visiting (Network ID)</label>
-     <input type="text" id="login" name="login" placeholder="Please enter the Aqua Employee Network ID the Guest is Visiting. Example: ckonkol" style="background-color: lightyellow;">
-      </div>
+       <label for="login" id="loginlabel" style="color: black;font-weight: bold;">Aqua Employee Guest is Visiting (Email)</label>
+    <input type="text" id="login" name="login" pattern="^[a-zA-Z]+$" placeholder="Please enter Aqua Employee User ID" style="background-color: lightyellow;width: 500px;">@aqua-aerobic.com
     <div id="meetingfields">
       <label for="fname" style="color: black;font-weight: bold;">Guest First Name</label>
       <input type="text" id="fname" name="fname" placeholder="Enter guest first name..">
