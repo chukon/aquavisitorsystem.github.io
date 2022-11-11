@@ -1067,9 +1067,10 @@ function getSchedule(e) {
 	console.log(e.keyCode);
 	var key = e.keyCode;
 	      if (key >= 48 && key <= 57 || key >= 65 && key <= 90) {
-		        return false;
+		      console.log("allow")
               }else{
-		       return true;
+		       e.preventDefault();
+		       console.log("block")
 	      }
 }
 
