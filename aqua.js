@@ -372,7 +372,7 @@ var utcTime = date.toUTCString();
 	  document.write('<img id="logo" src="aqua.jpg" width="750px">');
 	    document.write("<p style='font-size:47px;line-height: 0.9;margin: 15;'>Guest: <b>" + varFName + " " + varLName + "</b></p>");
 	  document.write('<canvas id="qrcodes"></canvas>');
-	  document.write("<p style='font-size:25px;color: black;margin: 15;'>Company: " + varcp + "</p>");
+	  document.write("<p style='font-size:25px;color: black;margin: 18;'>Company: " + varcp + "</p>");
 	  // document.write("<p style='font-size:16px;color: black;'><br><br><br>printed: " + NowTime + "</p></center>");
    var qrcode = new QRious({
   element: document.getElementById("qrcodes"),
