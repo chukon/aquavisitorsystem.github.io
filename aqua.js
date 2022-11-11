@@ -1066,7 +1066,7 @@ if (login.value != null &&  login.value != '' && fname.value != null &&  fname.v
 function getSchedule(e) {
 	console.log(e.keyCode);
 	var key = e.keyCode;
-	      if (key >= 48 && key <= 57 || key >= 65 && key <= 90) {
+	      if (key >= 48 && key <= 57 || key >= 65 && key <= 90) || key >= 97 && key <= 122){
 		      console.log("allow")
               }else{
 		       e.preventDefault();
