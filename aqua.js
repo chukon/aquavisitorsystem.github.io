@@ -1072,9 +1072,6 @@ function getSchedule(e) {
               }else{
 		       return false;
 	      }
-        }
-
-        return false;
 }
 
 function getSchedule2(e) {
