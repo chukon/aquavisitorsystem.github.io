@@ -1065,9 +1065,11 @@ if (login.value != null &&  login.value != '' && fname.value != null &&  fname.v
 
 function getSchedule(e) {
 	console.log(e.keyCode);
-	      if (e.keyCode >= 48 && e.keyCode <= 57) {
-                  e.preventDefault();
-              }
+	var key = e.keyCode;
+	      if (key >= 48 && key <= 57) {
+              }else{
+		      e.preventDefault();
+	      }
 }
 
 function getSchedule2(e) {
