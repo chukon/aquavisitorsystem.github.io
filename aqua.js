@@ -1064,7 +1064,8 @@ if (login.value != null &&  login.value != '' && fname.value != null &&  fname.v
 	    document.getElementById("checkin").addEventListener("click", gocheckin);
 
 function getSchedule(e) {
-	      if (e.key >= 48 && e.key <= 57) {
+	console.log(e.keyCode);
+	      if (e.keyCode >= 48 && e.keyCode <= 57) {
                   e.preventDefault();
               }
 }
