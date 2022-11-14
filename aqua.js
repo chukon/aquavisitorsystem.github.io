@@ -13,6 +13,21 @@
       document.getElementById("update_db").disabled = true;
       document.getElementById('update_db').style.visibility = 'hidden';
       
+//Add Log File
+var fldlogin;
+var fldfirstname;
+var fldlastname;
+var fldcompany;
+var flddate;
+var fldemail;
+var fldmessage;
+var fldtimestamp;
+var fldcheckin;
+var fldcheckout;
+var fldremove;
+var fldkey;
+
+
       var varfrom_name = "";
       var varto_email = "";
       var varto_name = "";
@@ -324,7 +339,36 @@
     });
       }
        
-  
+var log_create = function(){
+	console.log("log_create started");
+        var db = firebase.firestore();
+        var newdate = new Date().toISOString(); 
+        var key = fldfirstname + fldlastname + newdate;
+        var SaveDoc = db.collection("log").doc(key);  
+        SaveDoc.set({
+              key: key, 
+              sourcekey: fldkey,
+              login: fldlogin,
+            firstname: fldfirstname,
+          lastname: fldlastname,
+          company: fldcompany,
+          date: flddate,
+            email: fldemail,
+            message: fldmessage,
+            timestamp: Date.now(),
+          checkin: fldcheckin,
+          checkout: fldcheckout,
+          remove:fldremove
+        })
+        .then(function(doc) {  
+            //alert("Schedule was created successfully!")
+           	console.log("log_create end");
+  }).catch(function(error) {
+    console.log("Error creating log:", error);
+  });
+      }
+
+
        
        var get_checkin_data = function(data){
 	  var d = new Date();
@@ -348,6 +392,19 @@
            varfrom_name = varFName + ' ' + varLName;
            varto_email = varAqua + '@aqua-aerobic.com';
            varto_name = doc.data().message;
+	   //Get log variables
+	   fldlogin = doc.data().login;
+           fldfirstname = doc.data().firstname;
+           fldlastname = doc.data().lastname;
+           fldcompany = doc.data().company;
+           flddate = doc.data().date;
+           fldemail = doc.data().email;
+           fldmessage = doc.data().message;
+           fldtimestamp = Date.now();
+           fldcheckin = doc.data().checkin;
+           fldcheckout = doc.data().checkout;
+           fldremove =  doc.data().remove;
+           fldkey = doc.data().key;
         }); 
              console.log("key_checkin:" + key_checkin);
     console.log("key_checkout:" + key_checkout);
@@ -384,20 +441,11 @@ var utcTime = date.toUTCString();
   size: 230,
   value: varwebsite
 });
-      //return resolve({fileName: obj.fileName, imgData: qr.toDataURL().split(',')[1]})
-	 // document.getElementById('qrcode').style.display = 'contents';
-         // document.write("You have been successfully checked in!<br>");
-        //  varDT = varDT.replace("T", " "); // document.write("Appointment data: " + varAqua);
-	 // document.write("<hr>");
-         // document.write("Appointment date/time: " +  varDT);
-         //   document.write("<hr>");
-        //    document.write("Someone will come get you very soon!");
-   // document.write("<br><br>While waiting, please put on generated badge from printer!");
-    // document.write("<br><br>Thanks for your patience!");
-	     document.write("</center>");
+    document.write("</center>");
     document.write('</body>');
     console.log("checkin successful");
   //sendcheckedin();
+  log_create();
   }else if ((key_checkin !=null && key_checkin != '') && (key_checkout === null || key_checkout === '')){
 	   console.log("checkedin ID: Yes");
 	    document.getElementById("checkedin").value = 'Yes';
@@ -414,6 +462,7 @@ var utcTime = date.toUTCString();
     document.write('</body>');
     console.log("checkout successful");
     //sendcheckedout();
+    log_create();
   }else if ((key_checkin !=null && key_checkin != '') && (key_checkout !=null && key_checkout != '') ){
            //qr code used already
 	   console.log("checkedin ID: Yes");
@@ -457,6 +506,7 @@ var utcTime = date.toUTCString();
           var key = data["id"];
          		var d = new Date();
              myTime = new Date(d).toLocaleString();
+             fldcheckin = myTime;
         db.collection("messages").doc(key).update({
            checkin: myTime
 }) .then(function(doc) {
@@ -482,6 +532,7 @@ var utcTime = date.toUTCString();
           var key = data["id"];
 	      	    var d = new Date();
              myTime = new Date(d).toLocaleString();
+	    fldcheckout = myTime;
         db.collection("messages").doc(key).update({
            checkout: myTime
 }) .then(function(doc) {
@@ -627,7 +678,75 @@ var utcTime = date.toUTCString();
     });
            }
       }
+	
+	  var loadlogname =  function(){
+        var db = firebase.firestore();
+		 var get_login=prompt("Enter last name to search","Enter Last Name");
+         if (get_login  === null || get_login === "Enter Last Name") {
+               alert("Enter your Network Login ID above & try again!");
+          }else{
+       get_login  = get_login.toString();
+     var title = "<center><h1>Aqua-Aerobic Systems Check-in/out Log</h1><h2>Visitor Schedule(s) for: " + get_login + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+     console.log(get_login);
+      var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
+      var lines = "";
+            let today = new Date().toISOString().slice(0, 10);
+         db.collection("log").where("lastname", "==",get_login).orderBy("date","asc")
+    .get()
+    .then((querySnapshot) => {
+          var cnt = querySnapshot.size;
+		  document.write(title);
+	 if (cnt === 0){
+		 var nodata = "<br>No data found<br>";
+	         document.write(nodata);
+	}else{
+		document.write("<table id='report' style='font-size: small;'>  <tr>    <th>Emp Email</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
+	}
+        querySnapshot.forEach((doc) => {
+            // doc.data() is never undefined for query doc snapshots
+            console.log(doc.id, " => ", doc.data());
+	   var dates = new Date(doc.data().date).toLocaleString();
+          document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().sourcekey + '">Click here</a></td></tr>');
+        });
+                  document.write("</table>");
+       document.head.innerHTML = header;
+    })
+    .catch((error) => {
+        console.log("Error getting documents: ", error);
+    });
+	  }
+      }
 		
+	  var loadlogall =  function(){
+        var db = firebase.firestore();
+        var title = "<center><h1>Aqua-Aerobic Systems Check-in/out Log</h1><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+      var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
+      var lines = "";
+            let today = new Date().toISOString().slice(0, 10);
+         db.collection("log").orderBy("date","asc")
+    .get()
+    .then((querySnapshot) => {
+          var cnt = querySnapshot.size;
+		  document.write(title);
+	 if (cnt === 0){
+		 var nodata = "<br>No data found<br>";
+	         document.write(nodata);
+	}else{
+		document.write("<table id='report' style='font-size: small;'>  <tr>    <th>Emp Email</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
+	}
+        querySnapshot.forEach((doc) => {
+            // doc.data() is never undefined for query doc snapshots
+            console.log(doc.id, " => ", doc.data());
+	   var dates = new Date(doc.data().date).toLocaleString();
+          document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
+        });
+                  document.write("</table>");
+       document.head.innerHTML = header;
+    })
+    .catch((error) => {
+        console.log("Error getting documents: ", error);
+    });
+      }
        
         var loadinactive =  function(){
        var db = firebase.firestore();
@@ -909,10 +1028,11 @@ var loaddbtoday =  function(){
           }else if (username.toLowerCase()  === 'today') {
 		loadtodayschedule();
            }else if (username.toLowerCase()  === 'name') {
-		    var data = {
-          "userid": username
-        }
-		loadname(data);
+		loadname();
+	   }else if (username.toLowerCase()  === 'logname') {
+		loadlogname();
+	   }else if (username.toLowerCase()  === 'logall') {
+		loadlogall();
           }else{
              var data = {
           "userid": username
@@ -1058,7 +1178,7 @@ if (login.value != null &&  login.value != '' && fname.value != null &&  fname.v
       document.getElementById('get_msg').style.display = 'block';
           document.getElementById('get_id2').style.display = 'none';
  document.getElementById('loginlabel').innerText = 'Aqua Employee User ID OR Keyword';
-  document.getElementsByName('login')[0].placeholder = '[KEYWORDS] today, name, date, all, inactive';
+  document.getElementsByName('login')[0].placeholder = '[KEYWORDS] today, name, date, all, inactive, logname, logall';
 	       	          document.getElementById('emaillabel').style.display = 'none';
 	          document.getElementById("login").addEventListener("keypress", getSchedule2);
 	       document.getElementById("login").focus();
