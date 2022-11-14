@@ -113,6 +113,24 @@ var fldkey;
   });
       }
       
+       var updatecheckin = function(data){
+        var db = firebase.firestore();
+          var key = data["id"];
+        db.collection("messages").doc(key).update({
+          firstname: data["fname"],
+          lastname: data["lname"],
+          company: data["cname"],
+          date: data["date"],
+            email: data["email"],
+            message: data["msg"],
+            timestamp: Date.now()
+}) .then(function(doc) {
+    console.log("doc updated");
+  }).catch(function(error) {
+    console.log("Error getting document:", error);
+  });
+      }
+      
          var updatereset = function(data){
         var db = firebase.firestore();
           var key = data["id"];
@@ -302,7 +320,7 @@ var fldkey;
       document.getElementById('get_msg').style.display = 'none';
 		 document.getElementById('update_db').innerText = 'Update';
 		  document.getElementById("emaillink").innerHTML = "";
-		 document.getElementById("remove").innerHTML = "If needed, update above fields > tap 'Update' button. <b style='color: red;'>TAP GREEN BUTTON BELOW TO CHECK-IN/OUT</b>";
+		 document.getElementById("remove").innerHTML = "<b style='color: red;'>1) IF NEEDED, UPDATE ABOVE FIELDS 2) TAP GREEN BUTTON BELOW TO CHECK-IN/OUT</b>";
 		  document.getElementById('remove').style.fontWeight = 'normal';
 		 document.getElementById('update_db').style.width = 'min-content';
 		  document.getElementById('checkin').style.display = 'block';
@@ -444,7 +462,7 @@ var utcTime = date.toUTCString();
     document.write("</center>");
     document.write('</body>');
     console.log("checkin successful");
-  sendcheckedin();
+  //sendcheckedin();
   log_create();
   }else if ((key_checkin !=null && key_checkin != '') && (key_checkout === null || key_checkout === '')){
 	   console.log("checkedin ID: Yes");
@@ -461,7 +479,7 @@ var utcTime = date.toUTCString();
 	   document.write("</center>");
     document.write('</body>');
     console.log("checkout successful");
-    sendcheckedout();
+    //sendcheckedout();
     log_create();
   }else if ((key_checkin !=null && key_checkin != '') && (key_checkout !=null && key_checkout != '') ){
            //qr code used already
@@ -1042,6 +1060,7 @@ var loaddbtoday =  function(){
        }
        
         var gocheckin = function(){
+	     update_submit2();
              var get_id = document.getElementById("id").value;
 	     var website = get_id  + '&checkin=Now';	
            var cwebsite = "https://aquavisitorsystem.github.io/?key=" + website;
@@ -1136,6 +1155,30 @@ if (login.value != null &&  login.value != '' && fname.value != null &&  fname.v
 
       }
        
+        var update_submit2 = function(){
+            var id = document.getElementById("id");
+           var login = document.getElementById("login");
+        var fname = document.getElementById("fname");
+        var lname = document.getElementById("lname");
+        var cname = document.getElementById("cname");
+          var date = document.getElementById("date");
+        var email = document.getElementById("email");
+        var msg = document.getElementById("message");
+        var dates = new Date(date.value).toLocaleString();
+        var data = {
+             "id": id.value,
+            "login": login.value,
+          "fname": fname.value,
+               "lname": lname.value,
+               "cname": cname.value,
+          "email": email.value,
+          "msg": msg.value,
+          "date": date.value
+        }
+        updatecheckin(data);
+
+      }
+       
        var schedule = function(){
 	        document.getElementById("login").addEventListener("keypress", getSchedule);
         document.getElementById('logins').style.display = 'contents';
@@ -1159,7 +1202,7 @@ if (login.value != null &&  login.value != '' && fname.value != null &&  fname.v
         document.getElementById('getall').style.display = 'none';
         document.getElementById('meetingfields').style.display = 'block';
         document.getElementById('submit_msg').style.display = 'none';
-       document.getElementById('update_db').style.display = 'block';
+       document.getElementById('update_db').style.display = 'none';
        document.getElementById('get_msg').style.display = 'block';
            document.getElementById('get_id').style.display = 'none';
        document.getElementById('get_id2').style.display = 'none';
