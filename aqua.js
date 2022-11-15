@@ -1207,6 +1207,19 @@ if (login.value != null &&  login.value != '' && fname.value != null &&  fname.v
            document.getElementById('get_id').style.display = 'none';
        document.getElementById('get_id2').style.display = 'none';
        }
+	 
+	  var updatescheduleshome = function(){
+        document.getElementById('logins').style.display = 'contents';
+          document.getElementById('logins').style.display = 'block';
+        document.getElementById('schedule').style.display = 'none';
+        document.getElementById('getall').style.display = 'none';
+        document.getElementById('meetingfields').style.display = 'block';
+        document.getElementById('submit_msg').style.display = 'none';
+       document.getElementById('update_db').style.display = 'block';
+       document.getElementById('get_msg').style.display = 'block';
+           document.getElementById('get_id').style.display = 'none';
+       document.getElementById('get_id2').style.display = 'none';
+       }
        
        var getall = function(){
            
@@ -1433,7 +1446,7 @@ if (id != null && id != '') {
 	  "iPad": 'No'
         }
         key_id="";
-        updateschedule();
+        updatescheduleshome();
          get_data(data);
         });
 } else {
