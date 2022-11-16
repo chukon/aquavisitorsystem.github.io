@@ -1526,6 +1526,10 @@ if (checkin === 'walkin'){
 
       // empty string
 if ((checkin === null || checkin === '') &&  (keyid != null && keyid != '')) {
+	document.getElementById('schedule').style.display = 'none';
+        document.getElementById('getall').style.display = 'none';
+	 document.getElementById('header').style.display = 'none';
+	 document.getElementById('logo').style.display = 'none';
   document.write('<body style="font-family: sans-serif;color: blue;">');
            	   document.write("<center>");
 	  document.write('<img id="logo" src="aqua.jpg" width="550px">');
