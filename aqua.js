@@ -689,7 +689,7 @@ var utcTime = date.toUTCString();
       var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
       var lines = "";
             let today = new Date().toISOString().slice(0, 10);
-         db.collection("messages").where("lastname", ">=",get_login).where("remove", "==","No").orderBy("date","desc")
+         db.collection("messages").where("lastname", "==",get_login).where("remove", "==","No").orderBy("date","desc")
     .get()
     .then((querySnapshot) => {
           var cnt = querySnapshot.size;
