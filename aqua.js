@@ -98,6 +98,7 @@ var fldkey;
         var db = firebase.firestore();
           var key = data["id"];
         db.collection("messages").doc(key).update({
+          login: data["login"],
           firstname: data["fname"],
           lastname: data["lname"],
           company: data["cname"],
@@ -117,6 +118,7 @@ var fldkey;
         var db = firebase.firestore();
           var key = data["id"];
         db.collection("messages").doc(key).update({
+	  login: data["login"],
           firstname: data["fname"],
           lastname: data["lname"],
           company: data["cname"],
