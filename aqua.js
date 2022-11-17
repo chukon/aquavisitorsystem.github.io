@@ -274,7 +274,7 @@ var fldkey;
             document.getElementById("id").value = doc.data().key;
            document.getElementById("login").value = doc.data().login;
         
-		   document.getElementById("login").readOnly = true;
+	//document.getElementById("login").readOnly = true;
             document.getElementById("fname").value = doc.data().firstname;
             document.getElementById("lname").value = doc.data().lastname;
             document.getElementById("cname").value = doc.data().company;
