@@ -147,6 +147,20 @@ var fldkey;
   });
       }
 	 
+	 var updateresetvisit = function(data){
+        var db = firebase.firestore();
+          var key = data["id"];
+        db.collection("messages").doc(key).update({
+           checkin: "",
+	   checkout:""
+}) .then(function(doc) {
+    console.log("doc updated");
+    //window.location = "https://aquavisitorsystem.github.io/?id=" + key;
+  }).catch(function(error) {
+    console.log("Error getting document:", error);
+  });
+      }
+	 
    var sendcheckedin = function(){
 	   if (varto_name === 'walkin@aqua-aerobic.com'){
 		varto_name = 'ckonkol@aqua-aerobic.com';   
@@ -1510,7 +1524,7 @@ if ((id_remove === 'Yes') && (id != null && id != '')) {
         }
    let text = "Are you sure you want to reset check-in/check-out data?\n\nThis cannot be undone!\n\nClick 'OK' to reset data\nClick 'Cancel' to go back!";
   if (confirm(text) == true) {
-     updatereset(data);
+     updateresetvisit(data);
 	  	  document.write('<body style="font-family: sans-serif;color: blue;">');
            	   document.write("<center>");
 	  document.write('<img id="logo" src="aqua.jpg" width="550px">');
