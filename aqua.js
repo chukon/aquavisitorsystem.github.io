@@ -148,6 +148,8 @@ var fldkey;
       }
 	 
 	 var updateresetvisit = function(data){
+		 let text = "Are you sure you want to reset check-in/check-out data?\n\nThis cannot be undone!\n\nClick 'OK' to reset data\nClick 'Cancel' to go back!";
+	if (confirm(text) == true) {	 
         var db = firebase.firestore();
           var key = data["id"];
         db.collection("messages").doc(key).update({
@@ -166,7 +168,9 @@ var fldkey;
     //window.location = "https://aquavisitorsystem.github.io/?id=" + key;
   }).catch(function(error) {
     console.log("Error getting document:", error);
-  });
+  }); } else {
+     alert("Cancelled!\nCheck-in/check-out reset has been cancelled!");
+  }
       }
 	 
    var sendcheckedin = function(){
@@ -1317,6 +1321,8 @@ if (login.value != null &&  login.value != '' && fname.value != null &&  fname.v
 	 document.getElementById('header').style.display = 'none';
 	 document.getElementById('logo').style.display = 'none';
 	 document.getElementById('reset').style.display = 'none';
+		     document.getElementById('help').style.display = 'none';
+		     document.getElementById('loading').style.display = 'none';
        }
 	 
 	  var updatescheduleshome = function(){
@@ -1656,13 +1662,8 @@ if ((checkin === null || checkin === '') &&  (keyid != null && keyid != '')) {
   var data = {
           "id": id
         }
-   let text = "Are you sure you want to reset check-in/check-out data?\n\nThis cannot be undone!\n\nClick 'OK' to reset data\nClick 'Cancel' to go back!";
-  if (confirm(text) == true) {
+
      updateresetvisit(data);
-	  	 
-  } else {
-     alert("Cancelled!\nCheck-in/check-out reset has been cancelled!");
-  }
      
 } else {
   console.log('string IS empty');
