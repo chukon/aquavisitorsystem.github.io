@@ -1426,7 +1426,7 @@ function getSchedule2(e) {
 	    
 	    
         var id_remove = urlParams.get('Remove')
-      console.log(id_remove);
+      console.log("Remove:" + id_remove);
       
         var id_active = urlParams.get('Active')
       console.log(id_active);
@@ -1522,7 +1522,7 @@ if ((id_remove === 'Yes') && (id != null && id != '')) {
   console.log('string IS empty');
 }      
 
-if (id != null && id != '') {
+if (id != null && id != '') && (id_remove === null) {
 	  document.getElementById('schedule').style.display = 'none';
         document.getElementById('getall').style.display = 'none';
 	 document.getElementById('header').style.display = 'none';
