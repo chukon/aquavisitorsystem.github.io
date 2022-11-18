@@ -1303,6 +1303,22 @@ if (login.value != null &&  login.value != '' && fname.value != null &&  fname.v
        document.getElementById('get_id2').style.display = 'none';
        }
 	 
+	     var clear = function(){
+        document.getElementById('logins').style.display = 'none';
+          document.getElementById('logins').style.display = 'none';
+        document.getElementById('schedule').style.display = 'none';
+        document.getElementById('getall').style.display = 'none';
+        document.getElementById('meetingfields').style.display = 'none';
+        document.getElementById('submit_msg').style.display = 'none';
+       document.getElementById('update_db').style.display = 'none';
+       document.getElementById('get_msg').style.display = 'none';
+           document.getElementById('get_id').style.display = 'none';
+       document.getElementById('get_id2').style.display = 'none';
+	 document.getElementById('header').style.display = 'none';
+	 document.getElementById('logo').style.display = 'none';
+	 document.getElementById('reset').style.display = 'none';
+       }
+	 
 	  var updatescheduleshome = function(){
         document.getElementById('logins').style.display = 'contents';
           document.getElementById('logins').style.display = 'block';
@@ -1506,44 +1522,6 @@ if ((id_remove === 'Yes') && (id != null && id != '')) {
   console.log('string IS empty');
 }      
 
- if ((id_remove === 'Reset') && (id != null && id != '')) {
-  var data = {
-          "id": id
-        }
-   let text = "Are you sure you want to reset check-in/check-out data?\n\nThis cannot be undone!\n\nClick 'OK' to reset data\nClick 'Cancel' to go back!";
-  if (confirm(text) == true) {
-     updatereset(data);
-	  	 alert("Success!\nCheck-in/check-out data has been reset!");
-  } else {
-     alert("Cancelled!\nCheck-in/check-out reset has been cancelled!");
-  }
-     
-} else {
-  console.log('string IS empty');
-}     
-
- if ((id_remove === 'Return') && (id != null && id != '')) {
-	  document.getElementById('schedule').style.display = 'none';
-        document.getElementById('getall').style.display = 'none';
-	 document.getElementById('header').style.display = 'none';
-	 document.getElementById('logo').style.display = 'none';
-	 document.getElementById('reset').style.display = 'none';
-  var data = {
-          "id": id
-        }
-   let text = "Are you sure you want to reset check-in/check-out data?\n\nThis cannot be undone!\n\nClick 'OK' to reset data\nClick 'Cancel' to go back!";
-  if (confirm(text) == true) {
-     updateresetvisit(data);
-	  	 
-  } else {
-     alert("Cancelled!\nCheck-in/check-out reset has been cancelled!");
-  }
-     
-} else {
-  console.log('string IS empty');
-}     
-      
-      
 if (id != null && id != '') {
 	  document.getElementById('schedule').style.display = 'none';
         document.getElementById('getall').style.display = 'none';
@@ -1656,6 +1634,39 @@ if ((checkin === null || checkin === '') &&  (keyid != null && keyid != '')) {
 	   document.write("</center>");
     document.write('</body>');
 }
+
+ if ((id_remove === 'Reset') && (id != null && id != '')) {
+  var data = {
+          "id": id
+        }
+   let text = "Are you sure you want to reset check-in/check-out data?\n\nThis cannot be undone!\n\nClick 'OK' to reset data\nClick 'Cancel' to go back!";
+  if (confirm(text) == true) {
+     updatereset(data);
+	  	 alert("Success!\nCheck-in/check-out data has been reset!");
+  } else {
+     alert("Cancelled!\nCheck-in/check-out reset has been cancelled!");
+  }
+     
+} else {
+  console.log('string IS empty');
+}     
+
+ if ((id_remove === 'Return') && (id != null && id != '')) {
+	clear();
+  var data = {
+          "id": id
+        }
+   let text = "Are you sure you want to reset check-in/check-out data?\n\nThis cannot be undone!\n\nClick 'OK' to reset data\nClick 'Cancel' to go back!";
+  if (confirm(text) == true) {
+     updateresetvisit(data);
+	  	 
+  } else {
+     alert("Cancelled!\nCheck-in/check-out reset has been cancelled!");
+  }
+     
+} else {
+  console.log('string IS empty');
+}     
 
 function sortTable(n) {
   var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
