@@ -149,7 +149,6 @@ var fldkey;
 	 
 	 var updateresetvisit = function(data){
 		 clear();
-		 window.location = "https://aquavisitorsystem.github.io/resetsuccess.html";
 		 let text = "Are you sure you want to reset check-in/check-out data?\n\nThis cannot be undone!\n\nClick 'OK' to reset data\nClick 'Cancel' to go back!";
 	if (confirm(text) == true) {	 
         var db = firebase.firestore();
@@ -1669,7 +1668,7 @@ if ((checkin === null || checkin === '') &&  (keyid != null && keyid != '')) {
   var data = {
           "id": resetid
         }
-
+     window.location = "https://aquavisitorsystem.github.io/resetsuccess.html";
      updateresetvisit(data);
      
 } else {
