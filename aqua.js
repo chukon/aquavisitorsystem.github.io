@@ -163,7 +163,7 @@ var fldkey;
      document.write('<body style="font-family: sans-serif;color: blue;">');
            	   document.write("<center>");
 	  document.write('<img id="logo" src="aqua.jpg" width="550px">');
-            document.write("<p style='font-size:20px;color: blue;'>Success!<br>Check-in/check-out data has been reset!</p>");
+            document.write("<p style='font-size:20px;color: blue;'>Successfully reset check-in/check-out data!<br><br>Your guest can check-in/check-out again later today!</p>");
 	  document.write("<p style='font-size:20px;color: black;'>You can now close this window</p>");
 	   document.write("</center>");
     document.write('</body>');
