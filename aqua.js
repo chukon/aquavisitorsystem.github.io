@@ -155,6 +155,14 @@ var fldkey;
 	   checkout:""
 }) .then(function(doc) {
     console.log("doc updated");
+		document.write("");
+     document.write('<body style="font-family: sans-serif;color: blue;">');
+           	   document.write("<center>");
+	  document.write('<img id="logo" src="aqua.jpg" width="550px">');
+            document.write("<p style='font-size:20px;color: blue;'>Success!<br>Check-in/check-out data has been reset!</p>");
+	  document.write("<p style='font-size:20px;color: black;'>You can now close this window</p>");
+	   document.write("</center>");
+    document.write('</body>');
     //window.location = "https://aquavisitorsystem.github.io/?id=" + key;
   }).catch(function(error) {
     console.log("Error getting document:", error);
@@ -1519,19 +1527,14 @@ if ((id_remove === 'Yes') && (id != null && id != '')) {
         document.getElementById('getall').style.display = 'none';
 	 document.getElementById('header').style.display = 'none';
 	 document.getElementById('logo').style.display = 'none';
+	 document.getElementById('reset').style.display = 'none';
   var data = {
           "id": id
         }
    let text = "Are you sure you want to reset check-in/check-out data?\n\nThis cannot be undone!\n\nClick 'OK' to reset data\nClick 'Cancel' to go back!";
   if (confirm(text) == true) {
      updateresetvisit(data);
-	  	  document.write('<body style="font-family: sans-serif;color: blue;">');
-           	   document.write("<center>");
-	  document.write('<img id="logo" src="aqua.jpg" width="550px">');
-            document.write("<p style='font-size:20px;color: blue;'>Success!<br>Check-in/check-out data has been reset!</p>");
-	  document.write("<p style='font-size:20px;color: black;'>You can now close this window</p>");
-	   document.write("</center>");
-    document.write('</body>');
+	  	 
   } else {
      alert("Cancelled!\nCheck-in/check-out reset has been cancelled!");
   }
