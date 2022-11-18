@@ -170,7 +170,7 @@ var fldkey;
 	   if (varto_name === 'walkin@aqua-aerobic.com'){
 		varto_name = 'ckonkol@aqua-aerobic.com';   
 	   }
-	     var reset = "https://aquavisitorsystem.github.io/?id=" + fldkey + "&Remove=Reset";
+	     var reset = "https://aquavisitorsystem.github.io/?id=" + fldkey + "&Remove=Return";
    var templateParams = {
      "from_name" : varfrom_name,
          "to_name" : varto_name,
@@ -1495,6 +1495,32 @@ if ((id_remove === 'Yes') && (id != null && id != '')) {
   if (confirm(text) == true) {
      updatereset(data);
 	  	 alert("Success!\nCheck-in/check-out data has been reset!");
+  } else {
+     alert("Cancelled!\nCheck-in/check-out reset has been cancelled!");
+  }
+     
+} else {
+  console.log('string IS empty');
+}     
+
+ if ((id_remove === 'Return') && (id != null && id != '')) {
+	  document.getElementById('schedule').style.display = 'none';
+        document.getElementById('getall').style.display = 'none';
+	 document.getElementById('header').style.display = 'none';
+	 document.getElementById('logo').style.display = 'none';
+  var data = {
+          "id": id
+        }
+   let text = "Are you sure you want to reset check-in/check-out data?\n\nThis cannot be undone!\n\nClick 'OK' to reset data\nClick 'Cancel' to go back!";
+  if (confirm(text) == true) {
+     updatereset(data);
+	  	  document.write('<body style="font-family: sans-serif;color: blue;">');
+           	   document.write("<center>");
+	  document.write('<img id="logo" src="aqua.jpg" width="550px">');
+            document.write("<p style='font-size:20px;color: blue;'>Success!<br>Check-in/check-out data has been reset!</p>");
+	  document.write("<p style='font-size:20px;color: black;'>You can now close this window</p>");
+	   document.write("</center>");
+    document.write('</body>');
   } else {
      alert("Cancelled!\nCheck-in/check-out reset has been cancelled!");
   }
