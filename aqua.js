@@ -170,11 +170,13 @@ var fldkey;
 	   if (varto_name === 'walkin@aqua-aerobic.com'){
 		varto_name = 'ckonkol@aqua-aerobic.com';   
 	   }
+	     var reset = "https://aquavisitorsystem.github.io/?id=" + fldkey + "&Remove=Reset";
    var templateParams = {
      "from_name" : varfrom_name,
          "to_name" : varto_name,
          "to_email" : varto_email,
-          "cc_email" : cc_email
+          "cc_email" : cc_email,
+	   "reset" : reset
 };
    emailjs.send('service_aqua', 'template_checkedout', templateParams)
     .then(function(response) {
