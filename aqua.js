@@ -1410,6 +1410,8 @@ function getSchedule2(e) {
       
 	      var g_all= urlParams.get('all')
       console.log(g_all);
+
+
 	    
           var g_fname = urlParams.get('fname')
       console.log(g_fname);
@@ -1441,6 +1443,9 @@ function getSchedule2(e) {
       
       var id = urlParams.get('id')
       console.log(id);
+
+  var resetid = urlParams.get('id')
+      console.log(resetid);
       
         var userid = urlParams.get('userid')
       console.log(userid);
@@ -1512,23 +1517,7 @@ if ((id_active === 'Yes') && (userid != null && userid != '')) {
   console.log('string IS empty');
 }    
       
-if ((id_remove === 'Yes') && (id != null && id != '')) {
-  var data = {
-          "id": id
-        }
-      updateremoveYes(data);
-} else {
-  console.log('string IS empty');
-}      
-      
- if ((id_remove === 'No') && (id != null && id != '')) {
-  var data = {
-          "id": id
-        }
-      updateremoveNO(data);
-} else {
-  console.log('string IS empty');
-}      
+    
 
 if ((id != null && id != '') && (id_remove === null)) {
 	  document.getElementById('schedule').style.display = 'none';
@@ -1659,7 +1648,7 @@ if ((checkin === null || checkin === '') &&  (keyid != null && keyid != '')) {
   console.log('string IS empty');
 }     
 
- if ((id_remove === 'Return') && (id != null && id != '')) {
+ if ((id_remove === 'Return') && (resetid != null && resetid != '')) {
 	clear();
   var data = {
           "id": id
