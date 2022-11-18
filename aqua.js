@@ -171,7 +171,14 @@ var fldkey;
   }).catch(function(error) {
     console.log("Error getting document:", error);
   }); } else {
-     alert("Cancelled!\nCheck-in/check-out reset has been cancelled!");
+     		document.write("");
+     document.write('<body style="font-family: sans-serif;color: blue;">');
+           	   document.write("<center>");
+	  document.write('<img id="logo" src="aqua.jpg" width="550px">');
+            document.write("<p style='font-size:20px;color: blue;'>You cancelled the reset check-in/check-out data!<br></p>");
+	  document.write("<p style='font-size:20px;color: black;'>You can now close this window</p>");
+	   document.write("</center>");
+    document.write('</body>');
   }
       }
 	 
