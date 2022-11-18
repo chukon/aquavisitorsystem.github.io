@@ -149,10 +149,7 @@ var fldkey;
 	 
 	 var updateresetvisit = function(data){
 		 clear()
-			 let text = "Are you sure you want to reset check-in/check-out data?\n\nThis cannot be undone!\n\nClick 'OK' to reset data\nClick 'Cancel' to go back!";
-	if (confirm(text) == true) {	
-		document.write("");
-        var db = firebase.firestore();
+	        var db = firebase.firestore();
           var key = data["id"];
         db.collection("messages").doc(key).update({
            checkin: "",
@@ -163,16 +160,7 @@ var fldkey;
     //window.location = "https://aquavisitorsystem.github.io/resetsuccess.html";
   }).catch(function(error) {
     console.log("Error getting document:", error);
-  }); } else {
-     		document.write("");
-     document.write('<body style="font-family: sans-serif;color: blue;">');
-           	   document.write("<center>");
-	  document.write('<img id="logo" src="aqua.jpg" width="550px">');
-            document.write("<p style='font-size:20px;color: blue;'>You cancelled the reset check-in/check-out data!<br></p>");
-	  document.write("<p style='font-size:20px;color: black;'>You can now close this window</p>");
-	   document.write("</center>");
-    document.write('</body>');
-  }
+  }); 
       }
 	 
    var sendcheckedin = function(){
