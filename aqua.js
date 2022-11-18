@@ -927,19 +927,16 @@ var loadtodayschedule =  function(){
            var db = firebase.firestore();
 	 let todaysdate = new Date();
 	 var count = 0;
-	 var strStart;
-	  var strEnd; 
-         var start = new Date();
-	   var end = new Date();
-         var lines = "";
+	 var lines = "";
 	var today = new Date();
 	 var x;
    document.write("");
+        var start = new Date();
          start.setHours(0,0,0,0);
-        end = new Date(start.getTime());
+         var end = new Date(start.getTime());
          end.setHours(23,59,59,999);
-       strStart =  start.toISOString();
-       strEnd =  end.toISOString();
+         start = new Date(start.getTime() - (start.getTimezoneOffset() * 60000)).toISOString();
+         end = new Date(end.getTime() - (end.getTimezoneOffset() * 60000)).toISOString();	 
      var d = new Date();
      var myDate = new Date(d).toLocaleDateString('en-US');   
      name = myDate.toString();
@@ -947,7 +944,7 @@ var loadtodayschedule =  function(){
 	var  todays = new Date().toLocaleDateString('en-US');  
          var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
 	 var title = "<center><h1>Aqua-Aerobic Systems Visitor System</h1><h2>Visitor(s) for: " + name + "</h2></center><center><a href='https://aquavisitorsystem.github.io/'>Go Home</a></center><br>";         
-	 db.collection("messages").where("date", ">=",strStart).where("date", "<=",strEnd).where("remove", "==","No").orderBy("date","asc").orderBy("lastname","asc")
+	 db.collection("messages").where("date", ">=",start).where("date", "<=",end).where("remove", "==","No").orderBy("date","asc").orderBy("lastname","asc")
     .get()
     .then((querySnapshot) => {
 	 console.log("Snapshot:" + querySnapshot.size); 
