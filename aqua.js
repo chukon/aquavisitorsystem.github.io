@@ -1522,7 +1522,7 @@ if ((id_remove === 'Yes') && (id != null && id != '')) {
   console.log('string IS empty');
 }      
 
-if (id != null && id != '') && (id_remove === null) {
+if ((id != null && id != '') && (id_remove === null)) {
 	  document.getElementById('schedule').style.display = 'none';
         document.getElementById('getall').style.display = 'none';
 	 document.getElementById('header').style.display = 'none';
