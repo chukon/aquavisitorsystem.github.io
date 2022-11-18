@@ -198,7 +198,7 @@ var fldkey;
 	   if (varto_name === 'walkin@aqua-aerobic.com'){
 		varto_name = 'ckonkol@aqua-aerobic.com';   
 	   }
-	     var reset = "https://aquavisitorsystem.github.io/?resetid=" + fldkey + "&Remove=Return";
+	     var reset = "https://aquavisitorsystem.github.io/?id=" + fldkey + "&Remove=Return";
    var templateParams = {
      "from_name" : varfrom_name,
          "to_name" : varto_name,
@@ -1667,7 +1667,7 @@ if ((checkin === null || checkin === '') &&  (keyid != null && keyid != '')) {
  if ((id_remove === 'Return') && (resetid != null && resetid != '')) {
 	clear();
   var data = {
-          "id": id
+          "id": resetid
         }
 
      updateresetvisit(data);
