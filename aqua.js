@@ -198,7 +198,7 @@ var fldkey;
 	   if (varto_name === 'walkin@aqua-aerobic.com'){
 		varto_name = 'ckonkol@aqua-aerobic.com';   
 	   }
-	     var reset = "https://aquavisitorsystem.github.io/?id=" + fldkey + "&Remove=Return";
+	     var reset = "https://aquavisitorsystem.github.io/?resetid=" + fldkey + "&Remove=Return";
    var templateParams = {
      "from_name" : varfrom_name,
          "to_name" : varto_name,
@@ -1444,7 +1444,7 @@ function getSchedule2(e) {
       var id = urlParams.get('id')
       console.log(id);
 
-  var resetid = urlParams.get('id')
+  var resetid = urlParams.get('resetid')
       console.log(resetid);
       
         var userid = urlParams.get('userid')
@@ -1517,7 +1517,23 @@ if ((id_active === 'Yes') && (userid != null && userid != '')) {
   console.log('string IS empty');
 }    
       
-    
+if ((id_remove === 'Yes') && (id != null && id != '')) {
+  var data = {
+          "id": id
+        }
+      updateremoveYes(data);
+} else {
+  console.log('string IS empty');
+}      
+      
+ if ((id_remove === 'No') && (id != null && id != '')) {
+  var data = {
+          "id": id
+        }
+      updateremoveNO(data);
+} else {
+  console.log('string IS empty');
+}      
 
 if ((id != null && id != '') && (id_remove === null)) {
 	  document.getElementById('schedule').style.display = 'none';
