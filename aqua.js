@@ -1587,7 +1587,7 @@ if (checkin === 'walkin'){
 	 document.getElementById('logo').style.display = 'none';
      var data = {
 	   "login": 'walkin',
-	   "key": g_fname.trim().toUpperCase() + g_lname.trim().toUpperCase() + g_date.trim().toUpperCase(),
+	   "key": g_fname.trim().toUpperCase() + g_lname.trim().toUpperCase() + g_date,
           "fname": g_fname.trim().toUpperCase(),
           "lname": g_lname.trim().toUpperCase(),
           "email": g_email.trim().toUpperCase(),
