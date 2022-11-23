@@ -1183,7 +1183,7 @@ var loaddbtoday =  function(){
           "fname": fname.value.trim().toUpperCase(),
                "lname": lname.value.trim().toUpperCase(),
                "cname": cname.value.trim().toUpperCase(),
-          "email": email.value..trim().toLowerCase(),
+          "email": email.value.trim().toLowerCase(),
           "msg": msg.value.trim().toUpperCase(),
           "date": date.value,
           "key": fname.value.trim().toUpperCase() + lname.value.trim().toUpperCase() + date.value
