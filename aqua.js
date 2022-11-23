@@ -1179,14 +1179,14 @@ var loaddbtoday =  function(){
         var email = document.getElementById("email");
         var msg = document.getElementById("message");
         var data = {
-          "login": login.value,
-          "fname": fname.value,
-               "lname": lname.value,
-               "cname": cname.value,
-          "email": email.value,
-          "msg": msg.value,
+          "login": login.value.trim().toLowerCase(),
+          "fname": fname.value.trim().toUpperCase(),
+               "lname": lname.value.trim().toUpperCase(),
+               "cname": cname.value.trim().toUpperCase(),
+          "email": email.value..trim().toLowerCase(),
+          "msg": msg.value.trim().toUpperCase(),
           "date": date.value,
-          "key": fname.value + lname.value + date.value
+          "key": fname.value.trim().toUpperCase() + lname.value.trim().toUpperCase() + date.value
         }
         
 // empty string
