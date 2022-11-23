@@ -482,7 +482,7 @@ var utcTime = date.toUTCString();
     document.write("</center>");
     document.write('</body>');
     console.log("checkin successful");
-  sendcheckedin();
+  //sendcheckedin();
   log_create();
   }else if ((key_checkin !=null && key_checkin != '') && (key_checkout === null || key_checkout === '')){
 	   console.log("checkedin ID: Yes");
@@ -499,7 +499,7 @@ var utcTime = date.toUTCString();
 	   document.write("</center>");
     document.write('</body>');
     console.log("checkout successful");
-    sendcheckedout();
+    //sendcheckedout();
     log_create();
   }else if ((key_checkin !=null && key_checkin != '') && (key_checkout !=null && key_checkout != '') ){
            //qr code used already
