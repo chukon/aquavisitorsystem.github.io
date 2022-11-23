@@ -1206,14 +1206,14 @@ if (login.value != null &&  login.value != '' && fname.value != null &&  fname.v
         var email =  data["email"];
         var msg =  data["message"];
         var data = {
-          "login": login.value,
-          "fname": fname.value,
-               "lname": lname.value,
-               "cname": cname.value,
-          "email": email.value,
-          "msg": msg.value,
-          "date": date.value,
-          "key": fname.value + lname.value + date.value
+         "login": login.value.trim().toLowerCase(),
+"fname": fname.value.trim().toUpperCase(),
+"lname": lname.value.trim().toUpperCase(),
+"cname": cname.value.trim().toUpperCase(),
+"email": email.value.trim().toUpperCase(),
+"msg": msg.value.trim().toUpperCase(),
+"date": date.value,
+"key": fname.value.trim().toUpperCase() + lname.value.trim().toUpperCase() + date.value
 	}
          push_to_firebase(data);
       }
@@ -1232,12 +1232,12 @@ if (login.value != null &&  login.value != '' && fname.value != null &&  fname.v
         var dates = new Date(date.value).toLocaleString();
         var data = {
              "id": id.value,
-            "login": login.value,
-          "fname": fname.value,
-               "lname": lname.value,
-               "cname": cname.value,
-          "email": email.value,
-          "msg": msg.value,
+           "login": login.value.trim().toLowerCase(),
+"fname": fname.value.trim().toUpperCase(),
+"lname": lname.value.trim().toUpperCase(),
+"cname": cname.value.trim().toUpperCase(),
+"email": email.value.trim().toUpperCase(),
+"msg": msg.value.trim().toUpperCase(),
           "date": date.value
         }
         update(data);
@@ -1256,12 +1256,12 @@ if (login.value != null &&  login.value != '' && fname.value != null &&  fname.v
         var dates = new Date(date.value).toLocaleString();
         var data = {
              "id": id.value,
-            "login": login.value,
-          "fname": fname.value,
-               "lname": lname.value,
-               "cname": cname.value,
-          "email": email.value,
-          "msg": msg.value,
+"login": login.value.trim().toLowerCase(),
+"fname": fname.value.trim().toUpperCase(),
+"lname": lname.value.trim().toUpperCase(),
+"cname": cname.value.trim().toUpperCase(),
+"email": email.value.trim().toUpperCase(),
+"msg": msg.value.trim().toUpperCase(),
           "date": date.value
         }
         updatecheckin(data);
@@ -1587,12 +1587,12 @@ if (checkin === 'walkin'){
 	 document.getElementById('logo').style.display = 'none';
      var data = {
 	   "login": 'walkin',
-	   "key": g_fname + g_lname + g_date,
-          "fname": g_fname,
-          "lname": g_lname,
-          "email": g_email,
-          "cname": g_cname,
-         "msg": g_message, 
+	   "key": g_fname.trim().toUpperCase() + g_lname.trim().toUpperCase() + g_date.trim().toUpperCase(),
+          "fname": g_fname.trim().toUpperCase(),
+          "lname": g_lname.trim().toUpperCase(),
+          "email": g_email.trim().toUpperCase(),
+          "cname": g_cname.trim().toUpperCase(),
+         "msg": g_message.trim().toUpperCase(), 
          "date": g_date
         }
     push_to_firebase(data);
