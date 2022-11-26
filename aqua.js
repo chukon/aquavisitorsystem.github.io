@@ -697,7 +697,7 @@ var utcTime = date.toUTCString();
         var loadname =  function(){
         var db = firebase.firestore();
 		
-		 var get_login=prompt("Enter last name to search","Enter Last Name");
+		 var get_login=prompt("Enter Last Name To Search","");
          if (get_login  === null || get_login === "Enter Last Name") {
                alert("Enter your Network Login ID above & try again!");
           }else{
