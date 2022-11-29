@@ -1242,7 +1242,12 @@ if (result != true && login.value != null &&  login.value != '' && fname.value !
 "msg": msg.value.trim().toUpperCase(),
           "date": date.value
         }
-        update(data);
+         let result = login.value.includes("@");
+if (result != true) {
+      update(data);
+}else {
+   alert("Enter Aqua UserID Only. The @ symbol is not allowed.")
+}
 
       }
        
