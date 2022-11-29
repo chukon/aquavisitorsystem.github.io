@@ -1614,7 +1614,7 @@ if (checkin === 'walkin'){
 	 document.getElementById('logo').style.display = 'none';
 	 var data3 = {
           "checkin": checkin,
-           "id": g_fname.toUpperCase() + g_lname.toUpperCase() + g_date
+           "id": keyid.trim().toUpperCase()
         }
   get_checkin_data(data3);
 }
