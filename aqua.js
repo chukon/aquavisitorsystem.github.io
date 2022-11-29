@@ -961,7 +961,7 @@ var loadtodayschedule =  function(){
 	console.log(name);
 	var  todays = new Date().toLocaleDateString('en-US');  
          var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}}</style></head>";
-	 var printnow = "<center><button id='btnPrint' onclick='window.print()'>Print</button></center><br>";
+	 var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
 	 var title = "<center><h1>Aqua-Aerobic Systems Visitor System</h1><h2>Visitor(s) for: " + name + "</h2></center><center><a href='https://aquavisitorsystem.github.io/'>Go Home</a></center><br>";         
 	 db.collection("messages").where("date", ">=",start).where("date", "<=",end).where("remove", "==","No").orderBy("date","asc").orderBy("lastname","asc")
     .get()
