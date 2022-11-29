@@ -1406,7 +1406,8 @@ function getSchedule2(e) {
 	      var g_all= urlParams.get('all')
       console.log(g_all);
 
-
+    var g_report= urlParams.get('report')
+      console.log(g_report);
 	    
           var g_fname = urlParams.get('fname')
       console.log(g_fname);
@@ -1473,7 +1474,12 @@ if (g_today != null && g_today != '') {
 	loaddbtoday();
 }	    
 	
-	    
+// empty string
+if (g_report.toUpperCase() == 'TODAY') {
+       loadtodayschedule();
+} else {
+  console.log('string IS empty');
+}  	    
 // empty string
 if (g_all == 'yes') {
        loaddbeverything();
