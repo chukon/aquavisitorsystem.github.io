@@ -1581,9 +1581,7 @@ if ((id != null && id != '') && (id_remove === null)) {
       
       // empty string
 if ((checkin != null && checkin != '') &&  (keyid != null && keyid != '')) {
-  console.log('string is NOT empty');
-console.log();
-	console.log(keyid.trim().toUpperCase());		
+  console.log('string is NOT empty');	
 if (checkin === 'walkin'){
 	document.getElementById('schedule').style.display = 'none';
         document.getElementById('getall').style.display = 'none';
