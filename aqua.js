@@ -1606,7 +1606,7 @@ if (checkin === 'walkin'){
 		sleep(3000).then(() => {
 		 var data1 = {
           "checkin": checkin,
-           "id": g_fname + g_lname + g_date
+           "id": g_fname.trim().toUpperCase() + g_lname.trim().toUpperCase() + g_date
         }
   get_checkin_data(data1);
         });
