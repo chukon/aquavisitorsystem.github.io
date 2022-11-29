@@ -1475,7 +1475,7 @@ if (g_today != null && g_today != '') {
 }	    
 	
 // empty string
-if (g_report.toUpperCase() == 'TODAY') {
+if (g_report.toUpperCase() === 'TODAY') {
        loadtodayschedule();
 } else {
   console.log('string IS empty');
