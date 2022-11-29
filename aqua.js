@@ -1121,11 +1121,9 @@ var loaddbtoday =  function(){
        
        var getloginname = function(){
             var username = document.getElementById("login").value;
-	   
          console.log("LoginName: " + username.toLowerCase());
           if (username.toLowerCase()  === null || username === '') {
-               alert("Please enter Network Login ID or keyword above & try again!");
-			  
+               alert("Please enter Network Login ID or keyword above & try again!");	  
           }else if (username.toLowerCase()  === 'all') {
 		loaddbeverything();
           }else if (username.toLowerCase()  === 'date') {
@@ -1190,11 +1188,13 @@ var loaddbtoday =  function(){
           "date": date.value,
           "key": fname.value.trim().toUpperCase() + lname.value.trim().toUpperCase() + date.value
         }
-        
+          let result = login.value.includes("@");
 // empty string
-if (login.value != null &&  login.value != '' && fname.value != null &&  fname.value != '' && lname.value != null &&  lname.value != '' && cname.value != null &&  cname.value != '' && email.value != null &&  email.value != ''  && msg.value != null &&  msg.value != ''   && date.value != null &&  date.value != '') {
+if (result != true && login.value != null &&  login.value != '' && fname.value != null &&  fname.value != '' && lname.value != null &&  lname.value != '' && cname.value != null &&  cname.value != '' && email.value != null &&  email.value != ''  && msg.value != null &&  msg.value != ''   && date.value != null &&  date.value != '') {
      push_to_firebase(data);
-} else {
+} else if (result === true){
+   alert("Enter Aqua UserID Only. The @ symbol is not allowed.")
+}else {
     alert("All fields required!")
 }}
 	      
