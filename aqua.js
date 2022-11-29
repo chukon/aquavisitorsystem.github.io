@@ -1582,6 +1582,8 @@ if ((id != null && id != '') && (id_remove === null)) {
       // empty string
 if ((checkin != null && checkin != '') &&  (keyid != null && keyid != '')) {
   console.log('string is NOT empty');
+console.log();
+	console.log(keyid.trim().toUpperCase());		
 if (checkin === 'walkin'){
 	document.getElementById('schedule').style.display = 'none';
         document.getElementById('getall').style.display = 'none';
@@ -1601,7 +1603,7 @@ if (checkin === 'walkin'){
 		sleep(3000).then(() => {
 		 var data1 = {
           "checkin": checkin,
-           "id": g_fname.trim().toUpperCase() + g_lname.trim().toUpperCase() + g_date
+           "id": keyid.trim().toUpperCase() 
         }
   get_checkin_data(data1);
         });
@@ -1612,7 +1614,7 @@ if (checkin === 'walkin'){
 	 document.getElementById('logo').style.display = 'none';
 	 var data3 = {
           "checkin": checkin,
-           "id": g_fname.trim().toUpperCase() + g_lname.trim().toUpperCase() + g_date
+           "id": g_fname.toUpperCase() + g_lname.toUpperCase() + g_date
         }
   get_checkin_data(data3);
 }
