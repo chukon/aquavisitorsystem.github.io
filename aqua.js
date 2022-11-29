@@ -1406,7 +1406,7 @@ function getSchedule2(e) {
 	      var g_all= urlParams.get('all')
       console.log(g_all);
 
-    var g_report= urlParams.get('report')
+    var g_report = urlParams.get('report')
       console.log(g_report);
 	    
           var g_fname = urlParams.get('fname')
@@ -1475,25 +1475,25 @@ if (g_today != null && g_today != '') {
 }	    
 	
 // empty string
-if (g_report.toUpperCase() === 'TODAY') {
+if (g_report === 'TODAY') {
        loadtodayschedule();
 } else {
   console.log('string IS empty');
 }  	    
 // empty string
-if (g_all == 'yes') {
+if (g_all === 'yes') {
        loaddbeverything();
 } else {
   console.log('string IS empty');
 }   
 
-if (g_all == 'no') {
+if (g_all === 'no') {
        loadinactive();
 } else {
   console.log('string IS empty');
 }   
 
-if (g_all == 'today') {
+if (g_all === 'today') {
        loadtoday();
 } else {
   console.log('string IS empty');
