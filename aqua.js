@@ -968,7 +968,7 @@ var loadtodayschedule =  function(){
     .then((querySnapshot) => {
 	 console.log("Snapshot:" + querySnapshot.size); 
         var cnt = querySnapshot.size;
-	document.write(title);
+	document.write(cnt + ' ' + title);
 	document.write(printnow);
 	//document.write("<center><h3>Find your name and Tap 'Check-In'</b></center></h3>If your name is not found below, click <a href='" +  "https://ignitemeeting.github.io/?ipad=Yes"   + "'>here</a> to continue!<br><br><center>");
         if (cnt === 0){
