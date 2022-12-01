@@ -750,7 +750,6 @@ var utcTime = date.toUTCString();
           }else{
        get_login  = get_login.toString();
        get_login = get_login.trim().toUpperCase();
-     var title = "<center><h1>Aqua-Aerobic Systems Check-in/out Log</h1><h2>Visitor Schedule(s) for: " + get_login + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
      console.log(get_login);
      var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}@page{size: landscape;}}</style></head>";
 	 var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
@@ -760,7 +759,8 @@ var utcTime = date.toUTCString();
     .get()
     .then((querySnapshot) => {
           var cnt = querySnapshot.size;
-		  document.write(title);
+		  var title = "<center><h1>Aqua-Aerobic Systems Check-in/out Log</h1><h2>" + cnt + " Check-in/Check-out sessions for: " + get_login + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+ 		  document.write(title);
 		 document.write(printnow);
 	 if (cnt === 0){
 		  var nodata = "<center><br>No data found<br></center>";
@@ -793,8 +793,7 @@ var utcTime = date.toUTCString();
 		
 	  var loadlogall =  function(){
         var db = firebase.firestore();
-        var title = "<center><h1>Aqua-Aerobic Systems Check-in/out Log</h1><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
-    var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}@page{size: landscape;}}</style></head>";
+     var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}@page{size: landscape;}}</style></head>";
      var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
     var lines = "";
             let today = new Date().toISOString().slice(0, 10);
@@ -802,6 +801,7 @@ var utcTime = date.toUTCString();
     .get()
     .then((querySnapshot) => {
           var cnt = querySnapshot.size;
+		   var title = "<center><h1>Aqua-Aerobic Systems Check-in/out Log</h1><h2>" + cnt + " Check-in/Check-out sessions</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
 		  document.write(title);
 		 document.write(printnow);
 	 if (cnt === 0){
