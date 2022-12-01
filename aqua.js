@@ -628,7 +628,7 @@ var utcTime = date.toUTCString();
           var cnt = querySnapshot.size;
 		  document.write(title);
 	 if (cnt === 0){
-		 var nodata = "<br>No data found<br>";
+		  var nodata = "<center><br>No data found<br></center>";
 	         document.write(nodata);
 	}else{
 		document.write("<table id='report' style='font-size: small;'>  <tr>    <th>UserID</th>    <th>First Name</th>    <th  style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th  style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
@@ -668,7 +668,7 @@ var utcTime = date.toUTCString();
 	   var cnt = querySnapshot.size;
 		 document.write(title);
 	    if (cnt === 0){
-		 var nodata = "<br>No data found<br>";
+	 var nodata = "<center><br>No data found<br></center>";
 	  document.write(nodata);
 	}else{
 	  document.write("<table  id='report' style='font-size: small;'>  <tr>    <th>UserID</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
@@ -714,7 +714,7 @@ var utcTime = date.toUTCString();
           var cnt = querySnapshot.size;
 		  document.write(title);
 	 if (cnt === 0){
-		 var nodata = "<br>No data found<br>";
+		 var nodata = "<center><br>No data found<br></center>";
 	         document.write(nodata);
 	}else{
 		document.write("<table id='report' style='font-size: small;'>  <tr>    <th>UserID</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
@@ -761,7 +761,7 @@ var utcTime = date.toUTCString();
           var cnt = querySnapshot.size;
 		  document.write(title);
 	 if (cnt === 0){
-		 var nodata = "<br>No data found<br>";
+		  var nodata = "<center><br>No data found<br></center>";
 	         document.write(nodata);
 	}else{
 		document.write("<table id='report' style='font-size: small;'>  <tr>    <th>UserID</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
@@ -801,7 +801,7 @@ var utcTime = date.toUTCString();
           var cnt = querySnapshot.size;
 		  document.write(title);
 	 if (cnt === 0){
-		 var nodata = "<br>No data found<br>";
+		 var nodata = "<center><br>No data found<br></center>";
 	         document.write(nodata);
 	}else{
 		document.write("<table id='report' style='font-size: small;'>  <tr>    <th>UserID</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
@@ -840,7 +840,7 @@ var utcTime = date.toUTCString();
 	   var cnt = querySnapshot.size;
 		 document.write(title);
 	    if (cnt === 0){
-		 var nodata = "<br>No data found<br>";
+	 var nodata = "<center><br>No data found<br></center>";
 	  document.write(nodata);
 	}else{
 	  document.write("<table id='report' style='font-size: small;'>  <tr>    <th>UserID</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
@@ -909,7 +909,7 @@ var utcTime = date.toUTCString();
 	document.write(title);
 	//document.write("<center><h3>Find your name and Tap 'Check-In'</b></center></h3>If your name is not found below, click <a href='" +  "https://ignitemeeting.github.io/?ipad=Yes"   + "'>here</a> to continue!<br><br><center>");
         if (cnt === 0){
-		 var nodata = "<br>No data found<br>";
+	 var nodata = "<center><br>No data found<br></center>";
 	  document.write(nodata);
 	}else{
 	document.write("<table id='report' style='font-size: small;'>  <tr>    <th>UserID</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");	
@@ -972,7 +972,7 @@ var loadtodayschedule =  function(){
 	document.write(printnow);
 	//document.write("<center><h3>Find your name and Tap 'Check-In'</b></center></h3>If your name is not found below, click <a href='" +  "https://ignitemeeting.github.io/?ipad=Yes"   + "'>here</a> to continue!<br><br><center>");
         if (cnt === 0){
-		 var nodata = "<br>No data found<br>";
+	 var nodata = "<center><br>No data found<br></center>";
 	  document.write(nodata);
 	}else{
 	document.write("<table id='report' style='font-size: small;'>  <tr>    <th>UserID</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");	
@@ -998,7 +998,7 @@ var loadtodayschedule =  function(){
     .catch((error) => {
          console.log("Error getting documents: ", error);
           document.write(title);
-	  var nodata = "<br>No data found<br>";
+	  var nodata = "<center><br>No data found<br></center>";
 	  document.write(nodata);
           document.head.innerHTML = header;
     });
@@ -1032,7 +1032,7 @@ var loaddbtoday =  function(){
 	document.write("<center><h3>Find your schedule and Tap 'Select'</b></h3>If your schedule is not found below, tap " + buttons + "<br><br></center>"); 
 		       // "https://aquameeting.github.io/?ipad=Yes"   + "'>here</a> to continue!<br><br>");
         if (cnt === 0){
-		 var nodata = "<br>No data found<br>";
+	 var nodata = "<center><br>No data found<br></center>";
 	  document.write(nodata);
 	}else{
 			  document.write("<table id='report' style='font-size: small;'>  <tr>   <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(1)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(3)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Visiting</th><th></th>  </tr>");
@@ -1091,7 +1091,7 @@ var loaddbtoday =  function(){
 		   var cnt = querySnapshot.size;
 		 document.write(title);
 	 if (cnt === 0){
-		 var nodata = "<br>No data found<br>";
+	 var nodata = "<center><br>No data found<br></center>";
 	  document.write(nodata);
 	}else{
 	   document.write("<table id='report' style='font-size: small;'>  <tr>    <th>UserID</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
