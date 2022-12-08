@@ -340,7 +340,7 @@ var fldkey;
       document.getElementById('get_msg').style.display = 'none';
 		 document.getElementById('update_db').innerText = 'Update';
 		  document.getElementById("emaillink").innerHTML = "";
-		 document.getElementById("remove").innerHTML = "<b style='color: deepskyblue;'>1) If needed, update your information above 2) Tap green button below to check-in/out</b>";
+		 document.getElementById("remove").innerHTML = "<b style='color: red;'>1) If needed, update your information above 2) Tap green button below to check-in/out</b>";
 		  document.getElementById('remove').style.fontWeight = 'normal';
 		 document.getElementById('update_db').style.width = 'min-content';
 		  document.getElementById('checkin').style.display = 'block';
