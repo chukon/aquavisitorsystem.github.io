@@ -1429,6 +1429,7 @@ var dailycheckin =  function(){
     .then((querySnapshot) => {
 	console.log("Snapshot:" + querySnapshot.size); 
         var cnt = querySnapshot.size;
+        console.log("found:" + cnt);
 	if (cnt === 0){
 	}else{
 	  querySnapshot.forEach((doc) => {
