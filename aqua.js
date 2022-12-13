@@ -1437,6 +1437,70 @@ var dailycheckin =  function(){
            "id": doc.data().key
         }
            set_checkin(data3);	
+           fldlogin = doc.data().login;
+           fldfirstname = doc.data().firstname;
+           fldlastname = doc.data().lastname;
+           fldcompany = doc.data().company;
+           flddate = doc.data().date;
+           fldemail = doc.data().email;
+           fldmessage = doc.data().message;
+           fldtimestamp = Date.now();
+           fldcheckin = doc.data().checkin;
+           fldcheckout = doc.data().checkout;
+           fldremove =  doc.data().remove;
+           fldkey = doc.data().key;
+	   log_create();
+	 });
+	}
+    }) 
+    .catch((error) => {
+          console.log("error:" + error);
+    });
+}
+
+var dailycheckout =  function(){
+           var db = firebase.firestore();
+	 let todaysdate = new Date();
+	 var count = 0;
+	 var lines = "";
+	var today = new Date();
+	 var x;
+        var start = new Date();
+         start.setHours(0,0,0,0);
+         var end = new Date(start.getTime());
+         end.setHours(23,59,59,999);
+         start = new Date(start.getTime() - (start.getTimezoneOffset() * 60000)).toISOString();
+         end = new Date(end.getTime() - (end.getTimezoneOffset() * 60000)).toISOString();	 
+     var d = new Date();
+     var myDate = new Date(d).toLocaleDateString('en-US');   
+     name = myDate.toString();
+	var  todays = new Date().toLocaleDateString('en-US');  
+        db.collection("messages").where("date", ">=",start).where("date", "<=",end).where("remove", "==","No").where("checkout", "==","").orderBy("date","asc").orderBy("lastname","asc")
+    .get()
+    .then((querySnapshot) => {
+	console.log("Snapshot:" + querySnapshot.size); 
+        var cnt = querySnapshot.size;
+        console.log("found:" + cnt);
+	if (cnt === 0){
+	}else{
+	  querySnapshot.forEach((doc) => {
+		 var data3 = {
+           "id": doc.data().key
+        }
+           set_checkout(data3);	
+	   fldlogin = doc.data().login;
+           fldfirstname = doc.data().firstname;
+           fldlastname = doc.data().lastname;
+           fldcompany = doc.data().company;
+           flddate = doc.data().date;
+           fldemail = doc.data().email;
+           fldmessage = doc.data().message;
+           fldtimestamp = Date.now();
+           fldcheckin = doc.data().checkin;
+           fldcheckout = doc.data().checkout;
+           fldremove =  doc.data().remove;
+           fldkey = doc.data().key;
+	   log_create();	  
 	 });
 	}
     }) 
@@ -1525,6 +1589,11 @@ if (g_today != null && g_today != '') {
 // empty string
 if (g_report === 'checkins') {
        dailycheckin();
+} else {
+  console.log('string IS empty');
+}  
+if (g_report === 'checkouts') {
+       dailycheckout();
 } else {
   console.log('string IS empty');
 }  
