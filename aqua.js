@@ -26,6 +26,8 @@ var fldcheckin;
 var fldcheckout;
 var fldremove;
 var fldkey;
+var flddailycheckin;
+var flddailycheckout;
 
 
       var varfrom_name = "";
@@ -545,6 +547,7 @@ var utcTime = date.toUTCString();
          		var d = new Date();
              myTime = new Date(d).toLocaleString();
              fldcheckin = myTime;
+             flddailycheckin = myTime;          
         db.collection("messages").doc(key).update({
            checkin: myTime
 }) .then(function(doc) {
@@ -571,6 +574,7 @@ var utcTime = date.toUTCString();
 	      	    var d = new Date();
              myTime = new Date(d).toLocaleString();
 	    fldcheckout = myTime;
+             flddailycheckout = myTime;  
         db.collection("messages").doc(key).update({
            checkout: myTime
 }) .then(function(doc) {
@@ -1445,7 +1449,7 @@ var dailycheckin =  function(){
            fldemail = doc.data().email;
            fldmessage = doc.data().message;
            fldtimestamp = Date.now();
-           fldcheckin = doc.data().checkin;
+           fldcheckin = flddailycheckin;
            fldcheckout = doc.data().checkout;
            fldremove =  doc.data().remove;
            fldkey = doc.data().key;
@@ -1497,7 +1501,7 @@ var dailycheckout =  function(){
            fldmessage = doc.data().message;
            fldtimestamp = Date.now();
            fldcheckin = doc.data().checkin;
-           fldcheckout = doc.data().checkout;
+           fldcheckout = flddailycheckout;
            fldremove =  doc.data().remove;
            fldkey = doc.data().key;
 	   log_create();	  
