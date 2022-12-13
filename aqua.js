@@ -1441,7 +1441,7 @@ var dailycheckin =  function(){
 	}
     }) 
     .catch((error) => {
-         
+          console.log("error:" + error);
     });
 }
 
