@@ -1484,6 +1484,11 @@ if (g_today != null && g_today != '') {
 }	    
 	
 // empty string
+if (g_report === 'checkins') {
+       dailycheckin();
+} else {
+  console.log('string IS empty');
+}  
 if (g_report === 'today') {
        loadtodayschedule();
 } else {
