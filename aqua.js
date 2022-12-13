@@ -1406,6 +1406,44 @@ function getSchedule2(e) {
 	
 	
 }
+
+var dailycheckin =  function(){
+           var db = firebase.firestore();
+	 let todaysdate = new Date();
+	 var count = 0;
+	 var lines = "";
+	var today = new Date();
+	 var x;
+        var start = new Date();
+         start.setHours(0,0,0,0);
+         var end = new Date(start.getTime());
+         end.setHours(23,59,59,999);
+         start = new Date(start.getTime() - (start.getTimezoneOffset() * 60000)).toISOString();
+         end = new Date(end.getTime() - (end.getTimezoneOffset() * 60000)).toISOString();	 
+     var d = new Date();
+     var myDate = new Date(d).toLocaleDateString('en-US');   
+     name = myDate.toString();
+	var  todays = new Date().toLocaleDateString('en-US');  
+        db.collection("messages").where("date", ">=",start).where("date", "<=",end).where("remove", "==","No").where("checkin", "==","").orderBy("date","asc").orderBy("lastname","asc")
+    .get()
+    .then((querySnapshot) => {
+	console.log("Snapshot:" + querySnapshot.size); 
+        var cnt = querySnapshot.size;
+	if (cnt === 0){
+	}else{
+	  querySnapshot.forEach((doc) => {
+		 var data3 = {
+           "id": doc.data().key
+        }
+           set_checkin(data3);	
+	 });
+	}
+    }) 
+    .catch((error) => {
+         
+    });
+}
+
    //iPadid
 	    
           var queryString = window.location.search;
@@ -1745,39 +1783,3 @@ function sortTable(n) {
   }
 }
 
-var dailycheckin =  function(){
-           var db = firebase.firestore();
-	 let todaysdate = new Date();
-	 var count = 0;
-	 var lines = "";
-	var today = new Date();
-	 var x;
-        var start = new Date();
-         start.setHours(0,0,0,0);
-         var end = new Date(start.getTime());
-         end.setHours(23,59,59,999);
-         start = new Date(start.getTime() - (start.getTimezoneOffset() * 60000)).toISOString();
-         end = new Date(end.getTime() - (end.getTimezoneOffset() * 60000)).toISOString();	 
-     var d = new Date();
-     var myDate = new Date(d).toLocaleDateString('en-US');   
-     name = myDate.toString();
-	var  todays = new Date().toLocaleDateString('en-US');  
-        db.collection("messages").where("date", ">=",start).where("date", "<=",end).where("remove", "==","No").where("checkin", "==","").orderBy("date","asc").orderBy("lastname","asc")
-    .get()
-    .then((querySnapshot) => {
-	console.log("Snapshot:" + querySnapshot.size); 
-        var cnt = querySnapshot.size;
-	if (cnt === 0){
-	}else{
-	  querySnapshot.forEach((doc) => {
-		 var data3 = {
-           "id": doc.data().key
-        }
-           set_checkin(data3);	
-	 });
-	}
-    }) 
-    .catch((error) => {
-         
-    });
-      }
