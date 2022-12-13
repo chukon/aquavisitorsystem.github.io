@@ -1745,7 +1745,7 @@ function sortTable(n) {
   }
 }
 
-var dailycheckin=  function(){
+var dailycheckin =  function(){
            var db = firebase.firestore();
 	 let todaysdate = new Date();
 	 var count = 0;
