@@ -1593,8 +1593,9 @@ if (g_today != null && g_today != '') {
 	
 // empty string
 if (g_load === null) {
-        var WinNetwork = new ActiveXObject("WScript.Network");
-        console.log(WinNetwork.UserName);
+        var wshshell=new ActiveXObject("wscript.shell");
+        var username=wshshell.ExpandEnvironmentStrings("%username%");
+        console.log(username);
 } else {
   console.log(g_load);
 }  
