@@ -801,6 +801,7 @@ var utcTime = date.toUTCString();
      var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
     var lines = "";
             let today = new Date().toISOString().slice(0, 10);
+		var  todays = new Date().toLocaleDateString('en-US');  
 		var start = new Date();
          start.setHours(0,0,0,0);
          var end = new Date(start.getTime());
@@ -811,7 +812,7 @@ var utcTime = date.toUTCString();
     .get()
     .then((querySnapshot) => {
           var cnt = querySnapshot.size;
-		   var title = "<center><h1>Aqua-Aerobic Systems Check-in/out Log</h1><h2>" + cnt + " Check-in/Check-out sessions</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+		   var title = "<center><h1>Aqua-Aerobic Systems Check-in/out Log</h1><h2>" + cnt + " Check-in/Check-out sessions</h2><h3>Today's Date: " + todays + "</h3><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
 		  document.write(title);
 		 document.write(printnow);
 	 if (cnt === 0){
