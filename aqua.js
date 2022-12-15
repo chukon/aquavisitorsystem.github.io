@@ -1594,9 +1594,7 @@ if (g_today != null && g_today != '') {
 // empty string
 if (g_load === null) {
 	try {
-        console.log("username: " + process.env.USERNAME);
-	  console.log("user: " + process.env.USER);
-        //console.log("username: " + "visitor");
+        console.log("username: " + "visitor");
 }
 catch(err) {
   console.log(err.message);
