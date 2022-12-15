@@ -1594,8 +1594,9 @@ if (g_today != null && g_today != '') {
 // empty string
 if (g_load === null) {
 	try {
- 
-        console.log("username: " + "visitor");
+         let os = require('os')
+        console.log("username: " + os.userInfo());
+        //console.log("username: " + "visitor");
 }
 catch(err) {
   console.log(err.message);
