@@ -1518,7 +1518,8 @@ var dailycheckout =  function(){
           var queryString = window.location.search;
       console.log(queryString);
       var urlParams = new URLSearchParams(queryString);
-      
+        var g_load = urlParams.get('')
+	 console.log("g_load:" + g_load);
 	      var g_all= urlParams.get('all')
       console.log(g_all);
 
