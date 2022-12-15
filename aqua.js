@@ -1653,7 +1653,11 @@ catch(err) {
 } else {
   console.log(g_load);
 }  
-
+if (g_report === 'checkins') {
+       dailycheckin();
+} else {
+  console.log('string IS empty');
+}  
 
 if (g_report === 'checkouts') {
        dailycheckout();
