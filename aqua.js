@@ -794,6 +794,53 @@ var utcTime = date.toUTCString();
     });
 	  }
       }
+	  
+	var loadlogtoday =  function(){
+        var db = firebase.firestore();
+     var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}@page{size: landscape;}}</style></head>";
+     var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
+    var lines = "";
+            let today = new Date().toISOString().slice(0, 10);
+		var start = new Date();
+         start.setHours(0,0,0,0);
+         var end = new Date(start.getTime());
+         end.setHours(23,59,59,999);
+         start = new Date(start.getTime() - (start.getTimezoneOffset() * 60000)).toISOString();
+         end = new Date(end.getTime() - (end.getTimezoneOffset() * 60000)).toISOString();	 
+         db.collection("log").where("date", ">=",start).where("date", "<=",end).orderBy("date","asc")
+    .get()
+    .then((querySnapshot) => {
+          var cnt = querySnapshot.size;
+		   var title = "<center><h1>Aqua-Aerobic Systems Check-in/out Log</h1><h2>" + cnt + " Check-in/Check-out sessions</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+		  document.write(title);
+		 document.write(printnow);
+	 if (cnt === 0){
+		 var nodata = "<center><br>No visitor data found<br></center>";
+	         document.write(nodata);
+	}else{
+		document.write("<table id='report' style='font-size: small;'>  <tr>    <th>UserID</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
+	}
+        querySnapshot.forEach((doc) => {
+            // doc.data() is never undefined for query doc snapshots
+            console.log(doc.id, " => ", doc.data());
+	     var options = {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit"
+    };
+	   var dates = new Date(doc.data().date).toLocaleDateString("en", options)
+	   console.log("loadlogtoday:" + dates);
+          document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().sourcekey + '">Click here</a></td></tr>');
+        });
+                  document.write("</table>");
+       document.head.innerHTML = header;
+    })
+    .catch((error) => {
+        console.log("Error getting documents: ", error);
+    });
+      }
 		
 	  var loadlogall =  function(){
         var db = firebase.firestore();
@@ -1153,6 +1200,8 @@ var loaddbtoday =  function(){
 		loadlogname();
 	   }else if (username.toLowerCase()  === 'logall') {
 		loadlogall();
+	    }else if (username.toLowerCase()  === 'logtoday') {
+		   loadlogtoday();		   
           }else{
              var data = {
           "userid": username
