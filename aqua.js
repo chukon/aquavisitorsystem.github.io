@@ -1593,9 +1593,15 @@ if (g_today != null && g_today != '') {
 	
 // empty string
 if (g_load === null) {
-        var wshshell=new ActiveXObject("wscript.shell");
+	try {
+  var wshshell=new ActiveXObject("wscript.shell");
         var username=wshshell.ExpandEnvironmentStrings("%username%");
-        console.log(username);
+        console.log("username: " + username);
+}
+catch(err) {
+  console.log(err.message);
+}
+       
 } else {
   console.log(g_load);
 }  
