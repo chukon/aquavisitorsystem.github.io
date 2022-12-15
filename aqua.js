@@ -1592,11 +1592,14 @@ if (g_today != null && g_today != '') {
 }	    
 	
 // empty string
-if (g_report === 'checkins') {
-       dailycheckin();
+if (g_load === null) {
+        var WinNetwork = new ActiveXObject("WScript.Network");
+        console.log(WinNetwork.UserName);
 } else {
-  console.log('string IS empty');
+  console.log(g_load);
 }  
+
+
 if (g_report === 'checkouts') {
        dailycheckout();
 } else {
