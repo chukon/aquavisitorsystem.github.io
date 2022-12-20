@@ -1062,6 +1062,72 @@ var loadtodayschedule =  function(){
           document.head.innerHTML = header;
     });
       }
+
+var loadweekschedule =  function(){
+           var db = firebase.firestore();
+	 let todaysdate = new Date();
+	 var count = 0;
+	 var lines = "";
+	var today = new Date();
+	 var x;
+   document.write("");
+        var date = new Date();
+        date.setHours(0,0,0,0);
+        var start = new Date();
+        start.setDate(date.getDate() - 7);
+         start.setHours(0,0,0,0);
+         var end = new Date(date.getTime());
+         end.setHours(23,59,59,999);
+         start = new Date(start.getTime() - (start.getTimezoneOffset() * 60000)).toISOString();
+         end = new Date(end.getTime() - (end.getTimezoneOffset() * 60000)).toISOString();	 
+     var d = new Date();
+     var myDate = new Date(d).toLocaleDateString('en-US');   
+     name = myDate.toString();
+	console.log(name);
+	var  todays = new Date().toLocaleDateString('en-US');  
+         var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}@page{size: landscape;}}</style></head>";
+	 var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
+	 db.collection("messages").where("date", ">=",start).where("date", "<=",end).where("remove", "==","No").orderBy("date","asc").orderBy("lastname","asc")
+    .get()
+    .then((querySnapshot) => {
+	 console.log("Snapshot:" + querySnapshot.size); 
+        var cnt = querySnapshot.size;
+	 var title = "<center><h1>Aqua-Aerobic Systems Visitor System</h1><h2>" + cnt + " Visitor(s) for: " + name + "</h2></center><center><a href='https://aquavisitorsystem.github.io/'>Go Home</a></center><br>";         
+	document.write(title);
+	document.write(printnow);
+	//document.write("<center><h3>Find your name and Tap 'Check-In'</b></center></h3>If your name is not found below, click <a href='" +  "https://ignitemeeting.github.io/?ipad=Yes"   + "'>here</a> to continue!<br><br><center>");
+        if (cnt === 0){
+	 var nodata = "<center><br>No visitor data found<br></center>";
+	  document.write(nodata);
+	}else{
+	document.write("<table id='report' style='font-size: small;'>  <tr>    <th>UserID</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");	
+	}
+         querySnapshot.forEach((doc) => {
+		var nodata = "";
+            // doc.data() is never undefined for query doc snapshots
+                  var options = {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit"
+    };
+	   var dates = new Date(doc.data().date).toLocaleDateString("en", options)
+	   console.log("loadtodayschedule:" + dates);
+     document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
+	 });
+		   document.write("</table>");
+		// let sendingText = "https://ignitemeeting.github.io/?ipad=Yes"
+	           document.head.innerHTML = header;
+    }) 
+    .catch((error) => {
+         console.log("Error getting documents: ", error);
+          document.write(title);
+	  var nodata = "<center><br>No visitor data found<br></center>";
+	  document.write(nodata);
+          document.head.innerHTML = header;
+    });
+      }
   
 var loaddbtoday =  function(){
          var db = firebase.firestore();
@@ -1202,7 +1268,9 @@ var loaddbtoday =  function(){
 	   }else if (username.toLowerCase()  === 'logall') {
 		loadlogall();
 	    }else if (username.toLowerCase()  === 'logtoday') {
-		   loadlogtoday();		   
+		   loadlogtoday();
+	    }else if (username.toLowerCase()  === 'log') {
+		   loadweekschedule();
           }else{
              var data = {
           "userid": username
