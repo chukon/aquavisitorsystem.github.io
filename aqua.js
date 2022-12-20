@@ -1082,7 +1082,8 @@ var loadweekschedule =  function(){
          end = new Date(end.getTime() - (end.getTimezoneOffset() * 60000)).toISOString();	 
      var d = new Date();
      var myDate = new Date(d).toLocaleDateString('en-US');   
-     name = start.toLocaleDateString('en-US').toString() + ' - ' + myDate.toString();
+	  var smyDate = new Date(start).toLocaleDateString('en-US');  
+     name = smyDate.toString() + ' - ' + myDate.toString();
 	console.log(name);
 	var  todays = new Date().toLocaleDateString('en-US');  
          var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}@page{size: landscape;}}</style></head>";
