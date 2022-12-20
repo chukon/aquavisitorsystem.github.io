@@ -1115,7 +1115,7 @@ var loadweekschedule =  function(){
     };
 	   var dates = new Date(doc.data().date).toLocaleDateString("en", options)
 	   console.log("loadtodayschedule:" + dates);
-     document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
+     document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().sourcekey + '">Click here</a></td></tr>');
 	 });
 		   document.write("</table>");
 		// let sendingText = "https://ignitemeeting.github.io/?ipad=Yes"
