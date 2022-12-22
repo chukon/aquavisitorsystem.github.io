@@ -711,7 +711,7 @@ var utcTime = date.toUTCString();
         var db = firebase.firestore();
 		
 		 var get_login=prompt("Enter Guest Last Name To Search","Enter Guest Last Name");
-         if (get_login  === null || get_login === "Enter Last Name") {
+         if (get_login  === null || get_login === "Enter Guest Last Name") {
                alert("Try Again! Please Enter Guest Last Name.");
           }else{
        get_login  = get_login.toString();
