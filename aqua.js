@@ -673,11 +673,12 @@ var utcTime = date.toUTCString();
       var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
     var lines = "";
             let today = new Date().toISOString().slice(0, 10);
-	   var title = "<center><h1>Aqua-Aerobic Systems Check-in/out Visitor Schedule</h1><h2>Active Visitor Schedule(s) </h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
          db.collection("messages").where("remove", "==","No").orderBy("date","desc")
     .get()
     .then((querySnapshot) => {
 	   var cnt = querySnapshot.size;
+	 var title = "<center><h1>Aqua-Aerobic Systems Check-in/out Visitor Schedule</h1><h2>" + cnt + " Active Visitor Schedule(s) </h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+
 		 document.write(title);
 	    if (cnt === 0){
 	 var nodata = "<center><br>No visitor data found<br></center>";
