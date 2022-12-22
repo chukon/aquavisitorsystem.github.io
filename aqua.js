@@ -677,7 +677,7 @@ var utcTime = date.toUTCString();
     .get()
     .then((querySnapshot) => {
 	   var cnt = querySnapshot.size;
-	 var title = "<center><h1>Aqua-Aerobic Systems Check-in/out Visitor Schedule</h1><h2>" + cnt + " Active Visitor Schedule(s) </h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+	 var title = "<center><h1>Aqua-Aerobic Systems Check-in/out Visitor Schedule (all)</h1><h2>" + cnt + " Active Visitor Schedule(s) </h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
 
 		 document.write(title);
 	    if (cnt === 0){
@@ -902,7 +902,7 @@ var utcTime = date.toUTCString();
     .get()
     .then((querySnapshot) => {
 	   var cnt = querySnapshot.size;
-	       	   var title = "<center><h1>Aqua-Aerobic Systems Check-in/out Visitor Schedule</h1><h2>" + cnt + " In-Active Visitor Schedule(s) </h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+	       	   var title = "<center><h1>Aqua-Aerobic Systems Check-in/out Visitor Schedule (inactive)</h1><h2>" + cnt + " In-Active Visitor Schedule(s) </h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
   		 document.write(title);
 	    if (cnt === 0){
 	 var nodata = "<center><br>No visitor data found<br></center>";
@@ -972,7 +972,7 @@ var utcTime = date.toUTCString();
     .then((querySnapshot) => {
 	 console.log("Snapshot:" + querySnapshot.size); 
         var cnt = querySnapshot.size;
-	var title = "<center><h1>Aqua-Aerobic Systems Visitor System</h1><h2>" + cnt + " Visitor(s) for: " + name + "</h2></center><center><a href='https://aquavisitorsystem.github.io/'>Go Home</a></center><br>";         
+	var title = "<center><h1>Aqua-Aerobic Systems Visitor System (date)</h1><h2>" + cnt + " Visitor(s) for: " + name + "</h2></center><center><a href='https://aquavisitorsystem.github.io/'>Go Home</a></center><br>";         
 	document.write(title);
 	document.write(printnow);
 	//document.write("<center><h3>Find your name and Tap 'Check-In'</b></center></h3>If your name is not found below, click <a href='" +  "https://ignitemeeting.github.io/?ipad=Yes"   + "'>here</a> to continue!<br><br><center>");
@@ -1035,7 +1035,7 @@ var loadtodayschedule =  function(){
     .then((querySnapshot) => {
 	 console.log("Snapshot:" + querySnapshot.size); 
         var cnt = querySnapshot.size;
-	 var title = "<center><h1>Aqua-Aerobic Systems Visitor System</h1><h2>" + cnt + " Visitor(s) for: " + name + "</h2></center><center><a href='https://aquavisitorsystem.github.io/'>Go Home</a></center><br>";         
+	 var title = "<center><h1>Aqua-Aerobic Systems Visitor System (today)</h1><h2>" + cnt + " Visitor(s) for: " + name + "</h2></center><center><a href='https://aquavisitorsystem.github.io/'>Go Home</a></center><br>";         
 	document.write(title);
 	document.write(printnow);
 	//document.write("<center><h3>Find your name and Tap 'Check-In'</b></center></h3>If your name is not found below, click <a href='" +  "https://ignitemeeting.github.io/?ipad=Yes"   + "'>here</a> to continue!<br><br><center>");
