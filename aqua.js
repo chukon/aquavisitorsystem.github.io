@@ -38,6 +38,14 @@ var flddailycheckout;
       var key_checkout = "";
       var gbit = "";
 	    var myResponse;
+
+function getDateXDaysAgo(numOfDays, date = new Date()) {
+  var daysAgo = new Date(date.getTime());
+
+  daysAgo.setDate(date.getDate() - numOfDays);
+  daysAgo = daysAgo.toLocaleDateString('en-US');   
+  return daysAgo;
+}
   
      function createbitly(web){
   var url = web["web"]; 
@@ -1079,12 +1087,15 @@ var loadweekschedule =  function(){
          var end = new Date(date.getTime());
          end.setHours(23,59,59,999);
          start = new Date(start.getTime() - (start.getTimezoneOffset() * 60000)).toISOString();
-	  console.log("start:" + start);
+	  
          end = new Date(end.getTime() - (end.getTimezoneOffset() * 60000)).toISOString();	 
      var d = new Date();
      var myDate = new Date(d).toLocaleDateString('en-US');   
-	  var smyDate = new Date(start).toLocaleDateString('en-US');  
-     name = smyDate.toString() + ' - ' + myDate.toString();
+	const d = new Date();
+         let sevendays = getDateXDaysAgo(7, d);
+	  var smyDate = sevendays;
+	console.log("start:" + smyDate);
+     name = smyDate + ' - ' + myDate.toString();
 	console.log(name);
 	var  todays = new Date().toLocaleDateString('en-US');  
          var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}@page{size: landscape;}}</style></head>";
