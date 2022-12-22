@@ -1492,7 +1492,7 @@ if (result != true) {
       document.getElementById('get_msg').style.display = 'block';
           document.getElementById('get_id2').style.display = 'none';
  document.getElementById('loginlabel').innerText = 'Aqua Employee User ID OR Keyword';
-  document.getElementsByName('login')[0].placeholder = '[KEYWORDS] today, name, date, all, inactive, logname, logall, logtoday, log';
+  document.getElementsByName('login')[0].placeholder = '[KEYWORDS] today, name, date, all, inactive, logname, logall, logtoday, logweek';
 	       	          document.getElementById('emaillabel').style.display = 'none';
 	          document.getElementById("login").addEventListener("keypress", getSchedule2);
 	       document.getElementById("login").focus();
