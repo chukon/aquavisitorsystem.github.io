@@ -724,7 +724,7 @@ var utcTime = date.toUTCString();
     .get()
     .then((querySnapshot) => {
           var cnt = querySnapshot.size;
-		     var title = "<center><h1>Aqua-Aerobic System Visitor Schedule (name)</h1><h2>" + cnt + " Active Visitor Schedule(s) for: " + get_login + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+		     var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (name)</h1><h2>" + cnt + " Active Visitor Schedule(s) for: " + get_login + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
  		  document.write(title);
 	 if (cnt === 0){
 		 var nodata = "<center><br>No visitor data found<br></center>";
@@ -772,7 +772,7 @@ var utcTime = date.toUTCString();
     .get()
     .then((querySnapshot) => {
           var cnt = querySnapshot.size;
-		  var title = "<center><h1>Aqua-Aerobic System Visitor Check-in/out Log (logname)</h1><h2>" + cnt + " Check-in/Check-out sessions (" + (cnt / 2) + " visits) for: " + get_login + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+		  var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (logname)</h1><h2>" + cnt + " Check-in/Check-out sessions (" + (cnt / 2) + " visits) for: " + get_login + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
  		  document.write(title);
 		 document.write(printnow);
 	 if (cnt === 0){
@@ -821,7 +821,7 @@ var utcTime = date.toUTCString();
     .get()
     .then((querySnapshot) => {
           var cnt = querySnapshot.size;
-		   var title = "<center><h1>Aqua-Aerobic System Visitor Check-in/out Log (logtoday)</h1><h2>" + cnt + " Check-in/Check-out sessions for: " + todays + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+		   var title = "<center><h1>Aqua-Aerobic System Visitors Check-in/out Log (logtoday)</h1><h2>" + cnt + " Check-in/Check-out sessions for: " + todays + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
 		  document.write(title);
 		 document.write(printnow);
 	 if (cnt === 0){
@@ -862,7 +862,7 @@ var utcTime = date.toUTCString();
     .get()
     .then((querySnapshot) => {
           var cnt = querySnapshot.size;
-		   var title = "<center><h1>Aqua-Aerobic System Visitor Check-in/out Log (logall)</h1><h2>" + cnt + " Check-in/Check-out sessions (" + (cnt / 2) + " visitors)</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+		   var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (logall)</h1><h2>" + cnt + " Check-in/Check-out sessions (" + (cnt / 2) + " visitors)</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
 		  document.write(title);
 		 document.write(printnow);
 	 if (cnt === 0){
@@ -902,7 +902,7 @@ var utcTime = date.toUTCString();
     .get()
     .then((querySnapshot) => {
 	   var cnt = querySnapshot.size;
-	       	  var title = "<center><h1>Aqua-Aerobic System Visitor Schedule (inactive)</h1><h2>" + cnt + " In-Active Visitor Schedule(s) </h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+	       	  var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (inactive)</h1><h2>" + cnt + " In-Active Visitor Schedule(s) </h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
   		 document.write(title);
 	    if (cnt === 0){
 	 var nodata = "<center><br>No visitor data found<br></center>";
