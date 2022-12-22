@@ -862,7 +862,7 @@ var utcTime = date.toUTCString();
     .get()
     .then((querySnapshot) => {
           var cnt = querySnapshot.size;
-		   var title = "<center><h1>Aqua-Aerobic Systems Check-in/out Log</h1><h2>" + cnt + " Check-in/Check-out sessions (" + (cnt / 2) + " visitors)</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+		   var title = "<center><h1>Aqua-Aerobic Systems Check-in/out Log (ALL)</h1><h2>" + cnt + " Check-in/Check-out sessions (" + (cnt / 2) + " visitors)</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
 		  document.write(title);
 		 document.write(printnow);
 	 if (cnt === 0){
