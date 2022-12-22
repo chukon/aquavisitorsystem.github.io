@@ -772,7 +772,7 @@ var utcTime = date.toUTCString();
     .get()
     .then((querySnapshot) => {
           var cnt = querySnapshot.size;
-		  var title = "<center><h1>Aqua-Aerobic Systems Check-in/out Log</h1><h2>" + cnt + " Check-in/Check-out sessions (" + (cnt / 2) + " visits) for: " + get_login + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+		  var title = "<center><h1>Aqua-Aerobic Systems Check-in/out Log (logname)</h1><h2>" + cnt + " Check-in/Check-out sessions (" + (cnt / 2) + " visits) for: " + get_login + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
  		  document.write(title);
 		 document.write(printnow);
 	 if (cnt === 0){
@@ -821,7 +821,7 @@ var utcTime = date.toUTCString();
     .get()
     .then((querySnapshot) => {
           var cnt = querySnapshot.size;
-		   var title = "<center><h1>Aqua-Aerobic Systems Check-in/out Log</h1><h2>" + cnt + " Check-in/Check-out sessions for: " + todays + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+		   var title = "<center><h1>Aqua-Aerobic Systems Check-in/out Log (logtoday)</h1><h2>" + cnt + " Check-in/Check-out sessions for: " + todays + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
 		  document.write(title);
 		 document.write(printnow);
 	 if (cnt === 0){
@@ -862,7 +862,7 @@ var utcTime = date.toUTCString();
     .get()
     .then((querySnapshot) => {
           var cnt = querySnapshot.size;
-		   var title = "<center><h1>Aqua-Aerobic Systems Check-in/out Log (ALL)</h1><h2>" + cnt + " Check-in/Check-out sessions (" + (cnt / 2) + " visitors)</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+		   var title = "<center><h1>Aqua-Aerobic Systems Check-in/out Log (logall)</h1><h2>" + cnt + " Check-in/Check-out sessions (" + (cnt / 2) + " visitors)</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
 		  document.write(title);
 		 document.write(printnow);
 	 if (cnt === 0){
@@ -1105,7 +1105,7 @@ var loadweekschedule =  function(){
     .then((querySnapshot) => {
 	 console.log("Snapshot:" + querySnapshot.size); 
         var cnt = querySnapshot.size;
-	 var title = "<center><h1>Aqua-Aerobic Systems Visitor System</h1><h2>" + cnt + " Check-in/Check-out sessions for " + (cnt / 2) + " guest(s)<br>" + name + "</h2></center><center><a href='https://aquavisitorsystem.github.io/'>Go Home</a></center><br>";         
+	 var title = "<center><h1>Aqua-Aerobic Systems Check-in/out Log (log)</h1><h2>" + cnt + " Check-in/Check-out sessions for " + (cnt / 2) + " guest(s)<br>" + name + "</h2></center><center><a href='https://aquavisitorsystem.github.io/'>Go Home</a></center><br>";         
 	document.write(title);
 	document.write(printnow);
 	//document.write("<center><h3>Find your name and Tap 'Check-In'</b></center></h3>If your name is not found below, click <a href='" +  "https://ignitemeeting.github.io/?ipad=Yes"   + "'>here</a> to continue!<br><br><center>");
