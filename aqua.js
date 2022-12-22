@@ -1079,6 +1079,7 @@ var loadweekschedule =  function(){
          var end = new Date(date.getTime());
          end.setHours(23,59,59,999);
          start = new Date(start.getTime() - (start.getTimezoneOffset() * 60000)).toISOString();
+	  console.log("start:" + start);
          end = new Date(end.getTime() - (end.getTimezoneOffset() * 60000)).toISOString();	 
      var d = new Date();
      var myDate = new Date(d).toLocaleDateString('en-US');   
