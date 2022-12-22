@@ -1091,7 +1091,6 @@ var loadweekschedule =  function(){
          end = new Date(end.getTime() - (end.getTimezoneOffset() * 60000)).toISOString();	 
      var d = new Date();
      var myDate = new Date(d).toLocaleDateString('en-US');   
-	const d = new Date();
          let sevendays = getDateXDaysAgo(7, d);
 	  var smyDate = sevendays;
 	console.log("start:" + smyDate);
