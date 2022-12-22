@@ -712,7 +712,7 @@ var utcTime = date.toUTCString();
 		
 		 var get_login=prompt("Enter Guest Last Name To Search","Enter Guest Last Name");
          if (get_login  === null || get_login === "Enter Guest Last Name") {
-               alert("Try Again! Please Enter Guest Last Name.");
+               alert("Please Try Again! Enter Guest Last Name.");
           }else{
        get_login  = get_login.toString();
        get_login = get_login.trim().toUpperCase();
