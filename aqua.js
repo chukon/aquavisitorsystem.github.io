@@ -1282,7 +1282,7 @@ var loaddbtoday =  function(){
 		loadlogall();
 	    }else if (username.toLowerCase()  === 'logtoday') {
 		   loadlogtoday();
-	    }else if (username.toLowerCase()  === 'log') {
+	    }else if (username.toLowerCase()  === 'logweek') {
 		   loadweekschedule();
           }else{
              var data = {
