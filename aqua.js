@@ -629,7 +629,7 @@ var utcTime = date.toUTCString();
                alert("Enter your Network Login ID above & try again!");
           }else{
        get_login  = get_login.toString();
-     var title = "<center><h1>Aqua-Aerobic Systems Check-in/out Visitor Schedule</h1><h2>Active Visitor Schedule(s) for: " + get_login + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+     var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule</h1><h2>Active Visitor Schedule(s) for: " + get_login + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
      console.log(get_login);
       var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
       var lines = "";
@@ -673,11 +673,12 @@ var utcTime = date.toUTCString();
       var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
     var lines = "";
             let today = new Date().toISOString().slice(0, 10);
-	   var title = "<center><h1>Aqua-Aerobic Systems Check-in/out Visitor Schedule</h1><h2>Active Visitor Schedule(s) </h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
          db.collection("messages").where("remove", "==","No").orderBy("date","desc")
     .get()
     .then((querySnapshot) => {
 	   var cnt = querySnapshot.size;
+	 var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (all)</h1><h2>" + cnt + " Active Visitor Schedule(s) </h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+
 		 document.write(title);
 	    if (cnt === 0){
 	 var nodata = "<center><br>No visitor data found<br></center>";
@@ -709,13 +710,12 @@ var utcTime = date.toUTCString();
         var loadname =  function(){
         var db = firebase.firestore();
 		
-		 var get_login=prompt("Enter Last Name To Search","Enter Last Name");
-         if (get_login  === null || get_login === "Enter Last Name") {
-               alert("Enter your Network Login ID above & try again!");
+		 var get_login=prompt("Enter Guest Last Name To Search","Enter Guest Last Name");
+         if (get_login  === null || get_login === "Enter Guest Last Name") {
+               alert("Please Try Again! Enter Guest Last Name.");
           }else{
        get_login  = get_login.toString();
        get_login = get_login.trim().toUpperCase();
-     var title = "<center><h1>Aqua-Aerobic Systems Check-in/out Visitor Schedule</h1><h2>Active Visitor Schedule(s) for: " + get_login + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
      console.log(get_login);
       var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
       var lines = "";
@@ -724,7 +724,8 @@ var utcTime = date.toUTCString();
     .get()
     .then((querySnapshot) => {
           var cnt = querySnapshot.size;
-		  document.write(title);
+		     var title = "<center><h1>Aqua-Aerobic System Visitor Schedule (name)</h1><h2>" + cnt + " Active Visitor Schedule(s) for: " + get_login + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+ 		  document.write(title);
 	 if (cnt === 0){
 		 var nodata = "<center><br>No visitor data found<br></center>";
 	         document.write(nodata);
@@ -756,9 +757,9 @@ var utcTime = date.toUTCString();
 	
 	  var loadlogname =  function(){
         var db = firebase.firestore();
-	 var get_login=prompt("Enter Last Name To Search","Enter Last Name");
-         if (get_login  === null || get_login === "Enter Last Name") {
-               alert("Enter your Network Login ID above & try again!");
+	 var get_login=prompt("Enter Guest Last Name To Search","Enter Guest Last Name");
+         if (get_login  === null || get_login === "Enter Guest Last Name") {
+                 alert("Please Try Again! Enter Guest Last Name.");
           }else{
        get_login  = get_login.toString();
        get_login = get_login.trim().toUpperCase();
@@ -771,7 +772,7 @@ var utcTime = date.toUTCString();
     .get()
     .then((querySnapshot) => {
           var cnt = querySnapshot.size;
-		  var title = "<center><h1>Aqua-Aerobic Systems Check-in/out Log</h1><h2>" + cnt + " Check-in/Check-out sessions for: " + get_login + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+		  var title = "<center><h1>Aqua-Aerobic System Visitor Check-in/out Log (logname)</h1><h2>" + cnt + " Check-in/Check-out sessions (" + (cnt / 2) + " visits) for: " + get_login + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
  		  document.write(title);
 		 document.write(printnow);
 	 if (cnt === 0){
@@ -820,7 +821,7 @@ var utcTime = date.toUTCString();
     .get()
     .then((querySnapshot) => {
           var cnt = querySnapshot.size;
-		   var title = "<center><h1>Aqua-Aerobic Systems Check-in/out Log</h1><h2>" + cnt + " Check-in/Check-out sessions for: " + todays + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+		   var title = "<center><h1>Aqua-Aerobic System Visitor Check-in/out Log (logtoday)</h1><h2>" + cnt + " Check-in/Check-out sessions for: " + todays + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
 		  document.write(title);
 		 document.write(printnow);
 	 if (cnt === 0){
@@ -861,7 +862,7 @@ var utcTime = date.toUTCString();
     .get()
     .then((querySnapshot) => {
           var cnt = querySnapshot.size;
-		   var title = "<center><h1>Aqua-Aerobic Systems Check-in/out Log</h1><h2>" + cnt + " Check-in/Check-out sessions</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+		   var title = "<center><h1>Aqua-Aerobic System Visitor Check-in/out Log (logall)</h1><h2>" + cnt + " Check-in/Check-out sessions (" + (cnt / 2) + " visitors)</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
 		  document.write(title);
 		 document.write(printnow);
 	 if (cnt === 0){
@@ -897,12 +898,12 @@ var utcTime = date.toUTCString();
       var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
     var lines = "";
             let today = new Date().toISOString().slice(0, 10);
-	   var title = "<center><h1>Aqua-Aerobic Systems Check-in/out Visitor Schedule</h1><h2>In-Active Visitor Schedule(s) </h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
-         db.collection("messages").where("remove", "==","Yes").orderBy("date","desc")
+       db.collection("messages").where("remove", "==","Yes").orderBy("date","desc")
     .get()
     .then((querySnapshot) => {
 	   var cnt = querySnapshot.size;
-		 document.write(title);
+	       	  var title = "<center><h1>Aqua-Aerobic System Visitor Schedule (inactive)</h1><h2>" + cnt + " In-Active Visitor Schedule(s) </h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+  		 document.write(title);
 	    if (cnt === 0){
 	 var nodata = "<center><br>No visitor data found<br></center>";
 	  document.write(nodata);
@@ -966,12 +967,12 @@ var utcTime = date.toUTCString();
          var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
 	    var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}@page{size: landscape;}}</style></head>";
 	 var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
-	 var title = "<center><h1>Aqua-Aerobic Systems Visitor System</h1><h2>Visitor(s) for: " + name + "</h2></center><center><a href='https://aquavisitorsystem.github.io/'>Go Home</a></center><br>";         
 	 db.collection("messages").where("date", ">=",strStart).where("date", "<=",strEnd).where("remove", "==","No").orderBy("date","asc").orderBy("lastname","asc")
     .get()
     .then((querySnapshot) => {
 	 console.log("Snapshot:" + querySnapshot.size); 
         var cnt = querySnapshot.size;
+	var title = "<center><h1>Aqua-Aerobic Systems Visitor System (date)</h1><h2>" + cnt + " Visitor(s) for: " + name + "</h2></center><center><a href='https://aquavisitorsystem.github.io/'>Go Home</a></center><br>";         
 	document.write(title);
 	document.write(printnow);
 	//document.write("<center><h3>Find your name and Tap 'Check-In'</b></center></h3>If your name is not found below, click <a href='" +  "https://ignitemeeting.github.io/?ipad=Yes"   + "'>here</a> to continue!<br><br><center>");
@@ -1034,7 +1035,7 @@ var loadtodayschedule =  function(){
     .then((querySnapshot) => {
 	 console.log("Snapshot:" + querySnapshot.size); 
         var cnt = querySnapshot.size;
-	 var title = "<center><h1>Aqua-Aerobic Systems Visitor System</h1><h2>" + cnt + " Visitor(s) for: " + name + "</h2></center><center><a href='https://aquavisitorsystem.github.io/'>Go Home</a></center><br>";         
+	 var title = "<center><h1>Aqua-Aerobic Systems Visitor System Schedule (today)</h1><h2>" + cnt + " Visitor(s) for: " + name + "</h2></center><center><a href='https://aquavisitorsystem.github.io/'>Go Home</a></center><br>";         
 	document.write(title);
 	document.write(printnow);
 	//document.write("<center><h3>Find your name and Tap 'Check-In'</b></center></h3>If your name is not found below, click <a href='" +  "https://ignitemeeting.github.io/?ipad=Yes"   + "'>here</a> to continue!<br><br><center>");
@@ -1104,7 +1105,7 @@ var loadweekschedule =  function(){
     .then((querySnapshot) => {
 	 console.log("Snapshot:" + querySnapshot.size); 
         var cnt = querySnapshot.size;
-	 var title = "<center><h1>Aqua-Aerobic Systems Visitor System</h1><h2>" + cnt + " Check-in/Check-out sessions for " + (cnt / 2) + " guest(s)<br>" + name + "</h2></center><center><a href='https://aquavisitorsystem.github.io/'>Go Home</a></center><br>";         
+	 var title = "<center><h1>Aqua-Aerobic Systems Visitor System Check-in/out Log (logweek)</h1><h2>" + cnt + " Check-in/Check-out sessions for " + (cnt / 2) + " guest(s)<br>" + name + "</h2></center><center><a href='https://aquavisitorsystem.github.io/'>Go Home</a></center><br>";         
 	document.write(title);
 	document.write(printnow);
 	//document.write("<center><h3>Find your name and Tap 'Check-In'</b></center></h3>If your name is not found below, click <a href='" +  "https://ignitemeeting.github.io/?ipad=Yes"   + "'>here</a> to continue!<br><br><center>");
@@ -1218,7 +1219,7 @@ var loaddbtoday =  function(){
        get_login  = get_login.toString();
      console.log(get_login);
       var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
-    var title = "<center><h1>Aqua-Aerobic Systems Check-in/out Visitor Schedule</h1><h2>In-Active Visitor Schedule(s) for: " + get_login + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br></center>";      
+    var title = "<center><h1>Aqua-Aerobic Systems Visitor System Schedule</h1><h2>In-Active Visitor Schedule(s) for: " + get_login + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br></center>";      
      
 		  var lines = "";
             let today = new Date().toISOString().slice(0, 10);
@@ -1281,7 +1282,7 @@ var loaddbtoday =  function(){
 		loadlogall();
 	    }else if (username.toLowerCase()  === 'logtoday') {
 		   loadlogtoday();
-	    }else if (username.toLowerCase()  === 'log') {
+	    }else if (username.toLowerCase()  === 'logweek') {
 		   loadweekschedule();
           }else{
              var data = {
