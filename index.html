@@ -148,7 +148,7 @@ tr:nth-child(even) {
 		var userAgent = navigator.userAgent.toLowerCase();
 		console.log("Device Type:" + userAgent);
 	}
-	if (ua.browser.name.toLowerCase().indexOf("chrome") >= 0){
+	if navigator.userAgent.indexOf("Chrome") != -1 {
 		
 	}else{
 		document.write("<p>VMS system requires Chrome web browser.")
