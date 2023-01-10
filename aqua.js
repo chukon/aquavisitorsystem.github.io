@@ -1525,7 +1525,7 @@ if (result != true) {
 function getSchedule(e) {
 	console.log(e.keyCode);
 	var key = e.keyCode;
-	      if (key >= 48 && key <= 57 || key >= 65 && key <= 90 || key >= 97 && key <= 122){
+	      if (key >= 48 && key <= 57 || key >= 65 && key <= 90 || key >= 97 && key <= 122 || key === 190){
 		      console.log("allow")
               }else{
 		       e.preventDefault();
