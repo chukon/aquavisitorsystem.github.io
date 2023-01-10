@@ -1,4 +1,10 @@
-      var firebaseConfig = {
+ var ua = navigator.userAgent;
+if (ua.indexOf("Chrome") != -1) {
+		
+	}else{
+		document.write("<p>VMS system requires Chrome web browser.")
+	} 
+var firebaseConfig = {
          apiKey: "AIzaSyC_Wl1RgIWazRk3OhodD5QQTykOcIyZMNs",
     authDomain: "aquacheckin-e0b0b.firebaseapp.com",
     projectId: "aquacheckin-e0b0b",
@@ -2001,12 +2007,7 @@ function sortTable(n) {
     }
   }
 }
- var ua = navigator.userAgent;
-if (ua.indexOf("Chrome") != -1) {
-		
-	}else{
-		document.write("<p>VMS system requires Chrome web browser.")
-	}
+
 
 
 
