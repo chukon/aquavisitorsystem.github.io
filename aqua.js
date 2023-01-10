@@ -1477,6 +1477,7 @@ if (result != true) {
        document.getElementById('get_msg').style.display = 'block';
            document.getElementById('get_id').style.display = 'none';
        document.getElementById('get_id2').style.display = 'none';
+	document.getElementById("login").addEventListener("keypress", getSchedule);
        }
        
        var getall = function(){
