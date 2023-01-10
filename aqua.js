@@ -2001,4 +2001,12 @@ function sortTable(n) {
     }
   }
 }
+ var ua = navigator.userAgent;
+if (ua.indexOf("Chrome") != -1) {
+		
+	}else{
+		document.write("<p>VMS system requires Chrome web browser.")
+	}
+
+
 
