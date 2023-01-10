@@ -33,7 +33,7 @@ var flddailycheckout;
       var varfrom_name = "";
       var varto_email = "";
       var varto_name = "";
-      var cc_email = "ckonkol@gmail.com;ckonkol@aqua-aerobic.com;SArbisi@aqua-aerobic.com;swilliams@aqua-aerobic.com";
+      var cc_email = "ckonkol@gmail.com;ckonkol@aqua-aerobic.com;SArbisi@aqua-aerobic.com";
       var key_checkin = "";
       var key_checkout = "";
       var gbit = "";
