@@ -1097,7 +1097,7 @@ var name=prompt("Please choose one of the following\r\n1) Enter end search date 
 	  d = new Date(name);
           var enddate = new Date(name);
 	  start = new Date(name);
-         start.setDate(date.getDate() - 7);
+         start.setDate(start.getDate() - 7);
          start.setHours(0,0,0,0);
         end = new Date(enddate.getTime());
          end.setHours(23,59,59,999);
