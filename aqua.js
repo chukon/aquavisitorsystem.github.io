@@ -197,12 +197,14 @@ function getDateXDaysAgo(numOfDays, date = new Date()) {
 		varto_name = 'ckonkol@aqua-aerobic.com';   
 	   }
 	     var reset = "https://aquavisitorsystem.github.io/?resetid=" + fldkey + "&Remove=Return";
+	     var changedate = "https://aquavisitorsystem.github.io/?id=" + fldkey;
    var templateParams = {
      "from_name" : varfrom_name,
          "to_name" : varto_name,
          "to_email" : varto_email,
           "cc_email" : cc_email,
-	   "reset" : reset
+	   "reset" : reset,
+	   "changedate" : changedate
 };
    emailjs.send('service_aqua', 'template_checkedout', templateParams)
     .then(function(response) {
