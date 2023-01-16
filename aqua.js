@@ -1091,8 +1091,10 @@ var loadweekschedule =  function(){
 	//start new 1/16/2023
 	var start = new Date();
 var end = new Date();
+ var d = new Date();
 var name=prompt("Please choose one of the following\r\n1) Enter end search date > Click [Ok]\r\n2) Click [Ok] for today's date","Enter Date");
     if (name!="Enter Date"){
+	  d = new Date(name);
           var enddate = new Date(name);
 	  start = new Date(name);
          start.setDate(date.getDate() - 7);
@@ -1109,7 +1111,7 @@ var name=prompt("Please choose one of the following\r\n1) Enter end search date 
          start = new Date(start.getTime() - (start.getTimezoneOffset() * 60000)).toISOString();
 	  
          end = new Date(end.getTime() - (end.getTimezoneOffset() * 60000)).toISOString();	 
-     var d = new Date();
+    // var d = new Date();
      var myDate = new Date(d).toLocaleDateString('en-US');   
          let sevendays = getDateXDaysAgo(7, d);
 	  var smyDate = sevendays;
