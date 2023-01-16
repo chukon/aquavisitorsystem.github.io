@@ -1082,11 +1082,30 @@ var loadweekschedule =  function(){
    document.write("");
         var date = new Date();
         date.setHours(0,0,0,0);
-        var start = new Date();
-        start.setDate(date.getDate() - 7);
+       // var start = new Date();
+       // start.setDate(date.getDate() - 7);
+       //  start.setHours(0,0,0,0);
+       //  var end = new Date(date.getTime());
+       //  end.setHours(23,59,59,999);
+	
+	//start new 1/16/2023
+	var start = new Date();
+var end = new Date();
+var name=prompt("Please choose one of the following\r\n1) Enter end search date > Click [Ok]\r\n2) Click [Ok] for today's date","Enter Date");
+    if (name!="Enter Date"){
+          var enddate = new Date(name);
+	  start = new Date(name);
+         start.setDate(date.getDate() - 7);
          start.setHours(0,0,0,0);
-         var end = new Date(date.getTime());
+        end = new Date(enddate.getTime());
          end.setHours(23,59,59,999);
+   }else{
+          start.setDate(date.getDate() - 7);
+         start.setHours(0,0,0,0);
+        end = new Date(start.getTime());
+         end.setHours(23,59,59,999);
+   }	
+   	//end new 1/16/2023
          start = new Date(start.getTime() - (start.getTimezoneOffset() * 60000)).toISOString();
 	  
          end = new Date(end.getTime() - (end.getTimezoneOffset() * 60000)).toISOString();	 
