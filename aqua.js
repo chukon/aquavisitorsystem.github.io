@@ -1081,7 +1081,7 @@ var loadweekschedule =  function(){
 	 var x;
    document.write("");
         var date = new Date();
-        date.setHours(0,0,0,0);
+       // date.setHours(0,0,0,0);
        // var start = new Date();
        // start.setDate(date.getDate() - 7);
        //  start.setHours(0,0,0,0);
@@ -1104,7 +1104,7 @@ var name=prompt("Please choose one of the following\r\n1) Enter end search date 
    }else{
           start.setDate(date.getDate() - 7);
          start.setHours(0,0,0,0);
-        end = new Date(start.getTime());
+        end = new Date(date.getTime());
          end.setHours(23,59,59,999);
    }	
    	//end new 1/16/2023
