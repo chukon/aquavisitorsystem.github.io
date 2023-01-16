@@ -1121,6 +1121,8 @@ var name=prompt("Please choose one of the following\r\n1) Enter end search date 
 	var  todays = new Date().toLocaleDateString('en-US');  
          var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}@page{size: landscape;}}</style></head>";
 	 var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
+	console.log("Start Date: " + start);
+	console.log("End Date: " + end);
 	 db.collection("log").where("date", ">=",start).where("date", "<=",end).where("remove", "==","No").orderBy("date","desc").orderBy("lastname","asc")
     .get()
     .then((querySnapshot) => {
