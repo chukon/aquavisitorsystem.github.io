@@ -166,7 +166,7 @@ function getDateXDaysAgo(numOfDays, date = new Date()) {
 	   checkout:""
 }) .then(function(doc) {
     console.log("doc updated");
-    alert("\nTHE GUEST HAS BEEN SUCCESSFULLY RESET!\n____________________________________________________\n\n***REMINDER***\nUPDATE FUTURE DATE & TIME (If guest is visiting again)\n\n\nClick 'OK' to exit.");
+    alert("\nTHE GUEST HAS BEEN SUCCESSFULLY RESET!\n____________________________________________________\n\n***REMINDER***\n- UPDATE FUTURE DATE & TIME (If guest is visiting again)\n\n\nClick 'OK' to exit.");
     setTimeout(function(){window.location = "https://aquavisitorsystem.github.io/?id=" + key;},500);
   // window.location = "https://aquavisitorsystem.github.io/resetsuccess.html";
     //window.location = "https://aquavisitorsystem.github.io/resetsuccess.html";
