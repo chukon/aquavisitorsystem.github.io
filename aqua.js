@@ -166,7 +166,9 @@ function getDateXDaysAgo(numOfDays, date = new Date()) {
 	   checkout:""
 }) .then(function(doc) {
     console.log("doc updated");
-    window.location = "https://aquavisitorsystem.github.io/resetsuccess.html";
+    alert("1) You have successfully reset guests check-in/check-out sessions!\n\n2)Please change schedule date & time if guest is visiting Aqua after today!\n\n\nClick 'OK' to exit.");
+    setTimeout(function(){window.location = "https://aquavisitorsystem.github.io/?id=" + key;},500);
+  // window.location = "https://aquavisitorsystem.github.io/resetsuccess.html";
     //window.location = "https://aquavisitorsystem.github.io/resetsuccess.html";
   }).catch(function(error) {
     console.log("Error getting document:", error);
@@ -203,8 +205,7 @@ function getDateXDaysAgo(numOfDays, date = new Date()) {
          "to_name" : varto_name,
          "to_email" : varto_email,
           "cc_email" : cc_email,
-	   "reset" : reset,
-	   "changedate" : changedate
+	   "reset" : reset
 };
    emailjs.send('service_aqua', 'template_checkedout', templateParams)
     .then(function(response) {
