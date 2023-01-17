@@ -205,8 +205,7 @@ function getDateXDaysAgo(numOfDays, date = new Date()) {
          "to_name" : varto_name,
          "to_email" : varto_email,
           "cc_email" : cc_email,
-	   "reset" : reset,
-	   "changedate" : changedate
+	   "reset" : reset
 };
    emailjs.send('service_aqua', 'template_checkedout', templateParams)
     .then(function(response) {
