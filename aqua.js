@@ -166,8 +166,10 @@ function getDateXDaysAgo(numOfDays, date = new Date()) {
 	   checkout:""
 }) .then(function(doc) {
     console.log("doc updated");
-    alert("1) You have successfully reset guests check-in/check-out sessions!\n2) Please change schedule date & time if guest is visiting Aqua again!\n\nClick 'OK' to exit.");
+    alert("You have successfully reset guests check-in/check-out sessions!\n\nClick 'OK' to exit.");
     setTimeout(function(){window.location = "https://aquavisitorsystem.github.io/?id=" + key;},500);
+    alert("Please change schedule date & time if guest is visiting Aqua after today!\n\nClick 'OK' to exit.");
+ 
   // window.location = "https://aquavisitorsystem.github.io/resetsuccess.html";
     //window.location = "https://aquavisitorsystem.github.io/resetsuccess.html";
   }).catch(function(error) {
