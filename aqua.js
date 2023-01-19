@@ -1984,7 +1984,8 @@ if (todays === new Date(doc.data().date12).toDateString()) {
          }
          });
             document.write("</table>");
-             setTimeout("sortTable(3)", 2000);
+            setTimeout("sortTable(3)", 3000);
+            setTimeout("sortTable(3)", 3000);
          }
        
        
