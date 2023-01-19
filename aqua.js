@@ -1401,6 +1401,7 @@ const chunkSize = 10;
       }
   
 var loadtodayschedule =  function(){
+var x = 0;
            var db = firebase.firestore();
 	 let todaysdate = new Date();
 	 var count = 0;
@@ -1584,6 +1585,8 @@ if (cnt === 0){
     hour: "2-digit",
     minute: "2-digit"
 };
+
+
 	   var dates = new Date(doc.data().date).toLocaleDateString("en", options)
     //if (todaysdate === new Date(doc.data().date).toLocaleDateString){
     var todays = new Date().toDateString();
@@ -1592,37 +1595,60 @@ if (cnt === 0){
         console.log("date2: " + new Date(doc.data().date2).toDateString());
 if (todays === new Date(doc.data().date2).toDateString()) {
    dates = new Date(doc.data().date2).toLocaleDateString("en", options)
+   x = 1;
+   setTimeout("sortTable(4)", 3000);
 }
 if (todays === new Date(doc.data().date3).toDateString()) {
    dates = new Date(doc.data().date3).toLocaleDateString("en", options)
+    x = 1;
+     setTimeout("sortTable(4)", 3000);
 }
 if (todays === new Date(doc.data().date4).toDateString()) {
    dates = new Date(doc.data().date4).toLocaleDateString("en", options)
+    x = 1;
+      setTimeout("sortTable(4)", 3000);
 }
 if (todays === new Date(doc.data().date5).toDateString()) {
    dates = new Date(doc.data().date5).toLocaleDateString("en", options)
+    x = 1;
+     setTimeout("sortTable(4)", 3000);
 }
 if (todays === new Date(doc.data().date6).toDateString()) {
    dates = new Date(doc.data().date6).toLocaleDateString("en", options)
+    x = 1;
+     setTimeout("sortTable(4)", 3000);
 }
 if (todays === new Date(doc.data().date7).toDateString()) {
    dates = new Date(doc.data().date7).toLocaleDateString("en", options)
+    x = 1;
+     setTimeout("sortTable(4)", 3000);
 }
 if (todays === new Date(doc.data().date8).toDateString()) {
    dates = new Date(doc.data().date8).toLocaleDateString("en", options)
+    x = 1;
+     setTimeout("sortTable(4)", 3000);
 }
 if (todays === new Date(doc.data().date9).toDateString()) {
    dates = new Date(doc.data().date9).toLocaleDateString("en", options)
+    x = 1;
+     setTimeout("sortTable(4)", 3000);
 }
 if (todays === new Date(doc.data().date10).toDateString()) {
    dates = new Date(doc.data().date10).toLocaleDateString("en", options)
+    x = 1;
+     setTimeout("sortTable(4)", 3000);
 }
 if (todays === new Date(doc.data().date11).toDateString()) {
    dates = new Date(doc.data().date11).toLocaleDateString("en", options)
+    x = 1;
+     setTimeout("sortTable(4)", 3000);
 }
 if (todays === new Date(doc.data().date12).toDateString()) {
    dates = new Date(doc.data().date12).toLocaleDateString("en", options)
+    x = 1;
+     setTimeout("sortTable(4)", 3000);
 }
+console.log("x is: " + x);
 
     // }
     //var dates = new Date(doc.data().date).toLocaleTimeString()
@@ -1642,7 +1668,9 @@ if (todays === new Date(doc.data().date12).toDateString()) {
 }
 });
      document.write("</table>");
-     setTimeout("sortTable(4)", 2000);
+     
+  
+    //setTimeout("sortTable(4)", 3000);
 }
 
 var loadweekschedule =  function(){
@@ -1932,36 +1960,47 @@ const chunkSize = 10;
         console.log("date2: " + new Date(doc.data().date2).toDateString());
 if (todays === new Date(doc.data().date2).toDateString()) {
    dates = new Date(doc.data().date2).toLocaleDateString("en", options)
+     setTimeout("sortTable(3)", 3000);
          }
 if (todays === new Date(doc.data().date3).toDateString()) {
    dates = new Date(doc.data().date3).toLocaleDateString("en", options)
+     setTimeout("sortTable(3)", 3000);
          }
 if (todays === new Date(doc.data().date4).toDateString()) {
    dates = new Date(doc.data().date4).toLocaleDateString("en", options)
+     setTimeout("sortTable(3)", 3000);
          }
 if (todays === new Date(doc.data().date5).toDateString()) {
    dates = new Date(doc.data().date5).toLocaleDateString("en", options)
+     setTimeout("sortTable(3)", 3000);
          }
 if (todays === new Date(doc.data().date6).toDateString()) {
    dates = new Date(doc.data().date6).toLocaleDateString("en", options)
+     setTimeout("sortTable(3)", 3000);
          }
 if (todays === new Date(doc.data().date7).toDateString()) {
    dates = new Date(doc.data().date7).toLocaleDateString("en", options)
+     setTimeout("sortTable(3)", 3000);
          }
 if (todays === new Date(doc.data().date8).toDateString()) {
    dates = new Date(doc.data().date8).toLocaleDateString("en", options)
+     setTimeout("sortTable(3)", 3000);
          }
 if (todays === new Date(doc.data().date9).toDateString()) {
    dates = new Date(doc.data().date9).toLocaleDateString("en", options)
+     setTimeout("sortTable(3)", 3000);
          }
 if (todays === new Date(doc.data().date10).toDateString()) {
    dates = new Date(doc.data().date10).toLocaleDateString("en", options)
+     setTimeout("sortTable(3)", 3000);
          }
 if (todays === new Date(doc.data().date11).toDateString()) {
    dates = new Date(doc.data().date11).toLocaleDateString("en", options)
+     setTimeout("sortTable(3)", 3000);
          }
 if (todays === new Date(doc.data().date12).toDateString()) {
    dates = new Date(doc.data().date12).toLocaleDateString("en", options)
+     setTimeout("sortTable(3)", 3000);
          }
 
 	   console.log("loaddbtoday:" + dates);
@@ -1984,8 +2023,7 @@ if (todays === new Date(doc.data().date12).toDateString()) {
          }
          });
             document.write("</table>");
-            setTimeout("sortTable(3)", 3000);
-            setTimeout("sortTable(3)", 3000);
+          
          }
        
        
