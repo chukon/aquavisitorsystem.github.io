@@ -688,14 +688,14 @@ var utcTime = date.toUTCString();
     });
       }
       
-       var loaddb =  function(data){
+    var loaddb =  function(data){
+        var cnt = 0;
         var db = firebase.firestore();
           var get_login  = data["userid"];
          if (get_login  === null || get_login === '') {
                alert("Enter your Network Login ID above & try again!");
           }else{
        get_login  = get_login.toString();
-     var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule</h1><h2>Active Visitor Schedule(s) for: " + get_login + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
      console.log(get_login);
       var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
       var lines = "";
@@ -703,8 +703,9 @@ var utcTime = date.toUTCString();
          db.collection("messages").where("login", "==",get_login).where("remove", "==","No").orderBy("date","desc")
     .get()
     .then((querySnapshot) => {
-          var cnt = querySnapshot.size;
-		  document.write(title);
+        cnt = querySnapshot.size;
+         var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule</h1><h2>" + cnt + " Active Visitor Schedule(s) for: " + get_login + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+  		  document.write(title);
 	 if (cnt === 0){
 		  var nodata = "<center><br>No visitor data found<br></center>";
 	         document.write(nodata);
