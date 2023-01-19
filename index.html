@@ -100,10 +100,24 @@ tr:nth-child(even) {
       <label for="email" style="color: black;font-weight: bold;">Guest Email</label>
       <input type="email" id="email" name="email" placeholder="Enter guest email address or TBD" style="text-transform: uppercase;">
       <br>
+      <div id="datedetails">
         <label for="date" style="color: black;font-weight: bold;">Date & Time Guest is Visiting Aqua: </label>
-       <input type="datetime-local" id="date" name="date" style="font-family: sans-serif;">
-       <i style="color: gray;"> (If time unknown use 8:00am)</i>
- <br><br>
+       <details>
+  <summary><input type="datetime-local" id="date" name="date" style="font-family: sans-serif;"><i style="color: gray;"> (If time unknown use 8:00am)</i></summary> 
+  <ul>Date 2:&nbsp;&nbsp;&nbsp;<input type="datetime-local" id="date2" name="date2" style="font-family: sans-serif;"></ul>
+  <ul>Date 3:&nbsp;&nbsp;&nbsp;<input type="datetime-local" id="date3" name="date3" style="font-family: sans-serif;"></ul>
+  <ul>Date 4:&nbsp;&nbsp;&nbsp;<input type="datetime-local" id="date4" name="date4" style="font-family: sans-serif;"></ul>
+  <ul>Date 5:&nbsp;&nbsp;&nbsp;<input type="datetime-local" id="date5" name="date5" style="font-family: sans-serif;"></ul>
+  <ul>Date 6:&nbsp;&nbsp;&nbsp;<input type="datetime-local" id="date6" name="date6" style="font-family: sans-serif;"></ul>
+  <ul>Date 7:&nbsp;&nbsp;&nbsp;<input type="datetime-local" id="date7" name="date7" style="font-family: sans-serif;"></ul>
+  <ul>Date 8:&nbsp;&nbsp;&nbsp;<input type="datetime-local" id="date8" name="date8" style="font-family: sans-serif;"></ul>
+  <ul>Date 9:&nbsp;&nbsp;&nbsp;<input type="datetime-local" id="date9" name="date9" style="font-family: sans-serif;"></ul>
+  <ul>Date 10:&nbsp;&nbsp;<input type="datetime-local" id="date10" name="date10" style="font-family: sans-serif;"></ul>
+  <ul>Date 11:&nbsp;&nbsp;<input type="datetime-local" id="date11" name="date11" style="font-family: sans-serif;"></ul>
+  <ul>Date 12:&nbsp;&nbsp;<input type="datetime-local" id="date12" name="date12" style="font-family: sans-serif;"></ul>
+</details>
+          <br>
+          </div>
       <label for="message" style="color: black;font-weight: bold;">Aqua Employee Guest is Visiting (Full Name)</label>
      <textarea id="message" name="message" placeholder="Enter Aqua Employee Full Name" style="height: 30px;font-family: sans-serif;text-transform: uppercase;"></textarea>
        <canvas id="qrcode"></canvas> 
