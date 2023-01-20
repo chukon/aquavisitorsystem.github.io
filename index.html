@@ -153,7 +153,6 @@ tr:nth-child(even) {
     </div>
 </html>
 <script src="aqua.js"></script>
-<script src="popup.js"></script>
 <script type="text/javascript"> 
 // detect user agent
 	 var ua = navigator.userAgent;
@@ -161,12 +160,15 @@ tr:nth-child(even) {
 	var isIPadPro = /Macintosh/.test(navigator.userAgent) && 'ontouchend' in document;
         console.log("Is mobile?: " + isMobile);
 	  console.log("Is iPad Pro?: " + isIPadPro);
-	if (isMobile || isIPadPro) {
-		document.getElementById("help").style.display = "none"
-		//alert("on mobile: " + navigator.platform); // display the platform you're on.
-		var userAgent = navigator.userAgent.toLowerCase();
-		console.log("Device Type:" + userAgent);
-	}
+	  if (isMobile || isIPadPro) {
+	      document.getElementById("help").style.display = "none"
+	      //alert("on mobile: " + navigator.platform); // display the platform you're on.
+	      var userAgent = navigator.userAgent.toLowerCase();
+	      console.log("Device Type:" + userAgent);
+	  } else {
+
+	     // <script src="popup.js"></script>
+	  }
 </script> 
 	<script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
