@@ -28,7 +28,7 @@ jQuery.get('notification.txt', function(data) {
           // initialize title and body variables
         if (data.length > 3){
         var notifs = data;
-        var Titles = "VMS News!";
+        var Titles = "VMS Updates!";
     if (getCookie('vmspopup')) {
 		return;
 	}
