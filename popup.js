@@ -29,12 +29,12 @@ jQuery.get('notification.txt', function(data) {
         if (data.length > 3){
         var notifs = data;
         var Titles = "Visitor Management System";
-    if (getCookie('displaypopup')) {
+    if (getCookie('vmspopup')) {
 		return;
 	}
     createDialog(notifs , Titles);
 // The popup was displayed. Set the cookie for 1 day.
-	setCookie('displaypopup', 'yes', 3600);
+	setCookie('vmspopup', 'yes', 3600);
 }
 });
 }
