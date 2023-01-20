@@ -28,7 +28,7 @@ jQuery.get('notification.txt', function(data) {
           // initialize title and body variables
         if (data.length > 3){
         var notifs = data;
-        var Titles = "VMS";
+        var Titles = "VMS News!";
     if (getCookie('vmspopup')) {
 		return;
 	}
@@ -47,7 +47,7 @@ var createDialog = function(text , title) {
     $('body').append(dialog);
     
     // update the <div>'s title
-    $('#dialog').prop('title' , '<p style="font-size: medium">' + title + '</p>');
+    $('#dialog').prop('title' , title);
     
     //create the dialog
     $('#dialog').dialog();
