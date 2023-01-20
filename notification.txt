@@ -1,7 +1,7 @@
 <ul style="display: inline;">
-  <li>New Features!</li>
+  <li>New Features</li>
   <ul><li>Schedule up to 12 dates per guest</li></ul> 
-  <ul><li>Upated help resource</li></ul> 
+  <ul><li>Upated help</li></ul> 
 </ul> 
 <br>
 updated by Chuck Konkol: 1/20/2023

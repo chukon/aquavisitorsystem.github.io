@@ -8,7 +8,15 @@ var firebaseConfig = {
     measurementId: "G-T2LP2MT4DG"
       };
 
-      firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
+
+
+$(document).ready(function() {
+  
+    $('body').css('display', 'none')
+    .delay(1000).fadeIn(500, function() {
+        $('.onLoad').fadeOut(500);
+});
       
       document.getElementById("update_db").disabled = true;
       document.getElementById('update_db').style.visibility = 'hidden';
@@ -2875,4 +2883,4 @@ if ((checkin === null || checkin === '') &&  (keyid != null && keyid != '')) {
 
 
 
-
+});
