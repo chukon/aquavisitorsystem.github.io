@@ -1,0 +1,7 @@
+<b>Announcements</b>
+<ul style="display: inline;">
+  <li>New Features!</li>
+  <ul><li>Schedule up to 12 dates per guest</li></ul> 
+  <ul><li>Upated help resource</li></ul> 
+</ul> 
+updated: 1/20/2023
