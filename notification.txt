@@ -1,5 +1,5 @@
 <ul style="display: inline;">
-  <li>New Features</li>
+  <li>Latest releases</li>
   <ul><li>Schedule up to 12 dates per guest</li></ul> 
   <ul><li>Upated help</li></ul> 
 </ul> 
