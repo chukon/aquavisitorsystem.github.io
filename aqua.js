@@ -1273,6 +1273,17 @@ var utcTime = date.toUTCString();
        });
        //resolve(RecordIDs);
        });
+//END
+       //START
+       db.collection("messages").where("date9", ">=",start).where("date9", "<=",end).where("remove", "==","No").orderBy("date9","asc").orderBy("lastname","asc").get().then((querySnapshot) => {
+           console.log("SnapshotPromise:" + querySnapshot.size); 
+       cnt1 = querySnapshot.size + cnt1;
+       querySnapshot.forEach(doc => {
+           console.log("docid:" + doc.id, ' => ', doc.data());
+       RecordIDs.push( doc.id);
+       });
+       //resolve(RecordIDs);
+       });
        //END
        //START
        db.collection("messages").where("date10", ">=",start).where("date10", "<=",end).where("remove", "==","No").orderBy("date10","asc").orderBy("lastname","asc").get().then((querySnapshot) => {
@@ -1521,6 +1532,16 @@ RecordIDs.push( doc.id);
 });
 //END
 //START
+db.collection("messages").where("date9", ">=",start).where("date9", "<=",end).where("remove", "==","No").orderBy("date9","asc").orderBy("lastname","asc").get().then((querySnapshot) => {
+    console.log("SnapshotPromise:" + querySnapshot.size); 
+cnt1 = querySnapshot.size + cnt1;
+querySnapshot.forEach(doc => {
+    console.log("docid:" + doc.id, ' => ', doc.data());
+RecordIDs.push( doc.id);
+});
+//resolve(RecordIDs);
+});
+//END
 db.collection("messages").where("date10", ">=",start).where("date10", "<=",end).where("remove", "==","No").orderBy("date10","asc").orderBy("lastname","asc").get().then((querySnapshot) => {
     console.log("SnapshotPromise:" + querySnapshot.size); 
 cnt1 = querySnapshot.size + cnt1;
@@ -1880,6 +1901,17 @@ RecordIDs.push( doc.id);
 });
 //END
 //START
+//START
+db.collection("messages").where("date9", ">=",start).where("date9", "<=",end).where("remove", "==","No").orderBy("date9","asc").orderBy("lastname","asc").get().then((querySnapshot) => {
+    console.log("SnapshotPromise:" + querySnapshot.size); 
+cnt1 = querySnapshot.size + cnt1;
+querySnapshot.forEach(doc => {
+    console.log("docid:" + doc.id, ' => ', doc.data());
+RecordIDs.push( doc.id);
+});
+//resolve(RecordIDs);
+});
+//END
 db.collection("messages").where("date10", ">=",start).where("date10", "<=",end).where("remove", "==","No").orderBy("date10","asc").orderBy("lastname","asc").get().then((querySnapshot) => {
     console.log("SnapshotPromise:" + querySnapshot.size); 
 cnt1 = querySnapshot.size + cnt1;
