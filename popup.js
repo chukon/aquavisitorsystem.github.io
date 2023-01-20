@@ -18,8 +18,17 @@ const getUA = () => {
     Object.keys(ua).map(v => navigator.userAgent.match(ua[v]) && (device = v));
     return device;
 }
-window.onload = function() {
-   callwhenback();
+    window.onload = function() {
+        var ua = navigator.userAgent;
+        var isMobile = /Android|webOS|iPhone|iPad|iPod/i.test(ua);
+        var isIPadPro = /Macintosh/.test(navigator.userAgent) && 'ontouchend' in document;
+        console.log("Is mobile?: " + isMobile);
+        console.log("Is iPad Pro?: " + isIPadPro);
+        if (isMobile || isIPadPro) {
+       
+        } else{
+            callwhenback();
+        }
 };
 
 function  callwhenback() {
