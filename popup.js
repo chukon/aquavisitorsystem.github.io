@@ -47,7 +47,7 @@ var createDialog = function(text , title) {
     $('body').append(dialog);
     
     // update the <div>'s title
-    $('#dialog').prop('title' , title);
+    $('#dialog').prop('title' , '<p style="font-size: medium">' + title + '</p>');
     
     //create the dialog
     $('#dialog').dialog();
