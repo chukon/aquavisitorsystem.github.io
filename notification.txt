@@ -1,7 +1,8 @@
 <ul style="display: inline;">
-  <li>Latest releases</li>
-  <ul><li>Schedule up to 12 dates per guest</li></ul> 
-  <ul><li>Upated help</li></ul> 
+  <li>Latest updates</li>
+  <ul><li>Schedule Visitor: add up to 12 dates per guest</li></ul> 
+  <ul><li>New log reports. Use keyword: loguserid & logweek</li></ul> 
+  <ul><li>Upated help documentation (Click <a href="https://aquavisitorsystem.github.io/help/Aqua%20Visitor%20Check.htm">here</a>).</li></ul> 
 </ul> 
 <br>
 updated by Chuck Konkol: 1/20/2023
