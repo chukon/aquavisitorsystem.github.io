@@ -50,7 +50,6 @@ jQuery.get('notification.txt', function(data) {
 
 var createDialog = function(text , title) {
     //create dialog <div> shell
-   // var dialog =  "<div id=dialog width='400px !important' style="font-size: small" + text + "</div>";
     var dialog =  '<div id="dialog" title="Visitor Management System" style="font-size: small;">' + text + '</div>';
     
     // create the dialog <div>
@@ -63,14 +62,8 @@ var createDialog = function(text , title) {
     //create the dialog
     $('#dialog').dialog({open : function() {
 	    var win = $(window);
-            //$(this).closest('.ui-dialog').css({'top':'350px'});
 	    $(this).closest('.ui-dialog').css({'width':'175px'});
 	    $(this).closest('.ui-dialog').css({'position':'absolute',left: (win.width() - $(this).parent().outerWidth()) / 2,top: 175});
-	   // $(this).parent().css({
-      //  position: 'absolute',
-      //  left: (win.width() - $(this).parent().outerWidth()) / 2,
-      //  top: 350
-    //});
     }});
 }
 
