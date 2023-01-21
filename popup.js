@@ -51,7 +51,7 @@ jQuery.get('notification.txt', function(data) {
 var createDialog = function(text , title) {
     //create dialog <div> shell
    // var dialog =  "<div id=dialog width='400px !important' style="font-size: small" + text + "</div>";
-    var dialog =  '<div id="dialog" width="400px !important" title="Visitor Management System" style="font-size: small;">' + text + '</div>';
+    var dialog =  '<div id="dialog" title="Visitor Management System" style="font-size: small;">' + text + '</div>';
     
     // create the dialog <div>
     $('body').append(dialog);
@@ -61,7 +61,7 @@ var createDialog = function(text , title) {
 	
 	//350.00px
     //create the dialog
-    $('#dialog').dialog();
+    $('#dialog').dialog({width:'80%'});
 }
 
 function checkCookie() {
