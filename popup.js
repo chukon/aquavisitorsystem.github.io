@@ -61,7 +61,7 @@ var createDialog = function(text , title) {
 	
 	//350.00px
     //create the dialog
-    $('#dialog').dialog({width:'430', position: 'top,100'});
+    $('#dialog').dialog({width:'430', position: 'middle,350'});
 }
 
 function checkCookie() {
