@@ -50,7 +50,7 @@ jQuery.get('notification.txt', function(data) {
 
 var createDialog = function(text , title) {
     //create dialog <div> shell
-    var dialog =  "<div id=dialog style='font-size: small;'" + text + "</div>";
+    var dialog =  "<div id=dialog style='font-size: small;width = '400px;top = '350px';'" + text + "</div>";
     
     // create the dialog <div>
     $('body').append(dialog);
@@ -58,8 +58,6 @@ var createDialog = function(text , title) {
     // update the <div>'s title
     $('#dialog').prop('title' , title);
 	
-    document.getElementById("dialog").style.width = "400px";
-     document.getElementById("dialog").style.top = "350px";
 	//350.00px
     //create the dialog
     $('#dialog').dialog();
