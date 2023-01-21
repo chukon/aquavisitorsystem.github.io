@@ -61,7 +61,12 @@ var createDialog = function(text , title) {
 	
 	//350.00px
     //create the dialog
-    $('#dialog').dialog({width:'430'});
+    $('#dialog').dialog({open : function() {
+        if ($(this).closest('.ui-dialog').offset().top < 40) {
+            $(this).closest('.ui-dialog').css({'top':'40px'});
+	    $(this).closest('.ui-dialog').css({'width':'430px'});
+        }
+    }});
 }
 
 function checkCookie() {
