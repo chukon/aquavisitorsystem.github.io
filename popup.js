@@ -63,7 +63,7 @@ var createDialog = function(text , title) {
     //create the dialog
     $('#dialog').dialog({open : function() {
         if ($(this).closest('.ui-dialog').offset().top < 40) {
-            $(this).closest('.ui-dialog').css({'top':'40px'});
+            $(this).closest('.ui-dialog').css({'top':'180px'});
 	    $(this).closest('.ui-dialog').css({'width':'430px'});
         }
     }});
