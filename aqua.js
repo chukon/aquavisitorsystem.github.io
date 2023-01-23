@@ -172,10 +172,8 @@ function getDateXDaysAgo(numOfDays, date = new Date()) {
         doc.ref.update({
            checkin: "",
 	   checkout:""
-        }).then(function(doc) {
-    console.log("doc updated");
-    }).catch(function(error) {
-    console.log("Error getting document:", error);
+        })
+    })
 });
       }
 	 
