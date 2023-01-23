@@ -50,7 +50,7 @@ jQuery.get('notification.txt', function(data) {
 
 var createDialog = function(text , title) {
     //create dialog <div> shell
-    var dialog =  '<div id="dialog" title="Visitor Management System" style="font-size: small;">' + text + '</div>';
+    var dialog =  '<div id="dialog" title="Visitor Management System" style="font-size: small;">' + text + '<br><button>Close</button></div>';
     
     // create the dialog <div>
     $('body').append(dialog);
@@ -65,6 +65,8 @@ var createDialog = function(text , title) {
 	    $(this).closest('.ui-dialog').css({'width':'430px'});
 	    $(this).closest('.ui-dialog').css({'position':'absolute',left: (win.width() - $(this).parent().outerWidth()) / 2,top: 324});
     }});
+
+  
 }
 
 function checkCookie() {
@@ -99,5 +101,16 @@ function setCookie(name, value, maxAgeSeconds) {
 function delete_cookie(name) {
   document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 }
+
+function onClick(event) {
+    if (event.target === dialog) {
+        dialog.close();
+    }
+}
+
+const dialog = document.querySelector("dialog");
+dialog.addEventListener("click", onClick);
+dialog.showModal();
+
 
 
