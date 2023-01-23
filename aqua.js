@@ -165,6 +165,20 @@ function getDateXDaysAgo(numOfDays, date = new Date()) {
   });
       }
 	 
+	  var updateallcheckindata = function(){
+        var db = firebase.firestore();
+        db.collection("messages").get().then(function(querySnapshot) {
+    querySnapshot.forEach(function(doc) {
+        doc.ref.update({
+           checkin: "",
+	   checkout:""
+        });.then(function(doc) {
+    console.log("doc updated");
+    });.catch(function(error) {
+    console.log("Error getting document:", error);
+});
+      }
+	 
 	 var updateresetvisit = function(data){
 		 clear()
 	        var db = firebase.firestore();
@@ -2804,7 +2818,12 @@ if (g_report === 'today') {
        loadtodayschedule();
 } else {
   console.log('string IS empty');
-}  	    
+}
+if (g_report === 'updateallcheckins') {
+       updateallcheckindata();
+} else {
+  console.log('string IS empty');
+}  
 // empty string
 if (g_all === 'yes') {
        loaddbeverything();
