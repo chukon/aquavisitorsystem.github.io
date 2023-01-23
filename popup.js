@@ -62,7 +62,7 @@ var createDialog = function(text , title) {
     //create the dialog
     $('#dialog').dialog({open : function() {
         var win = $(window);
-        $(this).closest('.ui-dialog').css({'closeText':'hide'});
+        $(this).closest('.ui-dialog').css({'closeText':'close'});
 	    $(this).closest('.ui-dialog').css({'width':'430px'});
 	    $(this).closest('.ui-dialog').css({'position':'absolute',left: (win.width() - $(this).parent().outerWidth()) / 2,top: 324});
     }});
