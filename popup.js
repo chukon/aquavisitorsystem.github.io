@@ -66,12 +66,6 @@ var createDialog = function(text , title) {
 	    $(this).closest('.ui-dialog').css({'width':'430px'});
 	    $(this).closest('.ui-dialog').css({'position':'absolute',left: (win.width() - $(this).parent().outerWidth()) / 2,top: 324});
     }});
-
-    x = document.getElementById("dialog"); 
-
-
-    $('body').append("<br><a href=" + x + ">close</a>");
-
 }
 
 function checkCookie() {
