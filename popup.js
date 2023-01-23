@@ -50,7 +50,7 @@ jQuery.get('notification.txt', function(data) {
 
 var createDialog = function(text , title) {
     //create dialog <div> shell
-    var dialog =  '<div id="dialog" title="Visitor Management System" style="font-size: small;">' + text + '<br><button onclick="dialog.close()">Close</button></div>';
+    var dialog =  '<div id="dialog" title="Visitor Management System" style="font-size: small;">' + text + '</div>';
     
     // create the dialog <div>
     $('body').append(dialog);
@@ -61,7 +61,8 @@ var createDialog = function(text , title) {
 	//350.00px
     //create the dialog
     $('#dialog').dialog({open : function() {
-	    var win = $(window);
+        var win = $(window);
+        $(this).closest('.ui-dialog').css({'closeText':'hide'});
 	    $(this).closest('.ui-dialog').css({'width':'430px'});
 	    $(this).closest('.ui-dialog').css({'position':'absolute',left: (win.width() - $(this).parent().outerWidth()) / 2,top: 324});
     }});
