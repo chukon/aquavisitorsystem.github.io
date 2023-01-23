@@ -2260,7 +2260,7 @@ if (todays === new Date(doc.data().date12).toDateString()) {
           }else if (username.toLowerCase()  === 'all') {
 		loaddbeverything();
             }else if (username.toLowerCase()  === 'alls') {
-		loaddbeverything();
+		loaddbeverythings();
           }else if (username.toLowerCase()  === 'date') {
 		loadtoday();
           }else if (username.toLowerCase()  === 'inactive') {
