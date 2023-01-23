@@ -6,4 +6,4 @@
   <ul><li><b>Help System:</b> Upated documentation</li></ul> 
 </ul> 
 <br>
-updated by Chuck Konkol: 1/20/2023
+<div id="footer">updated by Chuck Konkol: 1/23/2023</div>
