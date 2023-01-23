@@ -1332,7 +1332,7 @@ var utcTime = date.toUTCString();
           start = start.toISOString();
           end = end.toISOString();
           var d = new Date();
-          choosedate = d.toDateString();;
+          choosedate = d.toDateString();
           var myDate = new Date(d).toLocaleDateString('en-US');   
           name = myDate.toString();
       }	
