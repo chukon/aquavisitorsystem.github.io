@@ -505,7 +505,10 @@ var log_create = function(){
 
        
        var get_checkin_data = function(data){
-	  var d = new Date();
+           var d = new Date();
+           var todaysdate = false;
+           var choosedate  = new Date();
+           choosedate = d.toDateString();
           var NowTime = new Date(d).toLocaleString();
         var db = firebase.firestore();
          var get_id = data["id"];
@@ -539,6 +542,66 @@ var log_create = function(){
            fldcheckout = doc.data().checkout;
            fldremove =  doc.data().remove;
            fldkey = doc.data().key;
+           if (typeof doc.data().date !== 'undefined' && doc.data().date !=="") {
+               if (choosedate  === new Date(doc.data().date).toDateString()) {
+                   todaysdate = true;
+               }
+           }
+           if (typeof doc.data().date2 !== 'undefined' && doc.data().date2 !=="") {
+               if (choosedate  === new Date(doc.data().date2).toDateString()) {
+                   todaysdate = true;
+               }
+           }
+           if (typeof doc.data().date3 !== 'undefined' && doc.data().date3 !=="") {
+               if (choosedate  === new Date(doc.data().date3).toDateString()) {
+                   todaysdate = true;
+               }
+           }
+           if (typeof doc.data().date4 !== 'undefined' && doc.data().date4 !=="") {
+               if (choosedate  === new Date(doc.data().date4).toDateString()) {
+                   todaysdate = true;
+               }
+           }
+           if (typeof doc.data().date5 !== 'undefined' && doc.data().date5 !=="") {
+               if (choosedate  === new Date(doc.data().date5).toDateString()) {
+                   todaysdate = true;
+               }
+           }
+           if (typeof doc.data().date6 !== 'undefined' && doc.data().date6 !=="") {
+               if (choosedate  === new Date(doc.data().date6).toDateString()) {
+                   todaysdate = true;
+               }
+           }
+           if (typeof doc.data().date7 !== 'undefined' && doc.data().date7 !=="") {
+               if (choosedate  === new Date(doc.data().date7).toDateString()) {
+                   todaysdate = true;
+               }
+           }
+           if (typeof doc.data().date8 !== 'undefined' && doc.data().date8 !=="") {
+               if (choosedate  === new Date(doc.data().date8).toDateString()) {
+                   todaysdate = true;
+               }
+           }
+           if (typeof doc.data().date9 !== 'undefined' && doc.data().date9 !=="") {
+               if (choosedate  === new Date(doc.data().date9).toDateString()) {
+                   todaysdate = true;
+               }
+           }
+           if (typeof doc.data().date10 !== 'undefined' && doc.data().date10 !=="") {
+               if (choosedate  === new Date(doc.data().date10).toDateString()) {
+                   todaysdate = true;
+               }
+           }
+           if (typeof doc.data().date11 !== 'undefined' && doc.data().date11 !=="") {
+               if (choosedate  === new Date(doc.data().date11).toDateString()) {
+                   todaysdate = true;
+               }
+           }
+           if (typeof doc.data().date12 !== 'undefined' && doc.data().date12 !=="") {
+               if (choosedate  === new Date(doc.data().date12).toDateString()) {
+                   todaysdate = true;
+               }
+           }
         }); 
              console.log("key_checkin:" + key_checkin);
     console.log("key_checkout:" + key_checkout);
@@ -547,7 +610,8 @@ var log_create = function(){
 		   console.log("varto_email" + varto_email);
 		   console.log("varto_name" + varto_name);
 		   console.log("cc_email" + cc_email);
-  if ((key_checkin === null || key_checkin === '') && (key_checkout === null || key_checkout === '')){
+//check dates
+		   if ((key_checkin === null || key_checkin === '') && (key_checkout === null || key_checkout === '') && (todaysdate === true)){
 	    document.getElementById("checkedin").value = 'No';
 	   console.log("checkedin ID: No");
            set_checkin(data);	
@@ -578,9 +642,9 @@ var utcTime = date.toUTCString();
     document.write("</center>");
     document.write('</body>');
     console.log("checkin successful");
-  sendcheckedin();
-  log_create();
-  }else if ((key_checkin !=null && key_checkin != '') && (key_checkout === null || key_checkout === '')){
+ sendcheckedin();
+ log_create();
+		   }else if ((key_checkin !=null && key_checkin != '') && (key_checkout === null || key_checkout === '') && (todaysdate === true)){
 	   console.log("checkedin ID: Yes");
 	    document.getElementById("checkedin").value = 'Yes';
            set_checkout(data);
@@ -597,7 +661,7 @@ var utcTime = date.toUTCString();
     console.log("checkout successful");
     sendcheckedout();
     log_create();
-  }else if ((key_checkin !=null && key_checkin != '') && (key_checkout !=null && key_checkout != '') ){
+		   }else if ((key_checkin !=null && key_checkin != '') && (key_checkout !=null && key_checkout != '') && (todaysdate === true)){
            //qr code used already
 	   console.log("checkedin ID: Yes");
 	     document.getElementById("checkedin").value = 'Yes';
@@ -613,15 +677,29 @@ var utcTime = date.toUTCString();
 	   document.write("</center>");
          document.write('</body>');
   }else{
-    
+		       //qr code used already
+		       if (varFName != ''){
+		       }
+      console.log("checkedin ID: Yes");
+      document.getElementById("checkedin").value = 'Yes';
+      console.log("already used");
+      document.write('<body style="font-family: sans-serif;color: blue;">');
+      document.write("<center>");
+      document.write('<img id="logo" src="aqua.jpg" width="500px">');
+      document.write("<p style='font-size:47px;'>Hello, " + varFName + " " + varLName + "</p>");
+      document.write("<p style='font-size:25px;color: black;'>This QR code is for another date!</p>");
+      document.write("<p style='font-size:20px;color: black;'>Please dispose of your badge before leaving reception/lobby!</p>");
+      document.write("<p style='font-size:20px;color: blue;'>Have a great day!</p>");
+      document.write("<p style='font-size:15px;color: black;'><br><br><br>current date/time: " + NowTime + "</p></center>");
+      document.write("</center>");
+      document.write('</body>');
   }
-    })
-    .catch((error) => {
-       console.log("Error getting documents: ", error);
-		  document.write('<body style="font-family: sans-serif;color: blue;">');
+    }).catch((error) => {
+        console.log("Error getting documents: ", error);
+        		  document.write('<body style="font-family: sans-serif;color: blue;">');
            	   document.write("<center>");
-	  document.write('<img id="logo" src="aqua.jpg" width="550px">');
-            document.write("<p style='font-size:20px;color: blue;'>This QR code has expired or is invalid!</p>");
+	 document.write('<img id="logo" src="aqua.jpg" width="500px">');
+            document.write("<p style='font-size:20px;color: blue;'>This QR code is invalid!</p>");
 	  document.write("<p style='font-size:20px;color: black;'>Please dispose of your badge before leaving reception/lobby!</p>");
             document.write("<p style='font-size:20px;color: blue;'>Have a great day!</p>");
 	  document.write("<p style='font-size:15px;color: black;'><br><br><br>current date/time: " + NowTime + "</p>");
@@ -1520,7 +1598,7 @@ const chunkSize = 10;
            var todays = new Date().toDateString();
            //choosedate = choosedate.toDateString();
               console.log("todaysdate: " + todays);
-               console.log("date2: " + new Date(doc.data().date2).toDateString());
+     
        if (choosedate === new Date(doc.data().date2).toDateString()) {
           dates = new Date(doc.data().date2).toLocaleDateString("en", options)
        }
@@ -1554,7 +1632,19 @@ const chunkSize = 10;
        if (choosedate === new Date(doc.data().date12).toDateString()) {
           dates = new Date(doc.data().date12).toLocaleDateString("en", options)
        }
-
+                  console.log("choosedate: " + choosedate);
+               console.log("date1: " + new Date(doc.data().date).toDateString());
+               console.log("date2: " + new Date(doc.data().date2).toDateString());
+               console.log("date3: " + new Date(doc.data().date3).toDateString());
+               console.log("date4: " + new Date(doc.data().date4).toDateString());
+               console.log("date5: " + new Date(doc.data().date5).toDateString());
+               console.log("date6: " + new Date(doc.data().date6).toDateString());
+               console.log("date7: " + new Date(doc.data().date7).toDateString());
+               console.log("date8: " + new Date(doc.data().date8).toDateString());
+               console.log("date9: " + new Date(doc.data().date9).toDateString());
+               console.log("date10: " + new Date(doc.data().date10).toDateString());
+               console.log("date11: " + new Date(doc.data().date11).toDateString());
+               console.log("date12: " + new Date(doc.data().date12).toDateString());
            // }
            //var dates = new Date(doc.data().date).toLocaleTimeString()
            //console.log("loadtodayschedule:" + dates);
