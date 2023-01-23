@@ -1,3 +1,4 @@
+<center>click X to close</center>
 <ul style="display: inline;">
   <li>Latest updates</li>
   <ul><li><b>Schedule Visitor:</b> Schedule up to 12 dates per guest</li></ul> 
