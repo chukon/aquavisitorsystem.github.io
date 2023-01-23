@@ -50,7 +50,7 @@ jQuery.get('notification.txt', function(data) {
 
 var createDialog = function(text , title) {
     //create dialog <div> shell
-    var dialog =  '<div id="dialog" title="Visitor Management System" style="font-size: small;">' + text + '<br><button onclick="self.close()">Close</button></div>';
+    var dialog =  '<div id="dialog" title="Visitor Management System" style="font-size: small;">' + text + '<br><button onclick="dialog.close()">Close</button></div>';
     
     // create the dialog <div>
     $('body').append(dialog);
