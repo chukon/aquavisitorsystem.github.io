@@ -1,4 +1,4 @@
-<center style="font-size: smaller;">click X to close</center>
+<center style="font-size: smaller;color: blue;">click X to close</center>
 <ul style="display: inline;">
   <li>Latest updates</li>
   <ul><li><b>Schedule Visitor:</b> Schedule up to 12 dates per guest</li></ul> 
@@ -6,4 +6,4 @@
   <ul><li><b>Help System:</b> Upated documentation</li></ul> 
 </ul> 
 <br>
-<div id="footer">updated by Chuck Konkol: 1/23/2023</div>
+<div id="footer" style="color: lightgray;">updated by Chuck Konkol: 1/23/2023</div>
