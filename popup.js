@@ -28,8 +28,7 @@ const getUA = () => {
         if (isMobile || isIPadPro) {
        
         } else{
-           // callwhenback();
-            setTimeout(callwhenback(), 3000);
+            setTimeout(callwhenback(), 5000);
         }
 };
 
