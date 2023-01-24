@@ -74,12 +74,12 @@ var createDialog = function(text , title) {
         var win = $(window);
         //closeBtnText
         //{ dialogClass: 'no-close' });
-        $(this).closest('.ui-dialog').css({'ui-dialog-titlebar-close': 'visibility: hidden'});
+       // $(this).closest('.ui-dialog').css({'ui-dialog-titlebar-close': 'visibility: hidden'});
         $(this).closest('.ui-dialog').css({'dialogClass': 'no-close'});
         $(this).closest('.ui-dialog').css({'buttons': {'Close': function () {$(this).dialog('close')}}});
         $(this).closest('.ui-dialog').css({'width':'430px'});
         $(this).closest('.ui-dialog').css({'position':'absolute',left: (win.width() - $(this).parent().outerWidth()) / 2,top: 324});
-        $(".ui-dialog-titlebar-close", ui).hide();
+        $(this).parent().children().children('.ui-dialog-titlebar-close').hide();
     }});
 
     document.getElementById("modalClose").addEventListener("click", closeit);
