@@ -76,8 +76,7 @@ var createDialog = function(text , title) {
         //{ dialogClass: 'no-close' });
         $(this).closest('.ui-dialog').css({'dialogClass': 'no-close'});
         $(this).closest('.ui-dialog').css({'buttons': {'Close': function () {$(this).dialog('close')}}});
-        $(this).closest('.ui-dialog').css({'width':'no-close'});
-        $(this).closest('.ui-dialog').css({'dialogClass':'430px'});
+        $(this).closest('.ui-dialog').css({'width':'430px'});
 	    $(this).closest('.ui-dialog').css({'position':'absolute',left: (win.width() - $(this).parent().outerWidth()) / 2,top: 324});
     }});
 
