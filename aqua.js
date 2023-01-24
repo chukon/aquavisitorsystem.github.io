@@ -2305,7 +2305,7 @@ document.write(nodata);
 }
 });
    document.write("</table>");
-   setTimeout("sortTable(3)", 1000);       
+   setTimeout("sortTable(3)", 2000);       
 }
        
        
