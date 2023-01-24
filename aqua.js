@@ -2204,8 +2204,8 @@ const chunkSize = 10;
          var title = "<center><h2>Active Visitor Schedule(s) for: " + todays + "</h2></center>";      
          document.write(title);
          var links = "'https://aquameeting.github.io/?ipad=Yes'";
-         var buttons =  '<button onclick="window.location.href=' + links + ';" style="background-color: yellow;font-weight: bold;border-color: black;font-size: medium;">HERE</button>';
-         document.write("<center><h3>Find your schedule and Tap 'Select'</b></h3>If your schedule is not found below, tap " + buttons + "<br><br></center>"); 
+         var buttons =  '<button onclick="window.location.href=' + links + ';" style="background-color: yellow;font-weight: bold;border-color: black;font-size: small;">tap here</button>';
+         document.write("<center><h3>Find your schedule below and tap 'HERE'</b></h3>If your schedule is not found below, " + buttons + "<br><br></center>"); 
  
          if (cnt1 === 0){
              var nodata = "<center><br>No visitor data found<br></center>";
@@ -2293,7 +2293,7 @@ if (todays === new Date(doc.data().date12).toDateString()) {
 
 	   console.log("loaddbtoday:" + dates);
 	     var links = "'https://aquavisitorsystem.github.io/?iPadid=" + doc.data().key + "'";
-	       var buttons =  '<button onclick="window.location.href=' + links + ';" style="background-color: yellow;font-weight: bold;border-color: black;font-size: medium;">Select</button>';
+	       var buttons =  '<button onclick="window.location.href=' + links + ';" style="background-color: yellow;font-weight: bold;border-color: black;font-size: medium;">HERE</button>';
 	
   	    document.write('<tr><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().message + '</td><td>' + buttons + '</td></tr>');
          });
@@ -2303,7 +2303,7 @@ if (todays === new Date(doc.data().date12).toDateString()) {
     .catch((error) => {
          console.log("Error getting documents: ", error);
           document.write(title);
-          document.write("<br>If schedule not found below, click <a href='" +  "https://aquameeting.github.io"   + "'>here</a> to continue<br>");
+          document.write("<br>If schedule not found below, <a href='" +  "https://aquameeting.github.io"   + "'>tap here</a> to continue<br>");
 	  var nodata = "<br>No visitor data found<br>";
 	  document.write(nodata);
           document.head.innerHTML = header;
