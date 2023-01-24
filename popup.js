@@ -29,11 +29,12 @@ const getUA = () => {
        
         } else{
             // callwhenback();
-            loaddialog().fadeIn(10000);
+            //loadit().fadeIn(10000);
+            setTimeout(loadit,5000);
         }
     };
 
-    function loaddialog() {
+    function loadit() {
         callwhenback();
     }
 
