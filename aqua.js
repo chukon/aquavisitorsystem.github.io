@@ -2200,7 +2200,7 @@ promise.then(values => {
 const chunkSize = 10;
      var chunk;
          let todays = new Date().toLocaleDateString();
-         var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
+         var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style><script src='sorttable.js'></script></head>";
          var title = "<center><h2>Active Visitor Schedule(s) for: " + todays + "</h2></center>";      
          document.write(title);
          var links = "'https://aquameeting.github.io/?ipad=Yes'";
@@ -2211,7 +2211,7 @@ const chunkSize = 10;
              var nodata = "<center><br>No visitor data found<br></center>";
              document.write(nodata);
          }else{
-             document.write("<table id='report' style='font-size: small;'>  <tr>   <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(1)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(3)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Visiting</th><th></th>  </tr>");
+             document.write("<table  class='sortable' id='report' style='font-size: small;'>  <tr>   <th>First Name</th>    <th style='cursor: pointer; color: red;'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Visiting</th><th></th>  </tr>");
          }
          for (let i = 0; i < docs.length; i += chunkSize) {
              chunk = docs.slice(i, i + chunkSize);
@@ -2248,47 +2248,47 @@ const chunkSize = 10;
         console.log("date2: " + new Date(doc.data().date2).toDateString());
 if (todays === new Date(doc.data().date2).toDateString()) {
    dates = new Date(doc.data().date2).toLocaleDateString("en", options)
-     setTimeout("sortTable(3)", 3000);
+   //setTimeout(sortTable(3), 3000);
          }
 if (todays === new Date(doc.data().date3).toDateString()) {
    dates = new Date(doc.data().date3).toLocaleDateString("en", options)
-     setTimeout("sortTable(3)", 3000);
+    //setTimeout(sortTable(3), 3000);
          }
 if (todays === new Date(doc.data().date4).toDateString()) {
    dates = new Date(doc.data().date4).toLocaleDateString("en", options)
-     setTimeout("sortTable(3)", 3000);
+   // setTimeout(sortTable(3), 3000);
          }
 if (todays === new Date(doc.data().date5).toDateString()) {
    dates = new Date(doc.data().date5).toLocaleDateString("en", options)
-     setTimeout("sortTable(3)", 3000);
+  // setTimeout(sortTable(3), 3000);
          }
 if (todays === new Date(doc.data().date6).toDateString()) {
    dates = new Date(doc.data().date6).toLocaleDateString("en", options)
-     setTimeout("sortTable(3)", 3000);
+   // setTimeout(sortTable(3), 3000);
          }
 if (todays === new Date(doc.data().date7).toDateString()) {
    dates = new Date(doc.data().date7).toLocaleDateString("en", options)
-     setTimeout("sortTable(3)", 3000);
+   // setTimeout(sortTable(3), 3000);
          }
 if (todays === new Date(doc.data().date8).toDateString()) {
    dates = new Date(doc.data().date8).toLocaleDateString("en", options)
-     setTimeout("sortTable(3)", 3000);
+   // setTimeout(sortTable(3), 3000);
          }
 if (todays === new Date(doc.data().date9).toDateString()) {
    dates = new Date(doc.data().date9).toLocaleDateString("en", options)
-     setTimeout("sortTable(3)", 3000);
+   //  setTimeout(sortTable(3), 3000);
          }
 if (todays === new Date(doc.data().date10).toDateString()) {
    dates = new Date(doc.data().date10).toLocaleDateString("en", options)
-     setTimeout("sortTable(3)", 3000);
+   //setTimeout(sortTable(3), 3000);
          }
 if (todays === new Date(doc.data().date11).toDateString()) {
    dates = new Date(doc.data().date11).toLocaleDateString("en", options)
-     setTimeout("sortTable(3)", 3000);
+   // setTimeout(sortTable(3), 3000);
          }
 if (todays === new Date(doc.data().date12).toDateString()) {
    dates = new Date(doc.data().date12).toLocaleDateString("en", options)
-     setTimeout("sortTable(3)", 3000);
+  // setTimeout(sortTable(3), 3000);
          }
 
 	   console.log("loaddbtoday:" + dates);
@@ -2311,7 +2311,6 @@ if (todays === new Date(doc.data().date12).toDateString()) {
          }
          });
             document.write("</table>");
-          
          }
        
        
@@ -3167,7 +3166,7 @@ if ((checkin === null || checkin === '') &&  (keyid != null && keyid != '')) {
     }
   }
      } catch (error) {
-         console.log(error);
+         //console.log(error);
          // Expected output: ReferenceError: nonExistentFunction is not defined
          // (Note: the exact output may be browser-dependent)
      }
