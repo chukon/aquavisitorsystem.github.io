@@ -861,6 +861,8 @@ var loaddb =  function(data){
         console.log("Error getting documents: ", error);
 });
 }
+    setTimeout("sortTable(4)", 1000);
+    setTimeout("sortTable(4)", 1000);
 }
        
 var loaddbeverything =  function(){
@@ -885,7 +887,7 @@ var loaddbeverything =  function(){
         document.write(nodata);
     }else{
         //	  document.write("<table  id='report' style='font-size: small;'>  <tr>    <th>UserID</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th>Date/Time</th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
-        document.write("<table  id='report' style='font-size: small;'>  <tr>    <th>UserID</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th>Date/Time</th>      <th>Email</th>       <th>Visiting</th><th>Edit</th>  </tr>");
+        document.write("<table  id='report' style='font-size: small;'>  <tr>    <th style='cursor: pointer; color: red;' onclick='sortTable(0)'>UserID <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th>Date/Time</th>      <th>Email</th>       <th>Visiting</th><th>Edit</th>  </tr>");
 
     }
     querySnapshot.forEach((doc) => {
@@ -945,6 +947,7 @@ document.head.innerHTML = header;
     .catch((error) => {
         console.log("Error getting documents: ", error);
 });
+   setTimeout("sortTable(2)", 2000);
 }
        
 var loaddbeverythings =  function(){
@@ -965,7 +968,7 @@ var loaddbeverythings =  function(){
         var nodata = "<center><br>No visitor data found<br></center>";
         document.write(nodata);
     }else{
-        document.write("<table  id='report' style='font-size: small;'>  <tr>    <th>UserID</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th>Date/Time</th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
+        document.write("<table  id='report' style='font-size: small;'>  <tr>    <th>UserID</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
         //	  document.write("<table  id='report' style='font-size: small;'>  <tr>    <th>UserID</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th>Date/Time</th>      <th>Email</th>       <th>Visiting</th><th>Edit</th>  </tr>");
 
     }
@@ -1316,7 +1319,7 @@ var loadinactive =  function(){
         document.write(nodata);
     }else{
         // document.write("<table id='report' style='font-size: small;'>  <tr>    <th>UserID</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
-        document.write("<table id='report' style='font-size: small;'>  <tr>    <th>UserID</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>Edit</th>  </tr>");
+        document.write("<table id='report' style='font-size: small;'>  <tr>    <th style='cursor: pointer; color: red;' onclick='sortTable(0)'>UserID <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th>Date/Time</th>      <th>Email</th>       <th>Visiting</th><th>Edit</th>  </tr>");
     }
     querySnapshot.forEach((doc) => {
         console.log(doc.id, " => ", doc.data());
@@ -1372,6 +1375,7 @@ document.head.innerHTML = header;
     .catch((error) => {
         console.log("Error getting documents: ", error);
 });
+    setTimeout("sortTable(2)", 2000);
 }
        
 var loadtoday =  function(){
@@ -1410,7 +1414,7 @@ var loadtoday =  function(){
     }	
     console.log(name);
     var  todays = new Date().toLocaleDateString('en-US');  
-    var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;#link{display:none;}}@page{size: landscape;}}</style></head>";
+    var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}@page{size: landscape;}}</style></head>";
     var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
     var RecordIDs = [];
     var cnt1;
@@ -1658,7 +1662,7 @@ if (choosedate === new Date(doc.data().date12).toDateString()) {
 }
 });
      document.write("</table>");
-    // setTimeout("sortTable(4)", 2000);
+     setTimeout("sortTable(4)", 2000);
 }
   
 var loadtodayschedule =  function(){
@@ -1867,57 +1871,57 @@ if (cnt === 0){
 if (todays === new Date(doc.data().date2).toDateString()) {
    dates = new Date(doc.data().date2).toLocaleDateString("en", options)
    x = 1;
-   setTimeout("sortTable(4)", 3000);
+   //setTimeout("sortTable(4)", 3000);
 }
 if (todays === new Date(doc.data().date3).toDateString()) {
    dates = new Date(doc.data().date3).toLocaleDateString("en", options)
     x = 1;
-     setTimeout("sortTable(4)", 3000);
+   //  setTimeout("sortTable(4)", 3000);
 }
 if (todays === new Date(doc.data().date4).toDateString()) {
    dates = new Date(doc.data().date4).toLocaleDateString("en", options)
     x = 1;
-      setTimeout("sortTable(4)", 3000);
+    //  setTimeout("sortTable(4)", 3000);
 }
 if (todays === new Date(doc.data().date5).toDateString()) {
    dates = new Date(doc.data().date5).toLocaleDateString("en", options)
     x = 1;
-     setTimeout("sortTable(4)", 3000);
+   //  setTimeout("sortTable(4)", 3000);
 }
 if (todays === new Date(doc.data().date6).toDateString()) {
    dates = new Date(doc.data().date6).toLocaleDateString("en", options)
     x = 1;
-     setTimeout("sortTable(4)", 3000);
+    // setTimeout("sortTable(4)", 3000);
 }
 if (todays === new Date(doc.data().date7).toDateString()) {
    dates = new Date(doc.data().date7).toLocaleDateString("en", options)
     x = 1;
-     setTimeout("sortTable(4)", 3000);
+    // setTimeout("sortTable(4)", 3000);
 }
 if (todays === new Date(doc.data().date8).toDateString()) {
    dates = new Date(doc.data().date8).toLocaleDateString("en", options)
     x = 1;
-     setTimeout("sortTable(4)", 3000);
+     //setTimeout("sortTable(4)", 3000);
 }
 if (todays === new Date(doc.data().date9).toDateString()) {
    dates = new Date(doc.data().date9).toLocaleDateString("en", options)
     x = 1;
-     setTimeout("sortTable(4)", 3000);
+    // setTimeout("sortTable(4)", 3000);
 }
 if (todays === new Date(doc.data().date10).toDateString()) {
    dates = new Date(doc.data().date10).toLocaleDateString("en", options)
     x = 1;
-     setTimeout("sortTable(4)", 3000);
+     //setTimeout("sortTable(4)", 3000);
 }
 if (todays === new Date(doc.data().date11).toDateString()) {
    dates = new Date(doc.data().date11).toLocaleDateString("en", options)
     x = 1;
-     setTimeout("sortTable(4)", 3000);
+     //setTimeout("sortTable(4)", 3000);
 }
 if (todays === new Date(doc.data().date12).toDateString()) {
    dates = new Date(doc.data().date12).toLocaleDateString("en", options)
     x = 1;
-     setTimeout("sortTable(4)", 3000);
+    // setTimeout("sortTable(4)", 3000);
 }
 console.log("x is: " + x);
 
@@ -1939,7 +1943,7 @@ console.log("x is: " + x);
 }
 });
      document.write("</table>");
-     
+       setTimeout("sortTable(4)", 2000);
   
     //setTimeout("sortTable(4)", 3000);
 }
