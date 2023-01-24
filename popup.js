@@ -95,7 +95,7 @@ function checkCookie() {
 }
 
 function closeit(){
-    $dialog.dialog('close');
+    $('#dialog').dialog('close');
 }
 function getCookie(cname) {
   var name = cname + "=";
