@@ -80,6 +80,8 @@ var createDialog = function(text , title) {
         $(this).closest('.ui-dialog').css({'dialogClass':'430px'});
 	    $(this).closest('.ui-dialog').css({'position':'absolute',left: (win.width() - $(this).parent().outerWidth()) / 2,top: 324});
     }});
+
+    document.getElementById("modalClose").addEventListener("click", closeit);
 }
 
 function checkCookie() {
@@ -121,4 +123,4 @@ function delete_cookie(name) {
 
 
 
-document.getElementById("modalClose").addEventListener("click", closeit);
+
