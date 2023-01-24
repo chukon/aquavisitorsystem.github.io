@@ -41,8 +41,9 @@ jQuery.get('notification.txt', function(data) {
         var Titles = "Visitor Management System";
     if (getCookie('vmspopup')) {
 		return;
-	}
-    createDialog(notifs , Titles);
+    }
+    setTimeout(createDialog(notifs , Titles), 3000);
+ //   createDialog(notifs , Titles);
 // The popup was displayed. Set the cookie for 1 day.
     setCookie('vmspopup', 'yes', 28800);
 }
