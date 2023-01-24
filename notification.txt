@@ -5,8 +5,7 @@
   <ul><li><b>Help System:</b> Upated documentation</li></ul> 
 </ul> 
 <br>
-<br />
 <button id='modalClose' type="button">Close</button>
 <br>
 <br>
-<div id="footer" style="color: lightgray;">updated by Chuck Konkol: 1/23/2023</div>
+<center><div id="footer" style="color: gray;">last updated by Chuck Konkol: 1/24/2023</div></center>
