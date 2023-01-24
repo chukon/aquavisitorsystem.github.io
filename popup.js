@@ -73,6 +73,8 @@ var createDialog = function(text , title) {
     $('#dialog').dialog({open : function() {
         var win = $(window);
         //closeBtnText
+        //{ dialogClass: 'no-close' });
+        $(this).closest('.ui-dialog').css({'dialogClass': 'no-close'});
         $(this).closest('.ui-dialog').css({'buttons': {'Close': function () {$(this).dialog('close')}}});
         $(this).closest('.ui-dialog').css({'width':'no-close'});
         $(this).closest('.ui-dialog').css({'dialogClass':'430px'});
@@ -89,6 +91,10 @@ function checkCookie() {
       setCookie("notification","notif", 2);
       return false;    
     }
+}
+
+function closeit(){
+    $dialog.dialog('close');
 }
 function getCookie(cname) {
   var name = cname + "=";
@@ -115,4 +121,4 @@ function delete_cookie(name) {
 
 
 
-
+document.getElementById("modalClose").addEventListener("click", closeit);
