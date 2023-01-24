@@ -5,4 +5,7 @@
   <ul><li><b>Help System:</b> Upated documentation</li></ul> 
 </ul> 
 <br>
+<br /><a id='modalClose'>CloseMe</a>
+<br>
+<br>
 <div id="footer" style="color: lightgray;">updated by Chuck Konkol: 1/23/2023</div>
