@@ -28,9 +28,14 @@ const getUA = () => {
         if (isMobile || isIPadPro) {
        
         } else{
-            setTimeout(callwhenback(), 5000);
+            // callwhenback();
+            loaddialog().fadeIn(10000);
         }
-};
+    };
+
+    function loaddialog() {
+        callwhenback();
+    }
 
 function  callwhenback() {
 jQuery.get('notification.txt', function(data) {
