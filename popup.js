@@ -56,6 +56,20 @@ jQuery.get('notification.txt', function(data) {
 });
 }
 
+function  callback() {
+    jQuery.get('notification.txt', function(data) {
+        //alert(data.length);
+        // initialize title and body variables
+        if (data.length > 3){
+            var notifs = data;
+            var Titles = "Visitor Management System";
+ 
+            createDialog(notifs , Titles);
+
+        }
+    });
+}
+
 var createDialog = function(text , title) {
     //create dialog <div> shell
     var dialog =  '<div id="dialog" title="Visitor Management System" style="font-size: small;">' + text + '</div>';
