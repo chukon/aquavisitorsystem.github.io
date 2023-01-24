@@ -2242,47 +2242,47 @@ console.log("todaysdate: " + todays);
 console.log("date2: " + new Date(doc.data().date2).toDateString());
 if (todays === new Date(doc.data().date2).toDateString()) {
 dates = new Date(doc.data().date2).toLocaleDateString("en", options)
-setTimeout("sortTable(3)", 3000);
+//setTimeout("sortTable(3)", 2000);
 }
 if (todays === new Date(doc.data().date3).toDateString()) {
 dates = new Date(doc.data().date3).toLocaleDateString("en", options)
-setTimeout("sortTable(3)", 3000);
+//setTimeout("sortTable(3)", 2000);
 }
 if (todays === new Date(doc.data().date4).toDateString()) {
 dates = new Date(doc.data().date4).toLocaleDateString("en", options)
-setTimeout("sortTable(3)", 3000);
+//setTimeout("sortTable(3)", 2000);
 }
 if (todays === new Date(doc.data().date5).toDateString()) {
 dates = new Date(doc.data().date5).toLocaleDateString("en", options)
-setTimeout("sortTable(3)", 3000);
+//setTimeout("sortTable(3)", 2000);
 }
 if (todays === new Date(doc.data().date6).toDateString()) {
 dates = new Date(doc.data().date6).toLocaleDateString("en", options)
-setTimeout("sortTable(3)", 3000);
+//setTimeout("sortTable(3)", 2000);
 }
 if (todays === new Date(doc.data().date7).toDateString()) {
 dates = new Date(doc.data().date7).toLocaleDateString("en", options)
-setTimeout("sortTable(3)", 3000);
+//setTimeout("sortTable(3)", 2000);
 }
 if (todays === new Date(doc.data().date8).toDateString()) {
 dates = new Date(doc.data().date8).toLocaleDateString("en", options)
-setTimeout("sortTable(3)", 3000);
+//setTimeout("sortTable(3)", 2000);
 }
 if (todays === new Date(doc.data().date9).toDateString()) {
 dates = new Date(doc.data().date9).toLocaleDateString("en", options)
-setTimeout("sortTable(3)", 3000);
+//setTimeout("sortTable(3)", 2000);
 }
 if (todays === new Date(doc.data().date10).toDateString()) {
 dates = new Date(doc.data().date10).toLocaleDateString("en", options)
-setTimeout("sortTable(3)", 3000);
+//setTimeout("sortTable(3)", 2000);
 }
 if (todays === new Date(doc.data().date11).toDateString()) {
 dates = new Date(doc.data().date11).toLocaleDateString("en", options)
-setTimeout("sortTable(3)", 3000);
+//setTimeout("sortTable(3)", 2000);
 }
 if (todays === new Date(doc.data().date12).toDateString()) {
 dates = new Date(doc.data().date12).toLocaleDateString("en", options)
-setTimeout("sortTable(3)", 3000);
+//setTimeout("sortTable(3)", 2000);
 }
 
 console.log("loaddbtoday:" + dates);
@@ -2305,7 +2305,7 @@ document.write(nodata);
 }
 });
    document.write("</table>");
-          
+   setTimeout("sortTable(3)", 1000);       
 }
        
        
