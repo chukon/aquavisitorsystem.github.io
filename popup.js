@@ -28,7 +28,8 @@ const getUA = () => {
         if (isMobile || isIPadPro) {
        
         } else{
-            callwhenback();
+           // callwhenback();
+            setTimeout(callwhenback(), 3000);
         }
 };
 
@@ -42,8 +43,8 @@ jQuery.get('notification.txt', function(data) {
     if (getCookie('vmspopup')) {
 		return;
     }
-    setTimeout(createDialog(notifs , Titles), 3000);
- //   createDialog(notifs , Titles);
+ 
+    createDialog(notifs , Titles);
 // The popup was displayed. Set the cookie for 1 day.
     setCookie('vmspopup', 'yes', 28800);
 }
