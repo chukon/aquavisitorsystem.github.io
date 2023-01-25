@@ -983,7 +983,7 @@ document.head.innerHTML = header;
         console.log("Error getting documents: ", error);
 });
     document.write("</tbody></table>");
-    setTimeout("sortTable(2)", 3000);
+   // setTimeout("sortTable(5)", 3000);
    // setTimeout("sortByDate(5)", 6000);
 }
        
