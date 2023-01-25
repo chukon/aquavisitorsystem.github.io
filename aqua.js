@@ -467,12 +467,17 @@ document.getElementById("submit_msg").disabled = true;
 });
 }
        
-var log_create = function(){
+    var log_create = function(){
+        var tzoffset = (new Date()).getTimezoneOffset() * 60000; //offset in milliseconds
+        var d = new Date(Date.now() - tzoffset);
+        d.setSeconds(0, 0);
+        let newdates = d.toISOString().replace('Z', '').replace(/:00.000/, "");
+        console.log("newdates " + newdates);
     console.log("log_create started");
     var db = firebase.firestore();
     var newdate = new Date().toISOString(); 
     var key = fldfirstname + fldlastname + newdate;
-    var SaveDoc = db.collection("log").doc(key);  
+    var SaveDoc = db.collection("log").doc(key); 
     SaveDoc.set({
         key: key, 
         sourcekey: fldkey,
@@ -480,7 +485,7 @@ var log_create = function(){
         firstname: fldfirstname,
         lastname: fldlastname,
         company: fldcompany,
-        date: flddate,
+        date: newdates,
         email: fldemail,
         message: fldmessage,
         timestamp: Date.now(),
@@ -636,7 +641,7 @@ if ((key_checkin === null || key_checkin === '') && (key_checkout === null || ke
     document.write("</center>");
     document.write('</body>');
     console.log("checkin successful");
-    sendcheckedin();
+   // sendcheckedin();
     log_create();
 }else if ((key_checkin !=null && key_checkin != '') && (key_checkout === null || key_checkout === '') && (todaysdate === true)){
     console.log("checkedin ID: Yes");
@@ -653,7 +658,7 @@ if ((key_checkin === null || key_checkin === '') && (key_checkout === null || ke
     document.write("</center>");
     document.write('</body>');
     console.log("checkout successful");
-    sendcheckedout();
+   // sendcheckedout();
     log_create();
 }else if ((key_checkin !=null && key_checkin != '') && (key_checkout !=null && key_checkout != '') && (todaysdate === true)){
     //qr code used already
@@ -1299,7 +1304,10 @@ var loadlogtoday =  function(){
     var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}@page{size: landscape;}}</style></head>";
     var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
     var lines = "";
-    let today = new Date().toISOString().slice(0, 10);
+    var Dates = [];
+    var datesort;
+    let today = new Date().toISOString();
+    console.log("ISO Today: " + today);
     var  todays = new Date().toLocaleDateString('en-US');  
     var start = new Date();
     start.setHours(0,0,0,0);
