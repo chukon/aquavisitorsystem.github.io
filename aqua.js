@@ -1005,7 +1005,6 @@ var loaddbeverything =  function(){
         datesort = new Date(doc.data().date12).toLocaleDateString("fr-CA", options2);
         Dates.push(datesort);
     }
-
     datesort = Dates.reduce((a, b) => (a.MeasureDate > b.MeasureDate ? a : b));
     console.log("DateSort: " + Dates.reduce((a, b) => (a.MeasureDate > b.MeasureDate ? a : b)));
     console.log("loaddbeverything:" + dates);
@@ -1130,7 +1129,7 @@ var loadname =  function(){
             document.write(nodata);
         }else{
             //document.write("<table id='report' style='font-size: small;'>  <tr>    <th>UserID</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
-            document.write("<table id='report' style='font-size: small;'>  <tr>    <th>UserID</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>Edit</th>  </tr>");
+            document.write("<table id='report' style='font-size: small;'>  <tr>    <th style='cursor: pointer; color: red;' onclick='sortTable(0)'>UserID <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>Edit</th>  </tr>");
         }
         querySnapshot.forEach((doc) => {
             // doc.data() is never undefined for query doc snapshots
@@ -1139,43 +1138,45 @@ var loadname =  function(){
             year: "numeric",
             month: "2-digit",
             day: "2-digit",
+        };
+        var options2 = {
             hour: "2-digit",
             minute: "2-digit"
         };
-        var dates = new Date(doc.data().date).toLocaleDateString("en", options)
+        var dates = new Date(doc.data().date).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date).toLocaleTimeString("en", options2)
         console.log("loadinactive:" + dates);
         if (typeof doc.data().date2 !== 'undefined' && doc.data().date2 !=="") {
-            dates = dates + "<hr>" + new Date(doc.data().date2).toLocaleDateString("en", options)
+            dates = dates + "<hr>" + new Date(doc.data().date2).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date2).toLocaleTimeString("en", options2)
         }
         if (typeof doc.data().date3 !== 'undefined' && doc.data().date3 !=="") {
-            dates = dates + "<hr>" + new Date(doc.data().date3).toLocaleDateString("en", options)
+            dates = dates + "<hr>" + new Date(doc.data().date3).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date3).toLocaleTimeString("en", options2)
         }
         if (typeof doc.data().date4 !== 'undefined' && doc.data().date4 !=="") {
-            dates = dates + "<hr>" + new Date(doc.data().date4).toLocaleDateString("en", options)
+            dates = dates + "<hr>" + new Date(doc.data().date4).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date4).toLocaleTimeString("en", options2)
         }
         if (typeof doc.data().date5 !== 'undefined' && doc.data().date5 !=="") {
-            dates = dates + "<hr>" + new Date(doc.data().date5).toLocaleDateString("en", options)
+            dates = dates + "<hr>" + new Date(doc.data().date5).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date5).toLocaleTimeString("en", options2)
         }
         if (typeof doc.data().date6 !== 'undefined' && doc.data().date6 !=="") {
-            dates = dates + "<hr>" + new Date(doc.data().date6).toLocaleDateString("en", options)
+            dates = dates + "<hr>" + new Date(doc.data().date6).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date6).toLocaleTimeString("en", options2)
         }
         if (typeof doc.data().date7 !== 'undefined' && doc.data().date7 !=="") {
-            dates = dates + "<hr>" + new Date(doc.data().date7).toLocaleDateString("en", options)
+            dates = dates + "<hr>" + new Date(doc.data().date7).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date7).toLocaleTimeString("en", options2)
         }
         if (typeof doc.data().date8 !== 'undefined' && doc.data().date8 !=="") {
-            dates = dates + "<hr>" + new Date(doc.data().date8).toLocaleDateString("en", options)
+            dates = dates + "<hr>" + new Date(doc.data().date8).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date8).toLocaleTimeString("en", options2)
         }
         if (typeof doc.data().date9 !== 'undefined' && doc.data().date9 !=="") {
-            dates = dates + "<hr>" + new Date(doc.data().date9).toLocaleDateString("en", options)
+            dates = dates + "<hr>" + new Date(doc.data().date9).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date9).toLocaleTimeString("en", options2)
         }
         if (typeof doc.data().date10 !== 'undefined' && doc.data().date10 !=="") {
-            dates = dates + "<hr>" + new Date(doc.data().date10).toLocaleDateString("en", options)
+            dates = dates + "<hr>" + new Date(doc.data().date10).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date10).toLocaleTimeString("en", options2)
         }
         if (typeof doc.data().date11 !== 'undefined' && doc.data().date11 !=="") {
-            dates = dates + "<hr>" + new Date(doc.data().date11).toLocaleDateString("en", options)
+            dates = dates + "<hr>" + new Date(doc.data().date11).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date11).toLocaleTimeString("en", options2)
         }
         if (typeof doc.data().date12 !== 'undefined' && doc.data().date12 !=="") {
-            dates = dates + "<hr>" + new Date(doc.data().date12).toLocaleDateString("en", options)
+            dates = dates + "<hr>" + new Date(doc.data().date12).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date12).toLocaleTimeString("en", options2)
         }
         console.log("loadname:" + dates);
         //  document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
@@ -1215,7 +1216,7 @@ var loadlogname =  function(){
             var nodata = "<center><br>No visitor data found<br></center>";
             document.write(nodata);
         }else{
-            document.write("<table id='report' style='font-size: small;'>  <tr>    <th>UserID</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
+            document.write("<table id='report' style='font-size: small;'>  <tr>     <th style='cursor: pointer; color: red;' onclick='sortTable(0)'>UserID <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>   <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
         }
         querySnapshot.forEach((doc) => {
             // doc.data() is never undefined for query doc snapshots
@@ -1224,10 +1225,12 @@ var loadlogname =  function(){
             year: "numeric",
             month: "2-digit",
             day: "2-digit",
+        };
+        var options2 = {
             hour: "2-digit",
             minute: "2-digit"
         };
-        var dates = new Date(doc.data().date).toLocaleDateString("en", options)
+        var dates = new Date(doc.data().date).toLocaleDateString("fr-CA", options) + ' ' + new Date(doc.data().date).toLocaleTimeString("en", options2)
         console.log("loadlogname:" + dates);
         document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().sourcekey + '">Click here</a></td></tr>');
     });
@@ -1264,7 +1267,7 @@ var loadloguserid =  function(){
             var nodata = "<center><br>No visitor data found<br></center>";
             document.write(nodata);
         }else{
-            document.write("<table id='report' style='font-size: small;'>  <tr>    <th>UserID</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
+            document.write("<table id='report' style='font-size: small;'>  <tr>   <th style='cursor: pointer; color: red;' onclick='sortTable(0)'>UserID <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>   <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
         }
         querySnapshot.forEach((doc) => {
             // doc.data() is never undefined for query doc snapshots
@@ -1273,10 +1276,12 @@ var loadloguserid =  function(){
             year: "numeric",
             month: "2-digit",
             day: "2-digit",
-            hour: "2-digit",
+        };
+        var options2 = {
+             hour: "2-digit",
             minute: "2-digit"
         };
-        var dates = new Date(doc.data().date).toLocaleDateString("en", options)
+        var dates = new Date(doc.data().date).toLocaleDateString("fr-CA", options) + ' ' + new Date(doc.data().date).toLocaleTimeString("en", options2)
         console.log("loadlogname:" + dates);
         document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().sourcekey + '">Click here</a></td></tr>');
     });
@@ -1313,7 +1318,7 @@ var loadlogtoday =  function(){
         var nodata = "<center><br>No visitor data found<br></center>";
         document.write(nodata);
     }else{
-        document.write("<table id='report' style='font-size: small;'>  <tr>    <th>UserID</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
+        document.write("<table id='report' style='font-size: small;'>  <tr>     <th style='cursor: pointer; color: red;' onclick='sortTable(0)'>UserID <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
     }
     querySnapshot.forEach((doc) => {
         // doc.data() is never undefined for query doc snapshots
@@ -1322,10 +1327,12 @@ var loadlogtoday =  function(){
         year: "numeric",
         month: "2-digit",
         day: "2-digit",
+    };
+    var options2 = {
         hour: "2-digit",
         minute: "2-digit"
     };
-    var dates = new Date(doc.data().date).toLocaleDateString("en", options)
+    var dates = new Date(doc.data().date).toLocaleDateString("fr-CA", options) + ' ' + new Date(doc.data().date).toLocaleTimeString("en", options2)
     console.log("loadlogtoday:" + dates);
     document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().sourcekey + '">Click here</a></td></tr>');
 });
@@ -1354,7 +1361,7 @@ var loadlogall =  function(){
         var nodata = "<center><br>No visitor data found<br></center>";
         document.write(nodata);
     }else{
-        document.write("<table id='report' style='font-size: small;'>  <tr>    <th>UserID</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
+        document.write("<table id='report' style='font-size: small;'>  <tr>     <th style='cursor: pointer; color: red;' onclick='sortTable(0)'>UserID <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>   <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
     }
     querySnapshot.forEach((doc) => {
         // doc.data() is never undefined for query doc snapshots
@@ -1363,10 +1370,12 @@ var loadlogall =  function(){
         year: "numeric",
         month: "2-digit",
         day: "2-digit",
+    };
+    var options2 = {
         hour: "2-digit",
         minute: "2-digit"
     };
-    var dates = new Date(doc.data().date).toLocaleDateString("en", options)
+    var dates = new Date(doc.data().date).toLocaleDateString("fr-CA", options) + ' ' + new Date(doc.data().date).toLocaleTimeString("en", options2)
     console.log("loadlogall:" + dates);
     document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().sourcekey + '">Click here</a></td></tr>');
 });
@@ -1394,7 +1403,7 @@ var loadinactive =  function(){
         document.write(nodata);
     }else{
         // document.write("<table id='report' style='font-size: small;'>  <tr>    <th>UserID</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
-        document.write("<table id='report' style='font-size: small;'>  <tr>    <th style='cursor: pointer; color: red;' onclick='sortTable(0)'>UserID <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th>Date/Time</th>      <th>Email</th>       <th>Visiting</th><th>Edit</th>  </tr>");
+        document.write("<table id='report' style='font-size: small;'>  <tr>    <th style='cursor: pointer; color: red;' onclick='sortTable(0)'>UserID <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>      <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time<i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>       <th>Email</th>       <th>Visiting</th><th>Edit</th>  </tr>");
     }
     querySnapshot.forEach((doc) => {
         console.log(doc.id, " => ", doc.data());
@@ -1402,43 +1411,45 @@ var loadinactive =  function(){
         year: "numeric",
         month: "2-digit",
         day: "2-digit",
+    };
+    var options2 = {
         hour: "2-digit",
         minute: "2-digit"
     };
-    var dates = new Date(doc.data().date).toLocaleDateString("en", options)
+    var dates = new Date(doc.data().date).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date).toLocaleTimeString("en", options2)
     console.log("loadinactive:" + dates);
     if (typeof doc.data().date2 !== 'undefined' && doc.data().date2 !=="") {
-        dates = dates + "<hr>" + new Date(doc.data().date2).toLocaleDateString("en", options)
+        dates = dates + "<br>" + new Date(doc.data().date2).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date2).toLocaleTimeString("en", options2)
     }
     if (typeof doc.data().date3 !== 'undefined' && doc.data().date3 !=="") {
-        dates = dates + "<hr>" + new Date(doc.data().date3).toLocaleDateString("en", options)
+        dates = dates + "<br>" + new Date(doc.data().date3).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date3).toLocaleTimeString("en", options2)
     }
     if (typeof doc.data().date4 !== 'undefined' && doc.data().date4 !=="") {
-        dates = dates + "<hr>" + new Date(doc.data().date4).toLocaleDateString("en", options)
+        dates = dates + "<br>" + new Date(doc.data().date4).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date4).toLocaleTimeString("en", options2)
     }
     if (typeof doc.data().date5 !== 'undefined' && doc.data().date5 !=="") {
-        dates = dates + "<hr>" + new Date(doc.data().date5).toLocaleDateString("en", options)
+        dates = dates + "<br>" + new Date(doc.data().date5).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date5).toLocaleTimeString("en", options2)
     }
     if (typeof doc.data().date6 !== 'undefined' && doc.data().date6 !=="") {
-        dates = dates + "<hr>" + new Date(doc.data().date6).toLocaleDateString("en", options)
+        dates = dates + "<br>" + new Date(doc.data().date6).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date6).toLocaleTimeString("en", options2)
     }
     if (typeof doc.data().date7 !== 'undefined' && doc.data().date7 !=="") {
-        dates = dates + "<hr>" + new Date(doc.data().date7).toLocaleDateString("en", options)
+        dates = dates + "<br>" + new Date(doc.data().date7).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date7).toLocaleTimeString("en", options2)
     }
     if (typeof doc.data().date8 !== 'undefined' && doc.data().date8 !=="") {
-        dates = dates + "<hr>" + new Date(doc.data().date8).toLocaleDateString("en", options)
+        dates = dates + "<br>" + new Date(doc.data().date8).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date8).toLocaleTimeString("en", options2)
     }
     if (typeof doc.data().date9 !== 'undefined' && doc.data().date9 !=="") {
-        dates = dates + "<hr>" + new Date(doc.data().date9).toLocaleDateString("en", options)
+        dates = dates + "<br>" + new Date(doc.data().date9).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date9).toLocaleTimeString("en", options2)
     }
     if (typeof doc.data().date10 !== 'undefined' && doc.data().date10 !=="") {
-        dates = dates + "<hr>" + new Date(doc.data().date10).toLocaleDateString("en", options)
+        dates = dates + "<br>" + new Date(doc.data().date10).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date10).toLocaleTimeString("en", options2)
     }
     if (typeof doc.data().date11 !== 'undefined' && doc.data().date11 !=="") {
-        dates = dates + "<hr>" + new Date(doc.data().date11).toLocaleDateString("en", options)
+        dates = dates + "<br>" + new Date(doc.data().date11).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date11).toLocaleTimeString("en", options2)
     }
     if (typeof doc.data().date12 !== 'undefined' && doc.data().date12 !=="") {
-        dates = dates + "<hr>" + new Date(doc.data().date12).toLocaleDateString("en", options)
+        dates = dates + "<br>" + new Date(doc.data().date12).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date12).toLocaleTimeString("en", options2)
     }
     //  document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
     document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
@@ -1450,7 +1461,8 @@ document.head.innerHTML = header;
     .catch((error) => {
         console.log("Error getting documents: ", error);
 });
-    setTimeout("sortTable(2)", 2000);
+    setTimeout("sortTable(4)", 2000);
+    setTimeout("sortTable(4)", 2000);
 }
        
 var loadtoday =  function(){
@@ -1737,6 +1749,7 @@ if (choosedate === new Date(doc.data().date12).toDateString()) {
 }
 });
      document.write("</table>");
+     setTimeout("sortTable(4)", 2000);
      setTimeout("sortTable(4)", 2000);
 }
   
@@ -2087,19 +2100,21 @@ var name=prompt("Please choose one of the following\r\n1) Enter end search date 
 	 var nodata = "<center><br>No visitor data found<br></center>";
 	  document.write(nodata);
 }else{
-	document.write("<table id='report' style='font-size: small;'>  <tr>    <th>UserID</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");	
+	document.write("<table id='report' style='font-size: small;'>  <tr>     <th style='cursor: pointer; color: red;' onclick='sortTable(0)'>UserID <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>     <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");	
 }
          querySnapshot.forEach((doc) => {
 		var nodata = "";
     // doc.data() is never undefined for query doc snapshots
-                  var options = {
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-    hour: "2-digit",
-    minute: "2-digit"
-};
-	   var dates = new Date(doc.data().date).toLocaleDateString("en", options)
+  var options = {
+             year: "numeric",
+             month: "2-digit",
+             day: "2-digit",
+         };
+    var options2 = {
+             hour: "2-digit",
+             minute: "2-digit"
+         };
+    var dates = new Date(doc.data().date).toLocaleDateString("fr-CA", options) + ' ' + new Date(doc.data().date).toLocaleTimeString("en", options2)
 	   console.log("loadtodayschedule:" + dates);
      document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().sourcekey + '">Click here</a></td></tr>');
 });
