@@ -789,7 +789,7 @@ var loaddb =  function(data){
     }else{
         get_login  = get_login.toString();
         console.log(get_login);
-        var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
+        var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style><script src='sorttable.js'></script></head>";
         var lines = "";
         let today = new Date().toISOString().slice(0, 10);
         db.collection("messages").where("login", "==",get_login).where("remove", "==","No").orderBy("date","desc")
@@ -803,8 +803,8 @@ var loaddb =  function(data){
             document.write(nodata);
         }else{
             //document.write("<table id='report' style='font-size: small;'>  <tr>    <th>UserID</th>    <th>First Name</th>    <th  style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th  style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
-            document.write("<table id='report' style='font-size: small;'>  <tr>    <th>UserID</th>    <th>First Name</th>    <th  style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th  style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>Edit</th>  </tr>");
-
+            document.write("<table id='report' style='font-size: small;'>  <thead><tr>    <th>UserID</th>    <th>First Name</th>    <th  style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th>Date/Time(s)</th><th  style='cursor: pointer; color: red;' onclick='sortTable(5)'>LatestDate<i class='fa fa-sort' style='font-size:20px;color:blue'></i></th><th>Email</th>       <th>Visiting</th><th>Edit</th></tr></thead>");
+            document.write("<tbody>");
         }
         querySnapshot.forEach((doc) => {
             // doc.data() is never undefined for query doc snapshots
@@ -816,53 +816,69 @@ var loaddb =  function(data){
             hour: "2-digit",
             minute: "2-digit"
         };
+        var options1 = {
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit"
+        };
+        var datesort;
         var dates = new Date(doc.data().date).toLocaleDateString("en", options)
+        datesort = new Date(doc.data().date).toLocaleDateString('en-US',options1);
         console.log("loaddb:" + dates);
         if (typeof doc.data().date2 !== 'undefined' && doc.data().date2 !=="") {
-            dates = dates + "<hr>" + new Date(doc.data().date2).toLocaleDateString("en", options)
+            dates = dates + "<br>" + new Date(doc.data().date2).toLocaleDateString("en", options)
+            datesort = new Date(doc.data().date2).toLocaleDateString('en-US',options1);
         }
         if (typeof doc.data().date3 !== 'undefined' && doc.data().date3 !=="") {
-            dates = dates + "<hr>" + new Date(doc.data().date3).toLocaleDateString("en", options)
+            dates = dates + "<br>" + new Date(doc.data().date3).toLocaleDateString("en", options)
+            datesort = new Date(doc.data().date3).toLocaleDateString('en-US',options1);;
         }
         if (typeof doc.data().date4 !== 'undefined' && doc.data().date4 !=="") {
-            dates = dates + "<hr>" + new Date(doc.data().date4).toLocaleDateString("en", options)
+            dates = dates + "<br>" + new Date(doc.data().date4).toLocaleDateString("en", options)
+            datesort = new Date(doc.data().date4).toLocaleDateString('en-US',options1);
         }
         if (typeof doc.data().date5 !== 'undefined' && doc.data().date5 !=="") {
-            dates = dates + "<hr>" + new Date(doc.data().date5).toLocaleDateString("en", options)
+            dates = dates + "<br>" + new Date(doc.data().date5).toLocaleDateString("en", options)
+            datesort = new Date(doc.data().date5).toLocaleDateString('en-US',options1);
         }
         if (typeof doc.data().date6 !== 'undefined' && doc.data().date6 !=="") {
-            dates = dates + "<hr>" + new Date(doc.data().date6).toLocaleDateString("en", options)
+            dates = dates + "<br>" + new Date(doc.data().date6).toLocaleDateString("en", options)
+            datesort = new Date(doc.data().date6).toLocaleDateString('en-US',options1);
         }
         if (typeof doc.data().date7 !== 'undefined' && doc.data().date7 !=="") {
-            dates = dates + "<hr>" + new Date(doc.data().date7).toLocaleDateString("en", options)
+            dates = dates + "<br>" + new Date(doc.data().date7).toLocaleDateString("en", options)
+            datesort = new Date(doc.data().date7).toLocaleDateString('en-US',options1);
         }
         if (typeof doc.data().date8 !== 'undefined' && doc.data().date8 !=="") {
-            dates = dates + "<hr>" + new Date(doc.data().date8).toLocaleDateString("en", options)
+            dates = dates + "<br>" + new Date(doc.data().date8).toLocaleDateString("en", options)
+            datesort = new Date(doc.data().date8).toLocaleDateString('en-US',options1);
         }
         if (typeof doc.data().date9 !== 'undefined' && doc.data().date9 !=="") {
-            dates = dates + "<hr>" + new Date(doc.data().date9).toLocaleDateString("en", options)
+            dates = dates + "<br>" + new Date(doc.data().date9).toLocaleDateString("en", options)
+            datesort = new Date(doc.data().date9).toLocaleDateString('en-US',options1);
         }
         if (typeof doc.data().date10 !== 'undefined' && doc.data().date10 !=="") {
-            dates = dates + "<hr>" + new Date(doc.data().date10).toLocaleDateString("en", options)
+            dates = dates + "<br>" + new Date(doc.data().date10).toLocaleDateString("en", options)
+            datesort = new Date(doc.data().date10).toLocaleDateString('en-US',options1);
         }
         if (typeof doc.data().date11 !== 'undefined' && doc.data().date11 !=="") {
-            dates = dates + "<hr>" + new Date(doc.data().date11).toLocaleDateString("en", options)
+            dates = dates + "<br>" + new Date(doc.data().date11).toLocaleDateString("en", options)
+            datesort = new Date(doc.data().date11).toLocaleDateString('en-US',options1);
         }
         if (typeof doc.data().date12 !== 'undefined' && doc.data().date12 !=="") {
-            dates = dates + "<hr>" + new Date(doc.data().date12).toLocaleDateString("en", options)
+            dates = dates + "<br>" + new Date(doc.data().date12).toLocaleDateString("en", options)
+            datesort = new Date(doc.data().date12).toLocaleDateString('en-US',options1);
         }
         // document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
-        document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
+        document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + datesort + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
     });
-    document.write("</table>");
     document.head.innerHTML = header;
 })
     .catch((error) => {
         console.log("Error getting documents: ", error);
 });
 }
-    setTimeout("sortTable(4)", 1000);
-    setTimeout("sortTable(4)", 1000);
+    document.write("</tbody></table>");
 }
        
 var loaddbeverything =  function(){
@@ -871,7 +887,7 @@ var loaddbeverything =  function(){
     var lines = "";
     var RecordIDs = [];
     var cnt1;
-
+    var datesort;
 
 
     let today = new Date().toISOString().slice(0, 10);
@@ -887,7 +903,9 @@ var loaddbeverything =  function(){
         document.write(nodata);
     }else{
         //	  document.write("<table  id='report' style='font-size: small;'>  <tr>    <th>UserID</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th>Date/Time</th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
-        document.write("<table  id='report' style='font-size: small;'>  <tr>    <th style='cursor: pointer; color: red;' onclick='sortTable(0)'>UserID <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th>Date/Time</th>      <th>Email</th>       <th>Visiting</th><th>Edit</th>  </tr>");
+       // document.write("<table  id='report' style='font-size: small;'>  <tr>    <th style='cursor: pointer; color: red;' onclick='sortTable(0)'>UserID <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th>Date/Time</th>      <th>Email</th>       <th>Visiting</th><th>Edit</th>  </tr>");
+        document.write("<table id='report' style='font-size: small;'>  <thead><tr>    <th style='cursor: pointer; color: red;' onclick='sortTable(0)'>UserID <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>First Name</th>    <th  style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th>Date/Time(s)</th><th  style='cursor: pointer; color: red;' onclick='sortTable(5)'>LatestDate<i class='fa fa-sort' style='font-size:20px;color:blue'></i></th><th>Email</th>       <th>Visiting</th><th>Edit</th></tr></thead>");
+        document.write("<tbody>");
 
     }
     querySnapshot.forEach((doc) => {
@@ -900,54 +918,69 @@ var loaddbeverything =  function(){
         minute: "2-digit"
     };
     var dates = new Date(doc.data().date).toLocaleDateString("en", options)
+    datesort = new Date(doc.data().date).toLocaleDateString('en-US');
     console.log("date2: " + doc.data().date2);
     //  var todays = new Date().toDateString();
     if (typeof doc.data().date2 !== 'undefined' && doc.data().date2 !=="") {
         dates = dates + "<hr>" + new Date(doc.data().date2).toLocaleDateString("en", options)
+        datesort = new Date(doc.data().date2).toLocaleDateString('en-US');
     }
     if (typeof doc.data().date3 !== 'undefined' && doc.data().date3 !=="") {
         dates = dates + "<hr>" + new Date(doc.data().date3).toLocaleDateString("en", options)
+        datesort = new Date(doc.data().date3).toLocaleDateString('en-US');
     }
     if (typeof doc.data().date4 !== 'undefined' && doc.data().date4 !=="") {
         dates = dates + "<hr>" + new Date(doc.data().date4).toLocaleDateString("en", options)
+        datesort = new Date(doc.data().date4).toLocaleDateString('en-US');
     }
     if (typeof doc.data().date5 !== 'undefined' && doc.data().date5 !=="") {
         dates = dates + "<hr>" + new Date(doc.data().date5).toLocaleDateString("en", options)
+        datesort = new Date(doc.data().date5).toLocaleDateString('en-US');
     }
     if (typeof doc.data().date6 !== 'undefined' && doc.data().date6 !=="") {
         dates = dates + "<hr>" + new Date(doc.data().date6).toLocaleDateString("en", options)
+        datesort = new Date(doc.data().date6).toLocaleDateString('en-US');
     }
     if (typeof doc.data().date7 !== 'undefined' && doc.data().date7 !=="") {
         dates = dates + "<hr>" + new Date(doc.data().date7).toLocaleDateString("en", options)
+        datesort = new Date(doc.data().date7).toLocaleDateString('en-US');
+
     }
     if (typeof doc.data().date8 !== 'undefined' && doc.data().date8 !=="") {
         dates = dates + "<hr>" + new Date(doc.data().date8).toLocaleDateString("en", options)
+        datesort = new Date(doc.data().date8).toLocaleDateString('en-US');
     }
     if (typeof doc.data().date9 !== 'undefined' && doc.data().date9 !=="") {
         dates = dates + "<hr>" + new Date(doc.data().date9).toLocaleDateString("en", options)
+        datesort = new Date(doc.data().date9).toLocaleDateString('en-US');
     }
     if (typeof doc.data().date10 !== 'undefined' && doc.data().date10 !=="") {
         dates = dates + "<hr>" + new Date(doc.data().date10).toLocaleDateString("en", options)
+        datesort = new Date(doc.data().date10).toLocaleDateString('en-US');
     }
     if (typeof doc.data().date11 !== 'undefined' && doc.data().date11 !=="") {
         dates = dates + "<hr>" + new Date(doc.data().date11).toLocaleDateString("en", options)
+        datesort = new Date(doc.data().date11).toLocaleDateString('en-US');
     }
     if (typeof doc.data().date12 !== 'undefined' && doc.data().date12 !=="") {
         dates = dates + "<hr>" + new Date(doc.data().date12).toLocaleDateString("en", options)
+        datesort = new Date(doc.data().date12).toLocaleDateString('en-US');
     }
 
     console.log("loaddbeverything:" + dates);
     //document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
-    document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
-
+    //document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
+    document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + datesort + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
 });
-document.write("</table>");
+//document.write("</table>");
 document.head.innerHTML = header;
 })
     .catch((error) => {
         console.log("Error getting documents: ", error);
 });
-   setTimeout("sortTable(2)", 2000);
+    document.write("</tbody></table>");
+    setTimeout("sortTable(2)", 3000);
+   // setTimeout("sortByDate(5)", 6000);
 }
        
 var loaddbeverythings =  function(){
@@ -1944,7 +1977,7 @@ console.log("x is: " + x);
 });
      document.write("</table>");
        setTimeout("sortTable(4)", 2000);
-  
+   setTimeout("sortTable(4)", 2000);
     //setTimeout("sortTable(4)", 3000);
 }
 
@@ -3170,4 +3203,30 @@ function sortTable(n) {
         // (Note: the exact output may be browser-dependent)
     }
 }
+function convertDate(d) {
+    var p = d.split("/");
+    return +(p[2]+p[1]+p[0]);
+}
+
+function sortByDate(n) {
+    console.log(n);
+    //document.getElementById("report").value = "";
+    //document.querySelectorAll("#report tbody").forEach(el => el.remove());
+    var tbody = document.querySelector("#report tbody");
+    // get trs as array for ease of use
+    var rows = [].slice.call(tbody.querySelectorAll("tr"));
+ 
+    rows.sort(function(a,b) {
+        return new Date(a.cells[n].innerHTML.date) - new Date(b.cells[n].innerHTML.date);
+        //return convertDate(a.cells[n].innerHTML) - convertDate(b.cells[n].innerHTML);
+    });
+  
+    rows.forEach(function(v) {
+        tbody.appendChild(v); // note that .appendChild() *moves* elements
+        //console.log(v); 
+    });
+
+   
+}
+
 
