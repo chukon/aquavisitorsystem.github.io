@@ -641,7 +641,7 @@ if ((key_checkin === null || key_checkin === '') && (key_checkout === null || ke
     document.write("</center>");
     document.write('</body>');
     console.log("checkin successful");
-   // sendcheckedin();
+   sendcheckedin();
     log_create();
 }else if ((key_checkin !=null && key_checkin != '') && (key_checkout === null || key_checkout === '') && (todaysdate === true)){
     console.log("checkedin ID: Yes");
@@ -658,7 +658,7 @@ if ((key_checkin === null || key_checkin === '') && (key_checkout === null || ke
     document.write("</center>");
     document.write('</body>');
     console.log("checkout successful");
-   // sendcheckedout();
+   sendcheckedout();
     log_create();
 }else if ((key_checkin !=null && key_checkin != '') && (key_checkout !=null && key_checkout != '') && (todaysdate === true)){
     //qr code used already
