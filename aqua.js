@@ -1315,7 +1315,7 @@ var loadlogtoday =  function(){
     end.setHours(23,59,59,999);
     start = new Date(start.getTime() - (start.getTimezoneOffset() * 60000)).toISOString();
     end = new Date(end.getTime() - (end.getTimezoneOffset() * 60000)).toISOString();	 
-    db.collection("log").where("date", ">=",start).where("date", "<=",end).orderBy("date","asc")
+    db.collection("log").where("date", ">=",start).where("date", "<=",end).orderBy("date","desc")
 .get()
 .then((querySnapshot) => {
     var cnt = querySnapshot.size;
@@ -1346,6 +1346,7 @@ var loadlogtoday =  function(){
 });
 document.write("</table>");
 document.head.innerHTML = header;
+setTimeout("sortTable(2)", 2000);
 })
     .catch((error) => {
         console.log("Error getting documents: ", error);
@@ -1389,6 +1390,8 @@ var loadlogall =  function(){
 });
 document.write("</table>");
 document.head.innerHTML = header;
+setTimeout("sortTable(2)", 2000);
+setTimeout("sortTable(2)", 2000);
 })
     .catch((error) => {
         console.log("Error getting documents: ", error);
