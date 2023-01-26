@@ -703,7 +703,12 @@ if ((key_checkin === null || key_checkin === '') && (key_checkout === null || ke
     error_log_create(data);
 }else{
     //qr code used already
+    var data = {
+        "errormsg": "No Checkin Date" 
+    }
+    error_log_create(data);
     if (varFName != ''){
+       
     }
     console.log("checkedin ID: Yes");
     document.getElementById("checkedin").value = 'Yes';
@@ -711,17 +716,12 @@ if ((key_checkin === null || key_checkin === '') && (key_checkout === null || ke
     document.write('<body style="font-family: sans-serif;color: blue;">');
     document.write("<center>");
     document.write('<img id="logo" src="aqua.jpg" width="500px">');
-    document.write("<p style='font-size:47px;'>Hello, " + varFName + " " + varLName + "</p>");
-    document.write("<p style='font-size:25px;color: black;'>This QR code is for another date!</p>");
+    document.write("<p style='font-size:25px;color: black;'>This QR code is expired, invalid or for another date!</p>");
     document.write("<p style='font-size:20px;color: black;'>Please dispose of your badge before leaving reception/lobby!</p>");
     document.write("<p style='font-size:20px;color: blue;'>Have a great day!</p>");
     document.write("<p style='font-size:15px;color: black;'><br><br><br>current date/time: " + NowTime + "</p></center>");
     document.write("</center>");
     document.write('</body>');
-    var data = {
-        "errormsg": "Expired QR Code for: ALL NULL for " + varFName + " " + varLName 
-    }
-    error_log_create(data);
 }
 }).catch((error) => {
     var data = {
@@ -732,7 +732,7 @@ console.log("Error getting documents: ", error);
 document.write('<body style="font-family: sans-serif;color: blue;">');
 document.write("<center>");
 document.write('<img id="logo" src="aqua.jpg" width="500px">');
-document.write("<p style='font-size:20px;color: blue;'>System down currently or QR code is invalid!</p>");
+document.write("<p style='font-size:20px;color: blue;'>This QR code is invalid!</p>");
 document.write("<p style='font-size:20px;color: black;'>Please dispose of your badge before leaving reception/lobby!</p>");
 document.write("<p style='font-size:20px;color: blue;'>Have a great day!</p>");
 document.write("<p style='font-size:15px;color: black;'><br><br><br>current date/time: " + NowTime + "</p>");
