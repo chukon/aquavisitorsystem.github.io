@@ -703,19 +703,27 @@ if ((key_checkin === null || key_checkin === '') && (key_checkout === null || ke
     error_log_create(data);
 }else{
     //qr code used already
+    if (varFName != '' && varFName !=null){
+        
+    }else{
+        varFName = "Aqua"
+    }
+    if (varLName != '' && varLName !=null){
+       
+    }else{
+        varLName = "Aqua"
+    }
     var data = {
-        "errormsg": "No Checkin Date" 
+        "errormsg": "No Checkin Date for: " + varFName + ' ' + varLName
     }
     error_log_create(data);
-    if (varFName != ''){
-       
-    }
     console.log("checkedin ID: Yes");
     document.getElementById("checkedin").value = 'Yes';
     console.log("already used");
     document.write('<body style="font-family: sans-serif;color: blue;">');
     document.write("<center>");
     document.write('<img id="logo" src="aqua.jpg" width="500px">');
+    document.write("<p style='font-size:47px;'>Hello, " + varFName + " " + varLName + "</p>");
     document.write("<p style='font-size:25px;color: black;'>This QR code is invalid or for another date!</p>");
     document.write("<p style='font-size:20px;color: black;'>Please dispose of your badge before leaving reception/lobby!</p>");
     document.write("<p style='font-size:20px;color: blue;'>Have a great day!</p>");
