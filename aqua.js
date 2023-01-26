@@ -499,7 +499,29 @@ document.getElementById("submit_msg").disabled = true;
     }).catch(function(error) {
         console.log("Error creating log:", error);
     });
-}
+    }
+
+    var error_log_create = function(data){
+        var tzoffset = (new Date()).getTimezoneOffset() * 60000; //offset in milliseconds
+        var d = new Date(Date.now() - tzoffset);
+        d.setSeconds(0, 0);
+        let newdates = d.toISOString().replace('Z', '').replace(/:00.000/, "");
+        var db = firebase.firestore();
+        var newdate = new Date().toISOString(); 
+        var SaveDoc = db.collection("error").doc(newdate); 
+        var err = data["errormsg"];
+        SaveDoc.set({
+            error: err, 
+            date: newdates,
+            timestamp: Date.now()
+        })
+        .then(function(doc) {  
+            //alert("Schedule was created successfully!")
+            console.log("log_create end");
+        }).catch(function(error) {
+            console.log("Error creating log:", error);
+        });
+    }
 
 
        
@@ -675,6 +697,10 @@ if ((key_checkin === null || key_checkin === '') && (key_checkout === null || ke
     document.write("<p style='font-size:15px;color: black;'><br><br><br>current date/time: " + NowTime + "</p></center>");
     document.write("</center>");
     document.write('</body>');
+    var data = {
+        "errormsg": "Expired QR Code for: " + varFName & varLName + " Date: " + NowTime
+    }
+    error_log_create(data);
 }else{
     //qr code used already
     if (varFName != ''){
@@ -692,13 +718,21 @@ if ((key_checkin === null || key_checkin === '') && (key_checkout === null || ke
     document.write("<p style='font-size:15px;color: black;'><br><br><br>current date/time: " + NowTime + "</p></center>");
     document.write("</center>");
     document.write('</body>');
+    var data = {
+        "errormsg": "Expired QR Code for: ALL NULL for " + varFName & varLName + " Date: " + NowTime
+    }
+    error_log_create(data);
 }
 }).catch((error) => {
-    console.log("Error getting documents: ", error);
+    var data = {
+        "errormsg": "Error catch " + error
+    }
+    error_log_create(data);
+console.log("Error getting documents: ", error);
 document.write('<body style="font-family: sans-serif;color: blue;">');
 document.write("<center>");
 document.write('<img id="logo" src="aqua.jpg" width="500px">');
-document.write("<p style='font-size:20px;color: blue;'>This QR code is invalid!</p>");
+document.write("<p style='font-size:20px;color: blue;'>System down currently or QR code is invalid!</p>");
 document.write("<p style='font-size:20px;color: black;'>Please dispose of your badge before leaving reception/lobby!</p>");
 document.write("<p style='font-size:20px;color: blue;'>Have a great day!</p>");
 document.write("<p style='font-size:15px;color: black;'><br><br><br>current date/time: " + NowTime + "</p>");
