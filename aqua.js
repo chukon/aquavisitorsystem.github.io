@@ -1300,6 +1300,33 @@ var loadloguserid =  function(){
 });
 }
 }
+
+function countUnique(iterable) {
+        return new Set(iterable).size;
+}
+var strValueCount;
+function Lookup(){
+        var strValue = ""
+        var db = firebase.firestore();
+        var RecordIDs = [];
+        var start = new Date();
+        start.setHours(0,0,0,0);
+        var end = new Date(start.getTime());
+        end.setHours(23,59,59,999);
+        start = new Date(start.getTime() - (start.getTimezoneOffset() * 60000)).toISOString();
+        end = new Date(end.getTime() - (end.getTimezoneOffset() * 60000)).toISOString();
+         db.collection("log").where("date", ">=",start).where("date", "<=",end).orderBy("date","desc").get().then((querySnapshot) => {
+         console.log("SnapshotPromise:" + querySnapshot.size); 
+        cnt1 = querySnapshot.size;
+        querySnapshot.forEach(doc => {
+            console.log(doc.data().lastname);
+        RecordIDs.push(doc.data().lastname);
+        strValue = countUnique(RecordIDs);
+        strValueCount = countUnique(RecordIDs);
+});
+});
+    return strValue;
+}
 	  
 var loadlogtoday =  function(){
     var db = firebase.firestore();
@@ -1316,12 +1343,12 @@ var loadlogtoday =  function(){
     var end = new Date(start.getTime());
     end.setHours(23,59,59,999);
     start = new Date(start.getTime() - (start.getTimezoneOffset() * 60000)).toISOString();
-    end = new Date(end.getTime() - (end.getTimezoneOffset() * 60000)).toISOString();	 
+    end = new Date(end.getTime() - (end.getTimezoneOffset() * 60000)).toISOString();	
     db.collection("log").where("date", ">=",start).where("date", "<=",end).orderBy("date","desc")
 .get()
 .then((querySnapshot) => {
     var cnt = querySnapshot.size;
-    var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (logtoday)</h1><h2>" + cnt + " Check-in/Check-out sessions  for " + Math.ceil((cnt / 2)) + " guest(s)<br>" + todays + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+    var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (logtoday)</h1><h2>" + cnt + " Check-in/Check-out sessions  for  guest(s)<br>" + todays + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
     document.write(title);
     document.write(printnow);
     if (cnt === 0){
@@ -1477,6 +1504,9 @@ document.head.innerHTML = header;
     setTimeout("sortTable(4)", 2000);
     setTimeout("sortTable(4)", 2000);
 }
+
+
+
        
 var loadtoday =  function(){
     var db = firebase.firestore();
