@@ -328,7 +328,7 @@ firebase.initializeApp(firebaseConfig);
           querySnapshot.forEach((doc) => {
 	     
               // doc.data() is never undefined for query doc snapshots
-              console.log(doc.id, " => ", doc.data());
+           //   console.log(doc.id, " => ", doc.data());
            document.getElementById("id").value = doc.data().key;
            document.getElementById("login").value = doc.data().login;
         
@@ -698,7 +698,7 @@ if ((key_checkin === null || key_checkin === '') && (key_checkout === null || ke
     document.write("</center>");
     document.write('</body>');
     var data = {
-        "errormsg": "Expired QR Code for: " + varFName & varLName + " Date: " + NowTime
+        "errormsg": varFName + " " + varLName 
     }
     error_log_create(data);
 }else{
@@ -719,7 +719,7 @@ if ((key_checkin === null || key_checkin === '') && (key_checkout === null || ke
     document.write("</center>");
     document.write('</body>');
     var data = {
-        "errormsg": "Expired QR Code for: ALL NULL for " + varFName & varLName + " Date: " + NowTime
+        "errormsg": "Expired QR Code for: ALL NULL for " + varFName + " " + varLName 
     }
     error_log_create(data);
 }
