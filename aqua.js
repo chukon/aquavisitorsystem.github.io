@@ -533,6 +533,9 @@ var get_checkin_data = function(data){
     var NowTime = new Date(d).toLocaleString();
     var db = firebase.firestore();
     var get_id = data["id"];
+    var datapass = {
+        "id": get_id
+    }
     db.collection("messages").where("key", "==",get_id)
 .get()
 .then((querySnapshot) => {
@@ -623,6 +626,7 @@ var get_checkin_data = function(data){
             todaysdate = true;
         }
     }
+    //console.log("data" + data);
 }); 
 console.log("key_checkin:" + key_checkin);
 console.log("key_checkout:" + key_checkout);
@@ -631,11 +635,12 @@ console.log("varfrom_name" + varfrom_name);
 console.log("varto_email" + varto_email);
 console.log("varto_name" + varto_name);
 console.log("cc_email" + cc_email);
+//console.log("data" + data);
 //check dates
 if ((key_checkin === null || key_checkin === '') && (key_checkout === null || key_checkout === '') && (todaysdate === true)){
     document.getElementById("checkedin").value = 'No';
     console.log("checkedin ID: No");
-    set_checkin(data);	
+    set_checkin(datapass);	
     document.write('<body style="font-family: sans-serif;color: black;">');
     var timeToAdd = 1000 * 60 * 60 * 24 * 7 * 4 * 6;
     var date = new Date();
@@ -668,7 +673,7 @@ if ((key_checkin === null || key_checkin === '') && (key_checkout === null || ke
 }else if ((key_checkin !=null && key_checkin != '') && (key_checkout === null || key_checkout === '') && (todaysdate === true)){
     console.log("checkedin ID: Yes");
     document.getElementById("checkedin").value = 'Yes';
-    set_checkout(data);
+    set_checkout(datapass);
     document.write('<body style="font-family: sans-serif;color: blue;">');
     document.write("<center>");
     document.write('<img id="logo" src="aqua.jpg" width="550px">');
