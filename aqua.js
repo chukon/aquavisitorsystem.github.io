@@ -836,7 +836,7 @@ var loaddb =  function(data){
     var cnt = 0;
     var db = firebase.firestore();
     var get_login  = data["userid"];
-    var Dates = [];
+   
     if (get_login  === null || get_login === '') {
         alert("Enter your Network Login ID above & try again!");
     }else{
@@ -876,67 +876,79 @@ var loaddb =  function(data){
             day: "2-digit"
         };
         var datesort;
+        var Datex = [];
         var dates = new Date(doc.data().date).toLocaleDateString("en", options)
         datesort = new Date(doc.data().date).toLocaleDateString('fr-CA',options1);
-        Dates.push(datesort);
+        Datex.push(datesort);
         console.log("loaddb:" + dates);
         if (typeof doc.data().date2 !== 'undefined' && doc.data().date2 !=="") {
             dates = dates + "<br>" + new Date(doc.data().date2).toLocaleDateString("en", options)
             datesort = new Date(doc.data().date2).toLocaleDateString("fr-CA", options1)
-            Dates.push(datesort);
+            Datex.push(datesort);
         }
         if (typeof doc.data().date3 !== 'undefined' && doc.data().date3 !=="") {
             dates = dates + "<br>" + new Date(doc.data().date3).toLocaleDateString("en", options)
             datesort = new Date(doc.data().date3).toLocaleDateString('fr-CA',options1);
-            Dates.push(datesort);
+            Datex.push(datesort);
         }
         if (typeof doc.data().date4 !== 'undefined' && doc.data().date4 !=="") {
             dates = dates + "<br>" + new Date(doc.data().date4).toLocaleDateString("en", options)
             datesort = new Date(doc.data().date4).toLocaleDateString('fr-CA',options1);
-            Dates.push(datesort);
+            Datex.push(datesort);
         }
         if (typeof doc.data().date5 !== 'undefined' && doc.data().date5 !=="") {
             dates = dates + "<br>" + new Date(doc.data().date5).toLocaleDateString("en", options)
             datesort = new Date(doc.data().date5).toLocaleDateString('fr-CA',options1);
-            Dates.push(datesort);
+            Datex.push(datesort);
         }
         if (typeof doc.data().date6 !== 'undefined' && doc.data().date6 !=="") {
             dates = dates + "<br>" + new Date(doc.data().date6).toLocaleDateString("en", options)
             datesort = new Date(doc.data().date6).toLocaleDateString('fr-CA',options1);
-            Dates.push(datesort);
+            Datex.push(datesort);
         }
         if (typeof doc.data().date7 !== 'undefined' && doc.data().date7 !=="") {
             dates = dates + "<br>" + new Date(doc.data().date7).toLocaleDateString("en", options)
             datesort = new Date(doc.data().date7).toLocaleDateString('fr-CA',options1);
-            Dates.push(datesort);
+            Datex.push(datesort);
         }
         if (typeof doc.data().date8 !== 'undefined' && doc.data().date8 !=="") {
             dates = dates + "<br>" + new Date(doc.data().date8).toLocaleDateString("en", options)
             datesort = new Date(doc.data().date8).toLocaleDateString('fr-CA',options1);
-            Dates.push(datesort);
+            Datex.push(datesort);
         }
         if (typeof doc.data().date9 !== 'undefined' && doc.data().date9 !=="") {
             dates = dates + "<br>" + new Date(doc.data().date9).toLocaleDateString("en", options)
             datesort = new Date(doc.data().date9).toLocaleDateString('fr-CA',options1);
-            Dates.push(datesort);
+            Datex.push(datesort);
         }
         if (typeof doc.data().date10 !== 'undefined' && doc.data().date10 !=="") {
             dates = dates + "<br>" + new Date(doc.data().date10).toLocaleDateString("en", options)
             datesort = new Date(doc.data().date10).toLocaleDateString('fr-CA',options1);
-            Dates.push(datesort);
+            Datex.push(datesort);
         }
         if (typeof doc.data().date11 !== 'undefined' && doc.data().date11 !=="") {
             dates = dates + "<br>" + new Date(doc.data().date11).toLocaleDateString("en", options)
             datesort = new Date(doc.data().date11).toLocaleDateString('fr-CA',options1);
-            Dates.push(datesort);
+            Datex.push(datesort);
         }
         if (typeof doc.data().date12 !== 'undefined' && doc.data().date12 !=="") {
             dates = dates + "<br>" + new Date(doc.data().date12).toLocaleDateString("en", options)
             datesort = new Date(doc.data().date12).toLocaleDateString('fr-CA',options1);
-            Dates.push(datesort);
+            Datex.push(datesort);
         }
-        datesort = Dates.reduce((a, b) => (a.MeasureDate > b.MeasureDate ? a : b));
-        console.log("DateSort: " + Dates.reduce((a, b) => (a.MeasureDate > b.MeasureDate ? a : b)));
+        Datex.sort((a, b) => new Date(b) - new Date(a)).reverse()
+        // console.log(Datex);
+        // var next_dates = new Date();
+        var todays = new Date();
+
+        for(var i=0; i<Datex.length; i++){
+            if(parseDate(Datex[i]) > todays){
+                datesort = Datex[i]
+                break;
+            }
+        }
+        //datesort = Dates.reduce((a, b) => (a.MeasureDate > b.MeasureDate ? a : b));
+        //console.log("DateSort: " + Dates.reduce((a, b) => (a.MeasureDate > b.MeasureDate ? a : b)));
         // document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
         document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + datesort + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
     });
@@ -960,7 +972,7 @@ var loaddbeverything =  function(){
     var RecordIDs = [];
     var cnt1;
     var datesort;
-    var Dates = [];
+   
 
 
     let today = new Date().toISOString().slice(0, 10);
@@ -995,71 +1007,87 @@ var loaddbeverything =  function(){
         month: "2-digit",
         day: "2-digit"
     };
+
     var d = new Date();
-     var dates = new Date(doc.data().date).toLocaleDateString("en", options)
+    var dates = new Date(doc.data().date).toLocaleDateString("en", options)
+    var Datex = [];
      datesort = new Date(doc.data().date).toLocaleDateString("fr-CA", options2)
-    Dates.push(datesort);
+     Datex.push(datesort);
     console.log("date2: " + doc.data().date2);
     //  var todays = new Date().toDateString();
     if (typeof doc.data().date2 !== 'undefined' && doc.data().date2 !=="") {
         dates = dates + "<br>" + new Date(doc.data().date2).toLocaleDateString("en", options)
         datesort = new Date(doc.data().date2).toLocaleDateString("fr-CA", options2)
-        Dates.push(datesort);
+        Datex.push(datesort);
     }
     if (typeof doc.data().date3 !== 'undefined' && doc.data().date3 !=="") {
         dates = dates + "<br>" + new Date(doc.data().date3).toLocaleDateString("en", options)
         datesort = new Date(doc.data().date3).toLocaleDateString("fr-CA", options2)
-        Dates.push(datesort);
+        Datex.push(datesort);
     }
     if (typeof doc.data().date4 !== 'undefined' && doc.data().date4 !=="") {
         dates = dates + "<br>" + new Date(doc.data().date4).toLocaleDateString("en", options)
         datesort = new Date(doc.data().date4).toLocaleDateString("fr-CA", options2)
-        Dates.push(datesort);
+        Datex.push(datesort);
     }
     if (typeof doc.data().date5 !== 'undefined' && doc.data().date5 !=="") {
         dates = dates + "<br>" + new Date(doc.data().date5).toLocaleDateString("en", options)
         datesort = new Date(doc.data().date5).toLocaleDateString("fr-CA", options2)
-        Dates.push(datesort);
+        Datex.push(datesort);
     }
     if (typeof doc.data().date6 !== 'undefined' && doc.data().date6 !=="") {
         dates = dates + "<br>" + new Date(doc.data().date6).toLocaleDateString("en", options)
         datesort = new Date(doc.data().date6).toLocaleDateString("fr-CA", options2)
-        Dates.push(datesort);
+        Datex.push(datesort);
     }
     if (typeof doc.data().date7 !== 'undefined' && doc.data().date7 !=="") {
         dates = dates + "<br>" + new Date(doc.data().date7).toLocaleDateString("en", options)
         datesort = new Date(doc.data().date7).toLocaleDateString("fr-CA", options2)
-        Dates.push(datesort);
+        Datex.push(datesort);
 
     }
     if (typeof doc.data().date8 !== 'undefined' && doc.data().date8 !=="") {
         dates = dates + "<br>" + new Date(doc.data().date8).toLocaleDateString("en", options)
         datesort = new Date(doc.data().date8).toLocaleDateString("fr-CA", options2);
-        Dates.push(datesort);
+        Datex.push(datesort);
     }
     if (typeof doc.data().date9 !== 'undefined' && doc.data().date9 !=="") {
         dates = dates + "<br>" + new Date(doc.data().date9).toLocaleDateString("en", options)
         datesort = new Date(doc.data().date9).toLocaleDateString("fr-CA", options2)
-        Dates.push(datesort);
+        Datex.push(datesort);
     }
     if (typeof doc.data().date10 !== 'undefined' && doc.data().date10 !=="") {
         dates = dates + "<br>" + new Date(doc.data().date10).toLocaleDateString("en", options)
         datesort = new Date(doc.data().date10).toLocaleDateString("fr-CA", options2)
-        Dates.push(datesort);
+        Datex.push(datesort);
     }
     if (typeof doc.data().date11 !== 'undefined' && doc.data().date11 !=="") {
         dates = dates + "<br>" + new Date(doc.data().date11).toLocaleDateString("en", options)
         datesort = new Date(doc.data().date11).toLocaleDateString("fr-CA", options2)
-        Dates.push(datesort);
+        Datex.push(datesort);
     }
     if (typeof doc.data().date12 !== 'undefined' && doc.data().date12 !=="") {
         dates = dates + "<br>" + new Date(doc.data().date12).toLocaleDateString("en", options)
         datesort = new Date(doc.data().date12).toLocaleDateString("fr-CA", options2);
-        Dates.push(datesort);
+        Datex.push(datesort);
     }
-    datesort = Dates.reduce((a, b) => (a.MeasureDate > b.MeasureDate ? a : b));
-    console.log("DateSort: " + Dates.reduce((a, b) => (a.MeasureDate > b.MeasureDate ? a : b)));
-    console.log("loaddbeverything:" + dates);
+    Datex.sort((a, b) => new Date(b) - new Date(a)).reverse()
+   // console.log(Datex);
+   // var next_dates = new Date();
+    var todays = new Date();
+
+    for(var i=0; i<Datex.length; i++){
+        if(parseDate(Datex[i]) > todays){
+            datesort = Datex[i]
+            break;
+        }
+    }
+
+   // datesort = next_dates;
+
+    //datesort = Datex.reduce((a, b) => (a.MeasureDate > b.MeasureDate ? a : b));
+    //console.log("DateSort: " + Datex.reduce((a, b) => (a.MeasureDate > b.MeasureDate ? a : b)));
+    //console.log("loaddbeverything:" + dates);
     //document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
     //document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
     document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + datesort + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
@@ -3407,4 +3435,10 @@ function sortByDate2(n) {
     });
 
    
+}
+
+function parseDate(input) {
+    var parts = input.split('-');
+    // new Date(year, month [, day [, hours[, minutes[, seconds[, ms]]]]])
+    return new Date(parts[0], parts[1]-1, parts[2]); // Note: months are 0-based
 }
