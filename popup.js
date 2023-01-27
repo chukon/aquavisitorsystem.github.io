@@ -30,7 +30,7 @@ const getUA = () => {
         } else{
             // callwhenback();
             //loadit().fadeIn(10000);
-            setTimeout(loadit,2000);
+            setTimeout(loadit,500);
         }
     };
 
@@ -93,7 +93,7 @@ var createDialog = function(text , title) {
         $(this).closest('.ui-dialog').css({'dialogClass': 'no-close'});
         $(this).closest('.ui-dialog').css({'buttons': {'Close': function () {$(this).dialog('close')}}});
         $(this).closest('.ui-dialog').css({'width':'430px'});
-        $(this).closest('.ui-dialog').css({'position':'absolute',left: (win.width() - $(this).parent().outerWidth()) / 2,top: 417});
+        $(this).closest('.ui-dialog').css({'position':'absolute',left: (win.width() - $(this).parent().outerWidth()) / 2,top: 168});
         $(this).parent().children().children('.ui-dialog-titlebar-close').hide();
     }});
 
