@@ -1595,7 +1595,7 @@ var loadtoday =  function(){
         start = start.toISOString();
         end = end.toISOString();
     }else{
-        // start = new Date(name);
+        start = new Date();
         start.setHours(0,0,0,0);
         end = new Date(start.getTime());
         end.setHours(23,59,59,999);
