@@ -1,11 +1,10 @@
 <ul style="display: inline;">
   <li>Latest updates</li>
-  <ul><li><b>Schedule Visitor:</b> Schedule up to 12 dates per guest</li></ul> 
-  <ul><li><b>New reports:</b> Use keywords: loguserid & logweek</li></ul> 
-  <ul><li><b>Help System:</b> Upated documentation</li></ul> 
+  <ul><li><b>QR code:</b> fixed QR code scan bug</li></ul>
+  <ul><li><b>Reports:</b> fixed sorting issue</li></ul> 
 </ul> 
 <br>
 <button id='modalClose' type="button">Close</button>
 <br>
 <br>
-<center><div id="footer" style="color: coral;font-size: smaller;">last updated by Chuck Konkol on 1/24/2023</div></center>
+<center><div id="footer" style="color: coral;font-size: smaller;">last updated by Chuck Konkol on 1/27/2023</div></center>
