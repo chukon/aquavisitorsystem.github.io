@@ -1,10 +1,11 @@
 <ul style="display: inline;">
   <li>Latest updates</li>
-  <ul><li><b>QR code:</b> fixed QR code scan bug</li></ul>
-  <ul><li><b>Reports:</b> fixed sorting issue</li></ul> 
+  <ul><li><b>Reports:</b> added new 'logdate' report</li></ul> 
+  <ul><li>- Click on 'View Scheduled Visits'</li></ul> 
+  <ul><li>- Use keyword: logdate</li></ul>
 </ul> 
 <br>
 <button id='modalClose' type="button">Close</button>
 <br>
 <br>
-<center><div id="footer" style="color: coral;font-size: smaller;">last updated by Chuck Konkol on 1/27/2023</div></center>
+<center><div id="footer" style="color: coral;font-size: smaller;">last updated by Chuck Konkol on 1/30/2023</div></center>
