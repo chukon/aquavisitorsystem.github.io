@@ -1471,6 +1471,91 @@ setTimeout("sortTable(2)", 2000);
         console.log("Error getting documents: ", error);
 });
 }
+
+    var loadlogdate =  function(){
+        var db = firebase.firestore();
+        var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}@page{size: landscape;}}</style></head>";
+        var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
+        var lines = "";
+        var Dates = [];
+        var Visitors = [];
+        var datesort;
+        let today = new Date().toISOString();
+        var choosedate  = new Date();
+        var start = new Date();
+        var end = new Date();
+        var strStart = new Date();
+        var strEnd = new Date();
+        var name=prompt("Please choose one of the following\r\n1) Enter date to search (Example: 10/12/2022) > Click [Ok]\r\n2) Click [Ok] for today's date","Enter Date");
+        if (name!="Enter Date"){
+            start = new Date(name);
+            choosedate   = new Date(name).toDateString();
+            start.setHours(0,0,0,0);
+            end = new Date(start.getTime());
+            end.setHours(23,59,59,999);
+            strStart =  start.toISOString();
+            strEnd =  end.toISOString();
+            start = start.toISOString();
+            end = end.toISOString();
+        }else{
+            start = new Date();
+            start.setHours(0,0,0,0);
+            end = new Date(start.getTime());
+            end.setHours(23,59,59,999);
+            strStart =  start.toISOString();
+            strEnd =  end.toISOString();
+            start = start.toISOString();
+            end = end.toISOString();
+            var d = new Date();
+            choosedate = d.toDateString();
+            var myDate = new Date(d).toLocaleDateString('en-US');   
+            name = myDate.toString();
+        }	
+        console.log(name);
+        var  todays = new Date().toLocaleDateString('en-US'); 
+        db.collection("log").where("date", ">=",start).where("date", "<=",end).orderBy("date","desc")
+    .get()
+    .then((querySnapshot) => {
+        var cnt = querySnapshot.size;
+        var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (logtoday)</h1><h2>" + cnt + " Check-in/Check-out sessions  for  " +  "<label id='numcount'></label>"   + "  guest(s)<br>" + name + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+        document.write(title);
+        //document.write("<center><div id='numcount'></div></center>");
+        document.write(printnow);
+        if (cnt === 0){
+            var nodata = "<center><br>No visitor data found<br></center>";
+            document.write(nodata);
+        }else{
+            document.write("<table id='report' style='font-size: small;'>  <tr>     <th style='cursor: pointer; color: red;' onclick='sortTable(0)'>UserID <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
+        }
+        querySnapshot.forEach((doc) => {
+            // doc.data() is never undefined for query doc snapshots
+            console.log(doc.id, " => ", doc.data());
+        var options = {
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+        };
+        var options2 = {
+            hour: "2-digit",
+            minute: "2-digit"
+        };
+        var dates = new Date(doc.data().date).toLocaleDateString("fr-CA", options) + ' ' + new Date(doc.data().date).toLocaleTimeString("en", options2)
+        Visitors.push(doc.data().firstname + ' ' + doc.data().lastname + ' '  + doc.data().checkin);
+        console.log("loadlogtoday:" + dates);
+    
+        console.log("Visitors:" + countUnique(Visitors));
+        document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().sourcekey + '">Click here</a></td></tr>');
+        document.getElementById("numcount").innerHTML = countUnique(Visitors);
+        document.getElementById("numcount").setAttribute("value", countUnique(Visitors));
+    });
+    document.write("</table>");
+    document.head.innerHTML = header;
+    setTimeout("sortTable(2)", 2000);
+    })
+    .catch((error) => {
+        console.log("Error getting documents: ", error);
+    });
+    }
 		
     var loadlogall =  function(){
         var Visitors = [];
@@ -2610,12 +2695,15 @@ var getloginname = function(){
         loadweekschedule();
     }else if (username.toLowerCase()  === 'loguserid') {
         loadloguserid();
+    }else if (username.toLowerCase()  === 'logdate') {
+        loadlogdate();
     }else{
         var data = {
             "userid": username
         }
         loaddb(data);
     }
+    //loadlogdate
 }
 
 //loadloguserid
