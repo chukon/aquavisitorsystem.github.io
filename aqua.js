@@ -1517,7 +1517,7 @@ setTimeout("sortTable(2)", 2000);
     .get()
     .then((querySnapshot) => {
         var cnt = querySnapshot.size;
-        var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (logtoday)</h1><h2>" + cnt + " Check-in/Check-out sessions  for  " +  "<label id='numcount'></label>"   + "  guest(s)<br>" + name + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+        var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (logdate)</h1><h2>" + cnt + " Check-in/Check-out sessions  for  " +  "<label id='numcount'></label>"   + "  guest(s)<br>" + name + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
         document.write(title);
         //document.write("<center><div id='numcount'></div></center>");
         document.write(printnow);
@@ -2955,7 +2955,7 @@ var getall = function(){
     document.getElementById('get_msg').style.display = 'block';
     document.getElementById('get_id2').style.display = 'none';
     document.getElementById('loginlabel').innerText = 'Aqua Employee User ID OR Keyword';
-    document.getElementsByName('login')[0].placeholder = '[KEYWORDS] today, name, date, all, inactive, loguserid, logname, logall, logtoday, logweek';
+    document.getElementsByName('login')[0].placeholder = '[KEYWORDS] today, name, date, all, inactive, loguserid, logname, logall, logtoday, logweek, logdate';
     document.getElementById('emaillabel').style.display = 'none';
     document.getElementById("login").style.width = "600px";
     document.getElementById("login").addEventListener("keypress", getSchedule2);
