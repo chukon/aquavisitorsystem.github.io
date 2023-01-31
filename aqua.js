@@ -1291,7 +1291,7 @@ var loadname =  function(){
    .get()
    .then((querySnapshot) => {
        var cnt = querySnapshot.size;
-        var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (logname)</h1><h2>" + cnt + " Check-in/Check-out sessions (" +  "<label id='numcount'></label>" + " visits) for: " + get_login + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+        var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (logname)</h1><h2>Check-in/Check-out logs (" +  "<label id='numcount'></label>" + " visits) for: " + get_login + "</h2><br><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
         document.write(title);
         document.write(printnow);
         if (cnt === 0){
@@ -1319,8 +1319,10 @@ var loadname =  function(){
         document.getElementById("numcount").innerHTML = countUnique(Visitors);
         document.getElementById("numcount").setAttribute("value", countUnique(Visitors));
     });
-    document.write("</table>");
+   
     document.head.innerHTML = header;
+    document.write("</table>");
+    setTimeout("sortByDate2(7)", 2000);
 
 })
     .catch((error) => {
@@ -1343,11 +1345,11 @@ var loadloguserid =  function(){
         var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
         var lines = "";
         let today = new Date().toISOString().slice(0, 10);
-        db.collection("log").where("login", "==",get_login).orderBy("date","desc")
+        db.collection("log").where("login", "==",get_login).orderBy("checkin","desc")
    .get()
    .then((querySnapshot) => {
        var cnt = querySnapshot.size;
-        var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (logname)</h1><h2>" + cnt + " Check-in/Check-out sessions (" + "<label id='numcount'></label>"  + " visits) for: " + get_login + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+        var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (loguserid)</h1><h2>Check-in/Check-out logs (" + "<label id='numcount'></label>"  + " visits) for: " + get_login + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
         document.write(title);
         document.write(printnow);
         if (cnt === 0){
@@ -1370,13 +1372,16 @@ var loadloguserid =  function(){
         };
         var dates = new Date(doc.data().date).toLocaleDateString("fr-CA", options) + ' ' + new Date(doc.data().date).toLocaleTimeString("en", options2)
         Visitors.push(doc.data().firstname + ' ' + doc.data().lastname + ' '  + doc.data().checkin);
+   
+        console.log("Visitors:" + Visitors.length);
         console.log("loadlogname:" + dates);
         document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().sourcekey + '">Click here</a></td></tr>');
         document.getElementById("numcount").innerHTML = countUnique(Visitors);
         document.getElementById("numcount").setAttribute("value", countUnique(Visitors));
     });
-    document.write("</table>");
     document.head.innerHTML = header;
+    document.write("</table>");
+    setTimeout("sortByDate2(7)", 2000);
 })
     .catch((error) => {
         console.log("Error getting documents: ", error);
@@ -1385,7 +1390,7 @@ var loadloguserid =  function(){
 }
 
 function countUnique(iterable) {
-        return new Set(iterable).size;
+    return new Set(iterable).size;
 }
 var strValueCount;
 function Lookup(){
@@ -1432,7 +1437,7 @@ var loadlogtoday =  function(){
 .get()
 .then((querySnapshot) => {
     var cnt = querySnapshot.size;
-    var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (logtoday)</h1><h2>" + cnt + " Check-in/Check-out sessions  for  " +  "<label id='numcount'></label>"   + "  guest(s)<br>" + todays + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+    var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (logtoday)</h1><h2>Check-in/Check-out logs  for  " +  "<label id='numcount'></label>"   + "  guest(s)<br>Date: " + todays + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
     document.write(title);
     //document.write("<center><div id='numcount'></div></center>");
     document.write(printnow);
@@ -1463,9 +1468,9 @@ var loadlogtoday =  function(){
      document.getElementById("numcount").innerHTML = countUnique(Visitors);
      document.getElementById("numcount").setAttribute("value", countUnique(Visitors));
 });
-document.write("</table>");
 document.head.innerHTML = header;
-setTimeout("sortTable(2)", 2000);
+document.write("</table>");
+setTimeout("sortByDate2(7)", 2000);
 })
     .catch((error) => {
         console.log("Error getting documents: ", error);
@@ -1517,7 +1522,7 @@ setTimeout("sortTable(2)", 2000);
     .get()
     .then((querySnapshot) => {
         var cnt = querySnapshot.size;
-        var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (logdate)</h1><h2>" + cnt + " Check-in/Check-out sessions  for  " +  "<label id='numcount'></label>"   + "  guest(s)<br>" + name + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+        var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (logdate)</h1><h2>Check-in/Check-out logs for  " +  "<label id='numcount'></label>"   + "  visits(s)<br>" + name + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
         document.write(title);
         //document.write("<center><div id='numcount'></div></center>");
         document.write(printnow);
@@ -1550,7 +1555,7 @@ setTimeout("sortTable(2)", 2000);
     });
     document.write("</table>");
     document.head.innerHTML = header;
-    setTimeout("sortTable(2)", 2000);
+    setTimeout("sortByDate2(7)", 2000);
     })
     .catch((error) => {
         console.log("Error getting documents: ", error);
@@ -1568,7 +1573,7 @@ setTimeout("sortTable(2)", 2000);
 .get()
 .then((querySnapshot) => {
     var cnt = querySnapshot.size;
-    var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (logall)</h1><h2>" + cnt + " Check-in/Check-out sessions for " + "<label id='numcount'></label>"   + " guest(s)</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+    var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (logall)</h1><h2>Check-in/Check-out logs for " + "<label id='numcount'></label>"   + " visits(s)</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
     document.write(title);
     document.write(printnow);
     if (cnt === 0){
@@ -1593,13 +1598,12 @@ setTimeout("sortTable(2)", 2000);
     Visitors.push(doc.data().firstname + ' ' + doc.data().lastname + ' '  + doc.data().checkin);
     console.log("loadlogall:" + dates);
     document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().sourcekey + '">Click here</a></td></tr>');
-    document.getElementById("numcount").innerHTML = countUnique(Visitors);
+    document.getElementById("numcount").innerHTML = Math.ceil((cnt / 2));
     document.getElementById("numcount").setAttribute("value", countUnique(Visitors));
     });
 document.write("</table>");
 document.head.innerHTML = header;
-setTimeout("sortTable(2)", 2000);
-setTimeout("sortTable(2)", 2000);
+setTimeout("sortByDate2(7)", 2000);
 })
     .catch((error) => {
         console.log("Error getting documents: ", error);
@@ -2301,7 +2305,7 @@ var name=prompt("Please choose one of the following\r\n1) Enter end search date 
     .then((querySnapshot) => {
 	 console.log("Snapshot:" + querySnapshot.size); 
         var cnt = querySnapshot.size;
-	 var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (logweek)</h1><h2>" + cnt + " Check-in/Check-out sessions for " + "<label id='numcount'></label>"  + " guest(s)<br>" + name + "</h2></center><center><a href='https://aquavisitorsystem.github.io/'>Go Home</a></center><br>";         
+	 var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (logweek)</h1><h2>Check-in/Check-out logs for " + "<label id='numcount'></label>"  + " visit(s)<br>" + name + "</h2></center><center><a href='https://aquavisitorsystem.github.io/'>Go Home</a></center><br>";         
 	document.write(title);
 	document.write(printnow);
     //document.write("<center><h3>Find your name and Tap 'Check-In'</b></center></h3>If your name is not found below, click <a href='" +  "https://ignitemeeting.github.io/?ipad=Yes"   + "'>here</a> to continue!<br><br><center>");
