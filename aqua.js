@@ -2346,7 +2346,7 @@ var name=prompt("Please choose one of the following\r\n1) Enter end search date 
 // let sendingText = "https://ignitemeeting.github.io/?ipad=Yes"
 document.head.innerHTML = header;
 document.write("</table>");
-setTimeout("sortByDate2(7)", 2000);
+setTimeout("sortByDate2(7)", 3000);
 }) 
     .catch((error) => {
         console.log("Error getting documents: ", error);
