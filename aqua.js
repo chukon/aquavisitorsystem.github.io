@@ -1324,7 +1324,7 @@ var loadname =  function(){
    
     document.head.innerHTML = header;
     document.write("</table>");
-    setTimeout("sortByDate2(7)", 2000);
+    setTimeout("sortByDate2(7)", 3000);
 
 })
     .catch((error) => {
@@ -1383,7 +1383,7 @@ var loadloguserid =  function(){
     });
     document.head.innerHTML = header;
     document.write("</table>");
-    setTimeout("sortByDate2(7)", 2000);
+    setTimeout("sortByDate2(7)", 3000);
 })
     .catch((error) => {
         console.log("Error getting documents: ", error);
@@ -1473,7 +1473,7 @@ var loadlogtoday =  function(){
 });
 document.head.innerHTML = header;
 document.write("</table>");
-setTimeout("sortByDate2(7)", 2000);
+setTimeout("sortByDate2(7)", 3000);
 })
     .catch((error) => {
         console.log("Error getting documents: ", error);
@@ -1558,7 +1558,7 @@ setTimeout("sortByDate2(7)", 2000);
     });
     document.write("</table>");
     document.head.innerHTML = header;
-    setTimeout("sortByDate2(7)", 2000);
+    setTimeout("sortByDate2(7)", 3000);
     })
     .catch((error) => {
         console.log("Error getting documents: ", error);
@@ -1606,7 +1606,7 @@ setTimeout("sortByDate2(7)", 2000);
     });
 document.write("</table>");
 document.head.innerHTML = header;
-setTimeout("sortByDate2(7)", 2000);
+setTimeout("sortByDate2(7)", 3000);
 })
     .catch((error) => {
         console.log("Error getting documents: ", error);
