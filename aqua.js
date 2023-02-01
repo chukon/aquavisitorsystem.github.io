@@ -501,6 +501,8 @@ document.getElementById("submit_msg").disabled = true;
     });
     }
 
+   
+
     var error_log_create = function(data){
         var tzoffset = (new Date()).getTimezoneOffset() * 60000; //offset in milliseconds
         var d = new Date(Date.now() - tzoffset);
@@ -1316,8 +1318,8 @@ var loadname =  function(){
         Visitors.push(doc.data().firstname + ' ' + doc.data().lastname + ' '  + doc.data().checkin);
         console.log("loadlogname:" + dates);
         document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().sourcekey + '">Click here</a></td></tr>');
-        document.getElementById("numcount").innerHTML = countUnique(Visitors);
-        document.getElementById("numcount").setAttribute("value", countUnique(Visitors));
+        document.getElementById("numcount").innerHTML = Math.ceil((cnt / 2));
+        document.getElementById("numcount").setAttribute("value", Math.ceil((cnt / 2)));
     });
    
     document.head.innerHTML = header;
@@ -1376,8 +1378,8 @@ var loadloguserid =  function(){
         console.log("Visitors:" + Visitors.length);
         console.log("loadlogname:" + dates);
         document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().sourcekey + '">Click here</a></td></tr>');
-        document.getElementById("numcount").innerHTML = countUnique(Visitors);
-        document.getElementById("numcount").setAttribute("value", countUnique(Visitors));
+        document.getElementById("numcount").innerHTML = Math.ceil((cnt / 2));
+        document.getElementById("numcount").setAttribute("value", Math.ceil((cnt / 2)));
     });
     document.head.innerHTML = header;
     document.write("</table>");
@@ -1462,11 +1464,12 @@ var loadlogtoday =  function(){
     var dates = new Date(doc.data().date).toLocaleDateString("fr-CA", options) + ' ' + new Date(doc.data().date).toLocaleTimeString("en", options2)
     Visitors.push(doc.data().firstname + ' ' + doc.data().lastname + ' '  + doc.data().checkin);
     console.log("loadlogtoday:" + dates);
-    
+    console.log("cnt count:" + cnt);
+    console.log("array count:" + Visitors.length);
     console.log("Visitors:" + countUnique(Visitors));
      document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().sourcekey + '">Click here</a></td></tr>');
-     document.getElementById("numcount").innerHTML = countUnique(Visitors);
-     document.getElementById("numcount").setAttribute("value", countUnique(Visitors));
+     document.getElementById("numcount").innerHTML = Math.ceil((cnt / 2));
+     document.getElementById("numcount").setAttribute("value", Math.ceil((cnt / 2)));
 });
 document.head.innerHTML = header;
 document.write("</table>");
@@ -1550,8 +1553,8 @@ setTimeout("sortByDate2(7)", 2000);
     
         console.log("Visitors:" + countUnique(Visitors));
         document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().sourcekey + '">Click here</a></td></tr>');
-        document.getElementById("numcount").innerHTML = countUnique(Visitors);
-        document.getElementById("numcount").setAttribute("value", countUnique(Visitors));
+        document.getElementById("numcount").innerHTML = Math.ceil(cnt / 2);
+        document.getElementById("numcount").setAttribute("value", Math.ceil((cnt / 2)));
     });
     document.write("</table>");
     document.head.innerHTML = header;
@@ -1599,7 +1602,7 @@ setTimeout("sortByDate2(7)", 2000);
     console.log("loadlogall:" + dates);
     document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().sourcekey + '">Click here</a></td></tr>');
     document.getElementById("numcount").innerHTML = Math.ceil((cnt / 2));
-    document.getElementById("numcount").setAttribute("value", countUnique(Visitors));
+    document.getElementById("numcount").setAttribute("value", Math.ceil((cnt / 2)));
     });
 document.write("</table>");
 document.head.innerHTML = header;
@@ -2331,13 +2334,19 @@ var name=prompt("Please choose one of the following\r\n1) Enter end search date 
      Visitors.push(doc.data().firstname + ' ' + doc.data().lastname + ' ' + doc.data().checkin);
 
 	   console.log("loadtodayschedule:" + dates);
+       console.log("Visitors Array:" + Visitors.length);
+        console.log("cnt:" + cnt);
+         console.log("cnt / 2:" + cnt / 2);
+          console.log("loadtodayschedule:" + dates);
      document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().sourcekey + '">Click here</a></td></tr>');
-     document.getElementById("numcount").innerHTML = countUnique(Visitors);
-     document.getElementById("numcount").setAttribute("value", countUnique(Visitors));
+      document.getElementById("numcount").innerHTML = Math.ceil((cnt / 2));
+        document.getElementById("numcount").setAttribute("value", Math.ceil((cnt / 2)));
 });
-document.write("</table>");
+
 // let sendingText = "https://ignitemeeting.github.io/?ipad=Yes"
 document.head.innerHTML = header;
+document.write("</table>");
+setTimeout("sortByDate2(7)", 2000);
 }) 
     .catch((error) => {
         console.log("Error getting documents: ", error);
@@ -3052,7 +3061,7 @@ var dailycheckin =  function(){
         fldcheckout = doc.data().checkout;
         fldremove =  doc.data().remove;
         fldkey = doc.data().key;
-        log_create();
+       // log_create();
     });
 }
 }) 
@@ -3103,7 +3112,7 @@ var dailycheckout =  function(){
         fldcheckout = flddailycheckout;
         fldremove =  doc.data().remove;
         fldkey = doc.data().key;
-        log_create();	  
+       // log_create();	  
     });
 }
 }) 
@@ -3111,6 +3120,7 @@ var dailycheckout =  function(){
         console.log("error:" + error);
 });
 }
+
 
 //iPadid
 	    
