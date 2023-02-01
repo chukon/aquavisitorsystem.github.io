@@ -408,6 +408,16 @@ firebase.initializeApp(firebaseConfig);
                document.getElementById("removeYes").innerHTML = "";
                document.getElementById('back').style.display = 'block';
            }
+           if (doc.data().remove === 'X'){
+		
+               document.getElementById('qrcode').style.display = 'none';
+               document.getElementById('emaillink').style.display = 'none';
+               document.getElementById('removeYes').style.display = 'none';
+               document.getElementById("remove").innerHTML  = "Status: Removed";
+               document.getElementById("removeNo").innerHTML = "<a href='" + removewebsiteNo + "'>Click here to update status to: Active</a>";
+               document.getElementById("removeYes").innerHTML = "";
+               document.getElementById('back').style.display = 'block';
+           }
            if (doc.data().remove === 'No'){
 		
                document.getElementById('removeNo').style.display = 'none';
@@ -1721,7 +1731,7 @@ document.head.innerHTML = header;
      .get()
      .then((querySnapshot) => {
          var cnt = querySnapshot.size;
-        var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (inactive)</h1><small>**Inactive schedules will be removed every 30 days</small><h2>" + cnt + " In-Active Visitor Schedule(s) </h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+        var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (removed)</h1><h2>" + cnt + " Removed Schedule(s) </h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
         document.write(title);
         if (cnt === 0){
             var nodata = "<center><br>No visitor data found<br></center>";
