@@ -877,6 +877,11 @@ var loaddb =  function(data){
             month: "2-digit",
             day: "2-digit"
         };
+        var options2 = {
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit"
+        };
         var datesort;
         var Datex = [];
         var dates = new Date(doc.data().date).toLocaleDateString("en", options)
@@ -939,12 +944,14 @@ var loaddb =  function(data){
             Datex.push(datesort);
         }
         Datex.sort((a, b) => new Date(b) - new Date(a)).reverse()
-        // console.log(Datex);
-        // var next_dates = new Date();
-        var todays = new Date();
-
+        var todays = new Date().toLocaleDateString("fr-CA", options2);
+        console.log("todays: " + todays);
         for(var i=0; i<Datex.length; i++){
-            if(parseDate(Datex[i]) > todays){
+            console.log("Datex[i]: " + Datex[i]);
+            if(Datex[i] === todays){
+                datesort = Datex[i]
+                break;
+            }else if (Datex[i] > todays){
                 datesort = Datex[i]
                 break;
             }
@@ -961,8 +968,9 @@ var loaddb =  function(data){
 });
 }
     document.write("</tbody></table>");
-    setTimeout("sortTable(5)", 2000);
-    setTimeout("sortTable(5)", 2000);
+    setTimeout("sortByDate2(5)", 3000);
+    //setTimeout("sortTable(5)", 2000);
+   // setTimeout("sortTable(5)", 2000);
 //sortdate
    
 }
@@ -1074,16 +1082,19 @@ var loaddbeverything =  function(){
         Datex.push(datesort);
     }
     Datex.sort((a, b) => new Date(b) - new Date(a)).reverse()
-   // console.log(Datex);
-   // var next_dates = new Date();
-    var todays = new Date();
-
+    var todays = new Date().toLocaleDateString("fr-CA", options2);
+    console.log("todays: " + todays);
     for(var i=0; i<Datex.length; i++){
-        if(parseDate(Datex[i]) > todays){
+        console.log("Datex[i]: " + Datex[i]);
+        if(Datex[i] === todays){
+            datesort = Datex[i]
+            break;
+        }else if (Datex[i] > todays){
             datesort = Datex[i]
             break;
         }
     }
+
 
    // datesort = next_dates;
 
