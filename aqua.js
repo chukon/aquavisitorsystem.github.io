@@ -1477,10 +1477,11 @@ var loadlogtoday =  function(){
     console.log("loadlogtoday:" + dates);
     console.log("cnt count:" + cnt);
     console.log("array count:" + Visitors.length);
+    //dates = countUnique(Visitors);
     console.log("Visitors:" + countUnique(Visitors));
      document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().sourcekey + '">Click here</a></td></tr>');
-     document.getElementById("numcount").innerHTML = Math.ceil((cnt / 2));
-     document.getElementById("numcount").setAttribute("value", Math.ceil((cnt / 2)));
+     document.getElementById("numcount").innerHTML = countUnique(Visitors);
+     document.getElementById("numcount").setAttribute("value", countUnique(Visitors));
 });
 document.head.innerHTML = header;
 document.write("</table>");
