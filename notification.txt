@@ -1,8 +1,8 @@
 <ul style="display: inline;">
   <li>Latest updates</li>
-  <ul><li><b>Reports:</b> added new 'logdate' report</li></ul> 
+  <ul><li><b>Reports:</b> updated 'logtoday' report</li></ul> 
   <ul><li>- Click on 'View Scheduled Visits'</li></ul> 
-  <ul><li>- Use keyword: logdate</li></ul>
+  <ul><li>- Use keyword: logtoday</li></ul>
 </ul> 
 <br>
 <button id='modalClose' type="button">Close</button>
