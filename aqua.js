@@ -1003,6 +1003,7 @@ var loaddbeverything =  function(){
     var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (all)</h1><h2>" + cnt + " Active Visitor Schedule(s) </h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
 
     document.write(title);
+  
     if (cnt === 0){
         var nodata = "<center><br>No visitor data found<br></center>";
         document.write(nodata);
@@ -1011,7 +1012,6 @@ var loaddbeverything =  function(){
        // document.write("<table  id='report' style='font-size: small;'>  <tr>    <th style='cursor: pointer; color: red;' onclick='sortTable(0)'>UserID <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th>Date/Time</th>      <th>Email</th>       <th>Visiting</th><th>Edit</th>  </tr>");
         document.write("<table id='report' style='font-size: small;'>  <thead><tr>    <th style='cursor: pointer; color: red;' onclick='sortTable(0)'>UserID <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>First Name</th>    <th  style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th>Date/Time(s)</th><th  style='cursor: pointer; color: red;' onclick='sortTable(5)'>ClosestDate<i class='fa fa-sort' style='font-size:20px;color:blue'></i></th><th>Email</th>       <th>Visiting</th><th>Edit</th></tr></thead>");
         document.write("<tbody>");
-
     }
     querySnapshot.forEach((doc) => {
         console.log(doc.id, " => ", doc.data());
@@ -1122,6 +1122,7 @@ document.head.innerHTML = header;
         console.log("Error getting documents: ", error);
 });
     document.write("</tbody></table>");
+    document.getElementsByTagName("body")[0].style.display = "none";
     setTimeout("sortTable(5)", 2000);
     setTimeout("sortTable(5)", 2000);
    // setTimeout("sortByDate(5)", 6000);
@@ -1286,8 +1287,9 @@ var loadname =  function(){
         document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
  
     });
-    document.write("</table>");
     document.head.innerHTML = header;
+    document.write("</table>");
+    document.getElementsByTagName("body")[0].style.display = "none";
     setTimeout("sortByDate2(2)", 2000);
 })
     .catch((error) => {
@@ -1306,7 +1308,7 @@ var loadname =  function(){
         get_login  = get_login.toString();
         get_login = get_login.trim().toUpperCase();
         console.log(get_login);
-        var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}@page{size: landscape;}}</style></head>";
+        var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(5){display: none;}#report tr > *:nth-child(10){display: none;}@page{size: landscape;}}</style></head>";
         var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
         var lines = "";
         let today = new Date().toISOString().slice(0, 10);
@@ -1353,6 +1355,7 @@ var loadname =  function(){
    
     document.head.innerHTML = header;
     document.write("</table>");
+    document.getElementsByTagName("body")[0].style.display = "none";
     setTimeout("sortByDate2(7)", 3000);
 
 })
@@ -1372,7 +1375,7 @@ var loadloguserid =  function(){
         get_login  = get_login.toString();
         get_login = get_login.trim().toLowerCase();
         console.log(get_login);
-        var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}@page{size: landscape;}}</style></head>";
+        var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(1){display: none;}#report tr > *:nth-child(5){display: none;}#report tr > *:nth-child(10){display: none;}@page{size: landscape;}}</style></head>";
         var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
         var lines = "";
         let today = new Date().toISOString().slice(0, 10);
@@ -1418,6 +1421,7 @@ var loadloguserid =  function(){
     });
     document.head.innerHTML = header;
     document.write("</table>");
+    document.getElementsByTagName("body")[0].style.display = "none";
     setTimeout("sortByDate2(7)", 3000);
 })
     .catch((error) => {
@@ -1455,7 +1459,7 @@ function Lookup(){
 	  
     var loadlogtoday =  function(){
         var db = firebase.firestore();
-        var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}@page{size: landscape;}}</style></head>";
+        var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(5){display: none;}#report tr > *:nth-child(10){display: none;}@page{size: landscape;}}</style></head>";
         var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
         var lines = "";
         var Dates = [];
@@ -1515,6 +1519,7 @@ function Lookup(){
 });
 document.head.innerHTML = header;
 document.write("</table>");
+document.getElementsByTagName("body")[0].style.display = "none";
 setTimeout("sortByDate2(7)", 3000);
 })
     .catch((error) => {
@@ -1524,7 +1529,7 @@ setTimeout("sortByDate2(7)", 3000);
 
     var loadlogdate =  function(){
         var db = firebase.firestore();
-        var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}@page{size: landscape;}}</style></head>";
+        var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(5){display: none;}#report tr > *:nth-child(10){display: none;}@page{size: landscape;}}</style></head>";
         var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
         var lines = "";
         var Dates = [];
@@ -1607,6 +1612,7 @@ setTimeout("sortByDate2(7)", 3000);
     });
     document.write("</table>");
     document.head.innerHTML = header;
+    document.getElementsByTagName("body")[0].style.display = "none";
     setTimeout("sortByDate2(7)", 3000);
     })
     .catch((error) => {
@@ -1617,7 +1623,7 @@ setTimeout("sortByDate2(7)", 3000);
     var loadlogall =  function(){
         var Visitors = [];
     var db = firebase.firestore();
-    var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}@page{size: landscape;}}</style></head>";
+    var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(5){display: none;}#report tr > *:nth-child(10){display: none;}@page{size: landscape;}}</style></head>";
     var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
     var lines = "";
     let today = new Date().toISOString().slice(0, 10);
@@ -1661,8 +1667,10 @@ setTimeout("sortByDate2(7)", 3000);
         // document.getElementById("numcount").innerHTML = Math.ceil(cnt / 2);
         //document.getElementById("numcount").setAttribute("value", Math.ceil((cnt / 2)));
     });
-document.write("</table>");
-document.head.innerHTML = header;
+
+    document.head.innerHTML = header;
+    document.write("</table>");
+document.getElementsByTagName("body")[0].style.display = "none";
 setTimeout("sortByDate2(7)", 3000);
 })
     .catch((error) => {
@@ -1744,6 +1752,7 @@ document.head.innerHTML = header;
     .catch((error) => {
         console.log("Error getting documents: ", error);
 });
+    document.getElementsByTagName("body")[0].style.display = "none";
     setTimeout("sortTable(4)", 2000);
     setTimeout("sortTable(4)", 2000);
 }
@@ -1866,7 +1875,7 @@ var loadtoday =  function(){
     }	
     console.log(name);
     var  todays = new Date().toLocaleDateString('en-US');  
-    var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}@page{size: landscape;}}</style></head>";
+    var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(8){display: none;}@page{size: landscape;}}</style></head>";
     var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
     var RecordIDs = [];
     var cnt1;
@@ -2114,6 +2123,7 @@ if (choosedate === new Date(doc.data().date12).toDateString()) {
 }
 });
      document.write("</table>");
+      document.getElementsByTagName("body")[0].style.display = "none";
        setTimeout("sortByDate(4)", 3000);
 }
   
@@ -2137,8 +2147,8 @@ var myDate = new Date(d).toLocaleDateString('en-US');
 name = myDate.toString();
 console.log(name);
 var  todays = new Date().toLocaleDateString('en-US');  
-  var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}@page{size: landscape;}}</style></head>";
-  var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
+  var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(8){display: none;}#report tr > *:nth-child(9){display: none;}#report tr > *:nth-child(10){display: none;}@page{size: landscape;}}</style></head>";
+	 var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
   var RecordIDs = [];
   var cnt1;
 const promise = new Promise((resolve, reject) => {
@@ -2371,6 +2381,9 @@ dates = new Date(doc.data().date12).toLocaleDateString("en", options)
 });
     //  document.write("</table>");
 	document.head.innerHTML = header;
+   document.write("</table>");
+   document.getElementsByTagName("body")[0].style.display = "none";
+   setTimeout("sortByDate(4)", 2000);
 }) 
     .catch((error) => {
          console.log("Error getting documents: ", error);
@@ -2381,10 +2394,6 @@ dates = new Date(doc.data().date12).toLocaleDateString("en", options)
 });
 }
 });
-     document.write("</table>");
-   setTimeout("sortByDate(4)", 3000);
-    // setTimeout("sortTable(4)", 2000);
-    //setTimeout("sortTable(4)", 3000);
 }
 
 var loadweekschedule =  function(){
@@ -2435,9 +2444,9 @@ var name=prompt("Please choose one of the following\r\n1) Enter end search date 
      name = smyDate + ' - ' + myDate.toString();
 	console.log(name);
 	var  todays = new Date().toLocaleDateString('en-US');  
-         var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}@page{size: landscape;}}</style></head>";
+         var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(5){display: none;}#report tr > *:nth-child(10){display: none;}@page{size: landscape;}}</style></head>";
 	 var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
-	console.log("Start Date: " + start);
+    console.log("Start Date: " + start);
 	console.log("End Date: " + end);
 	 db.collection("log").where("date", ">=",start).where("date", "<=",end).where("remove", "==","No").orderBy("date","desc").orderBy("lastname","asc")
     .get()
@@ -2488,6 +2497,7 @@ document.write("<table id='report' style='font-size: small;'>  <tr>     <th styl
 // let sendingText = "https://ignitemeeting.github.io/?ipad=Yes"
 document.head.innerHTML = header;
 document.write("</table>");
+document.getElementsByTagName("body")[0].style.display = "none";
 setTimeout("sortByDate2(7)", 3000);
 }) 
     .catch((error) => {
@@ -2767,6 +2777,7 @@ document.write(nodata);
 }
 });
    document.write("</table>");
+   document.getElementsByTagName("body")[0].style.display = "none";
    setTimeout("sortByDate(3)", 2000);       
 }
        
@@ -3632,7 +3643,10 @@ function sortTable(n) {
         console.log(error);
         // Expected output: ReferenceError: nonExistentFunction is not defined
         // (Note: the exact output may be browser-dependent)
+    } finally {
+        document.getElementsByTagName("body")[0].style.display = "block";
     }
+    
 }
 function convertDate(d) {
     var p = d.split("/");
@@ -3640,6 +3654,7 @@ function convertDate(d) {
 }
 
 function sortByDate(n) {
+    try {
     console.log(n);
     //document.getElementById("report").value = "";
     //document.querySelectorAll("#report tbody").forEach(el => el.remove());
@@ -3658,7 +3673,14 @@ function sortByDate(n) {
         //console.log(v); 
     });
 
-   
+  
+    } catch (error) {
+        console.log(error);
+        document.getElementsByTagName("body")[0].style.display = "block";
+    } finally {
+        document.getElementsByTagName("body")[0].style.display = "block";
+    }
+
 }
 
 function sortdates()
@@ -3668,6 +3690,9 @@ function sortdates()
 }
 
 function sortByDate2(n) {
+    try {
+    //showPleaseWait() 
+   // document.getElementsByTagName("BODY")[0].style.display = "block";
     console.log(n);
     //document.getElementById("report").value = "";
     //document.querySelectorAll("#report tbody").forEach(el => el.remove());
@@ -3686,6 +3711,12 @@ function sortByDate2(n) {
         //console.log(v); 
     });
 
+    } catch (error) {
+        console.log(error);
+        document.getElementsByTagName("body")[0].style.display = "block";
+    } finally {
+        document.getElementsByTagName("body")[0].style.display = "block";
+    }
    
 }
 
@@ -3694,3 +3725,4 @@ function parseDate(input) {
     // new Date(year, month [, day [, hours[, minutes[, seconds[, ms]]]]])
     return new Date(parts[0], parts[1]-1, parts[2]); // Note: months are 0-based
 }
+
