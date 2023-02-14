@@ -1,11 +1,13 @@
 <ul style="display: inline;">
   <li>Latest updates</li>
-  <ul><li><b>Reports:</b> updated 'logtoday' report</li></ul> 
-  <ul><li>- Click on 'View Scheduled Visits'</li></ul> 
-  <ul><li>- Use keyword: logtoday</li></ul>
+  <ul><li><b>Reports:</b> updated loading & sorting for below reports</li></ul> 
+  <ul><li>today, name, date, all, inactive, loguserid, logname</li></ul> 
+  <ul><li>logall, logtoday, logweek and logdate</li></ul> 
+  <ul><li>Click on 'View Scheduled Visits'</li></ul> 
+  <ul><li>Use keyword(s) listed</li></ul>
 </ul> 
 <br>
 <button id='modalClose' type="button">Close</button>
 <br>
 <br>
-<center><div id="footer" style="color: coral;font-size: smaller;">last updated by Chuck Konkol on 2/9/2023</div></center>
+<center><div id="footer" style="color: coral;font-size: smaller;">last updated by Chuck Konkol on 2/14/2023</div></center>
