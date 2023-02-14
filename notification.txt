@@ -1,8 +1,8 @@
 <ul style="display: inline;">
   <li>Latest updates</li>
   <ul><li><b>Reports:</b> updated loading & sorting for below reports</li></ul> 
-  <ul><li>today, name, date, all, inactive, loguserid, logname</li></ul> 
-  <ul><li>logall, logtoday, logweek and logdate</li></ul> 
+  <ul>- today, name, date, all, inactive, loguserid, logname</ul> 
+  <ul>- logall, logtoday, logweek and logdate</ul> 
   <ul><li>Click on 'View Scheduled Visits'</li></ul> 
   <ul><li>Use keyword(s) listed</li></ul>
 </ul> 
