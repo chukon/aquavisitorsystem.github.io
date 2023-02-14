@@ -972,13 +972,14 @@ var loaddb =  function(data){
         document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + datesort + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
     });
     document.head.innerHTML = header;
+    document.write("</tbody></table>");
+    document.getElementsByTagName("body")[0].style.display = "none";
+    setTimeout("sortByDate2(5)", 1000);
 })
     .catch((error) => {
         console.log("Error getting documents: ", error);
 });
 }
-    document.write("</tbody></table>");
-    setTimeout("sortByDate2(5)", 1000);
     //setTimeout("sortTable(5)", 2000);
    // setTimeout("sortTable(5)", 2000);
 //sortdate
