@@ -1521,7 +1521,7 @@ function Lookup(){
 document.head.innerHTML = header;
 document.write("</table>");
 document.getElementsByTagName("body")[0].style.display = "none";
-setTimeout("sortByDate2(7)", 3000);
+setTimeout("sortByDate2(7)", 1000);
 })
     .catch((error) => {
         console.log("Error getting documents: ", error);
