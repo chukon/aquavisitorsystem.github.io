@@ -1310,7 +1310,7 @@ var loadname =  function(){
         get_login  = get_login.toString();
         get_login = get_login.trim().toUpperCase();
         console.log(get_login);
-        var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(5){display: none;}#report tr > *:nth-child(10){display: none;}@page{size: landscape;}}</style></head>";
+        var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(5){display: none;}#report tr > *:nth-child(10){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
         var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
         var lines = "";
         let today = new Date().toISOString().slice(0, 10);
@@ -1377,7 +1377,7 @@ var loadloguserid =  function(){
         get_login  = get_login.toString();
         get_login = get_login.trim().toLowerCase();
         console.log(get_login);
-        var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(1){display: none;}#report tr > *:nth-child(5){display: none;}#report tr > *:nth-child(10){display: none;}@page{size: landscape;}}</style></head>";
+        var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(1){display: none;}#report tr > *:nth-child(5){display: none;}#report tr > *:nth-child(10){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
         var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
         var lines = "";
         let today = new Date().toISOString().slice(0, 10);
@@ -1461,7 +1461,7 @@ function Lookup(){
 	  
     var loadlogtoday =  function(){
         var db = firebase.firestore();
-        var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(5){display: none;}#report tr > *:nth-child(10){display: none;}@page{size: landscape;}}</style></head>";
+        var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(5){display: none;}#report tr > *:nth-child(10){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
         var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
         var lines = "";
         var Dates = [];
@@ -1531,7 +1531,7 @@ setTimeout("sortByDate2(7)", 1000);
 
     var loadlogdate =  function(){
         var db = firebase.firestore();
-        var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(5){display: none;}#report tr > *:nth-child(10){display: none;}@page{size: landscape;}}</style></head>";
+        var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(5){display: none;}#report tr > *:nth-child(10){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
         var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
         var lines = "";
         var Dates = [];
@@ -1625,7 +1625,7 @@ setTimeout("sortByDate2(7)", 1000);
     var loadlogall =  function(){
         var Visitors = [];
     var db = firebase.firestore();
-    var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(5){display: none;}#report tr > *:nth-child(10){display: none;}@page{size: landscape;}}</style></head>";
+    var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(5){display: none;}#report tr > *:nth-child(10){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
     var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
     var lines = "";
     let today = new Date().toISOString().slice(0, 10);
@@ -1879,7 +1879,7 @@ var loadtoday =  function(){
     }	
     console.log(name);
     var  todays = new Date().toLocaleDateString('en-US');  
-    var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(8){display: none;}@page{size: landscape;}}</style></head>";
+    var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(8){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
     var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
     var RecordIDs = [];
     var cnt1;
@@ -2136,7 +2136,7 @@ var myDate = new Date(d).toLocaleDateString('en-US');
 name = myDate.toString();
 console.log(name);
 var  todays = new Date().toLocaleDateString('en-US');  
-  var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(8){display: none;}#report tr > *:nth-child(9){display: none;}#report tr > *:nth-child(10){display: none;}@page{size: landscape;}}</style></head>";
+  var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(8){display: none;}#report tr > *:nth-child(9){display: none;}#report tr > *:nth-child(10){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
 	 var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
   var RecordIDs = [];
   var cnt1;
@@ -2432,7 +2432,7 @@ var name=prompt("Please choose one of the following\r\n1) Enter end search date 
      name = smyDate + ' - ' + myDate.toString();
 	console.log(name);
 	var  todays = new Date().toLocaleDateString('en-US');  
-         var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(5){display: none;}#report tr > *:nth-child(10){display: none;}@page{size: landscape;}}</style></head>";
+         var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(5){display: none;}#report tr > *:nth-child(10){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
 	 var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
     console.log("Start Date: " + start);
 	console.log("End Date: " + end);
