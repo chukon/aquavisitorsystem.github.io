@@ -2136,8 +2136,8 @@ var myDate = new Date(d).toLocaleDateString('en-US');
 name = myDate.toString();
 console.log(name);
 var  todays = new Date().toLocaleDateString('en-US');  
-  var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(8){display: none;}#report tr > *:nth-child(9){display: none;}#report tr > *:nth-child(10){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
-	 var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
+ var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(8){display: none;}#report tr > *:nth-child(9){display: none;}#report tr > *:nth-child(10){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
+  var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
   var RecordIDs = [];
   var cnt1;
 const promise = new Promise((resolve, reject) => {
@@ -2287,7 +2287,6 @@ if (cnt1 === 0){
     document.write(nodata);
 }else{
     document.write("<table id='report' style='font-size: small;'>  <tr>    <th>UserID</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortByDate(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");	
-    document.getElementsByTagName("body")[0].style.display = "none";
 }
 for (let i = 0; i < docs.length; i += chunkSize) {
     chunk = docs.slice(i, i + chunkSize);
@@ -2362,6 +2361,8 @@ if (todays === new Date(doc.data().date12).toDateString()) {
 dates = new Date(doc.data().date12).toLocaleDateString("en", options)
     //setTimeout("sortTable(3)", 2000);
 }
+
+
     // }
     //var dates = new Date(doc.data().date).toLocaleTimeString()
     console.log("loadtodayschedule:" + dates);
@@ -2369,9 +2370,6 @@ dates = new Date(doc.data().date12).toLocaleDateString("en", options)
 });
     //  document.write("</table>");
 	document.head.innerHTML = header;
-   document.write("</table>");
-   document.getElementsByTagName("body")[0].style.display = "none";
-   setTimeout("sortByDate(4)",1000);
 }) 
     .catch((error) => {
          console.log("Error getting documents: ", error);
@@ -2382,7 +2380,12 @@ dates = new Date(doc.data().date12).toLocaleDateString("en", options)
 });
 }
 });
+     document.write("</table>");
+   setTimeout("sortByDate(4)", 3000);
+    // setTimeout("sortTable(4)", 2000);
+    //setTimeout("sortTable(4)", 3000);
 }
+
 
 var loadweekschedule =  function(){
            var db = firebase.firestore();
