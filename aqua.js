@@ -1701,7 +1701,7 @@ var loadinactive =  function(){
  .get()
  .then((querySnapshot) => {
      var cnt = querySnapshot.size;
-    var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (inactive)</h1><small>**Inactive schedules will be removed every 30 days</small><h2>" + cnt + " In-Active Visitor Schedule(s) </h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+    var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (inactive)</h1><small>**InActive schedules will be removed periodically<br>If you need an InActive schedule restored please contact Chuck Konkol ext. 4574</small><h2>" + cnt + " InActive Visitor Schedule(s) </h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
     document.write(title);
     if (cnt === 0){
         var nodata = "<center><br>No visitor data found<br></center>";
