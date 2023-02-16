@@ -3712,7 +3712,8 @@ function sortTable(n) {
             }
         }
     } catch (error) {
-        console.log(error);
+        // console.log(error);
+        document.getElementsByTagName("body")[0].style.display = "block";
         // Expected output: ReferenceError: nonExistentFunction is not defined
         // (Note: the exact output may be browser-dependent)
     } finally {
@@ -3747,7 +3748,7 @@ function sortByDate(n) {
 
   
     } catch (error) {
-        console.log(error);
+       // console.log(error);
         document.getElementsByTagName("body")[0].style.display = "block";
     } finally {
         document.getElementsByTagName("body")[0].style.display = "block";
@@ -3784,7 +3785,7 @@ function sortByDate2(n) {
     });
 
     } catch (error) {
-        console.log(error);
+       // console.log(error);
         document.getElementsByTagName("body")[0].style.display = "block";
     } finally {
         document.getElementsByTagName("body")[0].style.display = "block";
