@@ -1000,8 +1000,8 @@ var loaddb =  function(data){
        
 var loaddbeverything =  function(){
     var db = firebase.firestore();
-    var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
-    var lines = "";
+    var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(9){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
+    var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>"; var lines = "";
     var RecordIDs = [];
     var cnt1;
     var datesort;
@@ -1016,7 +1016,7 @@ var loaddbeverything =  function(){
     var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (all)</h1><h2>" + cnt + " Active Visitor Schedule(s) </h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
 
     document.write(title);
-  
+    document.write(printnow);
     if (cnt === 0){
         var nodata = "<center><br>No visitor data found<br></center>";
         document.write(nodata);
@@ -1233,8 +1233,8 @@ var loadname =  function(){
         get_login  = get_login.toString();
         get_login = get_login.trim().toUpperCase();
         console.log(get_login);
-        var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
-        var lines = "";
+        var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(8){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
+        var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>"; var lines = "";  var lines = "";
         let today = new Date().toISOString().slice(0, 10);
         db.collection("messages").where("lastname", "==",get_login).where("remove", "==","No").orderBy("date","desc")
    .get()
@@ -1242,6 +1242,7 @@ var loadname =  function(){
        var cnt = querySnapshot.size;
         var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (name)</h1><h2>" + cnt + " Active Visitor Schedule(s) for: " + get_login + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
         document.write(title);
+        document.write(printnow);
         if (cnt === 0){
             var nodata = "<center><br>No visitor data found<br></center>";
             document.write(nodata);
@@ -1694,7 +1695,8 @@ setTimeout("sortByDate2(7)", 3000);
        
 var loadinactive =  function(){
     var db = firebase.firestore();
-    var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
+    var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(8){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
+    var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>"; var lines = "";  var lines = "";
     var lines = "";
     let today = new Date().toISOString().slice(0, 10);
     db.collection("messages").where("remove", "==","Yes").orderBy("date","desc")
@@ -1703,6 +1705,7 @@ var loadinactive =  function(){
      var cnt = querySnapshot.size;
     var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (inactive)</h1><small>**InActive schedules will be removed periodically<br>If you need an InActive schedule restored please contact Chuck Konkol ext. 4574</small><h2>" + cnt + " InActive Visitor Schedule(s) </h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
     document.write(title);
+    document.write(printnow);
     if (cnt === 0){
         var nodata = "<center><br>No visitor data found<br></center>";
         document.write(nodata);
