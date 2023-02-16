@@ -1,6 +1,7 @@
 <ul style="display: inline;">
   <li>Latest updates</li>
   <ul><li>Removed InActive Schedules</li></ul>
+  <br>
   <ul><b>View Reports:</b></ul> 
   <ul><li>Click on 'View Scheduled Visits'</li></ul> 
   <ul><li>Use keyword(s) listed</li></ul>
