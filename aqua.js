@@ -3298,16 +3298,24 @@ var dailycheckout =  function(){
 }
 
 var removeInactiveUsers = function(){
-    let text = "Are you sure you want to clear inactive users?\n\nClick 'OK' to clear inactive users\nClick 'Cancel' to go back!";
-    if (confirm(text) == true) {
-        removeInactive();
-        alert("Success!\nInactive users have been cleared!");
-    } else {
-        alert("Cancelled!\nClearing inactive users have been has been cancelled!");
+    try {
+        let text = "Are you sure you want to clear inactive users?\n\nClick 'OK' to clear inactive users\nClick 'Cancel' to go back!";
+        if (confirm(text) == true) {
+            removeInactive();
+        } else {
+            alert("Cancelled!\nClearing inactive users have been has been cancelled!");
+        }
     }
-
+    catch(err) {
+        var data = {
+            "errormsg": "Error catch " + error
+        }
+        error_log_create(data);
+    }
+    finally {
+        setTimeout(function(){window.location = "https://aquavisitorsystem.github.io/?report=inactive";},1000);
+    }
 }
-
 
 var removeInactive =  function(){
         var db = firebase.firestore();
@@ -3424,6 +3432,12 @@ if (g_load === null) {
 }  
 if (g_report === 'checkins') {
     dailycheckin();
+} else {
+    console.log('string IS empty');
+}  
+
+if (g_report === 'inactive') {
+    loadinactive();
 } else {
     console.log('string IS empty');
 }  
