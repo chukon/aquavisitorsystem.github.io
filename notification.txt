@@ -1,8 +1,7 @@
 <ul style="display: inline;">
   <li>Latest updates</li>
-  <ul><li><b>Reports:</b> updated loading & sorting for below reports</li></ul> 
-  <ul>- today, name, date, all, inactive, loguserid, logname</ul> 
-  <ul>- logall, logtoday, logweek and logdate</ul> 
+  <ul><li>Removed InActive Schedules</li></ul>
+  <ul><b>View Reports:</b></ul> 
   <ul><li>Click on 'View Scheduled Visits'</li></ul> 
   <ul><li>Use keyword(s) listed</li></ul>
 </ul> 
@@ -10,4 +9,4 @@
 <button id='modalClose' type="button">Close</button>
 <br>
 <br>
-<center><div id="footer" style="color: coral;font-size: smaller;">last updated by Chuck Konkol on 2/14/2023</div></center>
+<center><div id="footer" style="color: coral;font-size: smaller;">last updated by Chuck Konkol on 2/16/2023</div></center>
