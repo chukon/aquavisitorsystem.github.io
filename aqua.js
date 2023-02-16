@@ -770,6 +770,18 @@ function toTimestamp(strDate){
     var datum = Date.parse(strDate);
     return datum/1000;
 }
+
+var set_remove = function(data){
+    var db = firebase.firestore();
+    var key = data["id"];          
+    db.collection("messages").doc(key).update({
+        remove: 'X'
+    }) .then(function(doc) {
+        console.log("doc updated");
+    }).catch(function(error) {
+        console.log("Error getting document:", error);
+    });
+}
        
 var set_checkin = function(data){
     var db = firebase.firestore();
@@ -2872,6 +2884,8 @@ var getloginname = function(){
         loadlogdate();
     }else if (username.toLowerCase()  === 'restore') {
         loadremoved();
+    }else if (username.toLowerCase()  === 'removeinactive') {
+        removeInactiveUsers();
     }else{
         var data = {
             "userid": username
@@ -2881,7 +2895,7 @@ var getloginname = function(){
     //loadlogdate
 }
 
-//loadloguserid
+//removeInactive
        
 var gocheckin = function(){
     update_submit2();
@@ -3283,6 +3297,40 @@ var dailycheckout =  function(){
 });
 }
 
+var removeInactiveUsers = function(){
+    let text = "Are you sure you want to clear inactive users?\n\nClick 'OK' to clear inactive users\nClick 'Cancel' to go back!";
+    if (confirm(text) == true) {
+        removeInactive();
+        alert("Success!\nInactive users have been cleared!");
+    } else {
+        alert("Cancelled!\nClearing inactive users have been has been cancelled!");
+    }
+
+}
+
+
+var removeInactive =  function(){
+        var db = firebase.firestore();
+        db.collection("messages").where("remove", "==","Yes")
+    .get()
+    .then((querySnapshot) => {
+        console.log("Snapshot:" + querySnapshot.size); 
+        var cnt = querySnapshot.size;
+        console.log("found:" + cnt);
+        if (cnt === 0){
+        }else{
+            querySnapshot.forEach((doc) => {
+                var data3 = {
+                    "id": doc.data().key
+                }
+            set_remove(data3);	
+        });
+    }
+    }) 
+    .catch((error) => {
+        console.log("error:" + error);
+    });
+    }
 
 //iPadid
 	    
