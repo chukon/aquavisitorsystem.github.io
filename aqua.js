@@ -693,7 +693,7 @@ if ((key_checkin === null || key_checkin === '') && (key_checkout === null || ke
     document.write("</center>");
     document.write('</body>');
     console.log("checkin successful");
-   sendcheckedin();
+    sendcheckedin();
     log_create();
 }else if ((key_checkin !=null && key_checkin != '') && (key_checkout === null || key_checkout === '') && (todaysdate === true)){
     console.log("checkedin ID: Yes");
@@ -710,25 +710,59 @@ if ((key_checkin === null || key_checkin === '') && (key_checkout === null || ke
     document.write("</center>");
     document.write('</body>');
     console.log("checkout successful");
-   sendcheckedout();
+    sendcheckedout();
     log_create();
 }else if ((key_checkin !=null && key_checkin != '') && (key_checkout !=null && key_checkout != '') && (todaysdate === true)){
-    //qr code used already
-    console.log("checkedin ID: Yes");
-    document.getElementById("checkedin").value = 'Yes';
-    console.log("already used");
-    document.write('<body style="font-family: sans-serif;color: blue;">');
-    document.write("<center>");
-    document.write('<img id="logo" src="aqua.jpg" width="500px">');
-    document.write("<p style='font-size:47px;'>Hello, " + varFName + " " + varLName + "</p>");
-    document.write("<p style='font-size:25px;color: black;'>This QR code has expired</p>");
-    document.write("<p style='font-size:20px;color: black;'><br>Please dispose of your badge before leaving reception/lobby!</p>");
-    document.write("<p style='font-size:20px;color: blue;'>Have a great day!</p>");
-    document.write("<p style='font-size:15px;color: black;'><br><br><br>current date/time: " + NowTime + "</p></center>");
-    document.write("</center>");
-    document.write('</body>');
+    //qr code used already old code removed to have check-in again if same day
+    //02/17/2023 CK
+    //console.log("checkedin ID: Yes");
+    //document.getElementById("checkedin").value = 'Yes';
+   // console.log("already used");
+    //document.write('<body style="font-family: sans-serif;color: blue;">');
+   // document.write("<center>");
+    //document.write('<img id="logo" src="aqua.jpg" width="500px">');
+    //document.write("<p style='font-size:47px;'>Hello, " + varFName + " " + varLName + "</p>");
+   // document.write("<p style='font-size:25px;color: black;'>This QR code has expired</p>");
+   // document.write("<p style='font-size:20px;color: black;'><br>Please dispose of your badge before leaving reception/lobby!</p>");
+   // document.write("<p style='font-size:20px;color: blue;'>Have a great day!</p>");
+   // document.write("<p style='font-size:15px;color: black;'><br><br><br>current date/time: " + NowTime + "</p></center>");
+   // document.write("</center>");
+   // document.write('</body>');
+   resetvisittoday(datapass);	
+   document.getElementById("checkedin").value = 'No';
+   console.log("checkedin ID: No");
+   setTimeout(set_checkin(datapass), 1000);	
+   document.write('<body style="font-family: sans-serif;color: black;">');
+   var timeToAdd = 1000 * 60 * 60 * 24 * 7 * 4 * 6;
+   var date = new Date();
+   var expiryTime = parseInt(date.getTime()) + timeToAdd;
+   date.setTime(expiryTime);
+   var utcTime = date.toUTCString();
+   document.cookie = "checkin=" + get_id + "; expires=" + utcTime + ";";
+   //document.cookie = "YOUR_COOKIE=yes; expires=" + utcTime + ";";
+   document.write("<center>");
+   document.write('<img id="logo" src="aqua.jpg" width="750px">');
+   document.write("<p style='font-size:47px;line-height: 0.9;margin: 15;'>Guest: <b>" + varFName + " " + varLName + "</b></p>");
+   document.write('<canvas id="qrcodes"></canvas>');
+   document.write("<p style='font-size:30px;color: black;margin: 15;'>Company: " + varcp + "</p>");
+   // document.write("<p style='font-size:16px;color: black;'><br><br><br>printed: " + NowTime + "</p></center>");
+   var qrcode = new QRious({
+       element: document.getElementById("qrcodes"),
+       background: '#ffffff',
+       backgroundAlpha: 1,
+       foreground: '#000000',
+       foregroundAlpha: 1,
+       level: 'L',
+       size: 230,
+       value: varwebsite
+   });
+   document.write("</center>");
+   document.write('</body>');
+   console.log("checkin successful");
+   sendcheckedin();
+   log_create();
     var data = {
-        "errormsg": "QR Code Expired for: " + varFName + " " + varLName 
+        "errormsg": "QR Code Reused for: " + varFName + " " + varLName 
     }
     error_log_create(data);
 }else{
