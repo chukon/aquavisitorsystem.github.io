@@ -3,8 +3,8 @@
   <ul><li>Visitor check-in/check-out</li></ul>
   <ul>- Check-in/check-out multiple times each visit</ul>
   <ul>- Must be within current date of scheduled date</ul>
-  <ul>- Example: leaves for lunch</ul>
   <ul>- A new badge will be printed</ul>
+  <ul>- Example: leave for lunch</ul>
   <br>
   <ul><b>View Reports:</b></ul> 
   <ul><li>Click on 'View Scheduled Visits'</li></ul> 
