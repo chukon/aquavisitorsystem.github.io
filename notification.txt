@@ -1,10 +1,10 @@
 <ul style="display: inline;">
-  <li>Latest updates</li>
-  <ul><li>Visitor check-in/check-out</li></ul>
-  <ul>- Check-in/check-out multiple times each visit</ul>
-  <ul>- Must be within current date of scheduled date</ul>
-  <ul>- A new badge will be printed</ul>
-  <ul>- Example: leave for lunch</ul>
+  <li><b>Latest updates</b></li>
+  <ul><li><b>Visitor check-in/check-out</b></li></ul>
+  <ul>- Allow multiple check-in/check-out sessions</ul>
+  <ul>- Must be within current scheduled date</ul>
+  <ul>- A new badge will be printed upon each check-in</ul>
+  <ul>- <b>Example:</b> return from lunch</ul>
   <br>
   <ul><b>View Reports:</b></ul> 
   <ul><li>Click on 'View Scheduled Visits'</li></ul> 

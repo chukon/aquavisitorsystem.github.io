@@ -715,20 +715,8 @@ if ((key_checkin === null || key_checkin === '') && (key_checkout === null || ke
 }else if ((key_checkin !=null && key_checkin != '') && (key_checkout !=null && key_checkout != '') && (todaysdate === true)){
     //qr code used already old code removed to have check-in again if same day
     //02/17/2023 CK
-    //console.log("checkedin ID: Yes");
-    //document.getElementById("checkedin").value = 'Yes';
-   // console.log("already used");
-    //document.write('<body style="font-family: sans-serif;color: blue;">');
-   // document.write("<center>");
-    //document.write('<img id="logo" src="aqua.jpg" width="500px">');
-    //document.write("<p style='font-size:47px;'>Hello, " + varFName + " " + varLName + "</p>");
-   // document.write("<p style='font-size:25px;color: black;'>This QR code has expired</p>");
-   // document.write("<p style='font-size:20px;color: black;'><br>Please dispose of your badge before leaving reception/lobby!</p>");
-   // document.write("<p style='font-size:20px;color: blue;'>Have a great day!</p>");
-   // document.write("<p style='font-size:15px;color: black;'><br><br><br>current date/time: " + NowTime + "</p></center>");
-   // document.write("</center>");
-   // document.write('</body>');
    resetvisittoday(datapass);	
+   fldcheckout = "";
    document.getElementById("checkedin").value = 'No';
    console.log("checkedin ID: No");
    setTimeout(set_checkin(datapass), 1000);	
@@ -759,8 +747,12 @@ if ((key_checkin === null || key_checkin === '') && (key_checkout === null || ke
    document.write("</center>");
    document.write('</body>');
    console.log("checkin successful");
-   sendcheckedin();
-   log_create();
+   var d = new Date();
+   myTime = new Date(d).toLocaleString();
+   fldcheckin = myTime;
+   flddailycheckin = myTime; 
+   sendcheckedin();	
+   log_create();	
     var data = {
         "errormsg": "QR Code Reused for: " + varFName + " " + varLName 
     }
