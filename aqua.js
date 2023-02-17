@@ -1543,6 +1543,8 @@ setTimeout("sortByDate2(7)", 1000);
 }
 
     var loadlogdate =  function(){
+        try 
+        {
         var db = firebase.firestore();
         var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(5){display: none;}#report tr > *:nth-child(10){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
         var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
@@ -1633,6 +1635,12 @@ setTimeout("sortByDate2(7)", 1000);
     .catch((error) => {
         console.log("Error getting documents: ", error);
     });
+    }catch(err) {
+        var nodata = "<center><br>Incorrect Date Format. Please try again.<br><br> <a href='https://aquavisitorsystem.github.io/'>Go Home</a><br></center>";
+        document.write(nodata);
+        // loadlogdate();
+       
+    }
     }
 		
     var loadlogall =  function(){
@@ -1859,6 +1867,7 @@ setTimeout("sortByDate2(4)", 2000);
 
        
     var loadtoday =  function(){
+        try {
         var db = firebase.firestore();
         let todaysdate = new Date();
         var count = 0;
@@ -2145,6 +2154,11 @@ const chunkSize = 10;
 
     setTimeout("sortByDate(4)", 2000);
        document.write("</table>");
+    }
+    catch(err) {
+        var nodata = "<center><br>Incorrect Date Format. Please try again.<br><br> <a href='https://aquavisitorsystem.github.io/'>Go Home</a><br></center>";
+        document.write(nodata);
+    }
     }
   
 var loadtodayschedule =  function(){
@@ -3433,6 +3447,7 @@ if (g_load === null) {
 } else {
     console.log(g_load);
 }  
+
 if (g_report === 'checkins') {
     dailycheckin();
 } else {
