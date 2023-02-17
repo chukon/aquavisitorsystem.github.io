@@ -708,8 +708,8 @@ if ((key_checkin === null || key_checkin === '') && (key_checkout === null || ke
     document.write("<center>");
     document.write('<img id="logo" src="aqua.jpg" width="500px">');
     document.write("<p style='font-size:47px;'>Hello, " + varFName + " " + varLName + "</p>");
-    document.write("<p style='font-size:25px;color: black;'>This QR code has expired or we are having technical issues!</p>");
-    document.write("<p style='font-size:20px;color: black;'>Please check-out using iPad!<br>Please dispose of your badge before leaving reception/lobby!</p>");
+    document.write("<p style='font-size:25px;color: black;'>This QR code has expired</p>");
+    document.write("<p style='font-size:20px;color: black;'><br>Please dispose of your badge before leaving reception/lobby!</p>");
     document.write("<p style='font-size:20px;color: blue;'>Have a great day!</p>");
     document.write("<p style='font-size:15px;color: black;'><br><br><br>current date/time: " + NowTime + "</p></center>");
     document.write("</center>");
