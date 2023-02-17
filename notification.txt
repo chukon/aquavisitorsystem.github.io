@@ -1,7 +1,8 @@
 <ul style="display: inline;">
   <li>Latest updates</li>
-  <ul><li>Visitor can check-in/check-out multiple times same day</li></ul>
-  <ul>- Must be within cuurent scheduled date</ul>
+  <ul><li>Visitor check-in/check-out</li></ul>
+  <ul>- Check-in/check-out multiple times each visit</ul>
+  <ul>- Must be within current date of scheduled date</ul>
   <ul>- Example: leaves for lunch</ul>
   <ul>- A new badge will be printed</ul>
   <br>
