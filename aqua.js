@@ -188,7 +188,20 @@ firebase.initializeApp(firebaseConfig);
                 console.log("Error getting document:", error);
             }); 
         }
-	 
+
+        var resetvisittoday = function(data){
+            var db = firebase.firestore();
+            var key = data["id"];
+            db.collection("messages").doc(key).update({
+                checkin: "",
+                checkout:""
+            }) .then(function(doc) {
+                console.log("doc updated");
+            }).catch(function(error) {
+                console.log("Error getting document:", error);
+            }); 
+        }
+
         var sendcheckedin = function(){
             if (varto_name === 'walkin@aqua-aerobic.com'){
                 varto_name = 'ckonkol@aqua-aerobic.com';   
@@ -715,7 +728,7 @@ if ((key_checkin === null || key_checkin === '') && (key_checkout === null || ke
     document.write("</center>");
     document.write('</body>');
     var data = {
-        "errormsg": varFName + " " + varLName 
+        "errormsg": "QR Code Expired for: " + varFName + " " + varLName 
     }
     error_log_create(data);
 }else{
