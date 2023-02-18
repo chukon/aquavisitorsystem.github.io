@@ -3369,7 +3369,7 @@ var removeInactiveUsers = function(){
         error_log_create(data);
     }
     finally {
-        setTimeout(function(){window.location = "https://aquavisitorsystem.github.io/?report=inactive";},1000);
+        //setTimeout(function(){window.location = "https://aquavisitorsystem.github.io/?report=inactive";},1000);
     }
 }
 
