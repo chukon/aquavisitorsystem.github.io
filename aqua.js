@@ -3694,6 +3694,7 @@ if ((id_remove === 'Reset') && (id != null && id != '')) {
         alert("Success!\nCheck-in/check-out data has been reset!");
     } else {
         alert("Cancelled!\nCheck-in/check-out reset has been cancelled!");
+        setTimeout(function(){window.location = "index.html?id=" + id;},500);
     }
      
 } else {
