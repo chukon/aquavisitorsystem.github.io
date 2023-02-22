@@ -3280,7 +3280,7 @@ var dailycheckin =  function(){
             var data3 = {
                 "id": doc.data().key
             }
-             set_checkin(data3);	
+             //set_checkin(data3);	
         fldlogin = doc.data().login;
         fldfirstname = doc.data().firstname;
         fldlastname = doc.data().lastname;
@@ -3322,7 +3322,7 @@ var dailycheckout =  function(){
     db.collection("messages").where("date", ">=",start).where("date", "<=",end).where("remove", "==","No").where("checkout", "==","").orderBy("date","asc").orderBy("lastname","asc")
 .get()
 .then((querySnapshot) => {
-    console.log("Snapshot:" + querySnapshot.size); 
+     console.log("Snapshot:" + querySnapshot.size); 
     var cnt = querySnapshot.size;
     console.log("found:" + cnt);
     if (cnt === 0){
@@ -3331,7 +3331,8 @@ var dailycheckout =  function(){
             var data3 = {
                 "id": doc.data().key
             }
-             set_checkout(data3);	
+        key_checkin = doc.data().checkin;
+        key_checkout = doc.data().checkout;
         fldlogin = doc.data().login;
         fldfirstname = doc.data().firstname;
         fldlastname = doc.data().lastname;
@@ -3344,8 +3345,11 @@ var dailycheckout =  function(){
         fldcheckout = flddailycheckout;
         fldremove =  doc.data().remove;
         fldkey = doc.data().key;
-       // log_create();	  
-    });
+        if ((key_checkin !=null && key_checkin != '') && (key_checkout === null || key_checkout === '')){
+            set_checkout(data3);	
+            log_create();	
+        }
+     });
 }
 }) 
     .catch((error) => {
