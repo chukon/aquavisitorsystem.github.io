@@ -767,7 +767,7 @@ if ((key_checkin === null || key_checkin === '') && (key_checkout === null || ke
     if (varLName != '' && varLName !=null){
        
     }else{
-        varLName = "Aqua"
+        varLName = "Guest"
     }
     var data = {
         "errormsg": "No Checkin Date for: " + varFName + ' ' + varLName
