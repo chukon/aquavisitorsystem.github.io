@@ -903,7 +903,8 @@ var loaddb =  function(data){
     if (get_login  === null || get_login === '') {
         alert("Enter your Network Login ID above & try again!");
     }else{
-        get_login  = get_login.toString();
+        get_login  = get_login.trim().toLowerCase();
+        //get_login.trim().toLowerCase();
         console.log(get_login);
         var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style><script src='sorttable.js'></script></head>";
         var lines = "";
