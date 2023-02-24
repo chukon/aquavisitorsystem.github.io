@@ -1,6 +1,8 @@
 <ul style="display: inline;">
   <li><b>Latest updates</b></li>
-  <ul><li><b>Minor bug fixes</b></li></ul>
+  <ul><li>Allow multiple check-in/check-out sessions per visit</b></li></ul>
+  <ul><li><b>Print button on most all reports</b></li></ul>
+  <ul><li><b>Edit columns showing on all reports</b></li></ul>
   <br>
   <ul><b>View Reports:</b></ul> 
   <ul><li>Click on 'View Scheduled Visits'</li></ul> 
@@ -10,4 +12,4 @@
 <button id='modalClose' type="button">Close</button>
 <br>
 <br>
-<center><div id="footer" style="color: coral;font-size: smaller;">last updated by Chuck Konkol on 2/20/2023</div></center>
+<center><div id="footer" style="color: coral;font-size: smaller;">last updated by Chuck Konkol on 2/24/2023</div></center>
