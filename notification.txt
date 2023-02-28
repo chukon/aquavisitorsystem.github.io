@@ -1,7 +1,7 @@
 <ul style="display: inline;">
   <li><b>Latest updates</b></li>
-  <ul><li>***New*** active report</li></ul>
-  <ul><li>- Shows schedule dates greater or equal to today.</li></ul>
+  <ul><li>***New Report: <b>active</b></li></ul>
+  <ul><li>- 'active' reports shows schedule dates greater or equal to today.</li></ul>
   <br>
   <ul><b>View Reports:</b></ul> 
   <ul><li>Click on 'View Scheduled Visits'</li></ul> 
