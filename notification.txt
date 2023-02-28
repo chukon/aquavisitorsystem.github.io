@@ -1,7 +1,7 @@
 <ul style="display: inline;">
   <li><b>Latest updates</b></li>
-  <ul><li>Print button on most all reports</li></ul>
-  <ul><li>Edit columns showing on all reports</li></ul>
+  <ul><li>***New*** active report</li></ul>
+  <ul><li>- Shows schedule dates greater or equal to today.</li></ul>
   <br>
   <ul><b>View Reports:</b></ul> 
   <ul><li>Click on 'View Scheduled Visits'</li></ul> 
@@ -11,4 +11,4 @@
 <button id='modalClose' type="button">Close</button>
 <br>
 <br>
-<center><div id="footer" style="color: coral;font-size: smaller;">last updated by Chuck Konkol on 2/27/2023</div></center>
+<center><div id="footer" style="color: coral;font-size: smaller;">last updated by Chuck Konkol on 2/28/2023</div></center>
