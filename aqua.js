@@ -1189,16 +1189,17 @@ setTimeout("sortByDate2(5)", 1000);
         var RecordIDs = [];
         var cnt1;
         var count1;
-        var datesort;
+        var datesorts;
         var Visitors = [];
-
+        var seleceteddate;
         let today = new Date().toISOString().slice(0, 10);
         db.collection("messages").where("remove", "==","No").orderBy("date","desc")
     .get()
     .then((querySnapshot) => {
+
         var cnt = querySnapshot.size;
         //(" +  "<label id='numcount'></label>" + " visits)
-        var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (active report)</h1><h2>" +  "<label id='numcount'></label>" + " Active Visitor Schedule(s) </h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+        var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (active report)</h1><h2>" +  "<label id='numcount'></label>" + " Visitor Schedule(s) >= Today </h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
 
         document.write(title);
         document.write(printnow);
@@ -1213,7 +1214,7 @@ setTimeout("sortByDate2(5)", 1000);
         }
         document.getElementsByTagName("body")[0].style.display = "none";
         var d = new Date();
-        var dates;// = new Date().toLocaleDateString("en", options)
+        dates = "";
         var Datex = [];
         var todaysdate = new Date();
         querySnapshot.forEach((doc) => {
@@ -1231,84 +1232,7 @@ setTimeout("sortByDate2(5)", 1000);
             day: "2-digit"
         };
 
-       
-        //  var todays = new Date().toDateString();
-        if (typeof doc.data().date !== 'undefined' && doc.data().date !==""  && new Date(doc.data().date) >= todaysdate) {
-            dates = new Date(doc.data().date).toLocaleDateString("en", options)
-            datesort = new Date(doc.data().date).toLocaleDateString("fr-CA", options2)
-            Datex.push(datesort);
-           
-        }
-        if (typeof doc.data().date2 !== 'undefined' && doc.data().date2 !==""  && new Date(doc.data().date2) >= todaysdate) {
-            dates = dates + "<br>" + new Date(doc.data().date2).toLocaleDateString("en", options)
-            datesort = new Date(doc.data().date2).toLocaleDateString("fr-CA", options2)
-            Datex.push(datesort);
-           // Visitors.push(new Date(doc.data().date2).toLocaleDateString("en", options));
-        }
-        if (typeof doc.data().date3 !== 'undefined' && doc.data().date3 !==""  && new Date(doc.data().date3) >= todaysdate) {
-            dates = dates + "<br>" + new Date(doc.data().date3).toLocaleDateString("en", options)
-            datesort = new Date(doc.data().date3).toLocaleDateString("fr-CA", options2)
-            Datex.push(datesort);
-          //  Visitors.push(new Date(doc.data().date3).toLocaleDateString("en", options));
-        }
-        if (typeof doc.data().date4 !== 'undefined' && doc.data().date4 !=="" && new Date(doc.data().date4) >= todaysdate) {
-            dates = dates + "<br>" + new Date(doc.data().date4).toLocaleDateString("en", options)
-            datesort = new Date(doc.data().date4).toLocaleDateString("fr-CA", options2)
-            Datex.push(datesort);
-           // Visitors.push(new Date(doc.data().date4).toLocaleDateString("en", options));
-        }
-        if (typeof doc.data().date5 !== 'undefined' && doc.data().date5 !=="" && new Date(doc.data().date5) >= todaysdate) {
-            dates = dates + "<br>" + new Date(doc.data().date5).toLocaleDateString("en", options)
-            datesort = new Date(doc.data().date5).toLocaleDateString("fr-CA", options2)
-            Datex.push(datesort);
-           // Visitors.push(new Date(doc.data().date5).toLocaleDateString("en", options));
-        }
-        if (typeof doc.data().date6 !== 'undefined' && doc.data().date6 !=="" && new Date(doc.data().date6) >= todaysdate) {
-            dates = dates + "<br>" + new Date(doc.data().date6).toLocaleDateString("en", options)
-            datesort = new Date(doc.data().date6).toLocaleDateString("fr-CA", options2)
-            Datex.push(datesort);
-           // Visitors.push(new Date(doc.data().date6).toLocaleDateString("en", options));
-        }
-        if (typeof doc.data().date7 !== 'undefined' && doc.data().date7 !=="" && new Date(doc.data().date7) >= todaysdate) {
-            dates = dates + "<br>" + new Date(doc.data().date7).toLocaleDateString("en", options)
-            datesort = new Date(doc.data().date7).toLocaleDateString("fr-CA", options2)
-            Datex.push(datesort);
-           // Visitors.push(new Date(doc.data().date7).toLocaleDateString("en", options));
-
-        }
-        if (typeof doc.data().date8 !== 'undefined' && doc.data().date8 !=="" && new Date(doc.data().date8) >= todaysdate) {
-            dates = dates + "<br>" + new Date(doc.data().date8).toLocaleDateString("en", options)
-            datesort = new Date(doc.data().date8).toLocaleDateString("fr-CA", options2);
-            Datex.push(datesort);
-          //  Visitors.push(new Date(doc.data().date8).toLocaleDateString("en", options));
-        }
-        if (typeof doc.data().date9 !== 'undefined' && doc.data().date9 !=="" && new Date(doc.data().date9) >= todaysdate) {
-            dates = dates + "<br>" + new Date(doc.data().date9).toLocaleDateString("en", options)
-            datesort = new Date(doc.data().date9).toLocaleDateString("fr-CA", options2)
-            Datex.push(datesort);
-           // Visitors.push(new Date(doc.data().date9).toLocaleDateString("en", options));
-        }
-        if (typeof doc.data().date10 !== 'undefined' && doc.data().date10 !=="" && new Date(doc.data().date10) >= todaysdate) {
-            dates = dates + "<br>" + new Date(doc.data().date10).toLocaleDateString("en", options)
-            datesort = new Date(doc.data().date10).toLocaleDateString("fr-CA", options2)
-            Datex.push(datesort);
-          //  Visitors.push(new Date(doc.data().date110).toLocaleDateString("en", options));
-        }
-        if (typeof doc.data().date11 !== 'undefined' && doc.data().date11 !=="" && new Date(doc.data().date11) >= todaysdate) {
-            dates = dates + "<br>" + new Date(doc.data().date11).toLocaleDateString("en", options)
-            datesort = new Date(doc.data().date11).toLocaleDateString("fr-CA", options2)
-            Datex.push(datesort);
-          //  Visitors.push(new Date(doc.data().date11).toLocaleDateString("en", options));
-        }
-        if (typeof doc.data().date12 !== 'undefined' && doc.data().date12 !=="" && new Date(doc.data().date12) >= todaysdate) {
-            dates = dates + "<br>" + new Date(doc.data().date12).toLocaleDateString("en", options)
-            datesort = new Date(doc.data().date12).toLocaleDateString("fr-CA", options2);
-            Datex.push(datesort);
-          //  Visitors.push(new Date(doc.data().date12).toLocaleDateString("en", options));
-        }
-       
-       
-
+        
         var date01 = new Date(doc.data().date)
         var date02 = new Date(doc.data().date2)
         var date03 = new Date(doc.data().date3)
@@ -1321,15 +1245,94 @@ setTimeout("sortByDate2(5)", 1000);
         var date10 = new Date(doc.data().date10)
         var date11 = new Date(doc.data().date11)
         var date12 = new Date(doc.data().date12)
+if ((date01 >= todaysdate) || (date02 >= todaysdate) || (date03 >= todaysdate) || (date04 >= todaysdate) || (date05 >= todaysdate) || (date06 >= todaysdate) || (date07 >= todaysdate) || (date08 >= todaysdate) || (date09 >= todaysdate) || (date10 >= todaysdate) || (date11 >= todaysdate) || (date12 >= todaysdate)){
+    seleceteddate = "";
+    datesorts = "";
+    Datex.length = 0;
+        //  var todays = new Date().toDateString();
+        if (typeof doc.data().date !== 'undefined' && doc.data().date !==""  && new Date(doc.data().date) >= todaysdate) {
+            seleceteddate = new Date(doc.data().date).toLocaleDateString("en", options)
+            datesorts = new Date(doc.data().date).toLocaleDateString("fr-CA", options2)
+            Datex.push(datesorts);
+            Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
+        }
+        if (typeof doc.data().date2 !== 'undefined' && doc.data().date2 !==""  && new Date(doc.data().date2) >= todaysdate) {
+            seleceteddate = seleceteddate + "<br>" + new Date(doc.data().date2).toLocaleDateString("en", options)
+            datesorts = new Date(doc.data().date2).toLocaleDateString("fr-CA", options2)
+            Datex.push(datesorts);
+            Visitors.push(doc.data().login + new Date(doc.data().date2).toLocaleDateString("en", options));
+        }
+        if (typeof doc.data().date3 !== 'undefined' && doc.data().date3 !==""  && new Date(doc.data().date3) >= todaysdate) {
+            seleceteddate = seleceteddate + "<br>" + new Date(doc.data().date3).toLocaleDateString("en", options)
+            datesorts = new Date(doc.data().date3).toLocaleDateString("fr-CA", options2)
+            Datex.push(datesorts);
+            Visitors.push(doc.data().login + new Date(doc.data().date3).toLocaleDateString("en", options));
+        }
+        if (typeof doc.data().date4 !== 'undefined' && doc.data().date4 !=="" && new Date(doc.data().date4) >= todaysdate) {
+            seleceteddate = seleceteddate + "<br>" + new Date(doc.data().date4).toLocaleDateString("en", options)
+            datesorts = new Date(doc.data().date4).toLocaleDateString("fr-CA", options2)
+            Datex.push(datesorts);
+            Visitors.push(doc.data().login + new Date(doc.data().date4).toLocaleDateString("en", options));
+        }
+        if (typeof doc.data().date5 !== 'undefined' && doc.data().date5 !=="" && new Date(doc.data().date5) >= todaysdate) {
+            seleceteddate = seleceteddate + "<br>" + new Date(doc.data().date5).toLocaleDateString("en", options)
+            datesorts = new Date(doc.data().date5).toLocaleDateString("fr-CA", options2)
+            Datex.push(datesorts);
+            Visitors.push(doc.data().login + new Date(doc.data().date5).toLocaleDateString("en", options));
+        }
+        if (typeof doc.data().date6 !== 'undefined' && doc.data().date6 !=="" && new Date(doc.data().date6) >= todaysdate) {
+            seleceteddate = seleceteddate + "<br>" + new Date(doc.data().date6).toLocaleDateString("en", options)
+            datesort = new Date(doc.data().date6).toLocaleDateString("fr-CA", options2)
+            Datex.push(datesort);
+            Visitors.push(doc.data().login + new Date(doc.data().date6).toLocaleDateString("en", options));
+        }
+        if (typeof doc.data().date7 !== 'undefined' && doc.data().date7 !=="" && new Date(doc.data().date7) >= todaysdate) {
+            seleceteddate = seleceteddate + "<br>" + new Date(doc.data().date7).toLocaleDateString("en", options)
+            datesorts = new Date(doc.data().date7).toLocaleDateString("fr-CA", options2)
+            Datex.push(datesorts);
+            Visitors.push(doc.data().login + new Date(doc.data().date7).toLocaleDateString("en", options));
+
+        }
+        if (typeof doc.data().date8 !== 'undefined' && doc.data().date8 !=="" && new Date(doc.data().date8) >= todaysdate) {
+            seleceteddate = seleceteddate + "<br>" + new Date(doc.data().date8).toLocaleDateString("en", options)
+            datesorts = new Date(doc.data().date8).toLocaleDateString("fr-CA", options2);
+            Datex.push(datesorts);
+            Visitors.push(doc.data().login + new Date(doc.data().date8).toLocaleDateString("en", options));
+        }
+        if (typeof doc.data().date9 !== 'undefined' && doc.data().date9 !=="" && new Date(doc.data().date9) >= todaysdate) {
+            seleceteddate = seleceteddate + "<br>" + new Date(doc.data().date9).toLocaleDateString("en", options)
+            datesorts = new Date(doc.data().date9).toLocaleDateString("fr-CA", options2)
+            Datex.push(datesorts);
+           Visitors.push(doc.data().login + new Date(doc.data().date9).toLocaleDateString("en", options));
+        }
+        if (typeof doc.data().date10 !== 'undefined' && doc.data().date10 !=="" && new Date(doc.data().date10) >= todaysdate) {
+            seleceteddate = seleceteddate + "<br>" + new Date(doc.data().date10).toLocaleDateString("en", options)
+            datesorts = new Date(doc.data().date10).toLocaleDateString("fr-CA", options2)
+            Datex.push(datesorts);
+            Visitors.push(doc.data().login + new Date(doc.data().date110).toLocaleDateString("en", options));
+        }
+        if (typeof doc.data().date11 !== 'undefined' && doc.data().date11 !=="" && new Date(doc.data().date11) >= todaysdate) {
+            seleceteddate = seleceteddate + "<br>" + new Date(doc.data().date11).toLocaleDateString("en", options)
+            datesorts = new Date(doc.data().date11).toLocaleDateString("fr-CA", options2)
+            Datex.push(datesorts);
+          Visitors.push(doc.data().login + new Date(doc.data().date11).toLocaleDateString("en", options));
+        }
+        if (typeof doc.data().date12 !== 'undefined' && doc.data().date12 !=="" && new Date(doc.data().date12) >= todaysdate) {
+            seleceteddate = seleceteddate + "<br>" + new Date(doc.data().date12).toLocaleDateString("en", options)
+            datesorts = new Date(doc.data().date12).toLocaleDateString("fr-CA", options2);
+            Datex.push(datesorts);
+            Visitors.push(doc.data().login + new Date(doc.data().date12).toLocaleDateString("en", options));
+        }
+       
+       
+
 
        
 
-     //   if ((date01 >= todaysdate) || (date02 >= todaysdate) || (date03 >= todaysdate) || (date04 >= todaysdate) || (date05 >= todaysdate) || (date06 >= todaysdate) || (date07 >= todaysdate) || (date08 >= todaysdate) || (date09 >= todaysdate) || (date10 >= todaysdate) || (date11 >= todaysdate) || (date12 >= todaysdate)){
             console.log("todaysdate: " + todaysdate);
             // count1 = count1 + dates.find('<br>').length
-            let count = (dates.match(/<br>/g) || []).length;
-            console.log("count: " +  count);
-            console.log(dates);
+          
+            console.log(seleceteddate);
             
             Datex.sort((a, b) => new Date(b) - new Date(a)).reverse()
             var todays = new Date().toLocaleDateString("fr-CA", options2);
@@ -1345,9 +1348,9 @@ setTimeout("sortByDate2(5)", 1000);
                 }
             }
      
-            document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + datesort + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
+            document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + seleceteddate + '</td><td>' + datesort + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
 
-       // }
+       }
         // datesort = next_dates;
 
         //datesort = Datex.reduce((a, b) => (a.MeasureDate > b.MeasureDate ? a : b));
@@ -1358,6 +1361,8 @@ setTimeout("sortByDate2(5)", 1000);
         //document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + datesort + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
     });
 //document.write("</table>");
+    let count = Visitors.length;
+    console.log("count: " +  count);
     document.getElementById("numcount").innerHTML = Visitors.length;
     document.getElementById("numcount").setAttribute("value",  Visitors.length);
     document.head.innerHTML = header;
@@ -3390,10 +3395,10 @@ var getall = function(){
     document.getElementById('get_msg').style.display = 'block';
     document.getElementById('get_id2').style.display = 'none';
     document.getElementById('loginlabel').innerText = 'Aqua Employee User ID OR Keyword';
-    document.getElementsByName('login')[0].placeholder = '[KEYWORDS] today, name, date, all, inactive, loguserid, logname, logall, logtoday, logweek, logdate';
+    document.getElementsByName('login')[0].placeholder = '[KEYWORDS] today, active, name, date, all, inactive, loguserid, logname, logall, logtoday, logweek, logdate';
     document.getElementById("login").title = "Type [Aqua User ID] OR [keyword] then press [Enter] key";
     document.getElementById('emaillabel').style.display = 'none';
-    document.getElementById("login").style.width = "600px";
+    document.getElementById("login").style.width = "650px";
     document.getElementById("login").addEventListener("keypress", getSchedule2);
     document.getElementById("login").focus();
 }
