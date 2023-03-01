@@ -72,6 +72,14 @@ function  callback() {
     });
 }
 
+function  selecttext() {
+    var el = document.getElementById('inputText');
+    text = el.innerHTML;
+    keyword = "Latest updates";
+    marked = text.replace(keyword,"<mark>"+keyword+"</mark>");
+    el.innerHTML = marked;
+}
+
 var createDialog = function(text , title) {
     //create dialog <div> shell
     var dialog =  '<div id="dialog" title="Visitor Management System" style="font-size: small;">' + text + '</div>';
