@@ -1,11 +1,17 @@
 <ul style="display: inline;">
   <li><b>Latest updates</b></li>
-  <ul><li>***New Report: <b>active</b></li></ul>
-  <ul><li>- 'active' reports shows schedule dates greater or equal to today.</li></ul>
+  <ul><li><b>New Report: </b>active</li></ul>
+  <ul style="padding-left:60px">
+    <li>report shows schedule with dates greater or equal to today.</li>
+  </ul>
   <br>
   <ul><b>View Reports:</b></ul> 
   <ul><li>Click on 'View Scheduled Visits'</li></ul> 
   <ul><li>Use keyword(s) listed</li></ul>
+  <br>
+ <ul><b>Manage Schedules:</b></ul> 
+  <ul><li>Remove a schedule by making it inactive. <a href="https://aquavisitorsystem.github.io/help/Aqua%20Visitor%20Check.htm#_Toc127950095">click here</a></li></ul> 
+  <ul><li>Restore a schedule by making it active. <a href="https://aquavisitorsystem.github.io/help/Aqua%20Visitor%20Check.htm#_Toc127950095">click here</a></li></ul>
 </ul> 
 <br>
 <button id='modalClose' type="button">Close</button>
