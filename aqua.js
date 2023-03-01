@@ -1368,7 +1368,7 @@ if ((date01 >= todaysdate) || (date02 >= todaysdate) || (date03 >= todaysdate) |
     document.head.innerHTML = header;
     document.write("</tbody></table>");
     document.getElementsByTagName("body")[0].style.display = "none";
-    setTimeout("sortByDate2(5)", 1000);
+    setTimeout("sortByDate(5)", 1000);
     })
     .catch((error) => {
         console.log("Error getting documents: ", error);
