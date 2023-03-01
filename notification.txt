@@ -1,4 +1,5 @@
 <ul style="display: inline;">
+  <div id="inputText">
   <li><b>Latest updates</b></li>
   <ul><li><b>New Report: </b>active</li></ul>
   <ul style="padding-left:60px">
@@ -16,5 +17,11 @@
 <br>
 <button id='modalClose' type="button">Close</button>
 <br>
-<br>
 <center><div id="footer" style="color: coral;font-size: smaller;">last updated by Chuck Konkol on 3/01/2023</div></center>
+<script type= "text/javascript">
+var el = document.getElementById('inputText');
+    text = el.innerHTML;
+    keyword = "Latest updates";
+    marked = text.replace(keyword,"<mark>"+keyword+"</mark>");
+    el.innerHTML = marked;
+</script>
