@@ -933,7 +933,7 @@ document.getElementById('back').style.display = 'block';
       
             var msg = "<input type='button' id='btnPrint' onclick='loaddb();' value='Show All Active Schedules for: " + fldloginID  + "'/>";
       
-            var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (Aqua UserID Report)</h1><h2>" + "<label id='numcount'></label>" + " Visitor Schedule(s) for: " + get_login + "<br><small>(showing today and beyond only)</small></h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a>" + "<br><br>" + msg  +   "<br><br></center>";
+            var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (Aqua UserID Report)</h1><h2>" + "<label id='numcount'></label>" + " Active Visitor Schedule(s) for: " + get_login + "<br><small>(showing today and beyond only)</small></h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a>" + "<br><br>" + msg  +   "<br><br></center>";
   
             document.write(title);
             document.write(printnow);
@@ -1421,7 +1421,7 @@ setTimeout("sortByDate2(5)", 1000);
 
         var cnt = querySnapshot.size;
         //(" +  "<label id='numcount'></label>" + " visits)
-        var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (active report)</h1><h2>" +  "<label id='numcount'></label>" + " Visitor Schedule(s) >= Today </h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+        var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (active report)</h1><h2>" +  "<label id='numcount'></label>" + " Active Visitor Schedule(s)<br><small>(showing today and beyond only)</small></h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
 
         document.write(title);
         document.write(printnow);
