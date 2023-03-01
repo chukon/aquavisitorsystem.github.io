@@ -1137,7 +1137,7 @@ var loaddb =  function(data){
    .get()
    .then((querySnapshot) => {
        cnt = querySnapshot.size;
-        var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (Aqua UserID Report)</h1><h2>" + "<label id='numcount'></label>" + " Active Visitor Schedule(s) for: " + get_login + "<br><small>(showing all schedules)</small></h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+        var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (Aqua UserID Report)</h1><h2>" + "<label id='numcount'></label>" + " Visitor Schedule(s) for: " + get_login + "<br><small>(showing all schedules)</small></h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
         document.write(title);
             if (cnt === 0){
             var nodata = "<center><br>No visitor data found<br></center>";
@@ -1169,11 +1169,13 @@ var loaddb =  function(data){
         };
         var datesort;
         var Datex = [];
-        var dates = new Date(doc.data().date).toLocaleDateString("en", options)
-        datesort = new Date(doc.data().date).toLocaleDateString('fr-CA',options1);
-        Datex.push(datesort);
-        Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
-        console.log("loaddb:" + dates);
+        var dates;
+        if (typeof doc.data().date !== 'undefined' && doc.data().date !=="") {
+            dates = new Date(doc.data().date).toLocaleDateString("en", options)
+            datesort = new Date(doc.data().date).toLocaleDateString("fr-CA", options1)
+            Datex.push(datesort);
+            Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
+        }
         if (typeof doc.data().date2 !== 'undefined' && doc.data().date2 !=="") {
             dates = dates + "<br>" + new Date(doc.data().date2).toLocaleDateString("en", options)
             datesort = new Date(doc.data().date2).toLocaleDateString("fr-CA", options1)
@@ -1283,7 +1285,7 @@ var loaddbeverything =  function(){
     var RecordIDs = [];
     var cnt1;
     var datesort;
-   
+    var Visitors = [];
 
 
     let today = new Date().toISOString().slice(0, 10);
@@ -1291,7 +1293,7 @@ var loaddbeverything =  function(){
 .get()
 .then((querySnapshot) => {
     var cnt = querySnapshot.size;
-    var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (all report)</h1><h2>" + cnt + " Active Visitor Schedule(s) </h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+    var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (all report)</h1><h2>" + "<label id='numcount'></label>" + " Visitor Schedule(s)<br><small>(showing all schedules)</small></h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
 
     document.write(title);
     document.write(printnow);
@@ -1321,67 +1323,82 @@ var loaddbeverything =  function(){
     };
 
     var d = new Date();
-    var dates = new Date(doc.data().date).toLocaleDateString("en", options)
+    var dates;
     var Datex = [];
-     datesort = new Date(doc.data().date).toLocaleDateString("fr-CA", options2)
-     Datex.push(datesort);
     console.log("date2: " + doc.data().date2);
     //  var todays = new Date().toDateString();
+    if (typeof doc.data().date !== 'undefined' && doc.data().date !=="") {
+        dates = new Date(doc.data().date).toLocaleDateString("en", options)
+        datesort = new Date(doc.data().date).toLocaleDateString("fr-CA", options2)
+        Datex.push(datesort);
+        Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
+    }
     if (typeof doc.data().date2 !== 'undefined' && doc.data().date2 !=="") {
         dates = dates + "<br>" + new Date(doc.data().date2).toLocaleDateString("en", options)
         datesort = new Date(doc.data().date2).toLocaleDateString("fr-CA", options2)
         Datex.push(datesort);
+        Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
     }
     if (typeof doc.data().date3 !== 'undefined' && doc.data().date3 !=="") {
         dates = dates + "<br>" + new Date(doc.data().date3).toLocaleDateString("en", options)
         datesort = new Date(doc.data().date3).toLocaleDateString("fr-CA", options2)
         Datex.push(datesort);
+        Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
     }
     if (typeof doc.data().date4 !== 'undefined' && doc.data().date4 !=="") {
         dates = dates + "<br>" + new Date(doc.data().date4).toLocaleDateString("en", options)
         datesort = new Date(doc.data().date4).toLocaleDateString("fr-CA", options2)
         Datex.push(datesort);
+        Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
     }
     if (typeof doc.data().date5 !== 'undefined' && doc.data().date5 !=="") {
         dates = dates + "<br>" + new Date(doc.data().date5).toLocaleDateString("en", options)
         datesort = new Date(doc.data().date5).toLocaleDateString("fr-CA", options2)
         Datex.push(datesort);
+        Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
     }
     if (typeof doc.data().date6 !== 'undefined' && doc.data().date6 !=="") {
         dates = dates + "<br>" + new Date(doc.data().date6).toLocaleDateString("en", options)
         datesort = new Date(doc.data().date6).toLocaleDateString("fr-CA", options2)
         Datex.push(datesort);
+        Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
     }
     if (typeof doc.data().date7 !== 'undefined' && doc.data().date7 !=="") {
         dates = dates + "<br>" + new Date(doc.data().date7).toLocaleDateString("en", options)
         datesort = new Date(doc.data().date7).toLocaleDateString("fr-CA", options2)
         Datex.push(datesort);
+        Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
 
     }
     if (typeof doc.data().date8 !== 'undefined' && doc.data().date8 !=="") {
         dates = dates + "<br>" + new Date(doc.data().date8).toLocaleDateString("en", options)
         datesort = new Date(doc.data().date8).toLocaleDateString("fr-CA", options2);
         Datex.push(datesort);
+        Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
     }
     if (typeof doc.data().date9 !== 'undefined' && doc.data().date9 !=="") {
         dates = dates + "<br>" + new Date(doc.data().date9).toLocaleDateString("en", options)
         datesort = new Date(doc.data().date9).toLocaleDateString("fr-CA", options2)
         Datex.push(datesort);
+        Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
     }
     if (typeof doc.data().date10 !== 'undefined' && doc.data().date10 !=="") {
         dates = dates + "<br>" + new Date(doc.data().date10).toLocaleDateString("en", options)
         datesort = new Date(doc.data().date10).toLocaleDateString("fr-CA", options2)
         Datex.push(datesort);
+        Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
     }
     if (typeof doc.data().date11 !== 'undefined' && doc.data().date11 !=="") {
         dates = dates + "<br>" + new Date(doc.data().date11).toLocaleDateString("en", options)
         datesort = new Date(doc.data().date11).toLocaleDateString("fr-CA", options2)
         Datex.push(datesort);
+        Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
     }
     if (typeof doc.data().date12 !== 'undefined' && doc.data().date12 !=="") {
         dates = dates + "<br>" + new Date(doc.data().date12).toLocaleDateString("en", options)
         datesort = new Date(doc.data().date12).toLocaleDateString("fr-CA", options2);
         Datex.push(datesort);
+        Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
     }
     Datex.sort((a, b) => new Date(b) - new Date(a)).reverse()
     var todays = new Date().toLocaleDateString("fr-CA", options2);
@@ -1407,7 +1424,10 @@ var loaddbeverything =  function(){
     //document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
     document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + datesort + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
 });
-//document.write("</table>");
+let count = Visitors.length;
+console.log("count: " +  count);
+document.getElementById("numcount").innerHTML = Visitors.length;
+document.getElementById("numcount").setAttribute("value",  Visitors.length);
 document.head.innerHTML = header;
 document.write("</tbody></table>");
 document.getElementsByTagName("body")[0].style.display = "none";
@@ -1688,7 +1708,7 @@ document.head.innerHTML = header;
        
 var loadname =  function(){
     var db = firebase.firestore();
-		
+    var Visitors = [];	
     var get_login=prompt("Enter Guest Last Name To Search","Enter Guest Last Name");
     if (get_login  === null || get_login === "Enter Guest Last Name") {
         alert("Please Try Again! Enter Guest Last Name.");
@@ -1703,7 +1723,7 @@ var loadname =  function(){
    .get()
    .then((querySnapshot) => {
        var cnt = querySnapshot.size;
-        var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (name report)</h1><h2>" + cnt + " Active Visitor Schedule(s) for: " + get_login + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+        var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (name report)</h1><h2>" + "<label id='numcount'></label>" + " Visitor Schedule(s) for: " + get_login + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
         document.write(title);
         document.write(printnow);
         if (cnt === 0){
@@ -1725,46 +1745,66 @@ var loadname =  function(){
             hour: "2-digit",
             minute: "2-digit"
         };
-        var dates = new Date(doc.data().date).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date).toLocaleTimeString("en", options2)
+        var dates;// = new Date(doc.data().date).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date).toLocaleTimeString("en", options2)
         console.log("loadinactive:" + dates);
+        //Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
+        if (typeof doc.data().date !== 'undefined' && doc.data().date !=="") {
+            dates = new Date(doc.data().date).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date).toLocaleTimeString("en", options2)
+            Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
+        }
         if (typeof doc.data().date2 !== 'undefined' && doc.data().date2 !=="") {
             dates = dates + "<hr>" + new Date(doc.data().date2).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date2).toLocaleTimeString("en", options2)
+            Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
         }
         if (typeof doc.data().date3 !== 'undefined' && doc.data().date3 !=="") {
             dates = dates + "<hr>" + new Date(doc.data().date3).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date3).toLocaleTimeString("en", options2)
+            Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
         }
         if (typeof doc.data().date4 !== 'undefined' && doc.data().date4 !=="") {
             dates = dates + "<hr>" + new Date(doc.data().date4).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date4).toLocaleTimeString("en", options2)
+            Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
         }
         if (typeof doc.data().date5 !== 'undefined' && doc.data().date5 !=="") {
             dates = dates + "<hr>" + new Date(doc.data().date5).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date5).toLocaleTimeString("en", options2)
+            Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
         }
         if (typeof doc.data().date6 !== 'undefined' && doc.data().date6 !=="") {
             dates = dates + "<hr>" + new Date(doc.data().date6).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date6).toLocaleTimeString("en", options2)
+            Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
         }
         if (typeof doc.data().date7 !== 'undefined' && doc.data().date7 !=="") {
             dates = dates + "<hr>" + new Date(doc.data().date7).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date7).toLocaleTimeString("en", options2)
+            Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
         }
         if (typeof doc.data().date8 !== 'undefined' && doc.data().date8 !=="") {
             dates = dates + "<hr>" + new Date(doc.data().date8).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date8).toLocaleTimeString("en", options2)
+            Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
         }
         if (typeof doc.data().date9 !== 'undefined' && doc.data().date9 !=="") {
             dates = dates + "<hr>" + new Date(doc.data().date9).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date9).toLocaleTimeString("en", options2)
+            Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
         }
         if (typeof doc.data().date10 !== 'undefined' && doc.data().date10 !=="") {
             dates = dates + "<hr>" + new Date(doc.data().date10).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date10).toLocaleTimeString("en", options2)
+            Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
         }
         if (typeof doc.data().date11 !== 'undefined' && doc.data().date11 !=="") {
             dates = dates + "<hr>" + new Date(doc.data().date11).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date11).toLocaleTimeString("en", options2)
+            Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
         }
         if (typeof doc.data().date12 !== 'undefined' && doc.data().date12 !=="") {
             dates = dates + "<hr>" + new Date(doc.data().date12).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date12).toLocaleTimeString("en", options2)
+            Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
         }
         console.log("loadname:" + dates);
         //  document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
         document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
  
     });
+    let count = Visitors.length;
+    console.log("count: " +  count);
+    document.getElementById("numcount").innerHTML = Visitors.length;
+    document.getElementById("numcount").setAttribute("value",  Visitors.length);
     document.head.innerHTML = header;
     document.write("</table>");
     document.getElementsByTagName("body")[0].style.display = "none";
@@ -2169,12 +2209,14 @@ var loadinactive =  function(){
     var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(8){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
     var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>"; var lines = "";  var lines = "";
     var lines = "";
+    var Visitors = [];
+    var dates;
     let today = new Date().toISOString().slice(0, 10);
     db.collection("messages").where("remove", "==","Yes").orderBy("date","desc")
  .get()
  .then((querySnapshot) => {
      var cnt = querySnapshot.size;
-    var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (inactive report)</h1><small>**InActive schedules will be removed periodically<br>If you need an InActive schedule restored please contact Chuck Konkol ext. 4574</small><h2>" + cnt + " InActive Visitor Schedule(s) </h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+    var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (inactive report)</h1><small>**InActive schedules will be removed periodically<br>If you need an InActive schedule restored please contact Chuck Konkol ext. 4574</small><h2>" + "<label id='numcount'></label>" + " InActive Visitor Schedule(s) </h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
     document.write(title);
     document.write(printnow);
     if (cnt === 0){
@@ -2196,45 +2238,65 @@ var loadinactive =  function(){
         hour: "2-digit",
         minute: "2-digit"
     };
-    var dates = new Date(doc.data().date).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date).toLocaleTimeString("en", options2)
+   // var dates = new Date(doc.data().date).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date).toLocaleTimeString("en", options2)
     console.log("loadinactive:" + dates);
+  //  Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
+    if (typeof doc.data().date !== 'undefined' && doc.data().date !=="") {
+        dates = new Date(doc.data().date).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date).toLocaleTimeString("en", options2)
+        Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
+    }
     if (typeof doc.data().date2 !== 'undefined' && doc.data().date2 !=="") {
         dates = dates + "<br>" + new Date(doc.data().date2).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date2).toLocaleTimeString("en", options2)
+        Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
     }
     if (typeof doc.data().date3 !== 'undefined' && doc.data().date3 !=="") {
         dates = dates + "<br>" + new Date(doc.data().date3).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date3).toLocaleTimeString("en", options2)
+        Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
     }
     if (typeof doc.data().date4 !== 'undefined' && doc.data().date4 !=="") {
         dates = dates + "<br>" + new Date(doc.data().date4).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date4).toLocaleTimeString("en", options2)
+        Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
     }
     if (typeof doc.data().date5 !== 'undefined' && doc.data().date5 !=="") {
         dates = dates + "<br>" + new Date(doc.data().date5).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date5).toLocaleTimeString("en", options2)
+        Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
     }
     if (typeof doc.data().date6 !== 'undefined' && doc.data().date6 !=="") {
         dates = dates + "<br>" + new Date(doc.data().date6).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date6).toLocaleTimeString("en", options2)
+        Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
     }
     if (typeof doc.data().date7 !== 'undefined' && doc.data().date7 !=="") {
         dates = dates + "<br>" + new Date(doc.data().date7).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date7).toLocaleTimeString("en", options2)
+        Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
     }
     if (typeof doc.data().date8 !== 'undefined' && doc.data().date8 !=="") {
         dates = dates + "<br>" + new Date(doc.data().date8).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date8).toLocaleTimeString("en", options2)
+        Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
     }
     if (typeof doc.data().date9 !== 'undefined' && doc.data().date9 !=="") {
         dates = dates + "<br>" + new Date(doc.data().date9).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date9).toLocaleTimeString("en", options2)
+        Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
     }
     if (typeof doc.data().date10 !== 'undefined' && doc.data().date10 !=="") {
         dates = dates + "<br>" + new Date(doc.data().date10).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date10).toLocaleTimeString("en", options2)
+        Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
     }
     if (typeof doc.data().date11 !== 'undefined' && doc.data().date11 !=="") {
         dates = dates + "<br>" + new Date(doc.data().date11).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date11).toLocaleTimeString("en", options2)
+        Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
     }
     if (typeof doc.data().date12 !== 'undefined' && doc.data().date12 !=="") {
         dates = dates + "<br>" + new Date(doc.data().date12).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date12).toLocaleTimeString("en", options2)
+        Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
     }
     //  document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
     document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
 
 });
+let count = Visitors.length;
+console.log("count: " +  count);
+document.getElementById("numcount").innerHTML = Visitors.length;
+document.getElementById("numcount").setAttribute("value",  Visitors.length);
 document.head.innerHTML = header;
 document.write("</table>");
 document.getElementsByTagName("body")[0].style.display = "none";
@@ -2821,11 +2883,12 @@ var nodata = "";
     hour: "2-digit",
     minute: "2-digit"
 };
-var dates = new Date(doc.data().date).toLocaleDateString("en", options)
+var dates;
 var todays = new Date().toDateString();
-
-console.log("todaysdate: " + todays);
-console.log("date2: " + new Date(doc.data().date2).toDateString());
+if (todays === new Date(doc.data().date).toDateString()) {
+dates = new Date(doc.data().date).toLocaleDateString("en", options)
+    //setTimeout("sortTable(3)", 2000);
+}
 if (todays === new Date(doc.data().date2).toDateString()) {
 dates = new Date(doc.data().date2).toLocaleDateString("en", options)
     //setTimeout("sortTable(3)", 2000);
