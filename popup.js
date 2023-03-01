@@ -107,6 +107,7 @@ var createDialog = function(text , title) {
     }});
 
     document.getElementById("modalClose").addEventListener("click", closeit);
+    selecttext();
 }
 
 function checkCookie() {
