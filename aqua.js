@@ -899,7 +899,7 @@ document.getElementById('back').style.display = 'block';
     var loaddbactive =  function(data){
         var db = firebase.firestore();
         var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(9){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
-        var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>"; 
+        var printnow = "<div id='printbtn'><center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br></div>"; 
         var lines = "";
         var RecordIDs = [];
         var cnt1;
@@ -1094,6 +1094,15 @@ document.getElementById('back').style.display = 'block';
         document.write("</tbody></table>");
         document.getElementsByTagName("body")[0].style.display = "none";
         setTimeout("sortByDate(5)", 1000);
+        if (count === 0){
+            document.getElementById("printbtn").style.display = "none";
+            // document.getElementById("report").style.display = "none";
+        }
+        if (count === 0){
+            document.getElementById("report").style.display = "none";
+            // document.getElementById("btnPrint").style.display = "none";
+        }
+       
     })
     .catch((error) => {
         console.log("Error getting documents: ", error);
