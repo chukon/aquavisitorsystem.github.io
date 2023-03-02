@@ -759,19 +759,28 @@ if ((key_checkin === null || key_checkin === '') && (key_checkout === null || ke
     }
     error_log_create(data);
 }else{
+    var fldkeys;
+    var messageipad;
+    var messageipad2;
     //qr code used already
-    if (varFName != '' && varFName !=null){
-        
+    if ((varFName != '' && varFName !=null) && (varLName != '' && varLName !=null)){
+        messageipad = "This QR code is invalid and for another date"
+        messageipad2 = "Please check-in/out on iPad or try another QR Code!"
     }else{
+       messageipad2 = "Please let front desk person know!"
+    messageipad = "This QR code is invalid"
         varFName = "Aqua"
+         varLName = "Guest"
     }
-    if (varLName != '' && varLName !=null){
-       
-    }else{
-        varLName = "Guest"
+   
+    try{
+        fldkeys = fldkey;
+    }catch (eror){
+        fldkeys = "No Key"; 
     }
+
     var data = {
-        "errormsg": "No Checkin Date for: " + varFName + ' ' + varLName
+        "errormsg": "Wrong date for: " + varFName + ' ' + varLName + " key: " + fldkeys
     }
     error_log_create(data);
     console.log("checkedin ID: Yes");
@@ -781,24 +790,32 @@ if ((key_checkin === null || key_checkin === '') && (key_checkout === null || ke
     document.write("<center>");
     document.write('<img id="logo" src="aqua.jpg" width="500px">');
     document.write("<p style='font-size:47px;'>Hello, " + varFName + " " + varLName + "</p>");
-    document.write("<p style='font-size:25px;color: black;'>This QR code is invalid or for another date!</p>");
-    document.write("<p style='font-size:20px;color: black;'>Please dispose of your badge before leaving reception/lobby!</p>");
+    document.write("<p style='font-size:25px;color: black;'>"  + messageipad + "</p>");
+    document.write("<p style='font-size:20px;color: black;'>" + messageipad2 + "</p>");
     document.write("<p style='font-size:20px;color: blue;'>Have a great day!</p>");
     document.write("<p style='font-size:15px;color: black;'><br><br><br>current date/time: " + NowTime + "</p></center>");
     document.write("</center>");
     document.write('</body>');
 }
 }).catch((error) => {
+    var qrid;
+    try{
+        qrid = get_id;
+}catch (eror){
+    qrid = "No Key ID"; 
+}
+   
     var data = {
-        "errormsg": "Error catch " + error
+        "errormsg": "No active key exist for: " + qrid 
     }
     error_log_create(data);
-console.log("Error getting documents: ", error);
+    console.log("Error getting documents: ", qrid );
 document.write('<body style="font-family: sans-serif;color: blue;">');
 document.write("<center>");
 document.write('<img id="logo" src="aqua.jpg" width="500px">');
+document.write("<p style='font-size:47px;'>Hello, " + "Aqua" + " " + "Guest" + "</p>");
 document.write("<p style='font-size:20px;color: blue;'>This QR code is invalid!</p>");
-document.write("<p style='font-size:20px;color: black;'>Please dispose of your badge before leaving reception/lobby!</p>");
+document.write("<p style='font-size:20px;color: black;'>Please let front desk person know!</p>");
 document.write("<p style='font-size:20px;color: blue;'>Have a great day!</p>");
 document.write("<p style='font-size:15px;color: black;'><br><br><br>current date/time: " + NowTime + "</p>");
 document.write("</center>");
