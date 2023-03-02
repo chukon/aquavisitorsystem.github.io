@@ -5,6 +5,12 @@
   <ul style="padding-left:60px">
     <li>report shows schedule with dates greater or equal to today.</li>
   </ul>
+ <ul><li><b>Report Updates: </b></li></ul>
+  <ul style="padding-left:60px">
+    <li>[Aqua User ID]: default view shows schedules today and beyond</li>
+    <li>[Aqua User ID]: 'Show All Schedules' button added to view all schedules</li>
+    <li>name, date, all, inactive: Schedule count now refects multi date addition</li>
+  </ul>
   <br>
   <ul><b>View Reports:</b></ul> 
   <ul><li>Click on 'View Scheduled Visits'</li></ul> 
@@ -17,5 +23,5 @@
 <br>
 <button id='modalClose' type="button">Close</button>
 <br>
-<center><div id="footer" style="color: coral;font-size: smaller;">last updated by Chuck Konkol on 3/01/2023</div></center>
+<center><div id="footer" style="color: coral;font-size: smaller;">last updated by Chuck Konkol on 3/02/2023</div></center>
 <br>
