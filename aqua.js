@@ -1154,7 +1154,7 @@ var loaddb =  function(data){
    .get()
    .then((querySnapshot) => {
        cnt = querySnapshot.size;
-        var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (Aqua UserID Report)</h1><h2>" + "<label id='numcount'></label>" + " Visitor Schedule(s) for: " + get_login + "<br><small>(showing all schedules)</small></h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+        var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (Aqua UserID Report)</h1><h2>" + "<label id='numcount'></label>" + " Visitor Schedule(s) for: " + get_login + "<br><small>(showing all schedules for: " + get_login + ")</small></h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
         document.write(title);
             if (cnt === 0){
             var nodata = "<center><br>No visitor data found<br></center>";
