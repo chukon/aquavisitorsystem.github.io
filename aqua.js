@@ -1474,7 +1474,7 @@ setTimeout("sortByDate2(5)", 1000);
 
         var cnt = querySnapshot.size;
         //(" +  "<label id='numcount'></label>" + " visits)
-        var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (active report)</h1><h2>" +  "<label id='numcount'></label>" + " Active Visitor Schedule(s)<br><small>(showing today and beyond only)</small></h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+        var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (active report)</h1><h2>" +  "<label id='numcount'></label>" + " Active Visitor Schedule(s)<br><small>(showing schedules today and beyond)</small></h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
 
         document.write(title);
         document.write(printnow);
