@@ -2410,54 +2410,54 @@ setTimeout("sortByDate2(4)", 2000);
        
     var loadtoday =  function(){
         try {
-        var db = firebase.firestore();
-        let todaysdate = new Date();
-        var count = 0;
-        var lines = "";
-        var today = new Date();
-        var x;
-        document.write("");
-        var choosedate  = new Date();
-        var name=prompt("Please choose one of the following\r\n1) Enter date to search (Example: 10/12/2022) > Click [Ok]\r\n2) Click [Ok] for today's date","Enter Date");
-        if (name!="Enter Date"){
-            start = new Date(name);
-            choosedate   = new Date(name).toDateString();
-            start.setHours(0,0,0,0);
-            end = new Date(start.getTime());
-            end.setHours(23,59,59,999);
-            strStart =  start.toISOString();
-            strEnd =  end.toISOString();
-            start = start.toISOString();
-            end = end.toISOString();
-        }else{
-            start = new Date();
-            start.setHours(0,0,0,0);
-            end = new Date(start.getTime());
-            end.setHours(23,59,59,999);
-            strStart =  start.toISOString();
-            strEnd =  end.toISOString();
-            start = start.toISOString();
-            end = end.toISOString();
-            var d = new Date();
-            choosedate = d.toDateString();
-            var myDate = new Date(d).toLocaleDateString('en-US');   
-            name = myDate.toString();
-        }	
-        console.log(name);
-        var  todays = new Date().toLocaleDateString('en-US');  
-        var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(8){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
-        var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
-        var RecordIDs = [];
-        var cnt1;
+            var db = firebase.firestore();
+            let todaysdate = new Date();
+            var count = 0;
+            var lines = "";
+            var today = new Date();
+            var x;
+            document.write("");
+            var choosedate  = new Date();
+            var name=prompt("Please choose one of the following\r\n1) Enter date to search (Example: 10/12/2022) > Click [Ok]\r\n2) Click [Ok] for today's date","Enter Date");
+            if (name!="Enter Date"){
+                start = new Date(name);
+                choosedate   = new Date(name).toDateString();
+                start.setHours(0,0,0,0);
+                end = new Date(start.getTime());
+                end.setHours(23,59,59,999);
+                strStart =  start.toISOString();
+                strEnd =  end.toISOString();
+                start = start.toISOString();
+                end = end.toISOString();
+            }else{
+                start = new Date();
+                start.setHours(0,0,0,0);
+                end = new Date(start.getTime());
+                end.setHours(23,59,59,999);
+                strStart =  start.toISOString();
+                strEnd =  end.toISOString();
+                start = start.toISOString();
+                end = end.toISOString();
+                var d = new Date();
+                choosedate = d.toDateString();
+                var myDate = new Date(d).toLocaleDateString('en-US');   
+                name = myDate.toString();
+            }	
+            console.log(name);
+            var  todays = new Date().toLocaleDateString('en-US');  
+            var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(8){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
+            var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
+            var RecordIDs = [];
+            var cnt1;
       const promise = new Promise((resolve, reject) => {
           db.collection("messages").where("date", ">=",start).where("date", "<=",end).where("remove", "==","No").orderBy("date","asc").orderBy("lastname","asc").get().then((querySnapshot) => {
               console.log("SnapshotPromise:" + querySnapshot.size); 
-        cnt1 = querySnapshot.size;
-        querySnapshot.forEach(doc => {
-            console.log("docid:" + doc.id, ' => ', doc.data());
-        RecordIDs.push( doc.id);
-    });
-    //resolve(RecordIDs);
+            cnt1 = querySnapshot.size;
+            querySnapshot.forEach(doc => {
+                console.log("docid:" + doc.id, ' => ', doc.data());
+            RecordIDs.push( doc.id);
+        });
+        //resolve(RecordIDs);
     });
     //START
     db.collection("messages").where("date2", ">=",start).where("date2", "<=",end).where("remove", "==","No").orderBy("date2","asc").orderBy("lastname","asc").get().then((querySnapshot) => {
@@ -2589,21 +2589,7 @@ setTimeout("sortByDate2(4)", 2000);
     console.log("docs:" + docs);
 const chunkSize = 10;
     var chunk;
-    var cnt;
-    for (let i = 0; i < docs.length; i += chunkSize) {
-        chunk = docs.slice(i, i + chunkSize);
-        db.collection("messages").where("key", "in",chunk).orderBy("date","asc").orderBy("lastname","asc")
-        .get()
-        .then((querySnapshot) => {
-         console.log("Snapshot:" + querySnapshot.size); 
-            cnt = querySnapshot.size;
-    if (cnt === 0){
-         var nodata = "<center><br>No visitor data found<br></center>";
-          document.write(nodata);
-    }else{
-        //document.write("<table id='report' style='font-size: small;'>  <tr>    <th>UserID</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");	
-    }
-    var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (date report)</h1><h2>" + cnt + " Visitor(s) for: " + name + "</h2></center><center><a href='https://aquavisitorsystem.github.io/'>Go Home</a></center><br>";         
+    var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (date report)</h1><h2>" + cnt1 + " Visitor(s) for: " + name + "</h2></center><center><a href='https://aquavisitorsystem.github.io/'>Go Home</a></center><br>";         
     document.write(title);
     document.write(printnow);
     if (cnt1 === 0){
@@ -2612,6 +2598,19 @@ const chunkSize = 10;
     }else{
         //        document.write("<table id='report' style='font-size: small;'>  <tr>    <th>UserID</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");	
         document.write("<table id='report' style='font-size: small;'>  <tr>    <th>UserID</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortByDate(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>Edit</th>  </tr>");	
+    }
+    for (let i = 0; i < docs.length; i += chunkSize) {
+        chunk = docs.slice(i, i + chunkSize);
+        db.collection("messages").where("key", "in",chunk).orderBy("date","asc").orderBy("lastname","asc")
+        .get()
+        .then((querySnapshot) => {
+         console.log("Snapshot:" + querySnapshot.size); 
+            var cnt = querySnapshot.size;
+    if (cnt === 0){
+         var nodata = "<center><br>No visitor data found<br></center>";
+          document.write(nodata);
+    }else{
+        //document.write("<table id='report' style='font-size: small;'>  <tr>    <th>UserID</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");	
     }
              querySnapshot.forEach((doc) => {
             var nodata = "";
@@ -2703,6 +2702,7 @@ const chunkSize = 10;
         document.write(nodata);
     }
     }
+  
   
 var loadtodayschedule =  function(){
 var x = 0;
