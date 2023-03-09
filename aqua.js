@@ -3853,6 +3853,7 @@ var dailycheckout =  function(){
         if ((key_checkin !=null && key_checkin != '') && (key_checkout === null || key_checkout === '')){
             set_checkout(data3);	
             log_create();	
+            sendcheckedout();	
         }
      });
 }
