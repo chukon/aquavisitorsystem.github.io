@@ -3445,6 +3445,8 @@ var getloginname = function(){
         loadremoved();
     }else if (username.toLowerCase()  === 'removeinactive') {
         removeInactiveUsers();
+    }else if (username.toLowerCase()  === 'activity') {
+        window.location.href = 'https://chukon.github.io/aquavisitoractivity.github.io/firestore/';
     }else{
         var data = {
             "userid": username
