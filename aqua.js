@@ -1492,6 +1492,7 @@ setTimeout("sortByDate2(5)", 1000);
         dates = "";
         var Datex = [];
         var todaysdate = new Date();
+        todaysdate.setHours(0,0,0,0);
         querySnapshot.forEach((doc) => {
             console.log(doc.id, " => ", doc.data());
         var options = {
