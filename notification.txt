@@ -1,7 +1,7 @@
 <ul style="display: inline;">
   <div id="inputText">
   <li><b>Latest updates</b></li>
-   <ul><li><b>New Feature</b>active</li></ul>
+   <ul><li><b>New Feature</b></li></ul>
   <ul style="padding-left:60px">
     <li>Add Weekly Recurring Meetings. <a href="https://aquavisitorsystem.github.io/help/Aqua%20Visitor%20Check.htm#_Toc132347445">click here</a></li>
   </ul>
