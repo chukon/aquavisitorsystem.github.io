@@ -66,6 +66,26 @@ td, th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+.weekDays-selector input {
+  display: none!important;
+}
+
+.weekDays-selector input[type=checkbox] + label {
+  display: inline-block;
+  border-radius: 6px;
+  background: #dddddd;
+  height: 40px;
+  width: 30px;
+  margin-right: 3px;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.weekDays-selector input[type=checkbox]:checked + label {
+  background: #2AD705;
+  color: #ffffff;
+}
       </style>  
     <title>Aqua Visitor Managment System</title>
 <link href="https://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css" rel="stylesheet"/>
@@ -102,9 +122,12 @@ tr:nth-child(even) {
       <br>
       <div id="datedetails">
         <label for="date" style="color: black;font-weight: bold;">Date & Time Guest is Visiting Aqua: </label>
-       <details>
-  <summary><input type="datetime-local" id="date" name="date" style="font-family: sans-serif;"><i style="color: gray;"> If time unknown use 8:00am [Click to add/view more dates]</summary> 
-  <ul>Date 2:&nbsp;&nbsp;&nbsp;<input type="datetime-local" id="date2" name="date2" style="font-family: sans-serif;"></ul>
+         <details>
+  <summary><input type="datetime-local" id="date" name="date" style="font-family: sans-serif;"><i style="color: gray;"> If time unknown use 8:00am [Click to add/view OR Weekly Recurring Dates]</summary> 
+    <b>Individual Dates</b><br />
+             <i style="font-size: small;">If you select individual dates you cannot use below <b>Weekly Recurring Dates</b></i><br/>
+             <ul>Date 2:&nbsp;&nbsp;&nbsp;<input type="datetime-local" id="date2" name="date2" style="font-family: sans-serif;"> 
+          </ul>
   <ul>Date 3:&nbsp;&nbsp;&nbsp;<input type="datetime-local" id="date3" name="date3" style="font-family: sans-serif;"></ul>
   <ul>Date 4:&nbsp;&nbsp;&nbsp;<input type="datetime-local" id="date4" name="date4" style="font-family: sans-serif;"></ul>
   <ul>Date 5:&nbsp;&nbsp;&nbsp;<input type="datetime-local" id="date5" name="date5" style="font-family: sans-serif;"></ul>
@@ -115,8 +138,28 @@ tr:nth-child(even) {
   <ul>Date 10:&nbsp;&nbsp;<input type="datetime-local" id="date10" name="date10" style="font-family: sans-serif;"></ul>
   <ul>Date 11:&nbsp;&nbsp;<input type="datetime-local" id="date11" name="date11" style="font-family: sans-serif;"></ul>
   <ul>Date 12:&nbsp;&nbsp;<input type="datetime-local" id="date12" name="date12" style="font-family: sans-serif;"></ul>
+  <br />
+              <details>
+  <summary><i style="color: gray;">Weekly Recurring Dates</summary>
+  <i style="font-size: small;">If you select recurring dates you cannot use above <b>Individual Dates!</b></i><br/><br/>
+  Beginning Date:<br /><input type="date" id="date13" name="date13" style="font-family: sans-serif;"><br />        
+  End Date:<br /><input type="date" id="date14" name="date14" style="font-family: sans-serif;"><br />
+Choose Time:<br /><input type="time"  id="rectime" name="rectime" step="900"><br /> <br />
+Choose Recurring Day(s): <div class="weekDays-selector">
+  <input type="checkbox" id="mon" name="mon" class="weekday" />
+  <label for="mon">M</label>
+  <input type="checkbox" id="tue"  name="tue" class="weekday" />
+  <label for="tue">T</label>
+  <input type="checkbox" id="wed"  name="wed" class="weekday" />
+  <label for="wed">W</label>
+  <input type="checkbox" id="thu"  name="thu" class="weekday" />
+  <label for="thu">T</label>
+  <input type="checkbox" id="fri"  name="fri" class="weekday" />
+  <label for="fri">F</label>
+</div>
 </details>
-          <br>
+</details>
+          <br />
           </div>
       <label for="message" style="color: black;font-weight: bold;">Aqua Employee Guest is Visiting (Full Name)</label>
      <textarea id="message" name="message" placeholder="Enter Aqua Employee Full Name" style="height: 30px;font-family: sans-serif;text-transform: uppercase;"></textarea>
