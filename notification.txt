@@ -5,24 +5,14 @@
   <ul style="padding-left:60px">
     <li>Add Weekly Recurring Meetings. <a href="https://aquavisitorsystem.github.io/help/Aqua%20Visitor%20Check.htm#_Toc132347445">click here</a></li>
   </ul>
-  <ul><li><b>New Report: </b>active</li></ul>
-  <ul style="padding-left:60px">
-    <li>report shows schedule with dates greater or equal to today.</li>
-  </ul>
- <ul><li><b>Report Updates: </b></li></ul>
-  <ul style="padding-left:60px">
-    <li>[Aqua User ID]: default view shows schedules today and beyond</li>
-    <li>[Aqua User ID]: 'Show All Schedules' button added to view all schedules</li>
-    <li>name, date, all, inactive: Schedule count now refects multi date addition</li>
-  </ul>
   <br>
   <ul><b>View Reports:</b></ul> 
   <ul><li>Click on 'View Scheduled Visits'</li></ul> 
   <ul><li>Use keyword(s) listed</li></ul>
   <br>
  <ul><b>Manage Schedules:</b></ul> 
-  <ul><li>Remove a schedule by making it inactive. <a href="https://aquavisitorsystem.github.io/help/Aqua%20Visitor%20Check.htm#_Toc127950095">click here</a></li></ul> 
-  <ul><li>Restore a schedule by making it active. <a href="https://aquavisitorsystem.github.io/help/Aqua%20Visitor%20Check.htm#_Toc127950095">click here</a></li></ul>
+  <ul><li>Remove a schedule by making it inactive. <a href="https://aquavisitorsystem.github.io/help/Aqua%20Visitor%20Check.htm#_Toc132347449">click here</a></li></ul> 
+  <ul><li>Restore a schedule by making it active. <a href="https://aquavisitorsystem.github.io/help/Aqua%20Visitor%20Check.htm#_Toc132347449">click here</a></li></ul>
 </ul> 
 <br>
 <button id='modalClose' type="button">Close</button>
