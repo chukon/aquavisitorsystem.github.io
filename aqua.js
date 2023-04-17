@@ -4006,7 +4006,7 @@ document.write('<tr><td>' + doc.data().firstname + '</td><td>' + doc.data().last
 }
 });
     // let sendingText = "https://aquameeting.github.io/?ipad=Yes"
-    document.getElementById("reptitle").innerHTML = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (date report)</h1><h2>" + cnt1 + " Visitor(s) for: " + name + "</h2></center>";
+    //document.getElementById("reptitle").innerHTML = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (date report)</h1><h2>" + cnt1 + " Visitor(s) for: " + name + "</h2></center>";
     if (cnt1 === 0){
     document.getElementById("report").innerHTML = "<center><br>No visitor data found<br></center>";
 }
