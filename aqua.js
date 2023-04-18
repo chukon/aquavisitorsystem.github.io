@@ -1269,7 +1269,8 @@ document.getElementById('back').style.display = 'block';
 }
     }
       
-var loaddb =  function(data){
+    var loaddb =  function(data){
+        var cntrecdays = 0;
     var cnt = 0;
     var db = firebase.firestore();
     var get_login = "";
