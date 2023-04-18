@@ -5265,8 +5265,8 @@ function parseDate(input) {
 }
 
 function RecCount(begdate, enddate, days) {
-    var start = moment(begdate), // Sept. 1st
-      end   = moment(enddate), // Nov. 2nd
+    var start = moment(begdate, "MM-DD-YYYY"), // Sept. 1st
+      end   = moment(enddate, "MM-DD-YYYY"), // Nov. 2nd
       day   = days;                    // Sunday
 
     var result = [];
