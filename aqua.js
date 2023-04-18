@@ -3082,74 +3082,80 @@ const chunkSize = 10;
 
         //
      dt = new Date(choosedate).toLocaleDateString("en", options2);
-     if (doc.data().mon === true) {
-       if (dt >= date13 && dt <= date14){
-        var dt = new Date(choosedate);
+
+ var dt1 = new Date(choosedate).toLocaleDateString("en", options2);
+  if (doc.data().mon === true) {
+        var dt = new Date(dt1);
         var ndt = dt.getDay();
-           console.log("ndt: " + ndt);
-          var h  =  tConvert (doc.data().rectime);
-       dates = name + ", " + h; 
+       if (dt1 >= date13 && dt1 <= date14 && ndt === 1){
+            var ndt = dt.getDay();
+           console.log("mon ndt: " + ndt);
+          
+   
+       var h  =  tConvert (doc.data().rectime);
+       dates = name + "," + h; 
     }else{
-      cnt1= cnt1 - 1;
+cnt1 = cnt1 - 1
     }
     }
 
-    if (doc.data().tue === true) {
-      if (dt >= date13 && dt <= date14){
-        var dt = new Date(choosedate);
+    if (doc.data().tue === true)  {
+var dt = new Date(dt1);
         var ndt = dt.getDay();
-           console.log("ndt: " + ndt);
+        if (dt1 >= date13 && dt1 <= date14 && ndt === 2){
+        
+           console.log("tue ndt: " + ndt);
           
-      
+     
        var h  =  tConvert (doc.data().rectime);
-       dates = name + ", " + h; 
+       dates = name + "," + h;
     }else{
-      cnt1= cnt1 - 1;
+cnt1 = cnt1 - 1
     }
     }
 
     if (doc.data().wed === true) {
-      if (dt >= date13 && dt <= date14){
-        var dt = new Date(choosedate);
+ var dt = new Date(dt1);
         var ndt = dt.getDay();
-           console.log("ndt: " + ndt);
-          
-      
+     if (dt1 >= date13 && dt1 <= date14 && ndt === 3){
+
+       
+           console.log("wed ndt: " + ndt);
+     
        var h  =  tConvert (doc.data().rectime);
-       dates = name + ", " + h; 
+       dates = name + "," + h; 
     }else{
-      cnt1= cnt1 - 1;
+cnt1 = cnt1 - 1
     }
     }
 
     if (doc.data().thu === true) {
-      if (dt >= date13 && dt <= date14){
-        var dt = new Date(choosedate);
+var dt = new Date(dt1);
         var ndt = dt.getDay();
-           console.log("ndt: " + ndt);
-          
-      
+     if (dt1 >= date13 && dt1 <= date14 && ndt === 4){
+        
+           console.log("thu ndt: " + ndt);
+   
        var h  =  tConvert (doc.data().rectime);
-       dates = name + ", " + h; 
+       dates = name + "," + h; 
     }else{
-      cnt1= cnt1 - 1;
+cnt1 = cnt1 - 1
     }
     }
 
     if (doc.data().fri === true) {
-      if (dt >= date13 && dt <= date14){
-        var dt = new Date(choosedate);
+      var dt = new Date(dt1);
         var ndt = dt.getDay();
-           console.log("ndt: " + ndt);
-          
-       
-       var h  =  tConvert (doc.data().rectime);
-       dates = name + ", " + h; 
-    }else{
-      cnt1= cnt1 - 1;
-    }
-    }
+     if (dt1 >= date13 && dt1 <= date14 && ndt === 5){
+        
+           console.log("fri ndt: " + ndt);
     
+       var h  =  tConvert (doc.data().rectime);
+       dates = name + "," + h; 
+    }else{
+cnt1 = cnt1 - 1
+    }
+    }
         // console.log("getday: " + name.getDay());
       console.log("cnt1: " + cnt1);
         var dt = new Date(choosedate);
