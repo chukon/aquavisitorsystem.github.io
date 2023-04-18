@@ -1865,7 +1865,9 @@ var loadname =  function(){
    .get()
    .then((querySnapshot) => {
        var cnt = querySnapshot.size;
-        var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (name report)</h1><h2>" + "<label id='numcount'></label>" + " Visitor Schedule(s) for: " + get_login + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+       // var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (name report)</h1><h2>" + "<label id='numcount'></label>" + " Visitor Schedule(s) for: " + get_login + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+        var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (name report)</h1><h2>" + "Visitor Schedule(s) for: " + get_login + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+       
         document.write(title);
         document.write(printnow);
         if (cnt === 0){
@@ -1958,8 +1960,8 @@ var loadname =  function(){
     });
     let count = Visitors.length;
     console.log("count: " +  count);
-    document.getElementById("numcount").innerHTML = Visitors.length;
-    document.getElementById("numcount").setAttribute("value",  Visitors.length);
+    //document.getElementById("numcount").innerHTML = Visitors.length;
+    //document.getElementById("numcount").setAttribute("value",  Visitors.length);
     document.head.innerHTML = header;
     document.write("</table>");
     document.getElementsByTagName("body")[0].style.display = "none";
