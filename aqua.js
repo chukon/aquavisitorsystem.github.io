@@ -396,7 +396,7 @@ firebase.initializeApp(firebaseConfig);
 
            var date13 = addOneDay(datea).toLocaleDateString("en", options2);
            var date14 = addOneDay(dateb).toLocaleDateString("en", options2);
-           var h  =  tConvert (doc.data().rectime);
+           var h;
            var dates = new Date(doc.data().date).toLocaleString("en", options);
            var days = "";
            if (typeof doc.data().date2 !== 'undefined' && doc.data().date2 !=="") {
@@ -433,6 +433,7 @@ firebase.initializeApp(firebaseConfig);
                dates = dates + "%0D%0A" + new Date(doc.data().date12).toLocaleDateString("en", options)
            }
            if (typeof doc.data().date13 !== 'undefined' && doc.data().date13 !=="") {
+               h  =  tConvert (doc.data().rectime);
                if (doc.data().mon === true) {
                    days = "Monday";
                    document.getElementById("mon").checked = true;
