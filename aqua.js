@@ -1191,6 +1191,8 @@ document.getElementById('back').style.display = 'block';
                     Visitors.push(doc.data().login + new Date(doc.data().date12).toLocaleDateString("en", options));
                 }
                 if (typeof doc.data().date14 !== 'undefined' && doc.data().date14 !=="" && new Date(doc.data().date14) >= todaysdate) {
+                    h  =  tConvert (doc.data().rectime);
+                    var days = "";
             const datea = new Date(doc.data().date13);
             const dateb = new Date(doc.data().date14);
                     var date13 = addOneDay(datea).toLocaleDateString("en", options2);
@@ -1198,21 +1200,42 @@ document.getElementById('back').style.display = 'block';
                     console.log("date13: " + date13);
                     console.log("date14: " + date14);
                     if (doc.data().mon === true) {
+                        days = "Mon";
                         cntrecdays = RecCount(date13,date14,1);
                     }
                     if (doc.data().tue === true) {
+                        if (days === ""){
+                            days = "Tue";
+                        }else{
+                            days = days + "," + "Tue";
+                        }    
                         cntrecdays = cntrecdays + RecCount(date13,date14,2);
                     }
                     if (doc.data().wed === true) {
+                        if (days === ""){
+                            days = "Wed";
+                        }else{
+                            days = days + "," + "Wed";
+                        } 
                         cntrecdays = cntrecdays + RecCount(date13,date14,3);
                     }
                     if (doc.data().thu === true) {
+                        if (days === ""){
+                            days = "Thu";
+                        }else{
+                            days = days + "," + "Thu";
+                        }   
                         cntrecdays = cntrecdays + RecCount(date13,date14,4);
                     }
                     if (doc.data().fri === true) {
+                        if (days === ""){
+                            days = "Fri";
+                        }else{
+                            days = days + "," + "Fri";
+                        }  
                         cntrecdays = cntrecdays + RecCount(date13,date14,4);
                     }
-                    seleceteddate = cntrecdays + " Recurring Until: " + "<br>" + new Date(doc.data().date14).toLocaleDateString("en", options2)
+                    seleceteddate = cntrecdays + " Recurring Until: " + "<br>" + new Date(doc.data().date14).toLocaleDateString("en", options2) + "<br>Day(s):" + days + "<br>Time:" + h
                     datesorts = new Date().toLocaleDateString("fr-CA", options2);;
                     Datex.push(datesorts);
                     //Visitors.push(doc.data().login + new Date(doc.data().date14).toLocaleDateString("en", options2) + rectime);
@@ -1402,6 +1425,8 @@ document.getElementById('back').style.display = 'block';
             Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
         }
         if (typeof doc.data().date13 !== 'undefined' && doc.data().date13 !=="") {
+            h  =  tConvert (doc.data().rectime);
+            var days = "";
             const datea = new Date(doc.data().date13);
            const dateb = new Date(doc.data().date14);
             var date13 = addOneDay(datea).toLocaleDateString("en", options2);
@@ -1409,28 +1434,49 @@ document.getElementById('back').style.display = 'block';
             console.log("date13: " + date13);
             console.log("date14: " + date14);
             if (doc.data().mon === true) {
+                days = "Mon";
                 cntrecdays = RecCount(date13,date14,1);
             }
             if (doc.data().tue === true) {
+                if (days === ""){
+                    days = "Tue";
+                }else{
+                    days = days + "," + "Tue";
+                }    
                 cntrecdays = cntrecdays + RecCount(date13,date14,2);
             }
             if (doc.data().wed === true) {
+                if (days === ""){
+                    days = "Wed";
+                }else{
+                    days = days + "," + "Wed";
+                } 
                 cntrecdays = cntrecdays + RecCount(date13,date14,3);
             }
             if (doc.data().thu === true) {
+                if (days === ""){
+                    days = "Thu";
+                }else{
+                    days = days + "," + "Thu";
+                }   
                 cntrecdays = cntrecdays + RecCount(date13,date14,4);
             }
             if (doc.data().fri === true) {
+                if (days === ""){
+                    days = "Fri";
+                }else{
+                    days = days + "," + "Fri";
+                }  
                 cntrecdays = cntrecdays + RecCount(date13,date14,4);
             }
             
             if (dates)
             {
              
-                dates = dates + "<hr>" + cntrecdays + " Recurring Until: <br>" + new Date(doc.data().date14).toLocaleDateString("en", options2)
+                dates = dates + "<hr>" + cntrecdays + " Recurring Until: <br>" + new Date(doc.data().date14).toLocaleDateString("en", options2) + "<br>Day(s):" + days + "<br>Time:" + h
             }else{
                 console.log("dates:" + dates);
-                dates = cntrecdays + " Recurring Until: <br>" + new Date(doc.data().date14).toLocaleDateString("en", options2)
+                dates = cntrecdays + " Recurring Until: <br>" + new Date(doc.data().date14).toLocaleDateString("en", options2) + "<br>Day(s):" + days + "<br>Time:" + h
             }
             datesorts = new Date().toLocaleDateString("fr-CA", options2);;
             Datex.push(datesorts);
@@ -1598,6 +1644,8 @@ document.getElementById('back').style.display = 'block';
         Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
     }
     if (typeof doc.data().date14 !== 'undefined' && doc.data().date14 !=="") {
+        h  =  tConvert (doc.data().rectime);
+        var days = "";
         const datea = new Date(doc.data().date13);
             const dateb = new Date(doc.data().date14);
         var date13 = addOneDay(datea).toLocaleDateString("en", options2);
@@ -1605,21 +1653,42 @@ document.getElementById('back').style.display = 'block';
         console.log("date13: " + date13);
         console.log("date14: " + date14);
         if (doc.data().mon === true) {
+            days = "Mon";
             cntrecdays = RecCount(date13,date14,1);
         }
         if (doc.data().tue === true) {
+            if (days === ""){
+                days = "Tue";
+            }else{
+                days = days + "," + "Tue";
+            }
             cntrecdays = cntrecdays + RecCount(date13,date14,2);
         }
         if (doc.data().wed === true) {
+            if (days === ""){
+                days = "Wed";
+            }else{
+                days = days + "," + "Wed";
+            } 
             cntrecdays = cntrecdays + RecCount(date13,date14,3);
         }
         if (doc.data().thu === true) {
+            if (days === ""){
+                days = "Thu";
+            }else{
+                days = days + "," + "Thu";
+            }   
             cntrecdays = cntrecdays + RecCount(date13,date14,4);
         }
         if (doc.data().fri === true) {
+            if (days === ""){
+                days = "Fri";
+            }else{
+                days = days + "," + "Fri";
+            }  
             cntrecdays = cntrecdays + RecCount(date13,date14,4);
         }
-        dates = cntrecdays + " Recurring Until: " + "<br>" + new Date(doc.data().date14).toLocaleDateString("en", options2)
+        dates = cntrecdays + " Recurring Until: " + "<br>" + new Date(doc.data().date14).toLocaleDateString("en", options2) + "<br>Day(s):" + days + "<br>Time:" + h
         datesorts = new Date().toLocaleDateString("fr-CA", options2);;
         Datex.push(datesorts);
        // Visitors.push(doc.data().login + new Date(doc.data().date14).toLocaleDateString("en", options2) + doc.data().rectime);
@@ -1816,6 +1885,8 @@ setTimeout("sortByDate2(5)", 1000);
             Visitors.push(doc.data().login + new Date(doc.data().date12).toLocaleDateString("en", options));
         }
         if (typeof doc.data().date14 !== 'undefined' && doc.data().date14 !=="" && new Date(doc.data().date14) >= todaysdate) {
+            h  =  tConvert (doc.data().rectime);
+            var days = "";
             const datea = new Date(doc.data().date13);
             const dateb = new Date(doc.data().date14);
             var date13 = addOneDay(datea).toLocaleDateString("en", options2);
@@ -1823,21 +1894,42 @@ setTimeout("sortByDate2(5)", 1000);
             console.log("date13: " + date13);
             console.log("date14: " + date14);
             if (doc.data().mon === true) {
+                days = "Mon";
                 cntrecdays = RecCount(date13,date14,1);
             }
             if (doc.data().tue === true) {
+                if (days === ""){
+                    days = "Tue";
+                }else{
+                    days = days + "," + "Tue";
+                }    
                 cntrecdays = cntrecdays + RecCount(date13,date14,2);
             }
             if (doc.data().wed === true) {
+                if (days === ""){
+                    days = "Wed";
+                }else{
+                    days = days + "," + "Wed";
+                } 
                 cntrecdays = cntrecdays + RecCount(date13,date14,3);
             }
             if (doc.data().thu === true) {
+                if (days === ""){
+                    days = "Thu";
+                }else{
+                    days = days + "," + "Thu";
+                }   
                 cntrecdays = cntrecdays + RecCount(date13,date14,4);
             }
             if (doc.data().fri === true) {
+                if (days === ""){
+                    days = "Fri";
+                }else{
+                    days = days + "," + "Fri";
+                }  
                 cntrecdays = cntrecdays + RecCount(date13,date14,4);
             }
-            seleceteddate = cntrecdays + " Recurring Until: " + "<br>" + new Date(doc.data().date14).toLocaleDateString("en", options2)
+            seleceteddate = cntrecdays + " Recurring Until: " + "<br>" + new Date(doc.data().date14).toLocaleDateString("en", options2) + "<br>Day(s):" + days + "<br>Time:" + h
             datesorts = new Date().toLocaleDateString("fr-CA", options2);;
             Datex.push(datesorts);
             //Visitors.push(doc.data().login + new Date(doc.data().date14).toLocaleDateString("en", options2) + rectime);
