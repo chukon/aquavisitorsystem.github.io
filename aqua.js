@@ -2210,7 +2210,6 @@ document.head.innerHTML = header;
             
             if (dates)
             {
-             
                 dates = dates + "<hr>" + cntrecdays + " Recurring Until: <br>" + date14 + "<br>Day(s):" + days + "<br>Time:" + h;
             }else{
                 console.log("dates:" + dates);
