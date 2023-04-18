@@ -433,6 +433,7 @@ firebase.initializeApp(firebaseConfig);
                dates = dates + "%0D%0A" + new Date(doc.data().date12).toLocaleDateString("en", options)
            }
            if (typeof doc.data().date13 !== 'undefined' && doc.data().date13 !=="") {
+
                h  =  tConvert (doc.data().rectime);
                if (doc.data().mon === true) {
                    days = "Monday";
@@ -1191,6 +1192,7 @@ document.getElementById('back').style.display = 'block';
                     Visitors.push(doc.data().login + new Date(doc.data().date12).toLocaleDateString("en", options));
                 }
                 if (typeof doc.data().date14 !== 'undefined' && doc.data().date14 !=="" && new Date(doc.data().date14) >= todaysdate) {
+                    cntrecdays = 0;
                     h  =  tConvert (doc.data().rectime);
                     var days = "";
             const datea = new Date(doc.data().date13);
@@ -1235,7 +1237,7 @@ document.getElementById('back').style.display = 'block';
                         }  
                         cntrecdays = cntrecdays + RecCount(date13,date14,4);
                     }
-                    seleceteddate = cntrecdays + " Recurring Until: " + "<br>" + new Date(doc.data().date14).toLocaleDateString("en", options2) + "<br>Day(s):" + days + "<br>Time:" + h
+                    seleceteddate = cntrecdays + " Recurring Until: " + "<br>" + date14 + "<br>Day(s):" + days + "<br>Time:" + h
                     datesorts = new Date().toLocaleDateString("fr-CA", options2);;
                     Datex.push(datesorts);
                     //Visitors.push(doc.data().login + new Date(doc.data().date14).toLocaleDateString("en", options2) + rectime);
@@ -1425,6 +1427,7 @@ document.getElementById('back').style.display = 'block';
             Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
         }
         if (typeof doc.data().date13 !== 'undefined' && doc.data().date13 !=="") {
+            cntrecdays = 0;
             h  =  tConvert (doc.data().rectime);
             var days = "";
             const datea = new Date(doc.data().date13);
@@ -1473,10 +1476,10 @@ document.getElementById('back').style.display = 'block';
             if (dates)
             {
              
-                dates = dates + "<hr>" + cntrecdays + " Recurring Until: <br>" + new Date(doc.data().date14).toLocaleDateString("en", options2) + "<br>Day(s):" + days + "<br>Time:" + h
+                dates = dates + "<hr>" + cntrecdays + " Recurring Until: <br>" + date14 + "<br>Day(s):" + days + "<br>Time:" + h
             }else{
                 console.log("dates:" + dates);
-                dates = cntrecdays + " Recurring Until: <br>" + new Date(doc.data().date14).toLocaleDateString("en", options2) + "<br>Day(s):" + days + "<br>Time:" + h
+                dates = cntrecdays + " Recurring Until: <br>" + date14 + "<br>Day(s):" + days + "<br>Time:" + h
             }
             datesorts = new Date().toLocaleDateString("fr-CA", options2);;
             Datex.push(datesorts);
@@ -1644,6 +1647,7 @@ document.getElementById('back').style.display = 'block';
         Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
     }
     if (typeof doc.data().date14 !== 'undefined' && doc.data().date14 !=="") {
+        cntrecdays = 0;
         h  =  tConvert (doc.data().rectime);
         var days = "";
         const datea = new Date(doc.data().date13);
@@ -1688,7 +1692,7 @@ document.getElementById('back').style.display = 'block';
             }  
             cntrecdays = cntrecdays + RecCount(date13,date14,4);
         }
-        dates = cntrecdays + " Recurring Until: " + "<br>" + new Date(doc.data().date14).toLocaleDateString("en", options2) + "<br>Day(s):" + days + "<br>Time:" + h
+        dates = cntrecdays + " Recurring Until: " + "<br>" + date14 + "<br>Day(s):" + days + "<br>Time:" + h
         datesorts = new Date().toLocaleDateString("fr-CA", options2);;
         Datex.push(datesorts);
        // Visitors.push(doc.data().login + new Date(doc.data().date14).toLocaleDateString("en", options2) + doc.data().rectime);
@@ -1885,6 +1889,7 @@ setTimeout("sortByDate2(5)", 1000);
             Visitors.push(doc.data().login + new Date(doc.data().date12).toLocaleDateString("en", options));
         }
         if (typeof doc.data().date14 !== 'undefined' && doc.data().date14 !=="" && new Date(doc.data().date14) >= todaysdate) {
+            cntrecdays = 0;
             h  =  tConvert (doc.data().rectime);
             var days = "";
             const datea = new Date(doc.data().date13);
@@ -1929,7 +1934,7 @@ setTimeout("sortByDate2(5)", 1000);
                 }  
                 cntrecdays = cntrecdays + RecCount(date13,date14,4);
             }
-            seleceteddate = cntrecdays + " Recurring Until: " + "<br>" + new Date(doc.data().date14).toLocaleDateString("en", options2) + "<br>Day(s):" + days + "<br>Time:" + h
+            seleceteddate = cntrecdays + " Recurring Until: " + "<br>" + date14 + "<br>Day(s):" + days + "<br>Time:" + h
             datesorts = new Date().toLocaleDateString("fr-CA", options2);;
             Datex.push(datesorts);
             //Visitors.push(doc.data().login + new Date(doc.data().date14).toLocaleDateString("en", options2) + rectime);
@@ -2178,10 +2183,13 @@ document.head.innerHTML = header;
             Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
         }
         if (typeof doc.data().date13 !== 'undefined' && doc.data().date13 !=="") {
+            cntrecdays= 0;
+            h  =  tConvert (doc.data().rectime);
+            var days = "";
              const datea = new Date(doc.data().date13);
             const dateb = new Date(doc.data().date14);
-            var date13 = addOneDay(datea).toLocaleDateString("en", options2);
-            var date14 = addOneDay(dateb).toLocaleDateString("en", options2);
+            var date13 = addOneDay(datea).toLocaleDateString("en", options);
+            var date14 = addOneDay(dateb).toLocaleDateString("en", options);
             console.log("date13: " + date13);
             console.log("date14: " + date14);
             if (doc.data().mon === true) {
@@ -2203,10 +2211,10 @@ document.head.innerHTML = header;
             if (dates)
             {
              
-                dates = dates + "<hr>" + cntrecdays + " Recurring Until: <br>" + new Date(doc.data().date14).toLocaleDateString("fr-CA", options);
+                dates = dates + "<hr>" + cntrecdays + " Recurring Until: <br>" + date14 + "<br>Day(s):" + days + "<br>Time:" + h;
             }else{
                 console.log("dates:" + dates);
-                dates = cntrecdays + " Recurring Until: <br>" + new Date(doc.data().date14).toLocaleDateString("fr-CA", options);
+                dates = cntrecdays + " Recurring Until: <br>" + date14 + "<br>Day(s):" + days + "<br>Time:" + h;
             }
           
             //Visitors.push(doc.data().login + new Date(doc.data().date13).toLocaleDateString("en", options));
