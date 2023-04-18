@@ -1426,10 +1426,10 @@ var loaddb =  function(data){
             if (dates)
             {
              
-                dates = dates + "<hr>" + cntrecdays + " Recurring Until: <br>" + new Date(doc.data().date14).toLocaleDateString("fr-CA", options);
+                dates = dates + "<hr>" + cntrecdays + " Recurring Until: <br>" + new Date(doc.data().date14).toLocaleDateString("en", options2)
             }else{
                 console.log("dates:" + dates);
-                dates = cntrecdays + " Recurring Until: <br>" + new Date(doc.data().date14).toLocaleDateString("fr-CA", options);
+                dates = cntrecdays + " Recurring Until: <br>" + new Date(doc.data().date14).toLocaleDateString("en", options2)
             }
             datesorts = new Date().toLocaleDateString("fr-CA", options2);;
             Datex.push(datesorts);
