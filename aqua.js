@@ -1021,6 +1021,7 @@ document.getElementById('back').style.display = 'block';
 }
 
     var loaddbactive =  function(data){
+        var cntrecdays = 0;
         var db = firebase.firestore();
         var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(9){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
         var printnow = "<div id='printbtn'><center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br></div>"; 
@@ -1103,7 +1104,15 @@ document.getElementById('back').style.display = 'block';
             var date10 = new Date(doc.data().date10)
             var date11 = new Date(doc.data().date11)
             var date12 = new Date(doc.data().date12)
-            if ((date01 >= todaysdate) || (date02 >= todaysdate) || (date03 >= todaysdate) || (date04 >= todaysdate) || (date05 >= todaysdate) || (date06 >= todaysdate) || (date07 >= todaysdate) || (date08 >= todaysdate) || (date09 >= todaysdate) || (date10 >= todaysdate) || (date11 >= todaysdate) || (date12 >= todaysdate)){
+            var startdates = new Date(doc.data().date13)
+            var enddates = new Date(doc.data().date14)
+            var rectime = new Date(doc.data().rectime)
+            var mon = new Date(doc.data().mon)
+            var tue = new Date(doc.data().tue)
+            var wed = new Date(doc.data().wed)
+            var thu = new Date(doc.data().thu)
+            var fri = new Date(doc.data().fri)
+            if ((date01 >= todaysdate) || (date02 >= todaysdate) || (date03 >= todaysdate) || (date04 >= todaysdate) || (date05 >= todaysdate) || (date06 >= todaysdate) || (date07 >= todaysdate) || (date08 >= todaysdate) || (date09 >= todaysdate) || (date10 >= todaysdate) || (date11 >= todaysdate) || (date12 >= todaysdate)  || (enddates >= todaysdate)){
                 seleceteddate = "";
                 datesorts = "";
                 Datex.length = 0;
@@ -1181,7 +1190,33 @@ document.getElementById('back').style.display = 'block';
                     Datex.push(datesorts);
                     Visitors.push(doc.data().login + new Date(doc.data().date12).toLocaleDateString("en", options));
                 }
-       
+                if (typeof doc.data().date14 !== 'undefined' && doc.data().date14 !=="" && new Date(doc.data().date14) >= todaysdate) {
+            const datea = new Date(doc.data().date13);
+            const dateb = new Date(doc.data().date14);
+                    var date13 = addOneDay(datea).toLocaleDateString("en", options2);
+                    var date14 = addOneDay(dateb).toLocaleDateString("en", options2);
+                    console.log("date13: " + date13);
+                    console.log("date14: " + date14);
+                    if (doc.data().mon === true) {
+                        cntrecdays = RecCount(date13,date14,1);
+                    }
+                    if (doc.data().tue === true) {
+                        cntrecdays = cntrecdays + RecCount(date13,date14,2);
+                    }
+                    if (doc.data().wed === true) {
+                        cntrecdays = cntrecdays + RecCount(date13,date14,3);
+                    }
+                    if (doc.data().thu === true) {
+                        cntrecdays = cntrecdays + RecCount(date13,date14,4);
+                    }
+                    if (doc.data().fri === true) {
+                        cntrecdays = cntrecdays + RecCount(date13,date14,4);
+                    }
+                    seleceteddate = cntrecdays + " Recurring Until: " + "<br>" + new Date(doc.data().date14).toLocaleDateString("en", options2)
+                    datesorts = new Date().toLocaleDateString("fr-CA", options2);;
+                    Datex.push(datesorts);
+                    //Visitors.push(doc.data().login + new Date(doc.data().date14).toLocaleDateString("en", options2) + rectime);
+                }
        
 
 
@@ -1210,10 +1245,10 @@ document.getElementById('back').style.display = 'block';
 
             }
         });
-        let count = Visitors.length;
+        let count = Visitors.length + cntrecdays;
         console.log("count: " +  count);
-        document.getElementById("numcount").innerHTML = Visitors.length;
-        document.getElementById("numcount").setAttribute("value",  Visitors.length);
+        document.getElementById("numcount").innerHTML = Visitors.length + cntrecdays;
+        document.getElementById("numcount").setAttribute("value",  Visitors.length + cntrecdays);
         document.head.innerHTML = header;
         document.write("</tbody></table>");
         document.getElementsByTagName("body")[0].style.display = "none";
@@ -1402,7 +1437,8 @@ var loaddb =  function(data){
    
 }
        
-var loaddbeverything =  function(){
+    var loaddbeverything =  function(){
+        var cntrecdays = 0;
     var db = firebase.firestore();
     var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(9){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
     var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>"; var lines = "";
@@ -1525,10 +1561,31 @@ var loaddbeverything =  function(){
         Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
     }
     if (typeof doc.data().date14 !== 'undefined' && doc.data().date14 !=="") {
-        dates = "Recurring Until: " + "<br>" + new Date(doc.data().date14).toLocaleDateString("en", options2)
+        const datea = new Date(doc.data().date13);
+            const dateb = new Date(doc.data().date14);
+        var date13 = addOneDay(datea).toLocaleDateString("en", options2);
+        var date14 = addOneDay(dateb).toLocaleDateString("en", options2);
+        console.log("date13: " + date13);
+        console.log("date14: " + date14);
+        if (doc.data().mon === true) {
+            cntrecdays = RecCount(date13,date14,1);
+        }
+        if (doc.data().tue === true) {
+            cntrecdays = cntrecdays + RecCount(date13,date14,2);
+        }
+        if (doc.data().wed === true) {
+            cntrecdays = cntrecdays + RecCount(date13,date14,3);
+        }
+        if (doc.data().thu === true) {
+            cntrecdays = cntrecdays + RecCount(date13,date14,4);
+        }
+        if (doc.data().fri === true) {
+            cntrecdays = cntrecdays + RecCount(date13,date14,4);
+        }
+        dates = cntrecdays + " Recurring Until: " + "<br>" + new Date(doc.data().date14).toLocaleDateString("en", options2)
         datesorts = new Date().toLocaleDateString("fr-CA", options2);;
         Datex.push(datesorts);
-        Visitors.push(doc.data().login + new Date(doc.data().date14).toLocaleDateString("en", options2) + doc.data().rectime);
+       // Visitors.push(doc.data().login + new Date(doc.data().date14).toLocaleDateString("en", options2) + doc.data().rectime);
     }
     Datex.sort((a, b) => new Date(b) - new Date(a)).reverse()
     var todays = new Date().toLocaleDateString("fr-CA", options2);
@@ -1556,8 +1613,8 @@ var loaddbeverything =  function(){
 });
 let count = Visitors.length;
 console.log("count: " +  count);
-document.getElementById("numcount").innerHTML = Visitors.length;
-document.getElementById("numcount").setAttribute("value",  Visitors.length);
+document.getElementById("numcount").innerHTML = Visitors.length + cntrecdays ;
+document.getElementById("numcount").setAttribute("value",  Visitors.length + cntrecdays );
 document.head.innerHTML = header;
 document.write("</tbody></table>");
 document.getElementsByTagName("body")[0].style.display = "none";
@@ -1571,6 +1628,7 @@ setTimeout("sortByDate2(5)", 1000);
 }
 
     var loaddbeverythingall =  function(){
+        var cntrecdays = 0;
         var db = firebase.firestore();
         var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(9){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
         var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>"; var lines = "";
@@ -1721,10 +1779,31 @@ setTimeout("sortByDate2(5)", 1000);
             Visitors.push(doc.data().login + new Date(doc.data().date12).toLocaleDateString("en", options));
         }
         if (typeof doc.data().date14 !== 'undefined' && doc.data().date14 !=="" && new Date(doc.data().date14) >= todaysdate) {
-            seleceteddate = "Recurring Until: " + "<br>" + new Date(doc.data().date14).toLocaleDateString("en", options2)
+            const datea = new Date(doc.data().date13);
+            const dateb = new Date(doc.data().date14);
+            var date13 = addOneDay(datea).toLocaleDateString("en", options2);
+            var date14 = addOneDay(dateb).toLocaleDateString("en", options2);
+            console.log("date13: " + date13);
+            console.log("date14: " + date14);
+            if (doc.data().mon === true) {
+                cntrecdays = RecCount(date13,date14,1);
+            }
+            if (doc.data().tue === true) {
+                cntrecdays = cntrecdays + RecCount(date13,date14,2);
+            }
+            if (doc.data().wed === true) {
+                cntrecdays = cntrecdays + RecCount(date13,date14,3);
+            }
+            if (doc.data().thu === true) {
+                cntrecdays = cntrecdays + RecCount(date13,date14,4);
+            }
+            if (doc.data().fri === true) {
+                cntrecdays = cntrecdays + RecCount(date13,date14,4);
+            }
+            seleceteddate = cntrecdays + " Recurring Until: " + "<br>" + new Date(doc.data().date14).toLocaleDateString("en", options2)
             datesorts = new Date().toLocaleDateString("fr-CA", options2);;
             Datex.push(datesorts);
-            Visitors.push(doc.data().login + new Date(doc.data().date14).toLocaleDateString("en", options2) + rectime);
+            //Visitors.push(doc.data().login + new Date(doc.data().date14).toLocaleDateString("en", options2) + rectime);
         }
             console.log("todaysdate: " + todaysdate);
             // count1 = count1 + dates.find('<br>').length
@@ -1752,10 +1831,10 @@ setTimeout("sortByDate2(5)", 1000);
 
        }
 });
-    let count = Visitors.length;
+    let count = Visitors.length  + cntrecdays ;
     console.log("count: " +  count);
-    document.getElementById("numcount").innerHTML = Visitors.length;
-    document.getElementById("numcount").setAttribute("value",  Visitors.length);
+    document.getElementById("numcount").innerHTML = Visitors.length + cntrecdays ;
+    document.getElementById("numcount").setAttribute("value",  Visitors.length + cntrecdays );
     document.head.innerHTML = header;
     document.write("</tbody></table>");
     document.getElementsByTagName("body")[0].style.display = "none";
@@ -1848,7 +1927,8 @@ document.head.innerHTML = header;
 });
 }
        
-var loadname =  function(){
+    var loadname =  function(){
+        var cntrecdays = 0;
     var db = firebase.firestore();
     var Visitors = [];	
     var get_login=prompt("Enter Guest Last Name To Search","Enter Guest Last Name");
@@ -1865,8 +1945,8 @@ var loadname =  function(){
    .get()
    .then((querySnapshot) => {
        var cnt = querySnapshot.size;
-       // var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (name report)</h1><h2>" + "<label id='numcount'></label>" + " Visitor Schedule(s) for: " + get_login + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
-        var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (name report)</h1><h2>" + "Visitor Schedule(s) for: " + get_login + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+        var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (name report)</h1><h2>" + "<label id='numcount'></label>" + " Visitor Schedule(s) for: " + get_login + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+        //var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (name report)</h1><h2>" + "Visitor Schedule(s) for: " + get_login + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
        
         document.write(title);
         document.write(printnow);
@@ -1941,27 +2021,48 @@ var loadname =  function(){
             Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
         }
         if (typeof doc.data().date13 !== 'undefined' && doc.data().date13 !=="") {
+             const datea = new Date(doc.data().date13);
+            const dateb = new Date(doc.data().date14);
+            var date13 = addOneDay(datea).toLocaleDateString("en", options2);
+            var date14 = addOneDay(dateb).toLocaleDateString("en", options2);
+            console.log("date13: " + date13);
+            console.log("date14: " + date14);
+            if (doc.data().mon === true) {
+                cntrecdays = RecCount(date13,date14,1);
+             }
+            if (doc.data().tue === true) {
+                cntrecdays = cntrecdays + RecCount(date13,date14,2);
+            }
+            if (doc.data().wed === true) {
+                cntrecdays = cntrecdays + RecCount(date13,date14,3);
+            }
+            if (doc.data().thu === true) {
+                cntrecdays = cntrecdays + RecCount(date13,date14,4);
+            }
+            if (doc.data().fri === true) {
+                cntrecdays = cntrecdays + RecCount(date13,date14,4);
+            }
             
             if (dates)
             {
              
-                dates = dates + "<hr>" + "Recurring Until: " + new Date(doc.data().date14).toLocaleDateString("fr-CA", options);
+                dates = dates + "<hr>" + cntrecdays + " Recurring Until: <br>" + new Date(doc.data().date14).toLocaleDateString("fr-CA", options);
             }else{
                 console.log("dates:" + dates);
-                dates = "Recurring Until: " + new Date(doc.data().date14).toLocaleDateString("fr-CA", options);
+                dates = cntrecdays + " Recurring Until: <br>" + new Date(doc.data().date14).toLocaleDateString("fr-CA", options);
             }
           
-            Visitors.push(doc.data().login + new Date(doc.data().date13).toLocaleDateString("en", options));
+            //Visitors.push(doc.data().login + new Date(doc.data().date13).toLocaleDateString("en", options));
         }
         console.log("loadname:" + dates);
         //  document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
         document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
  
     });
-    let count = Visitors.length;
+    let count = Visitors.length + cntrecdays;
     console.log("count: " +  count);
-    //document.getElementById("numcount").innerHTML = Visitors.length;
-    //document.getElementById("numcount").setAttribute("value",  Visitors.length);
+    document.getElementById("numcount").innerHTML = Visitors.length + cntrecdays;
+    document.getElementById("numcount").setAttribute("value",  Visitors.length + cntrecdays);
     document.head.innerHTML = header;
     document.write("</table>");
     document.getElementsByTagName("body")[0].style.display = "none";
@@ -2361,7 +2462,8 @@ setTimeout("sortByDate2(7)", 3000);
 });
 }
        
-var loadinactive =  function(){
+    var loadinactive =  function(){
+        var cntrecdays = 0;
     var db = firebase.firestore();
     var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(8){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
     var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>"; var lines = "";  var lines = "";
@@ -2447,12 +2549,32 @@ var loadinactive =  function(){
         Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
     }
     if (typeof doc.data().date13 !== 'undefined' && doc.data().date13 !=="") {
-            
+            const datea = new Date(doc.data().date13);
+            const dateb = new Date(doc.data().date14);
+        var date13 = addOneDay(datea).toLocaleDateString("en", options2);
+        var date14 = addOneDay(dateb).toLocaleDateString("en", options2);
+        console.log("date13: " + date13);
+        console.log("date14: " + date14);
+        if (doc.data().mon === true) {
+            cntrecdays = RecCount(date13,date14,1);
+        }
+        if (doc.data().tue === true) {
+            cntrecdays = cntrecdays + RecCount(date13,date14,2);
+        }
+        if (doc.data().wed === true) {
+            cntrecdays = cntrecdays + RecCount(date13,date14,3);
+        }
+        if (doc.data().thu === true) {
+            cntrecdays = cntrecdays + RecCount(date13,date14,4);
+        }
+        if (doc.data().fri === true) {
+            cntrecdays = cntrecdays + RecCount(date13,date14,4);
+        }
         
-            dates = "Recurring Until: " + new Date(doc.data().date14).toLocaleDateString("fr-CA", options);
+        dates = cntrecdays + " Recurring Until: <br>" + new Date(doc.data().date14).toLocaleDateString("fr-CA", options);
    
           
-        Visitors.push(doc.data().login + new Date(doc.data().date13).toLocaleDateString("en", options));
+        //Visitors.push(doc.data().login + new Date(doc.data().date13).toLocaleDateString("en", options));
     }
     //  document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
     document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
@@ -2460,8 +2582,8 @@ var loadinactive =  function(){
 });
 let count = Visitors.length;
 console.log("count: " +  count);
-document.getElementById("numcount").innerHTML = Visitors.length;
-document.getElementById("numcount").setAttribute("value",  Visitors.length);
+document.getElementById("numcount").innerHTML = Visitors.length + cntrecdays;
+document.getElementById("numcount").setAttribute("value",  Visitors.length + cntrecdays);
 document.head.innerHTML = header;
 document.write("</table>");
 document.getElementsByTagName("body")[0].style.display = "none";
@@ -5078,3 +5200,17 @@ function parseDate(input) {
     return new Date(parts[0], parts[1]-1, parts[2]); // Note: months are 0-based
 }
 
+function RecCount(begdate, enddate, days) {
+    var start = moment(begdate), // Sept. 1st
+      end   = moment(enddate), // Nov. 2nd
+      day   = days;                    // Sunday
+
+    var result = [];
+    var current = start.clone();
+
+    while (current.day(7 + day).isBefore(end)) {
+        result.push(current.clone());
+    }
+
+    return result.length;
+}
