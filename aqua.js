@@ -1889,7 +1889,7 @@ setTimeout("sortByDate2(5)", 1000);
             Visitors.push(doc.data().login + new Date(doc.data().date12).toLocaleDateString("en", options));
         }
         if (typeof doc.data().date14 !== 'undefined' && doc.data().date14 !=="" && new Date(doc.data().date14) >= todaysdate) {
-            //cntrecdays = 0;
+            cntrecdays = 0;
             h  =  tConvert (doc.data().rectime);
             var days = "";
             const datea = new Date(doc.data().date13);
@@ -2049,7 +2049,8 @@ setTimeout("sortByDate2(5)", 1000);
         dates = dates + "<hr>" + new Date(doc.data().date12).toLocaleDateString("en", options)
     }
     if (typeof doc.data().date14 !== 'undefined' && doc.data().date14 !=="") {
-       const datea = new Date(doc.data().date13);
+       cntrecdays = 0;
+	    const datea = new Date(doc.data().date13);
            const dateb = new Date(doc.data().date14);
         var date13 = addOneDay(datea).toLocaleDateString("en", options2);
         var date14 = addOneDay(dateb).toLocaleDateString("en", options2);
