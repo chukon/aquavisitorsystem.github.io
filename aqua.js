@@ -1539,7 +1539,7 @@ document.getElementById('back').style.display = 'block';
 .get()
 .then((querySnapshot) => {
     var cnt = querySnapshot.size;
-    var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (all report)</h1><h2>" + "<label id='numcount'></label>" + " Visitor Schedule(s)<br><small>(showing all schedules)</small></h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+    var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (all report)</h1><h2>" + "<label id='numcount' hidden></label>" + " Visitor Schedule(s)<br><small>(showing all schedules)</small></h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
 
     document.write(title);
     document.write(printnow);
@@ -1755,7 +1755,7 @@ setTimeout("sortByDate2(5)", 1000);
 
         var cnt = querySnapshot.size;
         //(" +  "<label id='numcount'></label>" + " visits)
-        var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (active report)</h1><h2>" +  "<label id='numcount'></label>" + " Active Visitor Schedule(s)<br><small>(showing schedules today and beyond)</small></h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+        var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (active report)</h1><h2>" +  " Active Visitor Schedule(s)<br><small>(showing schedules today and beyond)</small></h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
 
         document.write(title);
         document.write(printnow);
@@ -1889,7 +1889,7 @@ setTimeout("sortByDate2(5)", 1000);
             Visitors.push(doc.data().login + new Date(doc.data().date12).toLocaleDateString("en", options));
         }
         if (typeof doc.data().date14 !== 'undefined' && doc.data().date14 !=="" && new Date(doc.data().date14) >= todaysdate) {
-            cntrecdays = 0;
+            //cntrecdays = 0;
             h  =  tConvert (doc.data().rectime);
             var days = "";
             const datea = new Date(doc.data().date13);
@@ -1932,14 +1932,19 @@ setTimeout("sortByDate2(5)", 1000);
                 }else{
                     days = days + "," + "Fri";
                 }  
-                cntrecdays = cntrecdays + RecCount(date13,date14,4);
+                cntrecdays = cntrecdays + RecCount(date13,date14,5);
             }
             seleceteddate = cntrecdays + " Recurring Until: " + "<br>" + date14 + "<br>Day(s):" + days + "<br>Time:" + h
+            //let count = Visitors.length  + cntrecdays ;
+            //console.log("count: " +  count);
+            //document.getElementById("numcount").innerHTML = Visitors.length + cntrecdays ;
+            //document.getElementById("numcount").setAttribute("value",  Visitors.length + cntrecdays );
             datesorts = new Date().toLocaleDateString("fr-CA", options2);;
             Datex.push(datesorts);
+          
             //Visitors.push(doc.data().login + new Date(doc.data().date14).toLocaleDateString("en", options2) + rectime);
         }
-            console.log("todaysdate: " + todaysdate);
+        console.log("cntrecdays: " + cntrecdays);
             // count1 = count1 + dates.find('<br>').length
           
             console.log(seleceteddate);
@@ -1958,17 +1963,12 @@ setTimeout("sortByDate2(5)", 1000);
                 }
             }
         
+           document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + seleceteddate + '</td><td>' + datesort + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
 
-         
+        }
      
-            document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + seleceteddate + '</td><td>' + datesort + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
-
-       }
 });
-    let count = Visitors.length  + cntrecdays ;
-    console.log("count: " +  count);
-    document.getElementById("numcount").innerHTML = Visitors.length + cntrecdays ;
-    document.getElementById("numcount").setAttribute("value",  Visitors.length + cntrecdays );
+    
     document.head.innerHTML = header;
     document.write("</tbody></table>");
     document.getElementsByTagName("body")[0].style.display = "none";
@@ -2107,7 +2107,7 @@ document.head.innerHTML = header;
    .get()
    .then((querySnapshot) => {
        var cnt = querySnapshot.size;
-        var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (name report)</h1><h2>" + "<label id='numcount'></label>" + " Visitor Schedule(s) for: " + get_login + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+        var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (name report)</h1><h2>" + "Visitor Schedule(s) for: " + get_login + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
         //var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (name report)</h1><h2>" + "Visitor Schedule(s) for: " + get_login + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
        
         document.write(title);
@@ -2223,10 +2223,10 @@ document.head.innerHTML = header;
         document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
  
     });
-    let count = Visitors.length + cntrecdays;
-    console.log("count: " +  count);
-    document.getElementById("numcount").innerHTML = Visitors.length + cntrecdays;
-    document.getElementById("numcount").setAttribute("value",  Visitors.length + cntrecdays);
+    //let count = Visitors.length + cntrecdays;
+    //console.log("count: " +  count);
+    //document.getElementById("numcount").innerHTML = Visitors.length + cntrecdays;
+    //document.getElementById("numcount").setAttribute("value",  Visitors.length + cntrecdays);
     document.head.innerHTML = header;
     document.write("</table>");
     document.getElementsByTagName("body")[0].style.display = "none";
@@ -2732,11 +2732,11 @@ setTimeout("sortByDate2(7)", 3000);
             cntrecdays = cntrecdays + RecCount(date13,date14,4);
         }
         if (doc.data().fri === true) {
-            cntrecdays = cntrecdays + RecCount(date13,date14,4);
+            cntrecdays = cntrecdays + RecCount(date13,date14,5);
         }
         
         dates = cntrecdays + " Recurring Until: <br>" + new Date(doc.data().date14).toLocaleDateString("fr-CA", options);
-   
+     
           
         //Visitors.push(doc.data().login + new Date(doc.data().date13).toLocaleDateString("en", options));
     }
@@ -2744,10 +2744,10 @@ setTimeout("sortByDate2(7)", 3000);
     document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
 
 });
-let count = Visitors.length;
-console.log("count: " +  count);
-document.getElementById("numcount").innerHTML = Visitors.length + cntrecdays;
-document.getElementById("numcount").setAttribute("value",  Visitors.length + cntrecdays);
+    //let count = Visitors.length //+ cntrecdays + cntrecdays;
+    //console.log("count: " +  count);
+    //document.getElementById("numcount").innerHTML = Visitors.length + count;
+    //document.getElementById("numcount").setAttribute("value",  Visitors.length + count );
 document.head.innerHTML = header;
 document.write("</table>");
 document.getElementsByTagName("body")[0].style.display = "none";
@@ -3087,6 +3087,7 @@ setTimeout("sortByDate2(4)", 2000);
     promise.then(values => {
         console.log("values:" + values);
     docs = values;
+    docs = docs.filter(onlyUnique);
     console.log("docs:" + docs);
 const chunkSize = 10;
     var chunk;
@@ -3323,7 +3324,7 @@ function tConvert (time) {
  
   if (time.length > 1) { // If time format correct
     time = time.slice (1);  // Remove full string match value
-    time[5] = +time[0] < 12 ?'AM':'PM'; // Set AM/PM
+    time[5] = +time[0] < 12 ?' AM':' PM'; // Set AM/PM
     time[0] = +time[0] % 12 || 12; // Adjust hours
     }
   return time.join (''); // return adjusted time or original string
@@ -3553,6 +3554,7 @@ var docs;
 promise.then(values => {
     console.log("values:" + values);
 docs = values;
+docs = docs.filter(onlyUnique);
 console.log("docs:" + docs);
 const chunkSize = 10;
 var chunk;
@@ -3774,9 +3776,11 @@ document.getElementById("reptitle").innerHTML = "<center><h1>Aqua-Aerobic System
  document.getElementsByTagName("body")[0].style.display = "none";
 });
 
-   // setTimeout("sortByDate(4)", 2000);
-      setTimeout("sortTable(4)", 2000);
+  // setTimeout("sortByDate(4)", 2000);
+    
        document.write("</table>");
+      //  setTimeout("sortTable(4)", 2000);
+        setTimeout("sortByDate(4)", 2000);
 }
 
 
@@ -4115,6 +4119,7 @@ var docs;
 promise.then(values => {
     console.log("values:" + values);
 docs = values;
+docs = docs.filter(onlyUnique);
 console.log("docs:" + docs);
 const chunkSize = 10;
 var chunk;
@@ -4319,7 +4324,7 @@ document.write(nodata);
 });
    document.write("</table>");
    document.getElementsByTagName("body")[0].style.display = "none";
-    setTimeout("sortTable(3)", 2000);
+  setTimeout("sortByDate(3)", 2000);
 }
        
        
@@ -5383,4 +5388,8 @@ function RecCount(begdate, enddate, days) {
     }
 
     return result.length;
+}
+
+function onlyUnique(value, index, array) {
+    return array.indexOf(value) === index;
 }
