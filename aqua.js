@@ -4212,11 +4212,11 @@ const chunkSize = 10;
 var chunk;
 let todays = new Date().toLocaleDateString();
 var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
-var title = "<div id='reptitle'><center><h2>Active Visitor Schedule(s) for: " + todays + "</h2></center></div>";      
+var title = "<div id='reptitle'><center><h3 style='margin-block-end: 0;'>Active Visitor Schedule(s) for: " + todays + "</h3></center></div>";      
 document.write(title);
 var links = "'https://aquameeting.github.io/?ipad=Yes'";
 var buttons =  '<button onclick="window.location.href=' + links + ';" style="background-color: yellow;font-weight: bold;border-color: black;font-size: small;">tap here</button>';
-document.write("<center><h3>Find your schedule below and tap 'HERE'</b></h3>If your schedule is not found below, " + buttons + "<br><br></center>"); 
+document.write("<center><b>Find your schedule below and tap 'HERE'</b><br>If your schedule is not found below, " + buttons + "<br><br></center>"); 
  
 if (cnt1 === 0){
     var nodata = "<center><br>No visitor data found<br></center>";
