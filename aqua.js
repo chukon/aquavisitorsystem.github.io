@@ -4237,7 +4237,6 @@ var nodata = "<center><br>No visitor data found<br></center>";
 document.write(nodata);
 }else{
     // document.write("<table id='report' style='font-size: small;'>  <tr>   <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(1)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(3)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Visiting</th><th></th>  </tr>");
-   
 }
 querySnapshot.forEach((doc) => {
 var nodata = "";
