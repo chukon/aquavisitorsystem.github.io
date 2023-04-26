@@ -4217,7 +4217,6 @@ document.write(title);
 var links = "'https://aquameeting.github.io/?ipad=Yes'";
 var buttons =  '<button onclick="window.location.href=' + links + ';" style="background-color: yellow;font-weight: bold;border-color: black;font-size: small;">tap here</button>';
 document.write("<center>Find your schedule below and tap <b>HERE</b><br>If your schedule is not found below, " + buttons + "<br><br></center>"); 
- 
 if (cnt1 === 0){
     var nodata = "<center><br>No visitor data found<br></center>";
     document.write(nodata);
