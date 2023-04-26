@@ -1237,7 +1237,8 @@ document.getElementById('back').style.display = 'block';
                         }  
                         cntrecdays = cntrecdays + RecCount(date13,date14,4);
                     }
-                    seleceteddate = cntrecdays + " Recurring Until: " + "<br>" + date14 + "<br>Day(s):" + days + "<br>Time:" + h
+                    //seleceteddate = cntrecdays + " Recurring Until: " + "<br>" + date14 + "<br>Day(s):" + days + "<br>Time:" + h
+                    seleceteddate = "Recurring Until: " + "<br>" + date14 + "<br>Day(s):" + days + "<br>Time:" + h
                     datesorts = new Date().toLocaleDateString("fr-CA", options2);;
                     Datex.push(datesorts);
                     //Visitors.push(doc.data().login + new Date(doc.data().date14).toLocaleDateString("en", options2) + rectime);
@@ -1270,10 +1271,16 @@ document.getElementById('back').style.display = 'block';
 
             }
         });
-        let count = Visitors.length + cntrecdays;
+        var count = 0;
+        try {
+            var table = document.getElementById("report");
+            count  = table.tBodies[0].rows.length;
+        } catch (error) {
+            count = 0;
+        }
         console.log("count: " +  count);
-        document.getElementById("numcount").innerHTML = Visitors.length + cntrecdays;
-        document.getElementById("numcount").setAttribute("value",  Visitors.length + cntrecdays);
+        document.getElementById("numcount").innerHTML = count;
+        document.getElementById("numcount").setAttribute("value",  count);
         document.head.innerHTML = header;
         document.write("</tbody></table>");
         document.getElementsByTagName("body")[0].style.display = "none";
@@ -1475,11 +1482,12 @@ document.getElementById('back').style.display = 'block';
             
             if (dates)
             {
-             
-                dates = dates + "<hr>" + cntrecdays + " Recurring Until: <br>" + date14 + "<br>Day(s):" + days + "<br>Time:" + h
+                //dates = dates + "<hr>" + cntrecdays + " Recurring Until: <br>" + date14 + "<br>Day(s):" + days + "<br>Time:" + h
+                dates = dates + "<hr>" + "Recurring Until: <br>" + date14 + "<br>Day(s):" + days + "<br>Time:" + h
             }else{
                 console.log("dates:" + dates);
-                dates = cntrecdays + " Recurring Until: <br>" + date14 + "<br>Day(s):" + days + "<br>Time:" + h
+               // dates = cntrecdays + " Recurring Until: <br>" + date14 + "<br>Day(s):" + days + "<br>Time:" + h
+                dates = "Recurring Until: <br>" + date14 + "<br>Day(s):" + days + "<br>Time:" + h
             }
             datesorts = new Date().toLocaleDateString("fr-CA", options2);;
             Datex.push(datesorts);
@@ -1504,10 +1512,20 @@ document.getElementById('back').style.display = 'block';
         // document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
         document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + datesort + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
     });
-    let count = Visitors.length + cntrecdays;
+    var count = 0;
+        try {
+            var table = document.getElementById("report");
+            count  = table.tBodies[0].rows.length;
+        } catch (error) {
+            count = 0;
+        }
+
+    //var table = document.getElementById("report");
+    //var tbodyRowCount = table.tBodies[0].rows.length;
+    //let count = tbodyRowCount; //Visitors.length + cntrecdays;
     console.log("count: " +  count);
-    document.getElementById("numcount").innerHTML = Visitors.length + cntrecdays;
-    document.getElementById("numcount").setAttribute("value",  Visitors.length + cntrecdays);
+    document.getElementById("numcount").innerHTML = count;
+    document.getElementById("numcount").setAttribute("value",  count);
     document.head.innerHTML = header;
     document.write("</tbody></table>");
     document.getElementsByTagName("body")[0].style.display = "none";
@@ -1539,7 +1557,7 @@ document.getElementById('back').style.display = 'block';
 .get()
 .then((querySnapshot) => {
     var cnt = querySnapshot.size;
-    var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (all report)</h1><h2>" + "<label id='numcount' hidden></label>" + " Visitor Schedule(s)<br><small>(showing all schedules)</small></h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+    var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (all report)</h1><h2>" + "<label id='numcount'></label>" + " Visitor Schedule(s)<br><small>(showing all schedules)</small></h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
 
     document.write(title);
     document.write(printnow);
@@ -1692,10 +1710,11 @@ document.getElementById('back').style.display = 'block';
             }  
             cntrecdays = cntrecdays + RecCount(date13,date14,4);
         }
-        dates = cntrecdays + " Recurring Until: " + "<br>" + date14 + "<br>Day(s):" + days + "<br>Time:" + h
+        //dates = cntrecdays + " Recurring Until: " + "<br>" + date14 + "<br>Day(s):" + days + "<br>Time:" + h
+        dates = "Recurring Until: " + "<br>" + date14 + "<br>Day(s):" + days + "<br>Time:" + h
         datesorts = new Date().toLocaleDateString("fr-CA", options2);;
         Datex.push(datesorts);
-       // Visitors.push(doc.data().login + new Date(doc.data().date14).toLocaleDateString("en", options2) + doc.data().rectime);
+        Visitors.push(doc.data().login + new Date(doc.data().date14).toLocaleDateString("en", options2) + doc.data().rectime);
     }
     Datex.sort((a, b) => new Date(b) - new Date(a)).reverse()
     var todays = new Date().toLocaleDateString("fr-CA", options2);
@@ -1720,11 +1739,20 @@ document.getElementById('back').style.display = 'block';
     //document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
     //document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
     document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + datesort + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
-});
-let count = Visitors.length;
+    });
+    var count = 0;
+    try {
+        var table = document.getElementById("report");
+        count  = table.tBodies[0].rows.length;
+    } catch (error) {
+        count = 0;
+    }
+    //var table = document.getElementById("report");
+    //var tbodyRowCount = table.tBodies[0].rows.length;
+    //let count = tbodyRowCount; //Visitors.length;
 console.log("count: " +  count);
-document.getElementById("numcount").innerHTML = Visitors.length + cntrecdays ;
-document.getElementById("numcount").setAttribute("value",  Visitors.length + cntrecdays );
+document.getElementById("numcount").innerHTML = count ;
+document.getElementById("numcount").setAttribute("value",  count );
 document.head.innerHTML = header;
 document.write("</tbody></table>");
 document.getElementsByTagName("body")[0].style.display = "none";
@@ -1754,8 +1782,8 @@ setTimeout("sortByDate2(5)", 1000);
     .then((querySnapshot) => {
 
         var cnt = querySnapshot.size;
-        //(" +  "<label id='numcount'></label>" + " visits)
-        var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (active report)</h1><h2>" +  " Active Visitor Schedule(s)<br><small>(showing schedules today and beyond)</small></h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+        //(+  "<label id='numcount'></label>" + )
+        var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (active report)</h1><h2>" +   "<label id='numcount'></label>" + " Active Visitor Schedule(s)<br><small>(showing schedules today and beyond)</small></h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
 
         document.write(title);
         document.write(printnow);
@@ -1934,15 +1962,12 @@ setTimeout("sortByDate2(5)", 1000);
                 }  
                 cntrecdays = cntrecdays + RecCount(date13,date14,5);
             }
-            seleceteddate = cntrecdays + " Recurring Until: " + "<br>" + date14 + "<br>Day(s):" + days + "<br>Time:" + h
-            //let count = Visitors.length  + cntrecdays ;
-            //console.log("count: " +  count);
-            //document.getElementById("numcount").innerHTML = Visitors.length + cntrecdays ;
-            //document.getElementById("numcount").setAttribute("value",  Visitors.length + cntrecdays );
+            //seleceteddate = cntrecdays + " Recurring Until: " + "<br>" + date14 + "<br>Day(s):" + days + "<br>Time:" + h
+            seleceteddate = "Recurring Until: " + "<br>" + date14 + "<br>Day(s):" + days + "<br>Time:" + h
             datesorts = new Date().toLocaleDateString("fr-CA", options2);;
             Datex.push(datesorts);
           
-            //Visitors.push(doc.data().login + new Date(doc.data().date14).toLocaleDateString("en", options2) + rectime);
+            Visitors.push(doc.data().login + new Date(doc.data().date14).toLocaleDateString("en", options2) + rectime);
         }
         console.log("cntrecdays: " + cntrecdays);
             // count1 = count1 + dates.find('<br>').length
@@ -1967,8 +1992,20 @@ setTimeout("sortByDate2(5)", 1000);
 
         }
      
-});
-    
+    });
+    var count = 0;
+    try {
+        var table = document.getElementById("report");
+        count  = table.tBodies[0].rows.length;
+    } catch (error) {
+        count = 0;
+    }
+    //var table = document.getElementById("report");
+    //var tbodyRowCount = table.tBodies[0].rows.length;
+    //let count = tbodyRowCount; //Visitors.length;
+console.log("count: " +  count);
+document.getElementById("numcount").innerHTML = count ;
+document.getElementById("numcount").setAttribute("value", count );
     document.head.innerHTML = header;
     document.write("</tbody></table>");
     document.getElementsByTagName("body")[0].style.display = "none";
@@ -2070,10 +2107,11 @@ setTimeout("sortByDate2(5)", 1000);
         if (doc.data().fri === true) {
             cntrecdays = cntrecdays + RecCount(date13,date14,4);
         }
-        dates = cntrecdays + " Recurring Until: " + "<br>" + new Date(doc.data().date14).toLocaleDateString("en", options2)
+      //  dates = cntrecdays + " Recurring Until: " + "<br>" + new Date(doc.data().date14).toLocaleDateString("en", options2
+            dates = "Recurring Until: " + "<br>" + new Date(doc.data().date14).toLocaleDateString("en", options2)
         //datesorts = new Date().toLocaleDateString("fr-CA", options2);;
        // Datex.push(datesorts);
-        // Visitors.push(doc.data().login + new Date(doc.data().date14).toLocaleDateString("en", options2) + doc.data().rectime);
+        Visitors.push(doc.data().login + new Date(doc.data().date14).toLocaleDateString("en", options2) + doc.data().rectime);
     }
 
     console.log("loaddbeverything:" + dates);
@@ -2107,7 +2145,7 @@ document.head.innerHTML = header;
    .get()
    .then((querySnapshot) => {
        var cnt = querySnapshot.size;
-        var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (name report)</h1><h2>" + "Visitor Schedule(s) for: " + get_login + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+        var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (name report)</h1><h2>" + "<label id='numcount'></label>" + " Visitor Schedule(s) for: " + get_login + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
         //var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (name report)</h1><h2>" + "Visitor Schedule(s) for: " + get_login + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
        
         document.write(title);
@@ -2117,7 +2155,7 @@ document.head.innerHTML = header;
             document.write(nodata);
         }else{
             //document.write("<table id='report' style='font-size: small;'>  <tr>    <th>UserID</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
-            document.write("<table id='report' style='font-size: small;'>  <tr>    <th style='cursor: pointer; color: red;' onclick='sortTable(0)'>UserID <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortByDate2(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>Edit</th>  </tr>");
+            document.write("<table id='report' style='font-size: small;'>  <thead><tr>    <th style='cursor: pointer; color: red;' onclick='sortTable(0)'>UserID <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortByDate2(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>Edit</th>  </tr></thead>");
         }
         querySnapshot.forEach((doc) => {
             // doc.data() is never undefined for query doc snapshots
@@ -2193,40 +2231,72 @@ document.head.innerHTML = header;
             console.log("date13: " + date13);
             console.log("date14: " + date14);
             if (doc.data().mon === true) {
+                days = "Mon";
                 cntrecdays = RecCount(date13,date14,1);
-             }
+            }
             if (doc.data().tue === true) {
+                if (days === ""){
+                    days = "Tue";
+                }else{
+                    days = days + "," + "Tue";
+                }    
                 cntrecdays = cntrecdays + RecCount(date13,date14,2);
             }
             if (doc.data().wed === true) {
+                if (days === ""){
+                    days = "Wed";
+                }else{
+                    days = days + "," + "Wed";
+                } 
                 cntrecdays = cntrecdays + RecCount(date13,date14,3);
             }
             if (doc.data().thu === true) {
+                if (days === ""){
+                    days = "Thu";
+                }else{
+                    days = days + "," + "Thu";
+                }   
                 cntrecdays = cntrecdays + RecCount(date13,date14,4);
             }
             if (doc.data().fri === true) {
-                cntrecdays = cntrecdays + RecCount(date13,date14,4);
+                if (days === ""){
+                    days = "Fri";
+                }else{
+                    days = days + "," + "Fri";
+                }  
+                cntrecdays = cntrecdays + RecCount(date13,date14,5);
             }
             
             if (dates)
             {
-                dates = dates + "<hr>" + cntrecdays + " Recurring Until: <br>" + date14 + "<br>Day(s):" + days + "<br>Time:" + h;
+                //dates = dates + "<hr>" + cntrecdays + " Recurring Until: <br>" + date14 + "<br>Day(s):" + days + "<br>Time:" + h;
+                dates = dates + "<hr>" + "Recurring Until: <br>" + date14 + "<br>Day(s):" + days + "<br>Time:" + h;
             }else{
                 console.log("dates:" + dates);
-                dates = cntrecdays + " Recurring Until: <br>" + date14 + "<br>Day(s):" + days + "<br>Time:" + h;
+                //dates = cntrecdays + " Recurring Until: <br>" + date14 + "<br>Day(s):" + days + "<br>Time:" + h;
+                dates = "Recurring Until: <br>" + date14 + "<br>Day(s):" + days + "<br>Time:" + h;
             }
           
-            //Visitors.push(doc.data().login + new Date(doc.data().date13).toLocaleDateString("en", options));
+            Visitors.push(doc.data().login + new Date(doc.data().date13).toLocaleDateString("en", options));
         }
         console.log("loadname:" + dates);
         //  document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
         document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
  
     });
-    //let count = Visitors.length + cntrecdays;
-    //console.log("count: " +  count);
-    //document.getElementById("numcount").innerHTML = Visitors.length + cntrecdays;
-    //document.getElementById("numcount").setAttribute("value",  Visitors.length + cntrecdays);
+    var count = 0;
+        try {
+            var table = document.getElementById("report");
+            count  = table.tBodies[0].rows.length;
+        } catch (error) {
+            count = 0;
+        }
+    //var table = document.getElementById("report");
+    //var tbodyRowCount = table.tBodies[0].rows.length;
+    //let count = tbodyRowCount; //Visitors.length;
+    console.log("count: " +  count);
+    document.getElementById("numcount").innerHTML = count;
+    document.getElementById("numcount").setAttribute("value",  count);
     document.head.innerHTML = header;
     document.write("</table>");
     document.getElementsByTagName("body")[0].style.display = "none";
@@ -2647,7 +2717,7 @@ setTimeout("sortByDate2(7)", 3000);
         document.write(nodata);
     }else{
         // document.write("<table id='report' style='font-size: small;'>  <tr>    <th>UserID</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
-        document.write("<table id='report' style='font-size: small;'>  <tr>    <th style='cursor: pointer; color: red;' onclick='sortTable(0)'>UserID <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>      <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time<i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>       <th>Email</th>       <th>Visiting</th><th>Edit</th>  </tr>");
+        document.write("<table id='report' style='font-size: small;'><thead>  <tr>    <th style='cursor: pointer; color: red;' onclick='sortTable(0)'>UserID <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>      <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time<i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>       <th>Email</th>       <th>Visiting</th><th>Edit</th>  </tr></thead>");
     }
     document.getElementsByTagName("body")[0].style.display = "none";
     querySnapshot.forEach((doc) => {
@@ -2735,19 +2805,26 @@ setTimeout("sortByDate2(7)", 3000);
             cntrecdays = cntrecdays + RecCount(date13,date14,5);
         }
         
-        dates = cntrecdays + " Recurring Until: <br>" + new Date(doc.data().date14).toLocaleDateString("fr-CA", options);
-     
+       // dates = cntrecdays + " Recurring Until: <br>" + new Date(doc.data().date14).toLocaleDateString("fr-CA", options);
+        dates = "Recurring Until: <br>" + new Date(doc.data().date14).toLocaleDateString("fr-CA", options);
           
         //Visitors.push(doc.data().login + new Date(doc.data().date13).toLocaleDateString("en", options));
     }
     //  document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
     document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
 
-});
+    });
+    var count = 0;
+    try {
+        var table = document.getElementById("report");
+        count  = table.tBodies[0].rows.length;
+    } catch (error) {
+        count = 0;
+    }
     //let count = Visitors.length //+ cntrecdays + cntrecdays;
     //console.log("count: " +  count);
-    //document.getElementById("numcount").innerHTML = Visitors.length + count;
-    //document.getElementById("numcount").setAttribute("value",  Visitors.length + count );
+    document.getElementById("numcount").innerHTML = count;
+    document.getElementById("numcount").setAttribute("value", count );
 document.head.innerHTML = header;
 document.write("</table>");
 document.getElementsByTagName("body")[0].style.display = "none";
@@ -3099,7 +3176,7 @@ const chunkSize = 10;
         document.write(nodata);
     }else{
         //        document.write("<table id='report' style='font-size: small;'>  <tr>    <th>UserID</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");	
-        document.write("<table id='report' style='font-size: small;'>  <tr>    <th>UserID</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortByDate(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>Edit</th>  </tr>");	
+        document.write("<table id='report' style='font-size: small;'> <thead> <tr>    <th>UserID</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortByDate(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>Edit</th>  </tr></thead> ");	
     }
     for (let i = 0; i < docs.length; i += chunkSize) {
         chunk = docs.slice(i, i + chunkSize);
@@ -3565,7 +3642,7 @@ if (cnt1 === 0){
     var nodata = "<center><br>No visitor data found<br></center>";
     document.write(nodata);
 }else{
-    document.write("<table id='report' style='font-size: small;'>  <tr>    <th>UserID</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");	
+    document.write("<table id='report' style='font-size: small;'> <thead>  <tr>    <th>UserID</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr></thead> ");	
 }
 
 for (let i = 0; i < docs.length; i += chunkSize) {
@@ -3759,7 +3836,16 @@ cnt1 = cnt1 - 1
      document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
 }
 });
-document.getElementById("reptitle").innerHTML = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (today report)</h1><h2>" + cnt1 + " Visitor(s) for: " + name + "</h2></center>";
+var count = 0;
+try {
+  var table = document.getElementById("report");
+count  = table.tBodies[0].rows.length;
+} catch (error) {
+  count = 0;
+}
+//var table = document.getElementById("report");
+//var tbodyRowCount = table.tBodies[0].rows.length;
+document.getElementById("reptitle").innerHTML = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (today report)</h1><h2>" + count + " Visitor(s) for: " + name + "</h2></center>";
     if (cnt1 === 0){
     document.getElementById("report").innerHTML = "<center><br>No visitor data found<br></center>";
 }
@@ -4135,7 +4221,7 @@ if (cnt1 === 0){
     var nodata = "<center><br>No visitor data found<br></center>";
     document.write(nodata);
 }else{
-    document.write("<table id='report' style='font-size: small;'>  <tr>   <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(1)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortByDate(3)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Visiting</th><th></th>  </tr>");
+    document.write("<table id='report' style='font-size: small;'> <thead> <tr>   <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(1)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortByDate(3)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Visiting</th><th></th>  </tr></thead>");
 }
 for (let i = 0; i < docs.length; i += chunkSize) {
     chunk = docs.slice(i, i + chunkSize);
