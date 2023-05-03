@@ -4216,9 +4216,9 @@ var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/aj
 var title = "<div id='reptitle'><center><h1 style='color: #005098;margin-block-end: 0;'>Active Visitor(s) for: " + todays + "</h1></center></div>";      
 document.write(title);
 var links = "'https://aquameeting.github.io/?ipad=Yes'";
-//var buttons =  '<button onclick="window.location.href=' + links + ';" style="background-color: yellow;font-weight: bold;border-color: black;font-size: small;">tap here</button>';
-var buttons =  '<a href=' + links + ';" style="font-size: small;">tap here</a>';
-document.write("<center>Find your schedule below and tap <button style='background-color: yellow;font-weight: bold;border-color: black;font-size: small;'>HERE</button> button. <br>(If schedule not found, " + buttons + ")<br><br></center>"); 
+var buttons =  '<button onclick="window.location.href=' + links + ';" style="background-color: yellow;font-weight: bold;border-color: black;font-size: xx-small;">Tap Here</button>';
+//var buttons =  '<a href=' + links + ';" style="font-size: small;">tap here</a>';
+document.write("<center>**Find your schedule below and tap <button style='background-color: yellow;font-weight: bold;border-color: black;font-size: small;'>HERE</button> button.</center> <p  style='font-size: small;'>**If schedule not found, " + buttons + "</p>"); 
 if (cnt1 === 0){
     var nodata = "<center><br>No visitor data found<br></center>";
     document.write(nodata);
