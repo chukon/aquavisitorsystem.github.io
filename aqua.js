@@ -1816,6 +1816,10 @@ setTimeout("sortByDate2(5)", 1000);
             month: "2-digit",
             day: "2-digit"
         };
+        var options3 = {
+            hour: "2-digit",
+            minute: "2-digit"
+        };
 
         
         var date01 = new Date(doc.data().date)
@@ -1919,6 +1923,7 @@ setTimeout("sortByDate2(5)", 1000);
         if (typeof doc.data().date14 !== 'undefined' && doc.data().date14 !=="" && new Date(doc.data().date14) >= todaysdate) {
             cntrecdays = 0;
             h  =  tConvert (doc.data().rectime);
+          //  h = new Date(doc.data().rectime).toLocaleTimeString("en", options3);
             var days = "";
             const datea = new Date(doc.data().date13);
             const dateb = new Date(doc.data().date14);
@@ -3404,8 +3409,15 @@ function tConvert (time) {
     time = time.slice (1);  // Remove full string match value
     time[5] = +time[0] < 12 ?' AM':' PM'; // Set AM/PM
     time[0] = +time[0] % 12 || 12; // Adjust hours
+    console.log("time before update: " + time[0]);
+    if (time[0] < 10){
+       time[0] = "0" + time[0];
+       console.log("time hour update: " + time[0]);
     }
-  return time.join (''); // return adjusted time or original string
+    }
+    var t = time.join ('');
+    return t;
+  //return time.join (''); // return adjusted time or original string
     }
   
 var loadtodayschedule =  function(){
@@ -3743,6 +3755,7 @@ dates = new Date(doc.data().date12).toLocaleDateString("en", options)
    
        var h  =  tConvert (doc.data().rectime);
        dates = name + "," + h; 
+       dates = new Date(dates).toLocaleDateString("en", options);
 }else{
 cnt1 = cnt1 - 1
 }
@@ -3758,6 +3771,7 @@ var dt = new Date(dt1);
      
        var h  =  tConvert (doc.data().rectime);
        dates = name + "," + h;
+              dates = new Date(dates).toLocaleDateString("en", options);
 }else{
 cnt1 = cnt1 - 1
 }
@@ -3773,6 +3787,7 @@ cnt1 = cnt1 - 1
      
        var h  =  tConvert (doc.data().rectime);
        dates = name + "," + h; 
+              dates = new Date(dates).toLocaleDateString("en", options);
 }else{
 cnt1 = cnt1 - 1
 }
@@ -3787,6 +3802,7 @@ var dt = new Date(dt1);
    
        var h  =  tConvert (doc.data().rectime);
        dates = name + "," + h; 
+              dates = new Date(dates).toLocaleDateString("en", options);
 }else{
 cnt1 = cnt1 - 1
 }
@@ -3801,6 +3817,7 @@ cnt1 = cnt1 - 1
     
        var h  =  tConvert (doc.data().rectime);
        dates = name + "," + h; 
+              dates = new Date(dates).toLocaleDateString("en", options);
 }else{
 cnt1 = cnt1 - 1
 }
@@ -4322,6 +4339,7 @@ dates = new Date(doc.data().date12).toLocaleDateString("en", options)
    
        var h  =  tConvert (doc.data().rectime);
        dates = dt1 + ", " + h; 
+      dates = new Date(dates).toLocaleDateString("en", options);
 }else{
 cnt1 = cnt1 - 1
 }
@@ -4337,6 +4355,7 @@ cnt1 = cnt1 - 1
      
        var h  =  tConvert (doc.data().rectime);
        dates = dt1 + ", " + h;
+       dates = new Date(dates).toLocaleDateString("en", options);
 }else{
 cnt1 = cnt1 - 1
 }
@@ -4351,6 +4370,7 @@ cnt1 = cnt1 - 1
      
        var h  =  tConvert (doc.data().rectime);
        dates = dt1 + ", " + h; 
+       dates = new Date(dates).toLocaleDateString("en", options);
 }else{
 cnt1 = cnt1 - 1
 }
@@ -4364,6 +4384,7 @@ cnt1 = cnt1 - 1
     
        var h  =  tConvert (doc.data().rectime);
            dates = dt1 + ", 0" + h; 
+           dates = new Date(dates).toLocaleDateString("en", options);
 }else{
 cnt1 = cnt1 - 1
 }
@@ -4377,6 +4398,7 @@ cnt1 = cnt1 - 1
     
        var h  =  tConvert (doc.data().rectime);
        dates = dt1 + ", " + h; 
+       dates = new Date(dates).toLocaleDateString("en", options);
 }else{
 cnt1 = cnt1 - 1
 }
