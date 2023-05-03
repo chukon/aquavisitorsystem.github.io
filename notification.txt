@@ -3,7 +3,7 @@
   <li><b>Latest updates</b></li>
    <ul><li><b>New Feature(s):</b></li></ul>
   <ul style="padding-left:60px">
-    <li>Add Weekly Recurring Meetings. <a href="https://aquavisitorsystem.github.io/help/Aqua%20Visitor%20Check.htm#_Toc132347445">click here</a></li>
+    <li>Weekly Recurring Meetings. <a href="https://aquavisitorsystem.github.io/help/Aqua%20Visitor%20Check.htm#_Toc132347445">click here</a></li>
   </ul>
   <br>
   <ul><b>View Reports:</b></ul> 
@@ -17,5 +17,5 @@
 <br>
 <button id='modalClose' type="button">Close</button>
 <br>
-<center><div id="footer" style="color: coral;font-size: smaller;">last updated by Chuck Konkol on 04/17/2023</div></center>
+<center><div id="footer" style="color: coral;font-size: smaller;">last updated by Chuck Konkol on 04/26/2023</div></center>
 <br>
