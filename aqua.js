@@ -4216,13 +4216,14 @@ var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/aj
 var title = "<div id='reptitle'><center><h1 style='color: #005098;margin-block-end: 0;'>Active Visitor(s) for: " + todays + "</h1></center></div>";      
 document.write(title);
 var links = "'https://aquameeting.github.io/?ipad=Yes'";
-var buttons =  '<button onclick="window.location.href=' + links + ';" style="background-color: yellow;font-weight: bold;border-color: black;font-size: small;">tap here</button>';
-document.write("<center>Find your schedule below and tap <b>HERE</b><br>If your schedule is not found below, " + buttons + "<br><br></center>"); 
+//var buttons =  '<button onclick="window.location.href=' + links + ';" style="background-color: yellow;font-weight: bold;border-color: black;font-size: small;">tap here</button>';
+var buttons =  '<a href=' + links + ';" style="font-size: small;">tap here</a>';
+document.write("<center>Find your schedule below and tap <button style='background-color: yellow;font-weight: bold;border-color: black;font-size: small;'>HERE</button> button. <br>(If schedule not found, " + buttons + ")<br><br></center>"); 
 if (cnt1 === 0){
     var nodata = "<center><br>No visitor data found<br></center>";
     document.write(nodata);
 }else{
-    document.write("<table id='report' style='font-size: small;'> <thead> <tr>   <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(1)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortByDate(3)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Visiting</th><th></th>  </tr></thead>");
+    document.write("<table id='report' style='font-size: small;'> <thead style='background-color: azure;'>  <tr>   <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(1)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortByDate(3)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Visiting</th><th></th>  </tr></thead>");
 }
 for (let i = 0; i < docs.length; i += chunkSize) {
     chunk = docs.slice(i, i + chunkSize);
