@@ -4431,7 +4431,7 @@ document.write(nodata);
 });
    document.write("</table>");
    document.getElementsByTagName("body")[0].style.display = "none";
-  setTimeout("sortByDate(3)", 2000);
+  setTimeout("sortByDate(3)", 3000);
 }
        
        
