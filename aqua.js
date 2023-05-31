@@ -1284,7 +1284,7 @@ document.getElementById('back').style.display = 'block';
         document.head.innerHTML = header;
         document.write("</tbody></table>");
         document.getElementsByTagName("body")[0].style.display = "none";
-        setTimeout("sortByDate(5)", 1000);
+        setTimeout("sortByDate(5)", 3000);
         if (count === 0){
             document.getElementById("printbtn").style.display = "none";
             // document.getElementById("report").style.display = "none";
@@ -1529,7 +1529,7 @@ document.getElementById('back').style.display = 'block';
     document.head.innerHTML = header;
     document.write("</tbody></table>");
     document.getElementsByTagName("body")[0].style.display = "none";
-    setTimeout("sortByDate2(5)", 1000);
+    setTimeout("sortByDate2(5)", 3000);
 })
     .catch((error) => {
         console.log("Error getting documents: ", error);
@@ -1756,7 +1756,7 @@ document.getElementById("numcount").setAttribute("value",  count );
 document.head.innerHTML = header;
 document.write("</tbody></table>");
 document.getElementsByTagName("body")[0].style.display = "none";
-setTimeout("sortByDate2(5)", 1000);
+setTimeout("sortByDate2(5)", 3000);
 // setTimeout("sortByDate(5)", 6000);
 })
     .catch((error) => {
@@ -2306,7 +2306,7 @@ document.head.innerHTML = header;
     document.head.innerHTML = header;
     document.write("</table>");
     document.getElementsByTagName("body")[0].style.display = "none";
-    setTimeout("sortByDate2(2)", 1000);
+    setTimeout("sortByDate2(2)", 3000);
 })
     .catch((error) => {
         console.log("Error getting documents: ", error);
@@ -2372,7 +2372,7 @@ document.head.innerHTML = header;
     document.head.innerHTML = header;
     document.write("</table>");
     document.getElementsByTagName("body")[0].style.display = "none";
-    setTimeout("sortByDate2(7)", 1000);
+    setTimeout("sortByDate2(7)", 3000);
 
 })
     .catch((error) => {
@@ -2438,7 +2438,7 @@ var loadloguserid =  function(){
     document.head.innerHTML = header;
     document.write("</table>");
     document.getElementsByTagName("body")[0].style.display = "none";
-    setTimeout("sortByDate2(7)",1000);
+    setTimeout("sortByDate2(7)",3000);
 })
     .catch((error) => {
         console.log("Error getting documents: ", error);
@@ -2536,7 +2536,7 @@ function Lookup(){
 document.head.innerHTML = header;
 document.write("</table>");
 document.getElementsByTagName("body")[0].style.display = "none";
-setTimeout("sortByDate2(7)", 1000);
+setTimeout("sortByDate2(7)", 3000);
 })
     .catch((error) => {
         console.log("Error getting documents: ", error);
@@ -2631,7 +2631,7 @@ setTimeout("sortByDate2(7)", 1000);
     document.write("</table>");
     document.head.innerHTML = header;
     document.getElementsByTagName("body")[0].style.display = "none";
-    setTimeout("sortByDate2(7)", 1000);
+    setTimeout("sortByDate2(7)", 3000);
     })
     .catch((error) => {
         console.log("Error getting documents: ", error);
@@ -2834,7 +2834,7 @@ setTimeout("sortByDate2(7)", 3000);
 document.head.innerHTML = header;
 document.write("</table>");
 document.getElementsByTagName("body")[0].style.display = "none";
-setTimeout("sortByDate2(4)", 2000);
+setTimeout("sortByDate2(4)", 3000);
 //setTimeout("sortTable(4)", 2000);
 })
     .catch((error) => {
@@ -2919,7 +2919,7 @@ setTimeout("sortByDate2(4)", 2000);
         console.log("Error getting documents: ", error);
     });
     setTimeout("sortTable(4)", 1000);
-    setTimeout("sortTable(4)", 1000);
+    setTimeout("sortTable(4)", 2000);
     }
 
 
@@ -3391,7 +3391,7 @@ cnt1 = cnt1 - 1
  document.getElementsByTagName("body")[0].style.display = "none";
     });
 
-    setTimeout("sortByDate(4)", 2000);
+    setTimeout("sortByDate(4)", 3000);
 
        document.write("</table>");
     }
