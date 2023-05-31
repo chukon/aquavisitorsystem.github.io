@@ -2014,7 +2014,7 @@ document.getElementById("numcount").setAttribute("value", count );
     document.head.innerHTML = header;
     document.write("</tbody></table>");
     document.getElementsByTagName("body")[0].style.display = "none";
-    setTimeout("sortTable(5)", 1000);
+    setTimeout("sortTable(5)", 3000);
     })
     .catch((error) => {
         console.log("Error getting documents: ", error);
