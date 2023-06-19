@@ -17,5 +17,5 @@
 <br>
 <button id='modalClose' type="button">Close</button>
 <br>
-<center><div id="footer" style="color: coral;font-size: smaller;">last updated by Chuck Konkol on 06/05/2023</div></center>
+<center><div id="footer" style="color: coral;font-size: smaller;">last updated by Chuck Konkol on 06/19/2023</div></center>
 <br>
