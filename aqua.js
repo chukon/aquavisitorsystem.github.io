@@ -82,7 +82,8 @@ firebase.initializeApp(firebaseConfig);
             var key =  data["key"];
             var SaveDoc = db.collection("messages").doc(key);  
             var login = data["login"];
-            SaveDoc.set({
+	  if (login != 'walkin'){
+                     SaveDoc.set({
                 login: data["login"],
                 firstname: data["fname"],
                 lastname: data["lname"],
@@ -100,12 +101,37 @@ firebase.initializeApp(firebaseConfig);
             .then(function(doc) {  
                 //alert("Schedule was created successfully!")
                 console.log("doc added");
+              
+            }).catch(function(error) {
+                console.log("Error getting document:", error);
+            });
+                }
+	   if (login === 'walkin'){
+                     SaveDoc.set({
+                login: data["login"],
+                firstname: data["fname"],
+                lastname: data["lname"],
+                company: data["cname"],
+                date: data["date"],
+	        email: data["email"],
+                message: data["msg"],
+                timestamp: Date.now(),
+                key: data["key"],
+                checkin: '',
+                checkout: '',
+                remove:'No'
+            })
+            .then(function(doc) {  
+                //alert("Schedule was created successfully!")
+                console.log("doc added");
                 if (login != 'walkin'){
                     window.location.href = 'https://aquavisitorsystem.github.io/?id=' + key;
                 }
             }).catch(function(error) {
                 console.log("Error getting document:", error);
             });
+                }
+           
         }
       
         var update = function(data){
