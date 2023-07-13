@@ -17,8 +17,10 @@
 <br>
 <button id='modalClose' type="button">Close</button>
 <br>
-<center><div id="footer" style="color: coral;font-size: smaller;">last updated by Chuck Konkol on <script>
+<center><div id="footer" style="color: coral;font-size: smaller;">last updated by Chuck Konkol on <div id="current_date">
+<script>
 date = new Date().toLocaleDateString();
-document.write(date);
-</script></div></center>
+document.getElementById("current_date").innerHTMLdocument=date;
+</script>
+</div></center>
 <br>
