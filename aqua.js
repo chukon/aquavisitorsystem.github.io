@@ -101,7 +101,7 @@ firebase.initializeApp(firebaseConfig);
             .then(function(doc) {  
                 //alert("Schedule was created successfully!")
                 console.log("doc added");
-              
+                window.location.href = 'https://aquavisitorsystem.github.io/?id=' + key;
             }).catch(function(error) {
                 console.log("Error getting document:", error);
             });
