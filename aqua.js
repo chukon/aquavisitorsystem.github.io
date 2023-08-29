@@ -4786,7 +4786,7 @@ var schedule = function(){
     document.getElementById('get_msg').style.display = 'block';
     document.getElementById('get_id2').style.display = 'none';
     document.getElementById('qrcode').style.display = 'none';      
-    document.getElementById("login").style.width = "250px";
+    document.getElementById("login").style.width = "300px";
 	       
 }
        
