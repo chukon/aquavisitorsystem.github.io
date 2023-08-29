@@ -4786,8 +4786,8 @@ var schedule = function(){
     document.getElementById('get_msg').style.display = 'block';
     document.getElementById('get_id2').style.display = 'none';
     document.getElementById('qrcode').style.display = 'none';      
-    document.getElementById("login").style.width = "250px";
-	       
+    document.getElementById("login").style.width = "275px";
+    document.getElementById("login").style.textAlign = "right"; 
 }
        
 var updateschedule = function(){
@@ -4837,7 +4837,13 @@ var updatescheduleshome = function(){
 }
        
 var getall = function(){
-           
+    var visitorlist = ['today', 'active', 'name', 'date', 'all', 'inactive', 'loguserid', 'logname', 'logall', 'logtoday', 'logweek', 'logdate'];
+    var list = document.getElementById('loginlist');
+    visitorlist.forEach(function(item){
+        var option = document.createElement('option');
+        option.value = item;
+        list.appendChild(option);
+    });
     document.getElementById('logins').style.display = 'contents';
     document.getElementById('logins').style.display = 'block';
     document.getElementById('schedule').style.display = 'none';
@@ -4849,8 +4855,9 @@ var getall = function(){
     document.getElementById('get_msg').style.display = 'block';
     document.getElementById('get_id2').style.display = 'none';
     document.getElementById('loginlabel').innerText = 'Aqua Employee User ID OR Keyword';
-    document.getElementsByName('login')[0].placeholder = '[KEYWORDS] today, active, name, date, all, inactive, loguserid, logname, logall, logtoday, logweek, logdate';
-    document.getElementById("login").title = "Type [Aqua User ID] OR [keyword] then press [Enter] key";
+   // document.getElementsByName('login')[0].placeholder = '[KEYWORDS] today, active, name, date, all, inactive, loguserid, logname, logall, logtoday, logweek, logdate';
+    document.getElementsByName('login')[0].placeholder = 'Type [Aqua User ID] OR select [keyword] from dropdown list > press [Enter] key';
+    document.getElementById("login").title = 'Type [Aqua User ID] OR select [keyword] from dropdown list > press [Enter] key';
     document.getElementById('emaillabel').style.display = 'none';
     document.getElementById("login").style.width = "675px";
     document.getElementById("login").addEventListener("keypress", getSchedule2);
