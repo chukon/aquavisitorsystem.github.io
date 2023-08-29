@@ -4852,7 +4852,7 @@ var getall = function(){
     document.getElementsByName('login')[0].placeholder = '[KEYWORDS] today, active, name, date, all, inactive, loguserid, logname, logall, logtoday, logweek, logdate';
     document.getElementById("login").title = "Type [Aqua User ID] OR [keyword] then press [Enter] key";
     document.getElementById('emaillabel').style.display = 'none';
-    document.getElementById("login").style.width = "650px";
+    document.getElementById("login").style.width = "675px";
     document.getElementById("login").addEventListener("keypress", getSchedule2);
     document.getElementById("login").focus();
 }
