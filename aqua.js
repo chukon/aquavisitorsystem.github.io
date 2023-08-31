@@ -513,6 +513,8 @@ firebase.initializeApp(firebaseConfig);
                document.getElementById("removeNo").innerHTML = "<a href='" + removewebsiteNo + "'>Click here to update status to: Active</a>";
                document.getElementById("removeYes").innerHTML = "";
                document.getElementById('back').style.display = 'block';
+               document.getElementById("login").style.width = "275px";
+               document.getElementById("login").style.textAlign = "right"; 
            }
            if (doc.data().remove === 'X'){
 		
@@ -523,6 +525,8 @@ firebase.initializeApp(firebaseConfig);
                document.getElementById("removeNo").innerHTML = "<a href='" + removewebsiteNo + "'>Click here to update status to: Active</a>";
                document.getElementById("removeYes").innerHTML = "";
                document.getElementById('back').style.display = 'block';
+               document.getElementById("login").style.width = "275px";
+               document.getElementById("login").style.textAlign = "right"; 
            }
            if (doc.data().remove === 'No'){
 		
@@ -531,6 +535,8 @@ firebase.initializeApp(firebaseConfig);
                document.getElementById("removeNo").innerHTML = "";
                document.getElementById("removeYes").innerHTML = "<a href='" + removewebsiteYes + "'>Click here to update status to: InActive</a><br>";
                document.getElementById('back').style.display = 'block';
+               document.getElementById("login").style.width = "275px";
+               document.getElementById("login").style.textAlign = "right"; 
            }
            if (get_iPad === 'Yes'){
 		
