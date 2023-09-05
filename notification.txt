@@ -3,7 +3,7 @@
   <li><b>Latest updates</b></li>
    <ul><li><b>New Feature(s):</b></li></ul>
   <ul style="padding-left:60px">
-    <li>**New** dropdown list added to "New Scheduled Visits"</li>
+    <li>Dropdown list of keywords added to "New Scheduled Visits"</li>
   </ul>
   <br>
   <ul><b>View Reports:</b></ul> 
@@ -11,8 +11,8 @@
   <ul><li>Use keyword(s) listed</li></ul>
   <br>
  <ul><b>Manage Schedules:</b></ul> 
-  <ul><li>Schedule A Visitor. <a href="https://aquavisitorsystem.github.io/help/Aqua%20Visitor%20Check.htm#_Toc132347444">click here</a></li><ul>
-  <ul><li>Schedule A Weekly Recurring Visit. <a href="https://aquavisitorsystem.github.io/help/Aqua%20Visitor%20Check.htm#_Toc132347445">click here</a></li><ul>
+  <ul><li>Schedule A Visitor. <a href="https://aquavisitorsystem.github.io/help/Aqua%20Visitor%20Check.htm#_Toc132347444">click here</a></li></ul>
+  <ul><li>Schedule A Weekly Recurring Visit. <a href="https://aquavisitorsystem.github.io/help/Aqua%20Visitor%20Check.htm#_Toc132347445">click here</a></li></ul>
   <ul><li>Remove a schedule by making it inactive. <a href="https://aquavisitorsystem.github.io/help/Aqua%20Visitor%20Check.htm#_Toc132347449">click here</a></li></ul> 
   <ul><li>Restore a schedule by making it active. <a href="https://aquavisitorsystem.github.io/help/Aqua%20Visitor%20Check.htm#_Toc132347449">click here</a></li></ul>
 
