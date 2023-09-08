@@ -976,8 +976,10 @@ var set_remove = function(data){
         remove: 'X'
     }) .then(function(doc) {
         console.log("doc updated");
+	    getall();
     }).catch(function(error) {
         console.log("Error getting document:", error);
+	    getall();
     });
 }
        
