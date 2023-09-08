@@ -5040,7 +5040,6 @@ var removeInactiveUsers = function(){
         //setTimeout(function(){window.location = "https://aquavisitorsystem.github.io/?report=inactive";},1000);
     }
 }
-
 var removeInactive =  function(){
         var db = firebase.firestore();
         db.collection("messages").where("remove", "==","Yes")
