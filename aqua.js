@@ -976,10 +976,8 @@ var set_remove = function(data){
         remove: 'X'
     }) .then(function(doc) {
         console.log("doc updated");
-	    getall();
     }).catch(function(error) {
         console.log("Error getting document:", error);
-	    getall();
     });
 }
        
@@ -5052,12 +5050,14 @@ var removeInactive =  function(){
         var cnt = querySnapshot.size;
         console.log("found:" + cnt);
         if (cnt === 0){
+		    getall();
         }else{
             querySnapshot.forEach((doc) => {
                 var data3 = {
                     "id": doc.data().key
                 }
             set_remove(data3);	
+		        getall();
         });
     }
     }) 
