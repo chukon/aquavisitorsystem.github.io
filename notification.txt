@@ -3,7 +3,7 @@
   <li><b>Latest updates</b></li>
    <ul><li><b>New Feature(s):</b></li></ul>
   <ul style="padding-left:60px">
-    <li>Dropdown list of keywords added to "New Scheduled Visits"</li>
+    <li>Dropdown list of keywords added to "View Scheduled Visits"</li>
   </ul>
   <br>
   <ul><b>View Reports:</b></ul> 
