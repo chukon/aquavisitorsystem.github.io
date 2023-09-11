@@ -5025,8 +5025,9 @@ var removeInactiveUsers = function(){
     try {
         let text = "Are you sure you want to clear inactive users?\n\nClick 'OK' to clear inactive users\nClick 'Cancel' to go back!";
         if (confirm(text) == true) {
-            document.getElementById("login").value = ''
             removeInactive();
+            document.getElementById("login").value = ''
+            alert("Inactive Users!\nAll inactive users have been cleared!");
         } else {
             document.getElementById("login").value = ''
             alert("Cancelled!\nClearing inactive users have been has been cancelled!");
