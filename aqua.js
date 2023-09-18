@@ -2579,59 +2579,123 @@ setTimeout("sortByDate2(7)", 3000);
     var loadlogdate =  function(){
         try 
         {
+            var db = firebase.firestore();
+            var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(5){display: none;}#report tr > *:nth-child(10){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
+            var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
+            var lines = "";
+            var Dates = [];
+            var Visitors = [];
+            var datesort;
+            let today = new Date().toISOString();
+            var choosedate  = new Date();
+            var start = new Date();
+            var end = new Date();
+            var strStart = new Date();
+            var strEnd = new Date();
+            var name=prompt("Please choose one of the following\r\n1) Enter date to search (Example: 10/12/2022) > Click [Ok]\r\n2) Click [Ok] for today's date","Enter Date");
+            if (name!="Enter Date"){
+                start = new Date(name);
+                choosedate   = new Date(name).toDateString();
+                start.setHours(0,0,0,0);
+                end = new Date(start.getTime());
+                end.setHours(23,59,59,999);
+                strStart =  start.toISOString();
+                strEnd =  end.toISOString();
+                start = start.toISOString();
+                end = end.toISOString();
+            }else{
+                start = new Date();
+                start.setHours(0,0,0,0);
+                end = new Date(start.getTime());
+                end.setHours(23,59,59,999);
+                strStart =  start.toISOString();
+                strEnd =  end.toISOString();
+                start = start.toISOString();
+                end = end.toISOString();
+                var d = new Date();
+                choosedate = d.toDateString();
+                var myDate = new Date(d).toLocaleDateString('en-US');   
+                name = myDate.toString();
+            }	
+            console.log(name);
+            var  todays = new Date().toLocaleDateString('en-US'); 
+            db.collection("log").where("date", ">=",start).where("date", "<=",end).orderBy("date","desc")
+        .get()
+        .then((querySnapshot) => {
+            var cnt = querySnapshot.size;
+            var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (logdate report)</h1><h2>Check-in/Check-out logs for  " +  "<label id='numcount'></label>"   + "  visits(s)<br>" + name + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+            document.write(title);
+            //document.write("<center><div id='numcount'></div></center>");
+            document.write(printnow);
+            if (cnt === 0){
+                var nodata = "<center><br>No visitor data found<br></center>";
+                document.write(nodata);
+            }else{
+                document.write("<table id='report' style='font-size: small;'>  <tr>     <th style='cursor: pointer; color: red;' onclick='sortTable(0)'>UserID <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time<i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th style='cursor: pointer; color: red;' onclick='sortByDate2(7)'>CheckIn<i class='fa fa-sort' style='font-size:20px;color:blue'></i></th><th>CheckOut</th><th>Edit</th>  </tr>");     
+            }
+            querySnapshot.forEach((doc) => {
+                // doc.data() is never undefined for query doc snapshots
+                console.log(doc.id, " => ", doc.data());
+            var options = {
+                year: "numeric",
+                month: "2-digit",
+                day: "2-digit",
+            };
+            var options2 = {
+                hour: "2-digit",
+                minute: "2-digit"
+            };
+            var dates = new Date(doc.data().date).toLocaleDateString("fr-CA", options) + ' ' + new Date(doc.data().date).toLocaleTimeString("en", options2)
+            Visitors.push(doc.data().firstname + ' ' + doc.data().lastname + ' '  + doc.data().checkin);
+            console.log("loadlogtoday:" + dates);
+    
+            console.log("Visitors:" + countUnique(Visitors));
+            if ((doc.data().checkin !== "") && (doc.data().checkout !== ""))
+            {
+                document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td style="color: transparent;">' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().sourcekey + '">Click here</a></td></tr>');
+ 
+            }else{
+                document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().sourcekey + '">Click here</a></td></tr>');
+            }      // document.getElementById("numcount").innerHTML = Math.ceil(cnt / 2);
+            //document.getElementById("numcount").setAttribute("value", Math.ceil((cnt / 2)));
+            document.getElementById("numcount").innerHTML = countUnique(Visitors);
+            document.getElementById("numcount").setAttribute("value", countUnique(Visitors));
+        });
+        document.write("</table>");
+        document.head.innerHTML = header;
+        document.getElementsByTagName("body")[0].style.display = "none";
+        setTimeout("sortByDate2(7)", 3000);
+    })
+    .catch((error) => {
+        console.log("Error getting documents: ", error);
+    });
+    }catch(err) {
+        var nodata = "<center><br>Incorrect Date Format. Please try again.<br><br> <a href='https://aquavisitorsystem.github.io/'>Go Home</a><br></center>";
+        document.write(nodata);
+        // loadlogdate();
+       
+    }
+    }
+		
+    var loadlogall =  function(){
+        var Visitors = [];
         var db = firebase.firestore();
         var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(5){display: none;}#report tr > *:nth-child(10){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
         var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
         var lines = "";
-        var Dates = [];
-        var Visitors = [];
-        var datesort;
-        let today = new Date().toISOString();
-        var choosedate  = new Date();
-        var start = new Date();
-        var end = new Date();
-        var strStart = new Date();
-        var strEnd = new Date();
-        var name=prompt("Please choose one of the following\r\n1) Enter date to search (Example: 10/12/2022) > Click [Ok]\r\n2) Click [Ok] for today's date","Enter Date");
-        if (name!="Enter Date"){
-            start = new Date(name);
-            choosedate   = new Date(name).toDateString();
-            start.setHours(0,0,0,0);
-            end = new Date(start.getTime());
-            end.setHours(23,59,59,999);
-            strStart =  start.toISOString();
-            strEnd =  end.toISOString();
-            start = start.toISOString();
-            end = end.toISOString();
-        }else{
-            start = new Date();
-            start.setHours(0,0,0,0);
-            end = new Date(start.getTime());
-            end.setHours(23,59,59,999);
-            strStart =  start.toISOString();
-            strEnd =  end.toISOString();
-            start = start.toISOString();
-            end = end.toISOString();
-            var d = new Date();
-            choosedate = d.toDateString();
-            var myDate = new Date(d).toLocaleDateString('en-US');   
-            name = myDate.toString();
-        }	
-        console.log(name);
-        var  todays = new Date().toLocaleDateString('en-US'); 
-        db.collection("log").where("date", ">=",start).where("date", "<=",end).orderBy("date","desc")
+        let today = new Date().toISOString().slice(0, 10);
+        db.collection("log").orderBy("date","desc")
     .get()
     .then((querySnapshot) => {
         var cnt = querySnapshot.size;
-        var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (logdate report)</h1><h2>Check-in/Check-out logs for  " +  "<label id='numcount'></label>"   + "  visits(s)<br>" + name + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+        var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (logall report)</h1><h2>Check-in/Check-out logs for " + "<label id='numcount'></label>"   + " visits(s)</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
         document.write(title);
-        //document.write("<center><div id='numcount'></div></center>");
         document.write(printnow);
         if (cnt === 0){
             var nodata = "<center><br>No visitor data found<br></center>";
             document.write(nodata);
         }else{
-            document.write("<table id='report' style='font-size: small;'>  <tr>     <th style='cursor: pointer; color: red;' onclick='sortTable(0)'>UserID <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time<i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th style='cursor: pointer; color: red;' onclick='sortByDate2(7)'>CheckIn<i class='fa fa-sort' style='font-size:20px;color:blue'></i></th><th>CheckOut</th><th>Edit</th>  </tr>");     
+            document.write("<table id='report' style='font-size: small;'>  <tr>     <th style='cursor: pointer; color: red;' onclick='sortTable(0)'>UserID <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th style='cursor: pointer; color: red;' onclick='sortByDate2(7)'>CheckIn<i class='fa fa-sort' style='font-size:20px;color:blue'></i></th><th>CheckOut</th><th>Edit</th>  </tr>");
         }
         querySnapshot.forEach((doc) => {
             // doc.data() is never undefined for query doc snapshots
@@ -2647,35 +2711,31 @@ setTimeout("sortByDate2(7)", 3000);
         };
         var dates = new Date(doc.data().date).toLocaleDateString("fr-CA", options) + ' ' + new Date(doc.data().date).toLocaleTimeString("en", options2)
         Visitors.push(doc.data().firstname + ' ' + doc.data().lastname + ' '  + doc.data().checkin);
-        console.log("loadlogtoday:" + dates);
-    
-        console.log("Visitors:" + countUnique(Visitors));
+        console.log("loadlogall:" + dates);
         if ((doc.data().checkin !== "") && (doc.data().checkout !== ""))
         {
             document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td style="color: transparent;">' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().sourcekey + '">Click here</a></td></tr>');
  
         }else{
             document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().sourcekey + '">Click here</a></td></tr>');
-        }      // document.getElementById("numcount").innerHTML = Math.ceil(cnt / 2);
-        //document.getElementById("numcount").setAttribute("value", Math.ceil((cnt / 2)));
+        }
         document.getElementById("numcount").innerHTML = countUnique(Visitors);
         document.getElementById("numcount").setAttribute("value", countUnique(Visitors));
+        // document.getElementById("numcount").innerHTML = Math.ceil(cnt / 2);
+        //document.getElementById("numcount").setAttribute("value", Math.ceil((cnt / 2)));
     });
-    document.write("</table>");
+
     document.head.innerHTML = header;
+    document.write("</table>");
     document.getElementsByTagName("body")[0].style.display = "none";
     setTimeout("sortByDate2(7)", 3000);
     })
     .catch((error) => {
         console.log("Error getting documents: ", error);
     });
-    }catch(err) {
-        var nodata = "<center><br>Incorrect Date Format. Please try again.<br><br> <a href='https://aquavisitorsystem.github.io/'>Go Home</a><br></center>";
-        document.write(nodata);
-        // loadlogdate();
-       
     }
-    }
+
+    
 		
     var loadlogall =  function(){
         var Visitors = [];
@@ -4038,6 +4098,127 @@ document.write(nodata);
 document.head.innerHTML = header;
 });
 }
+
+var loadprintjobs =  function(){
+    var db = firebase.firestore();
+    var Visitors = [];
+    let todaysdate = new Date();
+    var count = 0;
+    var lines = "";
+    var today = new Date();
+    var x;
+    document.write("");
+    var date = new Date();
+    // date.setHours(0,0,0,0);
+    // var start = new Date();
+    // start.setDate(date.getDate() - 7);
+    //  start.setHours(0,0,0,0);
+    //  var end = new Date(date.getTime());
+    //  end.setHours(23,59,59,999);
+	
+    //start new 1/16/2023
+    var start = new Date();
+    var end = new Date();
+    var d = new Date();
+    var name=prompt("Please choose one of the following\r\n1) Enter end search date > Click [Ok]\r\n2) Click [Ok] for today's date","Enter Date");
+    if (name!="Enter Date"){
+        d = new Date(name);
+        var enddate = new Date(name);
+        start = new Date();
+        start.setDate(start.getDate());
+        start.setHours(0,0,0,0);
+        end = new Date(enddate.getTime());
+        end.setHours(0,0,0,0);
+    }else{
+        start.setDate(date.getDate() - 7);
+        start.setHours(0,0,0,0);
+        end = new Date(date.getTime());
+        end.setHours(23,59,59,999);
+    }	
+    //end new 1/16/2023
+    start = new Date(start.getTime() - (start.getTimezoneOffset() * 60000)).toISOString();
+	  
+    end = new Date(end.getTime() - (end.getTimezoneOffset() * 60000)).toISOString();	 
+    // var d = new Date();
+    var myDate = new Date(d).toLocaleDateString('en-US');   
+    var date1 = new Date(end);
+    var date2 = new Date(start);
+      
+    // To calculate the time difference of two dates
+    var Difference_In_Time = date2.getTime() - date1.getTime();
+      
+    // To calculate the no. of days between two dates
+    var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+    //let sevendays = getDateXDaysAgo(7, d);
+   // var smyDate = sevendays;
+   // console.log("start:" + smyDate);
+    name = date1.toLocaleDateString('en-US') + ' - ' + date2.toLocaleDateString('en-US');
+    console.log(name);
+    var  todays = new Date().toLocaleDateString('en-US');  
+    var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(5){display: none;}#report tr > *:nth-child(10){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
+    var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
+    console.log("Start Date: " + end);
+    console.log("End Date: " + start);
+    db.collection("log").where("date", ">=",end).where("date", "<=",start).where("remove", "==","No").orderBy("date","desc").orderBy("lastname","asc")
+   .get()
+   .then((querySnapshot) => {
+       console.log("Snapshot:" + querySnapshot.size); 
+    var cnt = querySnapshot.size;
+    var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (labels used)</h1><h2>" + "<label id='numcount'></label>"  + " labels printed from:<br>" + name + "</h2></center><center><a href='https://aquavisitorsystem.github.io/'>Go Home</a></center><br>";         
+    document.write(title);
+    document.write(printnow);
+    //document.write("<center><h3>Find your name and Tap 'Check-In'</b></center></h3>If your name is not found below, click <a href='" +  "https://ignitemeeting.github.io/?ipad=Yes"   + "'>here</a> to continue!<br><br><center>");
+    if (cnt === 0){
+        var nodata = "<center><br>No visitor data found<br></center>";
+        document.write(nodata);
+    }else{
+        document.write("<table id='report' style='font-size: small;'>  <tr>     <th style='cursor: pointer; color: red;' onclick='sortTable(0)'>UserID <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th style='cursor: pointer; color: red;' onclick='sortByDate2(7)'>CheckIn<i class='fa fa-sort' style='font-size:20px;color:blue'></i></th><th>CheckOut</th><th>Edit</th>  </tr>");
+    }
+    querySnapshot.forEach((doc) => {
+        var nodata = "";
+    // doc.data() is never undefined for query doc snapshots
+    var options = {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+    };
+    var options2 = {
+        hour: "2-digit",
+        minute: "2-digit"
+    };
+    var dates = new Date(doc.data().date).toLocaleDateString("fr-CA", options) + ' ' + new Date(doc.data().date).toLocaleTimeString("en", options2)
+    Visitors.push(doc.data().firstname + ' ' + doc.data().lastname + ' ' + doc.data().checkin);
+
+    console.log("loadtodayschedule:" + dates);
+    console.log("Visitors Array:" + Visitors.length);
+    console.log("cnt:" + cnt);
+    console.log("cnt / 2:" + cnt / 2);
+    console.log("loadtodayschedule:" + dates);
+    if ((doc.data().checkin !== "") && (doc.data().checkout !== ""))
+    {
+        document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td style="color: transparent;">' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().sourcekey + '">Click here</a></td></tr>');
+ 
+    }else{
+        document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().sourcekey + '">Click here</a></td></tr>');
+    }
+    document.getElementById("numcount").innerHTML = Math.ceil((cnt / 2));
+    document.getElementById("numcount").setAttribute("value", Math.ceil((cnt / 2)));
+});
+
+// let sendingText = "https://ignitemeeting.github.io/?ipad=Yes"
+document.head.innerHTML = header;
+document.write("</table>");
+document.getElementsByTagName("body")[0].style.display = "none";
+setTimeout("sortByDate2(7)", 3000);
+}) 
+    .catch((error) => {
+        console.log("Error getting documents: ", error);
+document.write(title);
+var nodata = "<center><br>No visitor data found<br></center>";
+document.write(nodata);
+document.head.innerHTML = header;
+});
+}
   
 var loaddbtoday =  function(){
     var db = firebase.firestore();
@@ -4553,6 +4734,8 @@ var getloginname = function(){
         loadremoved();
     }else if (username.toLowerCase()  === 'removeinactive') {
         removeInactiveUsers();
+    }else if (username.toLowerCase()  === 'printjobs') {
+        loadprintjobs();
     }else if (username.toLowerCase()  === 'activity') {
         window.location.href = 'https://chukon.github.io/aquavisitoractivity.github.io/firestore/';
     }else{
