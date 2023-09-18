@@ -4118,16 +4118,23 @@ var loadprintjobs =  function(){
 	
     //start new 1/16/2023
     var start = new Date();
+    var start2 = new Date();
     var end = new Date();
+    var end2 = new Date();
     var d = new Date();
     var name=prompt("Please choose one of the following\r\n1) Enter end search date > Click [Ok]\r\n2) Click [Ok] for today's date","Enter Date");
     if (name!="Enter Date"){
         d = new Date(name);
         var enddate = new Date(name);
         start = new Date();
-        start.setDate(start.getDate());
+        start2  = new Date();
+        start.setDate(start.getDate()-1);
         start.setHours(0,0,0,0);
+        start2.setDate(start2.getDate());
+        start2.setHours(0,0,0,0);
         end = new Date(enddate.getTime());
+        end2 = new Date(enddate.getTime());
+        //end.setHours(0,0,0,0);
         end.setHours(0,0,0,0);
     }else{
         start.setDate(date.getDate() - 7);
@@ -4141,9 +4148,10 @@ var loadprintjobs =  function(){
     end = new Date(end.getTime() - (end.getTimezoneOffset() * 60000)).toISOString();	 
     // var d = new Date();
     var myDate = new Date(d).toLocaleDateString('en-US');   
-    var date1 = new Date(end);
-    var date2 = new Date(start);
-      
+    var date1 = new Date(end2);
+   
+    var date2 = new Date(start2);
+ 
     // To calculate the time difference of two dates
     var Difference_In_Time = date2.getTime() - date1.getTime();
       
@@ -4164,7 +4172,7 @@ var loadprintjobs =  function(){
    .then((querySnapshot) => {
        console.log("Snapshot:" + querySnapshot.size); 
     var cnt = querySnapshot.size;
-    var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (labels used)</h1><h2>" + "<label id='numcount'></label>"  + " labels printed from:<br>" + name + "</h2></center><center><a href='https://aquavisitorsystem.github.io/'>Go Home</a></center><br>";         
+    var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (labels used)</h1><h2>" + "<label id='numcount'></label>"  + " labels printed over " + Difference_In_Days + " days from:<br>" + name + "</h2></center><center><a href='https://aquavisitorsystem.github.io/'>Go Home</a></center><br>";         
     document.write(title);
     document.write(printnow);
     //document.write("<center><h3>Find your name and Tap 'Check-In'</b></center></h3>If your name is not found below, click <a href='" +  "https://ignitemeeting.github.io/?ipad=Yes"   + "'>here</a> to continue!<br><br><center>");
