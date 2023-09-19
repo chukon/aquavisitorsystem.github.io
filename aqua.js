@@ -4128,14 +4128,15 @@ var loadprintjobs =  function(){
         var enddate = new Date(name);
         start = new Date();
         start2  = new Date();
-        start.setDate(start.getDate()-1);
-        start.setHours(0,0,0,0);
+        start.setDate(start.getDate());
+        //start.setHours(0,0,0,0);
+        start.setHours(23,59,59,999);
         start2.setDate(start2.getDate());
         start2.setHours(0,0,0,0);
         end = new Date(enddate.getTime());
         end2 = new Date(enddate.getTime());
-        //end.setHours(0,0,0,0);
         end.setHours(0,0,0,0);
+       // end.setHours(23,59,59,999);
     }else{
         start.setDate(date.getDate() - 7);
         start.setHours(0,0,0,0);
