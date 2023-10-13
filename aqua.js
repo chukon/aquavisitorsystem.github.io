@@ -4122,7 +4122,7 @@ var loadprintjobs =  function(){
     var end = new Date();
     var end2 = new Date();
     var d = new Date();
-    var name=prompt("Please choose one of the following\r\n1) Enter end search date > Click [Ok]\r\n2) Click [Ok] for today's date","Enter Date");
+    var name=prompt("Enter date when labels were last replaced (example: 01/09/2023)\r\n> Click [Ok]\r\n","Enter Date");
     if (name!="Enter Date"){
         d = new Date(name);
         var enddate = new Date(name);
@@ -4157,7 +4157,7 @@ var loadprintjobs =  function(){
     var Difference_In_Time = date2.getTime() - date1.getTime();
       
     // To calculate the no. of days between two dates
-    var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+    var Difference_In_Days = Math.ceil(Difference_In_Time / (1000 * 3600 * 24));
     //let sevendays = getDateXDaysAgo(7, d);
    // var smyDate = sevendays;
    // console.log("start:" + smyDate);
@@ -4174,6 +4174,135 @@ var loadprintjobs =  function(){
        console.log("Snapshot:" + querySnapshot.size); 
     var cnt = querySnapshot.size;
     var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (labels used)</h1><h2>" + "<label id='numcount'></label>"  + " labels printed over " + Difference_In_Days + " days from:<br>" + name + "</h2></center><center><a href='https://aquavisitorsystem.github.io/'>Go Home</a></center><br>";         
+    document.write(title);
+    document.write(printnow);
+    //document.write("<center><h3>Find your name and Tap 'Check-In'</b></center></h3>If your name is not found below, click <a href='" +  "https://ignitemeeting.github.io/?ipad=Yes"   + "'>here</a> to continue!<br><br><center>");
+    if (cnt === 0){
+        var nodata = "<center><br>No visitor data found<br></center>";
+        document.write(nodata);
+    }else{
+        document.write("<table id='report' style='font-size: small;'>  <tr>     <th style='cursor: pointer; color: red;' onclick='sortTable(0)'>UserID <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th style='cursor: pointer; color: red;' onclick='sortByDate2(7)'>CheckIn<i class='fa fa-sort' style='font-size:20px;color:blue'></i></th><th>CheckOut</th><th>Edit</th>  </tr>");
+    }
+    querySnapshot.forEach((doc) => {
+        var nodata = "";
+    // doc.data() is never undefined for query doc snapshots
+    var options = {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+    };
+    var options2 = {
+        hour: "2-digit",
+        minute: "2-digit"
+    };
+    var dates = new Date(doc.data().date).toLocaleDateString("fr-CA", options) + ' ' + new Date(doc.data().date).toLocaleTimeString("en", options2)
+    Visitors.push(doc.data().firstname + ' ' + doc.data().lastname + ' ' + doc.data().checkin);
+
+    console.log("loadtodayschedule:" + dates);
+    console.log("Visitors Array:" + Visitors.length);
+    console.log("cnt:" + cnt);
+    console.log("cnt / 2:" + cnt / 2);
+    console.log("loadtodayschedule:" + dates);
+    if ((doc.data().checkin !== "") && (doc.data().checkout !== ""))
+    {
+        document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td style="color: transparent;">' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().sourcekey + '">Click here</a></td></tr>');
+ 
+    }else{
+        document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().sourcekey + '">Click here</a></td></tr>');
+    }
+    document.getElementById("numcount").innerHTML = Math.ceil((cnt / 2));
+    document.getElementById("numcount").setAttribute("value", Math.ceil((cnt / 2)));
+});
+// let sendingText = "https://ignitemeeting.github.io/?ipad=Yes"
+document.head.innerHTML = header;
+document.write("</table>");
+document.getElementsByTagName("body")[0].style.display = "none";
+setTimeout("sortByDate2(7)", 3000);
+}) 
+    .catch((error) => {
+        console.log("Error getting documents: ", error);
+document.write(title);
+var nodata = "<center><br>No visitor data found<br></center>";
+document.write(nodata);
+document.head.innerHTML = header;
+});
+}
+
+var loadjobsfromdate =  function(){
+    var db = firebase.firestore();
+    var Visitors = [];
+    let todaysdate = new Date();
+    var count = 0;
+    var lines = "";
+    var today = new Date();
+    var x;
+    document.write("");
+    var date = new Date();
+    // date.setHours(0,0,0,0);
+    // var start = new Date();
+    // start.setDate(date.getDate() - 7);
+    //  start.setHours(0,0,0,0);
+    //  var end = new Date(date.getTime());
+    //  end.setHours(23,59,59,999);
+	
+    //start new 1/16/2023
+    var start = new Date();
+    var start2 = new Date();
+    var end = new Date();
+    var end2 = new Date();
+    var d = new Date();
+    var name=prompt("Please enter date < today (example: 01/09/2023)\r\n> Click [Ok]\r\n","Enter Date");
+    if (name!="Enter Date"){
+        d = new Date(name);
+        var enddate = new Date(name);
+        start = new Date();
+        start2  = new Date();
+        start.setDate(start.getDate());
+        //start.setHours(0,0,0,0);
+        start.setHours(23,59,59,999);
+        start2.setDate(start2.getDate());
+        start2.setHours(0,0,0,0);
+        end = new Date(enddate.getTime());
+        end2 = new Date(enddate.getTime());
+        end.setHours(0,0,0,0);
+        // end.setHours(23,59,59,999);
+    }else{
+        start.setDate(date.getDate() - 7);
+        start.setHours(0,0,0,0);
+        end = new Date(date.getTime());
+        end.setHours(23,59,59,999);
+    }	
+    //end new 1/16/2023
+    start = new Date(start.getTime() - (start.getTimezoneOffset() * 60000)).toISOString();
+	  
+    end = new Date(end.getTime() - (end.getTimezoneOffset() * 60000)).toISOString();	 
+    // var d = new Date();
+    var myDate = new Date(d).toLocaleDateString('en-US');   
+    var date1 = new Date(end2);
+   
+    var date2 = new Date(start2);
+ 
+    // To calculate the time difference of two dates
+    var Difference_In_Time = date2.getTime() - date1.getTime();
+      
+    // To calculate the no. of days between two dates
+    var Difference_In_Days = Math.ceil(Difference_In_Time / (1000 * 3600 * 24));
+    //let sevendays = getDateXDaysAgo(7, d);
+    // var smyDate = sevendays;
+    // console.log("start:" + smyDate);
+    name = date1.toLocaleDateString('en-US') + ' - ' + date2.toLocaleDateString('en-US');
+    console.log(name);
+    var  todays = new Date().toLocaleDateString('en-US');  
+    var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(5){display: none;}#report tr > *:nth-child(10){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
+    var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
+    console.log("Start Date: " + end);
+    console.log("End Date: " + start);
+    db.collection("log").where("date", ">=",end).where("date", "<=",start).where("remove", "==","No").orderBy("date","desc").orderBy("lastname","asc")
+   .get()
+   .then((querySnapshot) => {
+       console.log("Snapshot:" + querySnapshot.size); 
+    var cnt = querySnapshot.size;
+    var title = "<center><h1>Aqua-Aerobic Systems Visitor Count</h1><h2>" + "<label id='numcount'></label>"  + " guests visited over " + Difference_In_Days + " days from:<br>" + name + "</h2></center><center><a href='https://aquavisitorsystem.github.io/'>Go Home</a></center><br>";         
     document.write(title);
     document.write(printnow);
     //document.write("<center><h3>Find your name and Tap 'Check-In'</b></center></h3>If your name is not found below, click <a href='" +  "https://ignitemeeting.github.io/?ipad=Yes"   + "'>here</a> to continue!<br><br><center>");
@@ -4745,6 +4874,8 @@ var getloginname = function(){
         removeInactiveUsers();
     }else if (username.toLowerCase()  === 'printjobs') {
         loadprintjobs();
+    }else if (username.toLowerCase()  === 'count') {
+        loadjobsfromdate();
     }else if (username.toLowerCase()  === 'activity') {
         window.location.href = 'https://chukon.github.io/aquavisitoractivity.github.io/firestore/';
     }else{
@@ -5035,7 +5166,7 @@ var updatescheduleshome = function(){
 }
        
 var getall = function(){
-     var visitorlist = ['today', 'active', 'name', 'date', 'all', 'inactive', 'loguserid', 'logname', 'logall', 'logtoday', 'logweek', 'logdate'];
+     var visitorlist = ['today', 'active', 'name', 'date', 'all', 'inactive', 'count','loguserid', 'logname', 'logall', 'logtoday', 'logweek', 'logdate','printjobs'];
     var list = document.getElementById('loginlist');
     visitorlist.forEach(function(item){
         var option = document.createElement('option');
