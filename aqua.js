@@ -15,7 +15,8 @@ firebase.initializeApp(firebaseConfig);
     document.getElementById("update_db").disabled = true;
     document.getElementById('update_db').style.visibility = 'hidden';
       
-    //Add Log File
+//Add Log File
+    var datelabels="";
     var fldlogin;
     var fldfirstname;
     var fldlastname;
@@ -4122,7 +4123,16 @@ var loadprintjobs =  function(){
     var end = new Date();
     var end2 = new Date();
     var d = new Date();
-    var name=prompt("Enter date when labels were last replaced (example: 01/09/2023)\r\n> Click [Ok]\r\n","Enter Date");
+    jQuery.get('labelschanged.txt', function(data) {
+        //alert(data.length);
+        // initialize title and body variables
+        if (data.length > 3){
+            datelabels = data;
+           
+        }
+    });
+    var name=prompt("PrintJobs:\r\n1) The date when labels were last replaced(format: mm/dd/yyyy)\r\n10/16/2023\r\n2) Click [Ok]\r\n", datelabels);
+   // var name=prompt("Visitor Count:\r\n1) Please enter date < today\r\n(example: 01/09/2023)\r\n2) Click [Ok]\r\n","Enter Date");
     if (name!="Enter Date"){
         d = new Date(name);
         var enddate = new Date(name);
@@ -4228,6 +4238,17 @@ document.head.innerHTML = header;
 });
 }
 
+function  getdateoflabels() {
+    jQuery.get('labelschanged.txt', function(data) {
+        //alert(data.length);
+        // initialize title and body variables
+        if (data.length > 3){
+            datelabels = data;
+           
+        }
+    });
+}
+
 var loadjobsfromdate =  function(){
     var db = firebase.firestore();
     var Visitors = [];
@@ -4251,7 +4272,7 @@ var loadjobsfromdate =  function(){
     var end = new Date();
     var end2 = new Date();
     var d = new Date();
-    var name=prompt("Please enter date < today (example: 01/09/2023)\r\n> Click [Ok]\r\n","Enter Date");
+    var name=prompt("Visitor Count:\r\n1) Please enter date < today\r\n(example: 01/09/2023)\r\n2) Click [Ok]\r\n","Enter Date");
     if (name!="Enter Date"){
         d = new Date(name);
         var enddate = new Date(name);
