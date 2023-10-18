@@ -4100,7 +4100,7 @@ document.head.innerHTML = header;
 });
 }
 
-var loadprintjobs =  function(){
+var loadprintjobs = function(text) {
     var db = firebase.firestore();
     var Visitors = [];
     let todaysdate = new Date();
@@ -4123,15 +4123,7 @@ var loadprintjobs =  function(){
     var end = new Date();
     var end2 = new Date();
     var d = new Date();
-    jQuery.get('labelschanged.txt', function(data) {
-        //alert(data.length);
-        // initialize title and body variables
-        if (data.length > 3){
-            datelabels = data;
-           
-        }
-    });
-    var name=prompt("PrintJobs:\r\n1) The date when labels were last replaced(format: mm/dd/yyyy)\r\n10/16/2023\r\n2) Click [Ok]\r\n", datelabels);
+    var name=prompt("PrintJobs:\r\n1) The date when labels were last replaced(format: mm/dd/yyyy)\r\n10/16/2023\r\n2) Click [Ok]\r\n", text);
    // var name=prompt("Visitor Count:\r\n1) Please enter date < today\r\n(example: 01/09/2023)\r\n2) Click [Ok]\r\n","Enter Date");
     if (name!="Enter Date"){
         d = new Date(name);
@@ -4243,8 +4235,8 @@ function  getdateoflabels() {
         //alert(data.length);
         // initialize title and body variables
         if (data.length > 3){
-            datelabels = data;
-           
+            var text = data;
+            loadprintjobs(text);
         }
     });
 }
@@ -4894,7 +4886,7 @@ var getloginname = function(){
     }else if (username.toLowerCase()  === 'removeinactive') {
         removeInactiveUsers();
     }else if (username.toLowerCase()  === 'printjobs') {
-        loadprintjobs();
+        getdateoflabels();
     }else if (username.toLowerCase()  === 'count') {
         loadjobsfromdate();
     }else if (username.toLowerCase()  === 'activity') {
