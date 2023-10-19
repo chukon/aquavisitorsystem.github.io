@@ -1076,6 +1076,7 @@ document.getElementById('back').style.display = 'block';
             alert("Enter your Network Login ID above & try again!");
         }else{
             get_login  = get_login.trim().toLowerCase();
+            //https://aquavisitorsystem.github.io/?userid=maylward&report=active
             //get_login.trim().toLowerCase();
             console.log(get_login);
             var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style><script src='sorttable.js'></script></head>";
@@ -1085,15 +1086,16 @@ document.getElementById('back').style.display = 'block';
             db.collection("messages").where("login", "==",get_login).where("remove", "==","No").orderBy("date","desc")
         .get()
         .then((querySnapshot) => {
-
             var cnt = querySnapshot.size;
             //(" +  "<label id='numcount'></label>" + " visits)
             //var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (active report)</h1><h2>" +  "<label id='numcount'></label>" + + " Active Visitor Schedule(s) for: " + get_login + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
             //var msg = '<button  onclick="loaddb(' + username + ')"><u>Example button</u></button>';
       
             var msg = "<input type='button' id='btnPrint' onclick='loaddb();' value='Show All Schedules for: " + fldloginID  + "'/>";
+
+
       
-            var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (Aqua UserID Report)</h1><h2>" + "<label id='numcount'></label>" + " Active Visitor Schedule(s) for: " + get_login + "<br><small>(showing today and beyond only)</small></h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a>" + "<br><br>" + msg  +   "<br><br></center>";
+            var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (Aqua UserID Report)</h1><h2>" + "<label id='numcount'></label>" + " Active Visitor Schedule(s) for: <a href='https://aquavisitorsystem.github.io/?userid=" + get_login + "&report=active'>" + get_login + "</a><br><small>(showing today and beyond only)</small></h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a>" + "<br><br>" + msg  +   "<br><br></center>";
   
             document.write(title);
             document.write(printnow);
@@ -4898,6 +4900,7 @@ var getloginname = function(){
         }
         //loaddb(data);
         loaddbactive(data);
+    
     }
     //loadlogdate
 }
