@@ -4891,7 +4891,7 @@ var getloginname = function(){
         getdateoflabels();
     }else if (username.toLowerCase()  === 'count') {
         loadjobsfromdate();
-    }else if (username.toLowerCase()  === 'activity') {
+    }else if (username.toLowerCase()  === 'activitylog') {
        //window.open('https://aquavisitorsystem.github.io/aquavisitoractivity.github.io/firestore/', '_blank').focus();
        window.location.href = 'https://aquavisitorsystem.github.io/aquavisitoractivity.github.io/firestore/';
     }else{
@@ -5183,7 +5183,7 @@ var updatescheduleshome = function(){
 }
        
 var getall = function(){
-     var visitorlist = ['today', 'active', 'name', 'date', 'all', 'inactive', 'count','activity','loguserid', 'logname', 'logall', 'logtoday', 'logweek', 'logdate','printjobs'];
+     var visitorlist = ['today', 'active', 'name', 'date', 'all', 'inactive', 'count','activitylog','loguserid', 'logname', 'logall', 'logtoday', 'logweek', 'logdate','printjobs'];
     var list = document.getElementById('loginlist');
     visitorlist.forEach(function(item){
         var option = document.createElement('option');
