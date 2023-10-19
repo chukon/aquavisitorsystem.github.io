@@ -4890,9 +4890,8 @@ var getloginname = function(){
     }else if (username.toLowerCase()  === 'count') {
         loadjobsfromdate();
     }else if (username.toLowerCase()  === 'activity') {
-        window.open('https://aquavisitorsystem.github.io/aquavisitoractivity.github.io/firestore/', '_blank').focus();
-       
-       //window.location.href = 'https://chukon.github.io/aquavisitoractivity.github.io/firestore/';
+       //window.open('https://aquavisitorsystem.github.io/aquavisitoractivity.github.io/firestore/', '_blank').focus();
+       window.location.href = 'https://aquavisitorsystem.github.io/aquavisitoractivity.github.io/firestore/';
     }else{
         var data = {
             "userid": username
