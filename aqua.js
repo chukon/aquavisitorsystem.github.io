@@ -4890,7 +4890,9 @@ var getloginname = function(){
     }else if (username.toLowerCase()  === 'count') {
         loadjobsfromdate();
     }else if (username.toLowerCase()  === 'activity') {
-        window.location.href = 'https://chukon.github.io/aquavisitoractivity.github.io/firestore/';
+        window.open('https://aquavisitorsystem.github.io/aquavisitoractivity.github.io/firestore/', '_blank').focus();
+       
+       //window.location.href = 'https://chukon.github.io/aquavisitoractivity.github.io/firestore/';
     }else{
         var data = {
             "userid": username
@@ -5179,7 +5181,7 @@ var updatescheduleshome = function(){
 }
        
 var getall = function(){
-     var visitorlist = ['today', 'active', 'name', 'date', 'all', 'inactive', 'count','loguserid', 'logname', 'logall', 'logtoday', 'logweek', 'logdate','printjobs'];
+     var visitorlist = ['today', 'active', 'name', 'date', 'all', 'inactive', 'count','activity','loguserid', 'logname', 'logall', 'logtoday', 'logweek', 'logdate','printjobs'];
     var list = document.getElementById('loginlist');
     visitorlist.forEach(function(item){
         var option = document.createElement('option');
@@ -5552,6 +5554,16 @@ if ((id_active === 'No') && (userid != null && userid != '')) {
 } else {
     console.log('string IS empty');
 }     
+
+// empty string
+if ((g_report === 'active') && (userid != null && userid != '')) {
+    var data = {
+        "userid": userid,
+    }
+    loaddbactive(data);
+} else {
+    console.log('string IS empty');
+}  
       
 if ((id_active === 'Yes') && (userid != null && userid != '')) {
     var data = {
