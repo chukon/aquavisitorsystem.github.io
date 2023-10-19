@@ -5202,10 +5202,10 @@ var getall = function(){
     document.getElementById('get_id2').style.display = 'none';
     document.getElementById('loginlabel').innerText = 'Aqua Employee User ID OR Keyword';
        // document.getElementsByName('login')[0].placeholder = '[KEYWORDS] today, active, name, date, all, inactive, loguserid, logname, logall, logtoday, logweek, logdate';
-    document.getElementsByName('login')[0].placeholder = 'Type [Aqua User ID] OR select [keyword] from dropdown list > press [Enter] key';
-    document.getElementById("login").title = 'Type [Aqua User ID] OR select [keyword] from dropdown list > press [Enter] key';
+    document.getElementsByName('login')[0].placeholder = 'Type [Aqua User ID] OR select [keyword] from dropdown > press [Enter] key';
+    document.getElementById("login").title = 'Type [Aqua User ID] OR select [keyword] from dropdown > press [Enter] key';
     document.getElementById('emaillabel').style.display = 'none';
-    document.getElementById("login").style.width = "675px";
+    document.getElementById("login").style.width = "510px";
     document.getElementById("login").addEventListener("keypress", getSchedule2);
     document.getElementById("login").focus();
 }
