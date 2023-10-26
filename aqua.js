@@ -5502,6 +5502,14 @@ if (g_load === null) {
     console.log(g_load);
 }  
 
+// getdateoflabels();
+
+if (g_report === 'labels') {
+    getdateoflabels();
+} else {
+    console.log('string IS empty');
+}  
+
 if (g_report === 'checkins') {
     dailycheckin();
 } else {
