@@ -4177,7 +4177,7 @@ var loadprintjobs = function(text) {
    .then((querySnapshot) => {
        console.log("Snapshot:" + querySnapshot.size); 
     var cnt = querySnapshot.size;
-    var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (labels used)</h1><h2>" + "<label id='numcount'></label>"  + " labels printed over " + Difference_In_Days + " days from:<br>" + name + "</h2></center><center><a href='https://aquavisitorsystem.github.io/'>Go Home</a></center><br>";         
+    var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (labels used)</h1><h2>" + "<label id='numcount'></label>"  + " labels printed over " + Difference_In_Days + " days from:<br>" + name + "</h2>" + "<label id='numcount2'></label>" + "</center><center><a href='https://aquavisitorsystem.github.io/'>Go Home</a></center><br>";         
     document.write(title);
     document.write(printnow);
     //document.write("<center><h3>Find your name and Tap 'Check-In'</b></center></h3>If your name is not found below, click <a href='" +  "https://ignitemeeting.github.io/?ipad=Yes"   + "'>here</a> to continue!<br><br><center>");
@@ -4216,6 +4216,8 @@ var loadprintjobs = function(text) {
     }
     document.getElementById("numcount").innerHTML = Math.ceil((cnt / 2));
     document.getElementById("numcount").setAttribute("value", Math.ceil((cnt / 2)));
+    document.getElementById("numcount2").innerHTML = Math.ceil((cnt / 2)) / 260 + " labels remain";
+    document.getElementById("numcount2").setAttribute("value", Math.ceil((cnt / 2)) + " labels remain");
 });
 // let sendingText = "https://ignitemeeting.github.io/?ipad=Yes"
 document.head.innerHTML = header;
