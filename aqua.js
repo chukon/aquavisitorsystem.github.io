@@ -4216,8 +4216,8 @@ var loadprintjobs = function(text) {
     }
     document.getElementById("numcount").innerHTML = Math.ceil((cnt / 2));
     document.getElementById("numcount").setAttribute("value", Math.ceil((cnt / 2)));
-    document.getElementById("numcount2").innerHTML = "(" + 260 - Math.ceil((cnt / 2))  + "/260 labels remain)";
-    document.getElementById("numcount2").setAttribute("value", "(" + 260 - Math.ceil((cnt / 2)) + "/260 labels remain)");
+    document.getElementById("numcount2").innerHTML = "(" + (260 - Math.ceil((cnt / 2)))  + "/260 labels remain)";
+    document.getElementById("numcount2").setAttribute("value", "(" + (260 - Math.ceil((cnt / 2))) + "/260 labels remain)");
 });
 // let sendingText = "https://ignitemeeting.github.io/?ipad=Yes"
 document.head.innerHTML = header;
