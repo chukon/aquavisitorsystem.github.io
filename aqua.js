@@ -5186,7 +5186,8 @@ var updatescheduleshome = function(){
        
 var getall = function(){
      var visitorlist = ['today', 'active', 'name', 'date', 'all', 'inactive', 'count','activitylog','loguserid', 'logname', 'logall', 'logtoday', 'logweek', 'logdate','printjobs'];
-    var list = document.getElementById('loginlist');
+     var list = document.getElementById('loginlist');
+     var logins = document.getElementById('login');
     visitorlist.forEach(function(item){
         var option = document.createElement('option');
         option.value = item;
@@ -5209,9 +5210,42 @@ var getall = function(){
     document.getElementById('emaillabel').style.display = 'none';
     document.getElementById("login").style.width = "380px";
     document.getElementById("login").addEventListener("keypress", getSchedule2);
+    //logins.addEventListener("click", function() {
+    //    var options = logins.querySelectorAll("option");
+    //    var count = options.length;
+      
+    //    console.log("click logins.valueb: " + logins.value);
+    //    console.log("click typeof(count)b: " + typeof(count));
+    //    if(typeof(count) === "undefined" || count < 2)
+    //    {
+    //        console.log("click logins.valuea: " + logins.value);
+    //        console.log("click typeof(count)a: " + typeof(count));
+    //        if(logins.value != "")
+    //        {
+    //            console.log("click logins.valuec: " + logins.value);
+    //            console.log("click typeof(count)c: " + typeof(count));  
+    //        }
+ 
+    //    }
+    //});
+
+    logins.addEventListener("change", function() {
+        console.log("change logins.valuea: " + logins.value);
+        if(logins.value != "undefined")
+        {
+            console.log("change logins.valueb: " + logins.value);
+            getloginname();  
+        }
+        
+        
+    });
     document.getElementById("login").focus();
 }
-       
+    
+var getprompt = function(){
+    alert("hello");
+}
+
 // <button id="checkin" type="button">Everything look ok? Tap Here to Check-In</button>
        
 document.getElementById('schedule').style.display = 'block';
