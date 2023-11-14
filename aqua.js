@@ -4895,7 +4895,7 @@ var getloginname = function(){
         loadjobsfromdate();
     }else if (username.toLowerCase()  === 'activitylog') {
        //window.open('https://aquavisitorsystem.github.io/aquavisitoractivity.github.io/firestore/', '_blank').focus();
-       window.location.href = 'https://aquavisitorsystem.github.io/aquavisitoractivity.github.io/firestore/';
+        window.location.href = 'https://aquavisitorsystem.github.io/aquavisitoractivity.github.io/firestore/today.html';
     }else{
         var data = {
             "userid": username
