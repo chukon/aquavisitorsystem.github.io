@@ -4456,8 +4456,10 @@ let uniquevarto_username = [...new Set(todayusers_varto_username)];
     //console.log(uniqueChars);
 var arrayLength = uniqueChars.length;
 for (var i = 0; i < arrayLength; i++) {
-    console.log(arrayLength);
-     console.log(i);
+    console.log(uniqueChars);
+    console.log(uniquevarto_email);
+     console.log(uniquevarto_name);
+      console.log(uniquevarto_username);
    varto_email = uniquevarto_email[i];
     varto_name = uniquevarto_name[i];
     varto_username = uniqueChars[i];
