@@ -33,7 +33,7 @@ firebase.initializeApp(firebaseConfig);
     var flddailycheckout;
 
     var fldloginID;
-
+    var varto_username = "";
     var varfrom_name = "";
     var varto_email = "";
     var varto_name = "";
@@ -230,6 +230,25 @@ firebase.initializeApp(firebaseConfig);
             }).catch(function(error) {
                 console.log("Error getting document:", error);
             }); 
+        }
+
+        var senddaily = function(){
+            var link = "https://aquavisitorsystem.github.io/?userid=" + varto_username + "&report=active";
+            var templateParams = {
+                "to_name" : varto_name,
+                "to_email" : "ckonkol@aqua-aerobic.com", //varto_email,
+                "to_link" : link
+            };
+            console.log("to_name: " + varto_name);
+            console.log("to_email: " + varto_email);
+            console.log("to_link: " + "https://aquavisitorsystem.github.io/?userid=" + varto_username + "&report=activecc_email");
+            emailjs.send('service_aqua', 'template_daily', templateParams)
+             .then(function(response) {
+                 console.log('SUCCESS!', response.status, response.text);
+             }, function(error) {
+                 console.log('FAILED...', error);
+             });
+		
         }
 
         var sendcheckedin = function(){
@@ -3983,6 +4002,503 @@ document.getElementById("reptitle").innerHTML = "<center><h1>Aqua-Aerobic System
         setTimeout("sortByDate(4)", 2000);
 }
 
+var emailtodayschedule =  function(){
+var x = 0;
+    var db = firebase.firestore();
+let todaysdate = new Date();
+var count = 0;
+var lines = "";
+var today = new Date();
+var x;
+//document.write("");
+ var start = new Date();
+  start.setHours(0,0,0,0);
+  var end = new Date(start.getTime());
+  end.setHours(23,59,59,999);
+  start = new Date(start.getTime() - (start.getTimezoneOffset() * 60000)).toISOString();
+  end = new Date(end.getTime() - (end.getTimezoneOffset() * 60000)).toISOString();	 
+var d = new Date();
+var myDate = new Date(d).toLocaleDateString('en-US');   
+name = myDate.toString();
+console.log(name);
+var  todays = new Date().toLocaleDateString('en-US');  
+ var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(8){display: none;}#report tr > *:nth-child(9){display: none;}#report tr > *:nth-child(10){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
+  var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
+  var RecordIDs = [];
+  let todayusers= [];
+let todayusers_varto_email = [];
+let todayusers_varto_name = [];
+let todayusers_varto_username = [];
+  var cnt1;
+const promise = new Promise((resolve, reject) => {
+ db.collection("messages").where("date", ">=",start).where("date", "<=",end).where("remove", "==","No").orderBy("date","asc").orderBy("lastname","asc").get().then((querySnapshot) => {
+     console.log("SnapshotPromise:" + querySnapshot.size); 
+cnt1 = querySnapshot.size;
+        querySnapshot.forEach(doc => {
+        console.log("docid:" + doc.id, ' => ', doc.data());
+        RecordIDs.push( doc.id);
+});
+//resolve(RecordIDs);
+});
+//START
+db.collection("messages").where("date2", ">=",start).where("date2", "<=",end).where("remove", "==","No").orderBy("date2","asc").orderBy("lastname","asc").get().then((querySnapshot) => {
+    console.log("SnapshotPromise:" + querySnapshot.size); 
+cnt1 = querySnapshot.size + cnt1;
+querySnapshot.forEach(doc => {
+    console.log("docid:" + doc.id, ' => ', doc.data());
+RecordIDs.push( doc.id);
+});
+//resolve(RecordIDs);
+});
+//END
+//START
+db.collection("messages").where("date3", ">=",start).where("date3", "<=",end).where("remove", "==","No").orderBy("date3","asc").orderBy("lastname","asc").get().then((querySnapshot) => {
+    console.log("SnapshotPromise:" + querySnapshot.size); 
+cnt1 = querySnapshot.size + cnt1;
+querySnapshot.forEach(doc => {
+    console.log("docid:" + doc.id, ' => ', doc.data());
+RecordIDs.push( doc.id);
+});
+//resolve(RecordIDs);
+});
+//END
+//START
+db.collection("messages").where("date4", ">=",start).where("date4", "<=",end).where("remove", "==","No").orderBy("date4","asc").orderBy("lastname","asc").get().then((querySnapshot) => {
+    console.log("SnapshotPromise:" + querySnapshot.size); 
+cnt1 = querySnapshot.size + cnt1;
+querySnapshot.forEach(doc => {
+    console.log("docid:" + doc.id, ' => ', doc.data());
+RecordIDs.push( doc.id);
+});
+//resolve(RecordIDs);
+});
+//END
+//START
+db.collection("messages").where("date5", ">=",start).where("date5", "<=",end).where("remove", "==","No").orderBy("date5","asc").orderBy("lastname","asc").get().then((querySnapshot) => {
+    console.log("SnapshotPromise:" + querySnapshot.size); 
+cnt1 = querySnapshot.size + cnt1;
+querySnapshot.forEach(doc => {
+    console.log("docid:" + doc.id, ' => ', doc.data());
+RecordIDs.push( doc.id);
+});
+//resolve(RecordIDs);
+});
+//END
+//START
+db.collection("messages").where("date6", ">=",start).where("date6", "<=",end).where("remove", "==","No").orderBy("date6","asc").orderBy("lastname","asc").get().then((querySnapshot) => {
+    console.log("SnapshotPromise:" + querySnapshot.size); 
+cnt1 = querySnapshot.size + cnt1;
+querySnapshot.forEach(doc => {
+    console.log("docid:" + doc.id, ' => ', doc.data());
+RecordIDs.push( doc.id);
+});
+//resolve(RecordIDs);
+});
+//END
+//START
+db.collection("messages").where("date7", ">=",start).where("date7", "<=",end).where("remove", "==","No").orderBy("date7","asc").orderBy("lastname","asc").get().then((querySnapshot) => {
+    console.log("SnapshotPromise:" + querySnapshot.size); 
+cnt1 = querySnapshot.size + cnt1;
+querySnapshot.forEach(doc => {
+    console.log("docid:" + doc.id, ' => ', doc.data());
+RecordIDs.push( doc.id);
+});
+//resolve(RecordIDs);
+});
+//END
+//START
+db.collection("messages").where("date8", ">=",start).where("date8", "<=",end).where("remove", "==","No").orderBy("date8","asc").orderBy("lastname","asc").get().then((querySnapshot) => {
+    console.log("SnapshotPromise:" + querySnapshot.size); 
+cnt1 = querySnapshot.size + cnt1;
+querySnapshot.forEach(doc => {
+    console.log("docid:" + doc.id, ' => ', doc.data());
+RecordIDs.push( doc.id);
+});
+//resolve(RecordIDs);
+});
+//END
+//START
+db.collection("messages").where("date9", ">=",start).where("date9", "<=",end).where("remove", "==","No").orderBy("date9","asc").orderBy("lastname","asc").get().then((querySnapshot) => {
+    console.log("SnapshotPromise:" + querySnapshot.size); 
+cnt1 = querySnapshot.size + cnt1;
+querySnapshot.forEach(doc => {
+    console.log("docid:" + doc.id, ' => ', doc.data());
+RecordIDs.push( doc.id);
+});
+//resolve(RecordIDs);
+});
+//END
+db.collection("messages").where("date10", ">=",start).where("date10", "<=",end).where("remove", "==","No").orderBy("date10","asc").orderBy("lastname","asc").get().then((querySnapshot) => {
+    console.log("SnapshotPromise:" + querySnapshot.size); 
+cnt1 = querySnapshot.size + cnt1;
+querySnapshot.forEach(doc => {
+    console.log("docid:" + doc.id, ' => ', doc.data());
+RecordIDs.push( doc.id);
+});
+//resolve(RecordIDs);
+});
+//END
+//START
+db.collection("messages").where("date11", ">=",start).where("date11", "<=",end).where("remove", "==","No").orderBy("date11","asc").orderBy("lastname","asc").get().then((querySnapshot) => {
+    console.log("SnapshotPromise:" + querySnapshot.size); 
+cnt1 = querySnapshot.size + cnt1;
+querySnapshot.forEach(doc => {
+    console.log("docid:" + doc.id, ' => ', doc.data());
+RecordIDs.push( doc.id);
+});
+//resolve(RecordIDs);
+});
+//END
+//START
+db.collection("messages").where("date12", ">=",start).where("date12", "<=",end).where("remove", "==","No").orderBy("date12","asc").orderBy("lastname","asc").get().then((querySnapshot) => {
+    console.log("SnapshotPromise:" + querySnapshot.size); 
+cnt1 = querySnapshot.size + cnt1;
+querySnapshot.forEach(doc => {
+    console.log("docid:" + doc.id, ' => ', doc.data());
+RecordIDs.push( doc.id);
+});
+//resolve(RecordIDs);
+});
+//END
+//START
+db.collection("messages").where("mon", "==",true).where("remove", "==","No").get().then((querySnapshot) => {
+    console.log("mon cnt1:" + cnt1);
+console.log("mon SnapshotPromise:" + querySnapshot.size); 
+cnt1 = querySnapshot.size + cnt1;
+querySnapshot.forEach(doc => {
+    console.log("mon docid:" + doc.id, ' => ', doc.data());
+RecordIDs.push( doc.id);
+});
+//resolve(RecordIDs);
+});
+//END
+
+//START
+db.collection("messages").where("tue", "==",true).where("remove", "==","No").get().then((querySnapshot) => {
+    console.log("mon cnt1:" + cnt1);
+console.log("tue SnapshotPromise:" + querySnapshot.size); 
+cnt1 = querySnapshot.size + cnt1;
+querySnapshot.forEach(doc => {
+    console.log("tue docid:" + doc.id, ' => ', doc.data());
+RecordIDs.push( doc.id);
+});
+//resolve(RecordIDs);
+});
+//END
+
+//START
+db.collection("messages").where("wed", "==",true).where("remove", "==","No").get().then((querySnapshot) => {
+    console.log("wed cnt1:" + cnt1);
+console.log("wed SnapshotPromise:" + querySnapshot.size); 
+cnt1 = querySnapshot.size + cnt1;
+querySnapshot.forEach(doc => {
+    console.log("wed docid:" + doc.id, ' => ', doc.data());
+RecordIDs.push( doc.id);
+});
+///resolve(RecordIDs);
+});
+//END
+
+//START
+db.collection("messages").where("thu", "==",true).where("remove", "==","No").get().then((querySnapshot) => {
+    console.log("thu cnt1:" + cnt1);
+console.log("thu SnapshotPromise:" + querySnapshot.size); 
+cnt1 = querySnapshot.size + cnt1;
+querySnapshot.forEach(doc => {
+    console.log("thu docid:" + doc.id, ' => ', doc.data());
+RecordIDs.push( doc.id);
+});
+//resolve(RecordIDs);
+});
+//END
+
+//START
+db.collection("messages").where("fri", "==",true).where("remove", "==","No").get().then((querySnapshot) => {
+    console.log("fri cnt1:" + cnt1);
+console.log("fri SnapshotPromise:" + querySnapshot.size); 
+cnt1 = querySnapshot.size + cnt1;
+querySnapshot.forEach(doc => {
+    console.log("fri docid:" + doc.id, ' => ', doc.data());
+RecordIDs.push( doc.id);
+});
+resolve(RecordIDs);
+});
+//END
+}); 
+
+var docs;
+promise.then(values => {
+    console.log("values:" + values);
+docs = values;
+docs = docs.filter(onlyUnique);
+console.log("docs:" + docs);
+const chunkSize = 10;
+var chunk;
+var title = "<div id='reptitle'><center><h1>Aqua-Aerobic Systems Visitor Schedule (today report)</h1><h2>" + cnt1 + " Visitor(s) for: " + name + "</h2></center></div><center><a href='https://aquavisitorsystem.github.io/'>Go Home</a></center><br>";         
+//document.write(title);
+//document.write(printnow);
+if (cnt1 === 0){
+    var nodata = "<center><br>No visitor data found<br></center>";
+    //document.write(nodata);
+}else{
+    //document.write("<table id='report' style='font-size: small;'> <thead>  <tr>    <th>UserID</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr></thead> ");	
+}
+
+for (let i = 0; i < docs.length; i += chunkSize) {
+    chunk = docs.slice(i, i + chunkSize);
+    db.collection("messages").where("key", "in",chunk).orderBy("date","asc").orderBy("lastname","asc")
+    .get()
+    .then((querySnapshot) => {
+	 console.log("Snapshot:" + querySnapshot.size); 
+        var cnt = querySnapshot.size;
+if (cnt === 0){
+	 var nodata = "<center><br>No visitor data found<br></center>";
+    // document.write(nodata);
+}else{
+    //document.write("<table id='report' style='font-size: small;'>  <tr>    <th>UserID</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");	
+}
+         querySnapshot.forEach((doc) => {
+var nodata = "";
+    // doc.data() is never undefined for query doc snapshots
+   console.log(doc.id, " => ", doc.data());
+                var options = {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit"
+};
+                    var options2 = {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit"
+};
+
+const datea = new Date(doc.data().date13);
+const dateb = new Date(doc.data().date14);
+
+var date13 = addOneDay(datea).toLocaleDateString("en", options2);
+var date14 = addOneDay(dateb).toLocaleDateString("en", options2);
+var dates = new Date(doc.data().date).toLocaleDateString("en", options)
+
+var dates = new Date(doc.data().date).toLocaleDateString("en", options)
+var todays = new Date().toDateString();
+
+console.log("todaysdate: " + todays);
+console.log("date2: " + new Date(doc.data().date2).toDateString());
+if (todays === new Date(doc.data().date2).toDateString()) {
+dates = new Date(doc.data().date2).toLocaleDateString("en", options)
+    //setTimeout("sortTable(3)", 2000);
+}
+if (todays === new Date(doc.data().date3).toDateString()) {
+dates = new Date(doc.data().date3).toLocaleDateString("en", options)
+    //setTimeout("sortTable(3)", 2000);
+}
+if (todays === new Date(doc.data().date4).toDateString()) {
+dates = new Date(doc.data().date4).toLocaleDateString("en", options)
+    //setTimeout("sortTable(3)", 2000);
+}
+if (todays === new Date(doc.data().date5).toDateString()) {
+dates = new Date(doc.data().date5).toLocaleDateString("en", options)
+    //setTimeout("sortTable(3)", 2000);
+}
+if (todays === new Date(doc.data().date6).toDateString()) {
+dates = new Date(doc.data().date6).toLocaleDateString("en", options)
+    //setTimeout("sortTable(3)", 2000);
+}
+if (todays === new Date(doc.data().date7).toDateString()) {
+dates = new Date(doc.data().date7).toLocaleDateString("en", options)
+    //setTimeout("sortTable(3)", 2000);
+}
+if (todays === new Date(doc.data().date8).toDateString()) {
+dates = new Date(doc.data().date8).toLocaleDateString("en", options)
+    //setTimeout("sortTable(3)", 2000);
+}
+if (todays === new Date(doc.data().date9).toDateString()) {
+dates = new Date(doc.data().date9).toLocaleDateString("en", options)
+    //setTimeout("sortTable(3)", 2000);
+}
+if (todays === new Date(doc.data().date10).toDateString()) {
+dates = new Date(doc.data().date10).toLocaleDateString("en", options)
+    //setTimeout("sortTable(3)", 2000);
+}
+if (todays === new Date(doc.data().date11).toDateString()) {
+dates = new Date(doc.data().date11).toLocaleDateString("en", options)
+    //setTimeout("sortTable(3)", 2000);
+}
+if (todays === new Date(doc.data().date12).toDateString()) {
+dates = new Date(doc.data().date12).toLocaleDateString("en", options)
+    //setTimeout("sortTable(3)", 2000);
+}
+ var dt1 = new Date(todays).toLocaleDateString("en", options2);
+  if (doc.data().mon === true) {
+        var dt = new Date(dt1);
+        var ndt = dt.getDay();
+       if (dt1 >= date13 && dt1 <= date14 && ndt === 1){
+            var ndt = dt.getDay();
+           console.log("mon ndt: " + ndt);
+          
+   
+       var h  =  tConvert (doc.data().rectime);
+       dates = name + "," + h; 
+       dates = new Date(dates).toLocaleDateString("en", options);
+}else{
+cnt1 = cnt1 - 1
+}
+}
+
+    if (doc.data().tue === true)  {
+var dt = new Date(dt1);
+        var ndt = dt.getDay();
+        if (dt1 >= date13 && dt1 <= date14 && ndt === 2){
+        
+           console.log("tue ndt: " + ndt);
+          
+     
+       var h  =  tConvert (doc.data().rectime);
+       dates = name + "," + h;
+              dates = new Date(dates).toLocaleDateString("en", options);
+}else{
+cnt1 = cnt1 - 1
+}
+}
+
+    if (doc.data().wed === true) {
+ var dt = new Date(dt1);
+        var ndt = dt.getDay();
+     if (dt1 >= date13 && dt1 <= date14 && ndt === 3){
+
+       
+           console.log("wed ndt: " + ndt);
+     
+       var h  =  tConvert (doc.data().rectime);
+       dates = name + "," + h; 
+              dates = new Date(dates).toLocaleDateString("en", options);
+}else{
+cnt1 = cnt1 - 1
+}
+}
+
+    if (doc.data().thu === true) {
+var dt = new Date(dt1);
+        var ndt = dt.getDay();
+     if (dt1 >= date13 && dt1 <= date14 && ndt === 4){
+        
+           console.log("thu ndt: " + ndt);
+   
+       var h  =  tConvert (doc.data().rectime);
+       dates = name + "," + h; 
+              dates = new Date(dates).toLocaleDateString("en", options);
+}else{
+cnt1 = cnt1 - 1
+}
+}
+
+    if (doc.data().fri === true) {
+      var dt = new Date(dt1);
+        var ndt = dt.getDay();
+     if (dt1 >= date13 && dt1 <= date14 && ndt === 5){
+        
+           console.log("fri ndt: " + ndt);
+    
+       var h  =  tConvert (doc.data().rectime);
+       dates = name + "," + h; 
+              dates = new Date(dates).toLocaleDateString("en", options);
+}else{
+cnt1 = cnt1 - 1
+}
+}
+
+ console.log("cnt1: " + cnt1);
+        var dt = new Date(dt1);
+          console.log("getday: " + dt.getDay());
+         
+               console.log("today: " + dt1);
+            console.log("date1: " + new Date(doc.data().date).toDateString());
+            console.log("date2: " + new Date(doc.data().date2).toDateString());
+            console.log("date3: " + new Date(doc.data().date3).toDateString());
+            console.log("date4: " + new Date(doc.data().date4).toDateString());
+            console.log("date5: " + new Date(doc.data().date5).toDateString());
+            console.log("date6: " + new Date(doc.data().date6).toDateString());
+            console.log("date7: " + new Date(doc.data().date7).toDateString());
+            console.log("date8: " + new Date(doc.data().date8).toDateString());
+            console.log("date9: " + new Date(doc.data().date9).toDateString());
+            console.log("date10: " + new Date(doc.data().date10).toDateString());
+            console.log("date11: " + new Date(doc.data().date11).toDateString());
+            console.log("date12: " + new Date(doc.data().date12).toDateString());
+            console.log("mon: " + doc.data().mon);
+             console.log("tue: " + doc.data().tue);
+              console.log("wed: " + doc.data().wed);
+               console.log("thu: " + doc.data().thu);
+                console.log("fri: " + doc.data().fri);
+             console.log("date13: " + date13);
+            console.log("date14: " + date14);
+    // }
+    //var dates = new Date(doc.data().date).toLocaleTimeString()
+    console.log("loadtodayschedule:" + dt);
+     if (dates != "Invalid Date"){
+      console.log("todayusers:" + doc.data().login);
+     todayusers.push(doc.data().login);
+     todayusers_varto_email.push(doc.data().login + '@aqua-aerobic.com');
+    todayusers_varto_name.push(doc.data().message);
+     todayusers_varto_username.push(doc.data().login);
+
+    //document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
+}
+});
+
+
+let uniqueChars = [...new Set(todayusers)];
+let uniquevarto_email = [...new Set(todayusers_varto_email)];
+let uniquevarto_name = [...new Set(todayusers_varto_name)];
+let uniquevarto_username = [...new Set(todayusers_varto_username)];
+
+    //console.log(uniqueChars);
+var arrayLength = uniqueChars.length;
+for (var i = 0; i < arrayLength; i++) {
+    console.log(arrayLength);
+     console.log(i);
+   varto_email = uniquevarto_email[i];
+    varto_name = uniquevarto_name[i];
+    varto_username = uniqueChars[i];
+     senddaily();
+}
+
+
+var count = 0;
+try {
+  var table = document.getElementById("report");
+count  = table.tBodies[0].rows.length;
+} catch (error) {
+  count = 0;
+}
+    //var table = document.getElementById("report");
+    //var tbodyRowCount = table.tBodies[0].rows.length;
+    //document.getElementById("reptitle").innerHTML = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (today report)</h1><h2>" + count + " Visitor(s) for: " + name + "</h2></center>";
+    if (cnt1 === 0){
+    //document.getElementById("report").innerHTML = "<center><br>No visitor data found<br></center>";
+}
+    //document.head.innerHTML = header;
+
+})
+    .catch((error) => {
+         console.log("Error getting documents: ", error);
+        //  document.write(title);
+	  var nodata = "<center><br>No visitor data found<br></center>";
+	  //document.write(nodata);
+      //document.head.innerHTML = header;
+});
+}
+ //document.getElementsByTagName("body")[0].style.display = "none";
+});
+	 // loaditnow();
+    // setTimeout("sortByDate(4)", 2000);
+    
+     //  document.write("</table>");
+    //  setTimeout("sortTable(4)", 2000);
+   //     setTimeout("sortByDate(4)", 2000);
+}
+
 
 function addOneDay(date) {
   date.setDate(date.getDate() + 1);
@@ -4893,6 +5409,8 @@ var getloginname = function(){
         getdateoflabels();
     }else if (username.toLowerCase()  === 'count') {
         loadjobsfromdate();
+    }else if (username.toLowerCase()  === 'dailyuseremails') {
+        emailtodayschedule();
     }else if (username.toLowerCase()  === 'activitylog') {
        //window.open('https://aquavisitorsystem.github.io/aquavisitoractivity.github.io/firestore/', '_blank').focus();
         window.location.href = 'https://aquavisitorsystem.github.io/aquavisitoractivity.github.io/firestore/today.html';
@@ -5561,6 +6079,15 @@ if (g_report === 'checkouts') {
 } else {
     console.log('string IS empty');
 }  
+// }else if (username.toLowerCase()  === 'dailyuseremails') {
+//emailtodayschedule();
+
+if (g_report === 'dailyuseremails') {
+    emailtodayschedule();
+} else {
+    console.log('string IS empty');
+}
+
 if (g_report === 'today') {
     loadtodayschedule();
 } else {
@@ -5606,6 +6133,7 @@ if ((g_report === 'active') && (userid != null && userid != '')) {
     var data = {
         "userid": userid,
     }
+    clear();
     loaddbactive(data);
 } else {
     console.log('string IS empty');
