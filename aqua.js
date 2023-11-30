@@ -248,7 +248,7 @@ firebase.initializeApp(firebaseConfig);
                 var link = "https://aquavisitorsystem.github.io/?userid=" + varto_username + "&report=active";
                 var templateParams = {
                     "to_name" : varto_name,
-                    "to_email" : "ckonkol@aqua-aerobic.com", //varto_email,
+                    "to_email" : varto_email,
                     "to_link" : link
                 };
                 console.log("to_name: " + varto_name);
