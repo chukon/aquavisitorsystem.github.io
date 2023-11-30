@@ -16,6 +16,7 @@ firebase.initializeApp(firebaseConfig);
     document.getElementById('update_db').style.visibility = 'hidden';
       
 //Add Log File
+    var cntsend = [];
     var datelabels="";
     var fldlogin;
     var fldfirstname;
@@ -231,24 +232,38 @@ firebase.initializeApp(firebaseConfig);
                 console.log("Error getting document:", error);
             }); 
         }
-
+       
+        function searchStringInArray (str, strArray) {
+            for (var j=0; j<strArray.length; j++) {
+                if (strArray[j].match(str)) return true;
+            }
+            return false;
+        }
         var senddaily = function(){
-            var link = "https://aquavisitorsystem.github.io/?userid=" + varto_username + "&report=active";
-            var templateParams = {
-                "to_name" : varto_name,
-                "to_email" : "ckonkol@aqua-aerobic.com", //varto_email,
-                "to_link" : link
-            };
-            console.log("to_name: " + varto_name);
-            console.log("to_email: " + varto_email);
-            console.log("to_link: " + "https://aquavisitorsystem.github.io/?userid=" + varto_username + "&report=activecc_email");
-            emailjs.send('service_aqua', 'template_daily', templateParams)
-             .then(function(response) {
-                 console.log('SUCCESS!', response.status, response.text);
-             }, function(error) {
-                 console.log('FAILED...', error);
-             });
-		
+            console.log("varto_name:  " + varto_name);
+            console.log("cntsend:  " + cntsend);
+            console.log("cntsend results:  " + searchStringInArray(varto_name,cntsend));
+            if (searchStringInArray(varto_name,cntsend)){
+                
+                var link = "https://aquavisitorsystem.github.io/?userid=" + varto_username + "&report=active";
+                var templateParams = {
+                    "to_name" : varto_name,
+                    "to_email" : "ckonkol@aqua-aerobic.com", //varto_email,
+                    "to_link" : link
+                };
+                console.log("to_name: " + varto_name);
+                console.log("to_email: " + varto_email);
+                console.log("to_link: " + "https://aquavisitorsystem.github.io/?userid=" + varto_username + "&report=activecc_email");
+                emailjs.send('service_aqua', 'template_daily', templateParams)
+                 .then(function(response) {
+                     console.log('SUCCESS!', response.status, response.text);
+                 }, function(error) {
+                     console.log('FAILED...', error);
+                 });
+               
+            }else{
+                console.log('dup senddaily');
+            }
         }
 
         var sendcheckedin = function(){
@@ -4003,6 +4018,7 @@ document.getElementById("reptitle").innerHTML = "<center><h1>Aqua-Aerobic System
 }
 
 var emailtodayschedule =  function(){
+cntsend = [];
 var x = 0;
     var db = firebase.firestore();
 let todaysdate = new Date();
@@ -4462,8 +4478,9 @@ for (var i = 0; i < arrayLength; i++) {
       console.log(uniquevarto_username);
    varto_email = uniquevarto_email[i];
     varto_name = uniquevarto_name[i];
-    varto_username = uniqueChars[i];
+    varto_username = uniquevarto_username[i];
      senddaily();
+      cntsend.push(uniquevarto_name[i]);
 }
 
 
