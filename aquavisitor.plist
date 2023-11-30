@@ -27,13 +27,15 @@
 				</dict>
 			</array>
 			<key>metadata</key>
-			<dict>
-				<key>application-identifier</key>
-				<string>P38TU8T6B2.com.AquaAerobic.AquaCheckIn</string>
-				<key>com.apple.developer.team-identifier</key>
-				<string>P38TU8T6B2</string>
-				<key>get-task-allow</key>
-				<false/>
+                       <dict>
+				<key>bundle-identifier</key>
+				<string>com.AquaAerobic.AquaCheckIn</string>
+				<key>bundle-version</key>
+				<string>1.0</string>
+				<key>kind</key>
+				<string>software</string>
+				<key>title</key>
+				<string>AquaCheckIn</string>
 			</dict>
 		</dict>
 	</array>
