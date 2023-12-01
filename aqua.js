@@ -235,9 +235,9 @@ firebase.initializeApp(firebaseConfig);
        
         function searchStringInArray (str, strArray) {
             for (var j=0; j<strArray.length; j++) {
-                if (strArray[j].match(str)) return true;
+                if (strArray[j].match(str)) return false;
             }
-            return false;
+            return true;
         }
         var senddaily = function(){
             console.log("varto_name:  " + varto_name);
