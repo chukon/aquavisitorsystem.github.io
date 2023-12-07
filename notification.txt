@@ -3,12 +3,12 @@
   <li><b>Latest updates</b></li>
    <ul><li><b>New Feature(s):</b></li></ul>
   <ul style="padding-left:60px">
-    <li>Dropdown list of keywords added "count, printjobs"</li>
+    <li>Reminder morning email sent to Aqua employee that has guest visiting that day.</li>
   </ul>
   <br>
   <ul><b>View Reports:</b></ul> 
   <ul><li>Click on 'View Scheduled Visits'</li></ul> 
-  <ul><li>Use keyword(s) listed</li></ul>
+  <ul><li>Use keyword(s) listed (dropdown available)</li></ul>
   <br>
  <ul><b>Manage Schedules:</b></ul> 
   <ul><li>Schedule A Visitor. <a href="https://aquavisitorsystem.github.io/help/Aqua%20Visitor%20Check.htm#_Toc132347444">click here</a></li></ul>
