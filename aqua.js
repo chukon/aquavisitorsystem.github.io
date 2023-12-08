@@ -1372,6 +1372,302 @@ document.getElementById('back').style.display = 'block';
         console.log("Error getting documents: ", error);
     });
 }
+}
+
+    var loaduseridreport =  function(){
+        var get_login=prompt("Enter Aqua UserID To View Report","Enter Aqua UserID");
+        if (get_login  === null || get_login === "Enter Aqua UserID") {
+            alert("Please Try Again! Enter Aqua UserID");
+            setTimeout(() => {
+                window.location.href = 'https://aquavisitorsystem.github.io/';
+        }, 1000);
+        }else{
+            get_login  = get_login.toString();
+            get_login = get_login.trim().toLowerCase();
+            console.log(get_login);
+        var cntrecdays = 0;
+        var db = firebase.firestore();
+        // var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(8){display: none;}#report tr > *:nth-child(9){display: none;}#report tr > *:nth-child(10){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
+        //  var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(1){display: none;}#report tr > *:nth-child(9){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
+        var printnow = "<div id='printbtn'><center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br></div>"; 
+        var lines = "";
+        var RecordIDs = [];
+        var cnt1;
+        var count1;
+        var datesorts;
+        var Visitors = [];
+        var seleceteddate;
+       // var mydata = data;
+        fldloginID = get_login;//data["userid"];
+        let today = new Date().toISOString().slice(0, 10);
+        var get_login  = get_login;// data["userid"];
+   
+        if (get_login  === null || get_login === '') {
+            alert("Enter your Network Login ID above & try again!");
+        }else{
+            get_login  = get_login.trim().toLowerCase();
+            //https://aquavisitorsystem.github.io/?userid=maylward&report=active
+            //get_login.trim().toLowerCase();
+            console.log(get_login);
+            //  var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style><script src='sorttable.js'></script></head>";
+            var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}#report tr > *:nth-child(1){display: none;}#report tr > *:nth-child(9){display: none;}#homes{display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
+      
+            var lines = "";
+            let today = new Date().toISOString().slice(0, 10);
+     
+            db.collection("messages").where("login", "==",get_login).where("remove", "==","No").orderBy("date","desc")
+        .get()
+        .then((querySnapshot) => {
+            var cnt = querySnapshot.size;
+            //(" +  "<label id='numcount'></label>" + " visits)
+            //var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (active report)</h1><h2>" +  "<label id='numcount'></label>" + + " Active Visitor Schedule(s) for: " + get_login + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+            //var msg = '<button  onclick="loaddb(' + username + ')"><u>Example button</u></button>';
+      
+            var msg = "<input type='button' id='btnPrint' onclick='loaddb();' value='Show All Schedules for: " + fldloginID  + "'/>";
+
+
+      
+            var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (Aqua VMS Report)</h1><h2>" + "<label id='numcount'></label>" + " Active Visitor Schedule(s) for: <a href='https://aquavisitorsystem.github.io/?userid=" + get_login + "&report=active'>" + get_login + "</a><br><small>(showing today and beyond only)</small></h2><div id='homes'><a href='https://aquavisitorsystem.github.io/'>Go Home</a>" + "<br></div><br>" + msg  +   "<br><br></center>";
+  
+            document.write(title);
+            document.write(printnow);
+            if (cnt === 0){
+                var nodata = "<center><br>No visitor data found<br></center>";
+                document.write(nodata);
+            }else{
+                //	  document.write("<table  id='report' style='font-size: small;'>  <tr>    <th>UserID</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th>Date/Time</th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
+                // document.write("<table  id='report' style='font-size: small;'>  <tr>    <th style='cursor: pointer; color: red;' onclick='sortTable(0)'>UserID <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th>Date/Time</th>      <th>Email</th>       <th>Visiting</th><th>Edit</th>  </tr>");
+                document.write("<table id='report' style='font-size: small;'>  <thead><tr>    <th style='cursor: pointer; color: red;' onclick='sortTable(0)'>UserID <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>First Name</th>    <th  style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th>Date/Time(s)</th><th  style='cursor: pointer; color: red;' onclick='sortTable(5)'>ClosestDate<i class='fa fa-sort' style='font-size:20px;color:blue'></i></th><th>Email</th>       <th>Visiting</th><th>Edit</th></tr></thead>");
+                document.write("<tbody>");
+            }
+            document.getElementsByTagName("body")[0].style.display = "none";
+            var d = new Date();
+            dates = "";
+            var Datex = [];
+            var todaysdate = new Date();
+            querySnapshot.forEach((doc) => {
+                console.log(doc.id, " => ", doc.data());
+            var options = {
+                year: "numeric",
+                month: "2-digit",
+                day: "2-digit",
+                hour: "2-digit",
+                minute: "2-digit"
+            };
+            var options2 = {
+                year: "numeric",
+                month: "2-digit",
+                day: "2-digit"
+            };
+
+        
+            var date01 = new Date(doc.data().date)
+            var date02 = new Date(doc.data().date2)
+            var date03 = new Date(doc.data().date3)
+            var date04 = new Date(doc.data().date4)
+            var date05 = new Date(doc.data().date5)
+            var date06 = new Date(doc.data().date6)
+            var date07 = new Date(doc.data().date7)
+            var date08 = new Date(doc.data().date8)
+            var date09 = new Date(doc.data().date9)
+            var date10 = new Date(doc.data().date10)
+            var date11 = new Date(doc.data().date11)
+            var date12 = new Date(doc.data().date12)
+            var startdates = new Date(doc.data().date13)
+            var enddates = new Date(doc.data().date14)
+            var rectime = new Date(doc.data().rectime)
+            var mon = new Date(doc.data().mon)
+            var tue = new Date(doc.data().tue)
+            var wed = new Date(doc.data().wed)
+            var thu = new Date(doc.data().thu)
+            var fri = new Date(doc.data().fri)
+            if ((date01 >= todaysdate) || (date02 >= todaysdate) || (date03 >= todaysdate) || (date04 >= todaysdate) || (date05 >= todaysdate) || (date06 >= todaysdate) || (date07 >= todaysdate) || (date08 >= todaysdate) || (date09 >= todaysdate) || (date10 >= todaysdate) || (date11 >= todaysdate) || (date12 >= todaysdate)  || (enddates >= todaysdate)){
+                seleceteddate = "";
+                datesorts = "";
+                Datex.length = 0;
+                //  var todays = new Date().toDateString();
+                if (typeof doc.data().date !== 'undefined' && doc.data().date !==""  && new Date(doc.data().date) >= todaysdate) {
+                    seleceteddate = new Date(doc.data().date).toLocaleDateString("en", options)
+                    datesorts = new Date(doc.data().date).toLocaleDateString("fr-CA", options2)
+                    Datex.push(datesorts);
+                    Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
+                }
+                if (typeof doc.data().date2 !== 'undefined' && doc.data().date2 !==""  && new Date(doc.data().date2) >= todaysdate) {
+                    seleceteddate = seleceteddate + "<br>" + new Date(doc.data().date2).toLocaleDateString("en", options)
+                    datesorts = new Date(doc.data().date2).toLocaleDateString("fr-CA", options2)
+                    Datex.push(datesorts);
+                    Visitors.push(doc.data().login + new Date(doc.data().date2).toLocaleDateString("en", options));
+                }
+                if (typeof doc.data().date3 !== 'undefined' && doc.data().date3 !==""  && new Date(doc.data().date3) >= todaysdate) {
+                    seleceteddate = seleceteddate + "<br>" + new Date(doc.data().date3).toLocaleDateString("en", options)
+                    datesorts = new Date(doc.data().date3).toLocaleDateString("fr-CA", options2)
+                    Datex.push(datesorts);
+                    Visitors.push(doc.data().login + new Date(doc.data().date3).toLocaleDateString("en", options));
+                }
+                if (typeof doc.data().date4 !== 'undefined' && doc.data().date4 !=="" && new Date(doc.data().date4) >= todaysdate) {
+                    seleceteddate = seleceteddate + "<br>" + new Date(doc.data().date4).toLocaleDateString("en", options)
+                    datesorts = new Date(doc.data().date4).toLocaleDateString("fr-CA", options2)
+                    Datex.push(datesorts);
+                    Visitors.push(doc.data().login + new Date(doc.data().date4).toLocaleDateString("en", options));
+                }
+                if (typeof doc.data().date5 !== 'undefined' && doc.data().date5 !=="" && new Date(doc.data().date5) >= todaysdate) {
+                    seleceteddate = seleceteddate + "<br>" + new Date(doc.data().date5).toLocaleDateString("en", options)
+                    datesorts = new Date(doc.data().date5).toLocaleDateString("fr-CA", options2)
+                    Datex.push(datesorts);
+                    Visitors.push(doc.data().login + new Date(doc.data().date5).toLocaleDateString("en", options));
+                }
+                if (typeof doc.data().date6 !== 'undefined' && doc.data().date6 !=="" && new Date(doc.data().date6) >= todaysdate) {
+                    seleceteddate = seleceteddate + "<br>" + new Date(doc.data().date6).toLocaleDateString("en", options)
+                    datesort = new Date(doc.data().date6).toLocaleDateString("fr-CA", options2)
+                    Datex.push(datesort);
+                    Visitors.push(doc.data().login + new Date(doc.data().date6).toLocaleDateString("en", options));
+                }
+                if (typeof doc.data().date7 !== 'undefined' && doc.data().date7 !=="" && new Date(doc.data().date7) >= todaysdate) {
+                    seleceteddate = seleceteddate + "<br>" + new Date(doc.data().date7).toLocaleDateString("en", options)
+                    datesorts = new Date(doc.data().date7).toLocaleDateString("fr-CA", options2)
+                    Datex.push(datesorts);
+                    Visitors.push(doc.data().login + new Date(doc.data().date7).toLocaleDateString("en", options));
+
+                }
+                if (typeof doc.data().date8 !== 'undefined' && doc.data().date8 !=="" && new Date(doc.data().date8) >= todaysdate) {
+                    seleceteddate = seleceteddate + "<br>" + new Date(doc.data().date8).toLocaleDateString("en", options)
+                    datesorts = new Date(doc.data().date8).toLocaleDateString("fr-CA", options2);
+                    Datex.push(datesorts);
+                    Visitors.push(doc.data().login + new Date(doc.data().date8).toLocaleDateString("en", options));
+                }
+                if (typeof doc.data().date9 !== 'undefined' && doc.data().date9 !=="" && new Date(doc.data().date9) >= todaysdate) {
+                    seleceteddate = seleceteddate + "<br>" + new Date(doc.data().date9).toLocaleDateString("en", options)
+                    datesorts = new Date(doc.data().date9).toLocaleDateString("fr-CA", options2)
+                    Datex.push(datesorts);
+                    Visitors.push(doc.data().login + new Date(doc.data().date9).toLocaleDateString("en", options));
+                }
+                if (typeof doc.data().date10 !== 'undefined' && doc.data().date10 !=="" && new Date(doc.data().date10) >= todaysdate) {
+                    seleceteddate = seleceteddate + "<br>" + new Date(doc.data().date10).toLocaleDateString("en", options)
+                    datesorts = new Date(doc.data().date10).toLocaleDateString("fr-CA", options2)
+                    Datex.push(datesorts);
+                    Visitors.push(doc.data().login + new Date(doc.data().date110).toLocaleDateString("en", options));
+                }
+                if (typeof doc.data().date11 !== 'undefined' && doc.data().date11 !=="" && new Date(doc.data().date11) >= todaysdate) {
+                    seleceteddate = seleceteddate + "<br>" + new Date(doc.data().date11).toLocaleDateString("en", options)
+                    datesorts = new Date(doc.data().date11).toLocaleDateString("fr-CA", options2)
+                    Datex.push(datesorts);
+                    Visitors.push(doc.data().login + new Date(doc.data().date11).toLocaleDateString("en", options));
+                }
+                if (typeof doc.data().date12 !== 'undefined' && doc.data().date12 !=="" && new Date(doc.data().date12) >= todaysdate) {
+                    seleceteddate = seleceteddate + "<br>" + new Date(doc.data().date12).toLocaleDateString("en", options)
+                    datesorts = new Date(doc.data().date12).toLocaleDateString("fr-CA", options2);
+                    Datex.push(datesorts);
+                    Visitors.push(doc.data().login + new Date(doc.data().date12).toLocaleDateString("en", options));
+                }
+                if (typeof doc.data().date14 !== 'undefined' && doc.data().date14 !=="" && new Date(doc.data().date14) >= todaysdate) {
+                    cntrecdays = 0;
+                    h  =  tConvert (doc.data().rectime);
+                    var days = "";
+            const datea = new Date(doc.data().date13);
+            const dateb = new Date(doc.data().date14);
+                    var date13 = addOneDay(datea).toLocaleDateString("en", options2);
+                    var date14 = addOneDay(dateb).toLocaleDateString("en", options2);
+                    console.log("date13: " + date13);
+                    console.log("date14: " + date14);
+                    if (doc.data().mon === true) {
+                        days = "Mon";
+                        cntrecdays = RecCount(date13,date14,1);
+                    }
+                    if (doc.data().tue === true) {
+                        if (days === ""){
+                            days = "Tue";
+                        }else{
+                            days = days + "," + "Tue";
+                        }    
+                        cntrecdays = cntrecdays + RecCount(date13,date14,2);
+                    }
+                    if (doc.data().wed === true) {
+                        if (days === ""){
+                            days = "Wed";
+                        }else{
+                            days = days + "," + "Wed";
+                        } 
+                        cntrecdays = cntrecdays + RecCount(date13,date14,3);
+                    }
+                    if (doc.data().thu === true) {
+                        if (days === ""){
+                            days = "Thu";
+                        }else{
+                            days = days + "," + "Thu";
+                        }   
+                        cntrecdays = cntrecdays + RecCount(date13,date14,4);
+                    }
+                    if (doc.data().fri === true) {
+                        if (days === ""){
+                            days = "Fri";
+                        }else{
+                            days = days + "," + "Fri";
+                        }  
+                        cntrecdays = cntrecdays + RecCount(date13,date14,4);
+                    }
+                    //seleceteddate = cntrecdays + " Recurring Until: " + "<br>" + date14 + "<br>Day(s):" + days + "<br>Time:" + h
+                    seleceteddate = "Recurring Until: " + "<br>" + date14 + "<br>Day(s):" + days + "<br>Time:" + h
+                    datesorts = new Date().toLocaleDateString("fr-CA", options2);
+                    Datex.push(datesorts);
+                    //Visitors.push(doc.data().login + new Date(doc.data().date14).toLocaleDateString("en", options2) + rectime);
+                }
+       
+
+
+       
+
+                console.log("todaysdate: " + todaysdate);
+                // count1 = count1 + dates.find('<br>').length
+          
+                console.log(seleceteddate);
+            
+                Datex.sort((a, b) => new Date(b) - new Date(a)).reverse()
+                var todays = new Date().toLocaleDateString("fr-CA", options2);
+                console.log("todays: " + todays);
+                for(var i=0; i<Datex.length; i++){
+                    console.log("Datex[i]: " + Datex[i]);
+                    if(Datex[i] === todays){
+                        datesort = Datex[i]
+                        break;
+                    }else if (Datex[i] > todays){
+                        datesort = Datex[i]
+                        break;
+                    }
+                }
+     
+                document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + seleceteddate + '</td><td>' + datesort + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
+
+            }
+        });
+        var count = 0;
+        try {
+            var table = document.getElementById("report");
+            count  = table.tBodies[0].rows.length;
+        } catch (error) {
+            count = 0;
+        }
+        console.log("count: " +  count);
+        document.getElementById("numcount").innerHTML = count;
+        document.getElementById("numcount").setAttribute("value",  count);
+        document.head.innerHTML = header;
+        document.write("</tbody></table>");
+        document.getElementsByTagName("body")[0].style.display = "none";
+        setTimeout("sortByDate(5)", 3000);
+        if (count === 0){
+            document.getElementById("printbtn").style.display = "none";
+            // document.getElementById("report").style.display = "none";
+        }
+        if (count === 0){
+            document.getElementById("report").style.display = "none";
+            // document.getElementById("btnPrint").style.display = "none";
+        }
+       
+    })
+    .catch((error) => {
+        console.log("Error getting documents: ", error);
+    });
+}
+}
     }
       
     var loaddb =  function(data){
@@ -5460,6 +5756,8 @@ var getloginname = function(){
         loadjobsfromdate();
     }else if (username.toLowerCase()  === 'dailyuseremails') {
         emailtodayschedule();
+    }else if (username.toLowerCase()  === 'myvmsreport') {
+        loaduseridreport();
     }else if (username.toLowerCase()  === 'activitylog') {
        //window.open('https://aquavisitorsystem.github.io/aquavisitoractivity.github.io/firestore/', '_blank').focus();
         window.location.href = 'https://aquavisitorsystem.github.io/aquavisitoractivity.github.io/firestore/today.html';
@@ -5752,7 +6050,7 @@ var updatescheduleshome = function(){
 }
        
 var getall = function(){
-     var visitorlist = ['today', 'active', 'name', 'date', 'all', 'inactive', 'count','activitylog','loguserid', 'logname', 'logall', 'logtoday', 'logweek', 'logdate','printjobs'];
+     var visitorlist = ['today', 'active', 'myvmsreport','name', 'date', 'all', 'inactive', 'count','activitylog','loguserid', 'logname', 'logall', 'logtoday', 'logweek', 'logdate','printjobs'];
      var list = document.getElementById('loginlist');
      var logins = document.getElementById('login');
     visitorlist.forEach(function(item){
