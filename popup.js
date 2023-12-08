@@ -30,7 +30,7 @@ const getUA = () => {
         } else{
             // callwhenback();
             //loadit().fadeIn(10000);
-            setTimeout(loadit,500);
+            setTimeout(loadit,50);
         }
     };
 
