@@ -6481,7 +6481,6 @@ if ((g_report === 'active') && (userid != null && userid != '')) {
         "userid": userid,
     }
     clear();
-    document.write("");
     loaddbactive(data);
 } else {
     console.log('string IS empty');
