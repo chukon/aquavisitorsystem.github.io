@@ -1132,7 +1132,7 @@ document.getElementById('back').style.display = 'block';
 
 
       
-            var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (Aqua VMS Report)</h1><h2>" + "<label id='numcount'></label>" + " Active Visitor Schedule(s) for: <a href='https://aquavisitorsystem.github.io/?userid=" + get_login + "&report=active'>" + get_login + "</a><br><small>(showing today and beyond only)</small></h2><div id='homes'><a href='https://aquavisitorsystem.github.io/'>Go Home</a>" + "<br></div><br>" + msg  +   "<br><br></center>";
+            var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (My VMS Report)</h1><h2>" + "<label id='numcount'></label>" + " Active Visitor Schedule(s) for: <a href='https://aquavisitorsystem.github.io/?userid=" + get_login + "&report=active'>" + get_login + "</a><br><small>(showing today and beyond only)</small></h2><div id='homes'><a href='https://aquavisitorsystem.github.io/'>Go Home</a>" + "<br></div><br>" + msg  +   "<br><br></center>";
   
             document.write(title);
             document.write(printnow);
@@ -1427,7 +1427,7 @@ document.getElementById('back').style.display = 'block';
 
 
       
-            var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (Aqua VMS Report)</h1><h2>" + "<label id='numcount'></label>" + " Active Visitor Schedule(s) for: <a href='https://aquavisitorsystem.github.io/?userid=" + get_login + "&report=active'>" + get_login + "</a><br><small>(showing today and beyond only)</small></h2><div id='homes'><a href='https://aquavisitorsystem.github.io/'>Go Home</a>" + "<br></div><br>" + msg  +   "<br><br></center>";
+            var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (My VMS Report)</h1><h2>" + "<label id='numcount'></label>" + " Active Visitor Schedule(s) for: <a href='https://aquavisitorsystem.github.io/?userid=" + get_login + "&report=active'>" + get_login + "</a><br><small>(showing today and beyond only)</small></h2><div id='homes'><a href='https://aquavisitorsystem.github.io/'>Go Home</a>" + "<br></div><br>" + msg  +   "<br><br></center>";
   
             document.write(title);
             document.write(printnow);
@@ -1701,7 +1701,7 @@ document.getElementById('back').style.display = 'block';
    .then((querySnapshot) => {
        cnt = querySnapshot.size;
         var msg = "<input type='button' id='btnPrint' onclick='loaddb();' value='Show All Schedules for: " + fldloginID  + "'/>";
-        var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (Aqua UserID Report)</h1><h2>" + "<label id='numcount'></label>" + " Visitor Schedule(s) for: " + get_login + "<br><small>(showing all schedules for: " + get_login + ")</small></h2><div id='home'><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br></div><br></center>";
+        var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (My VMS Report)</h1><h2>" + "<label id='numcount'></label>" + " Visitor Schedule(s) for: " + get_login + "<br><small>(showing all schedules for: " + get_login + ")</small></h2><div id='home'><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br></div><br></center>";
         document.write(title);
         document.write(printnow);
             if (cnt === 0){
@@ -5756,7 +5756,7 @@ var getloginname = function(){
         loadjobsfromdate();
     }else if (username.toLowerCase()  === 'dailyuseremails') {
         emailtodayschedule();
-    }else if (username.toLowerCase()  === 'myvmsreport') {
+    }else if (username.toLowerCase()  === 'myvms') {
         loaduseridreport();
     }else if (username.toLowerCase()  === 'activitylog') {
        //window.open('https://aquavisitorsystem.github.io/aquavisitoractivity.github.io/firestore/', '_blank').focus();
@@ -6050,7 +6050,7 @@ var updatescheduleshome = function(){
 }
        
 var getall = function(){
-     var visitorlist = ['today', 'active', 'myvmsreport','name', 'date', 'all', 'inactive', 'count','activitylog','loguserid', 'logname', 'logall', 'logtoday', 'logweek', 'logdate','printjobs'];
+     var visitorlist = ['today', 'active', 'myvms','name', 'date', 'all', 'inactive', 'count','activitylog','loguserid', 'logname', 'logall', 'logtoday', 'logweek', 'logdate','printjobs'];
      var list = document.getElementById('loginlist');
      var logins = document.getElementById('login');
     visitorlist.forEach(function(item){
@@ -6068,10 +6068,10 @@ var getall = function(){
     document.getElementById('get_id').style.display = 'block';
     document.getElementById('get_msg').style.display = 'block';
     document.getElementById('get_id2').style.display = 'none';
-    document.getElementById('loginlabel').innerText = 'Aqua Employee User ID OR Keyword';
+    document.getElementById('loginlabel').innerText = 'Select VMS Report';
        // document.getElementsByName('login')[0].placeholder = '[KEYWORDS] today, active, name, date, all, inactive, loguserid, logname, logall, logtoday, logweek, logdate';
-    document.getElementsByName('login')[0].placeholder = '[Aqua User ID] OR [keyword] dropdown > [Enter] key';
-    document.getElementById("login").title = 'Type [Aqua User ID] OR select [keyword] from dropdown > press [Enter] key';
+    document.getElementsByName('login')[0].placeholder = '[Tap Here For Dropdown]';
+    document.getElementById("login").title = 'Select [report] from dropdown OR type [Aqua User ID] > [Enter] key';
     document.getElementById('emaillabel').style.display = 'none';
     document.getElementById("login").style.width = "380px";
     document.getElementById("login").addEventListener("keypress", getSchedule2);
