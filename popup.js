@@ -35,7 +35,7 @@ const getUA = () => {
             const host = "https://aquavisitorsystem.github.io/";
             if (window.location.href === host) {
                 console.log("this is home page");
-                setTimeout(loadit,30);
+                setTimeout(loadit,500);
             }
         }
     };
