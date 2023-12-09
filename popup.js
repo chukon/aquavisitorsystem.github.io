@@ -30,7 +30,12 @@ const getUA = () => {
         } else{
             // callwhenback();
             //loadit().fadeIn(10000);
-            setTimeout(loadit,30);
+            // JAVASCRIPT FOR ORDER PAGE
+            const host = "https://aquavisitorsystem.github.io/";
+            if (window.location.href == host + 'index.html') {
+                console.log("this is home page");
+                setTimeout(loadit,30);
+            }
         }
     };
 

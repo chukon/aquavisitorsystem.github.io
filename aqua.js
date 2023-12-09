@@ -6073,7 +6073,7 @@ var getall = function(){
     document.getElementsByName('login')[0].placeholder = '[Tap Here For Dropdown]';
     document.getElementById("login").title = 'Select [report] from dropdown OR type [Aqua User ID] > [Enter] key';
     document.getElementById('emaillabel').style.display = 'none';
-    document.getElementById("login").style.width = "380px";
+    document.getElementById("login").style.width = "200px";
     document.getElementById("login").addEventListener("keypress", getSchedule2);
     //logins.addEventListener("click", function() {
     //    var options = logins.querySelectorAll("option");
