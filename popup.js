@@ -32,8 +32,8 @@ const getUA = () => {
             //loadit().fadeIn(10000);
             // JAVASCRIPT FOR ORDER PAGE
             console.log(window.location.href);
-            const host = "https://aquavisitorsystem.github.io/";
-            if (window.location.href === host + 'index.html') {
+            const host = "https://aquavisitorsystem.github.io";
+            if (window.location.href === host) {
                 console.log("this is home page");
                 setTimeout(loadit,30);
             }
