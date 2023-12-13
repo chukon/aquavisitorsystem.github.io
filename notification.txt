@@ -3,6 +3,7 @@
   <li><b>Latest updates</b></li>
    <ul><li><b>New Feature(s):</b></li></ul>
   <ul style="padding-left:60px">
+    <li>New "My VMS Report:Shows active schedules for [aqua user id]</li>
     <li>Reminder morning email sent to Aqua employee that has guest visiting that day.</li>
   </ul>
   <br>
