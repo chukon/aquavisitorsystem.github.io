@@ -6059,12 +6059,17 @@ var updatescheduleshome = function(){
 var getall = function(){
      var visitorlist = ['today', 'active', 'myvms','name', 'date', 'all', 'inactive', 'count','activitylog','loguserid', 'logname', 'logall', 'logtoday', 'logweek', 'logdate','printjobs'];
      var list = document.getElementById('loginlist');
+   
      var logins = document.getElementById('login');
+   
     visitorlist.forEach(function(item){
         var option = document.createElement('option');
+        option.setAttribute("value", item);
         option.value = item;
         list.appendChild(option);
     });
+
+
     document.getElementById('logins').style.display = 'contents';
     document.getElementById('logins').style.display = 'block';
     document.getElementById('schedule').style.display = 'none';
@@ -6075,12 +6080,12 @@ var getall = function(){
     document.getElementById('get_id').style.display = 'block';
     document.getElementById('get_msg').style.display = 'block';
     document.getElementById('get_id2').style.display = 'none';
-    document.getElementById('loginlabel').innerText = 'Select VMS Report';
+    document.getElementById('loginlabel').innerText = 'Select Report';
        // document.getElementsByName('login')[0].placeholder = '[KEYWORDS] today, active, name, date, all, inactive, loguserid, logname, logall, logtoday, logweek, logdate';
-    document.getElementsByName('login')[0].placeholder = 'Type [Aqua User ID] > [Enter] key OR Select from dropdown';
-    document.getElementById("login").title = 'Type [Aqua User ID] > [Enter] key OR Select from dropdown';;
+    document.getElementsByName('login')[0].placeholder = '[Aqua User ID] > [Enter] key OR Select dropdown report';
+    document.getElementById("login").title = 'Enter [Aqua User ID] > [Enter] key OR Select dropdown report';
     document.getElementById('emaillabel').style.display = 'none';
-    document.getElementById("login").style.width = "425px";
+    document.getElementById("login").style.width = "380px";
     document.getElementById("login").addEventListener("keypress", getSchedule2);
     //logins.addEventListener("click", function() {
     //    var options = logins.querySelectorAll("option");
