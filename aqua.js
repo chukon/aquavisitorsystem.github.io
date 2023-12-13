@@ -6070,10 +6070,10 @@ var getall = function(){
     document.getElementById('get_id2').style.display = 'none';
     document.getElementById('loginlabel').innerText = 'Select VMS Report';
        // document.getElementsByName('login')[0].placeholder = '[KEYWORDS] today, active, name, date, all, inactive, loguserid, logname, logall, logtoday, logweek, logdate';
-    document.getElementsByName('login')[0].placeholder = '[Tap Here For Dropdown]';
-    document.getElementById("login").title = 'Select [report] from dropdown OR type [Aqua User ID] > [Enter] key';
+    document.getElementsByName('login')[0].placeholder = 'Type [Aqua User ID] > [Enter] key OR Select from dropdown';
+    document.getElementById("login").title = 'Type [Aqua User ID] > [Enter] key OR Select from dropdown';;
     document.getElementById('emaillabel').style.display = 'none';
-    document.getElementById("login").style.width = "200px";
+    document.getElementById("login").style.width = "425px";
     document.getElementById("login").addEventListener("keypress", getSchedule2);
     //logins.addEventListener("click", function() {
     //    var options = logins.querySelectorAll("option");
