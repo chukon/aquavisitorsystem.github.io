@@ -1132,7 +1132,7 @@ document.getElementById('back').style.display = 'block';
 
 
       
-            var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (My VMS Report)</h1><h2>" + "<label id='numcount'></label>" + " Active Visitor Schedule(s) for: <a href='https://aquavisitorsystem.github.io/?userid=" + get_login + "&report=active'>" + get_login + "</a><br><small>(showing today and beyond only)</small></h2><div id='homes'><a href='https://aquavisitorsystem.github.io/'>Go Home</a>" + "<br></div><br>" + msg  +   "<br><br></center>";
+            var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (My VMS Report)</h1><h2>" + "<label id='numcount'></label>" + " Active Visitor Schedule(s) for: <a href='https://aquavisitorsystem.github.io/?userid=" + get_login + "&report=active'>" + get_login + "</a><br><small>(showing schedules for today and beyond)</small></h2><div id='homes'><a href='https://aquavisitorsystem.github.io/'>Go Home</a>" + "<br></div><br>" + msg  +   "<br><br></center>";
   
             document.write(title);
             document.write(printnow);
@@ -1149,6 +1149,11 @@ document.getElementById('back').style.display = 'block';
             var d = new Date();
             dates = "";
             var Datex = [];
+            var options2 = {
+                year: "numeric",
+                month: "2-digit",
+                day: "2-digit"
+            };
             var todaysdate = new Date();
             querySnapshot.forEach((doc) => {
                 console.log(doc.id, " => ", doc.data());
@@ -1159,11 +1164,7 @@ document.getElementById('back').style.display = 'block';
                 hour: "2-digit",
                 minute: "2-digit"
             };
-            var options2 = {
-                year: "numeric",
-                month: "2-digit",
-                day: "2-digit"
-            };
+          
 
         
             var date01 = new Date(doc.data().date)
@@ -1186,6 +1187,10 @@ document.getElementById('back').style.display = 'block';
             var wed = new Date(doc.data().wed)
             var thu = new Date(doc.data().thu)
             var fri = new Date(doc.data().fri)
+            todaysdate.setHours(0,0,0,0);
+            console.log("9999 date01: " + date01);
+            console.log("9999 todaysdate: " + todaysdate);
+
             if ((date01 >= todaysdate) || (date02 >= todaysdate) || (date03 >= todaysdate) || (date04 >= todaysdate) || (date05 >= todaysdate) || (date06 >= todaysdate) || (date07 >= todaysdate) || (date08 >= todaysdate) || (date09 >= todaysdate) || (date10 >= todaysdate) || (date11 >= todaysdate) || (date12 >= todaysdate)  || (enddates >= todaysdate)){
                 seleceteddate = "";
                 datesorts = "";
@@ -1427,7 +1432,7 @@ document.getElementById('back').style.display = 'block';
 
 
       
-            var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (My VMS Report)</h1><h2>" + "<label id='numcount'></label>" + " Active Visitor Schedule(s) for: <a href='https://aquavisitorsystem.github.io/?userid=" + get_login + "&report=active'>" + get_login + "</a><br><small>(showing today and beyond only)</small></h2><div id='homes'><a href='https://aquavisitorsystem.github.io/'>Go Home</a>" + "<br></div><br>" + msg  +   "<br><br></center>";
+            var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (My VMS Report)</h1><h2>" + "<label id='numcount'></label>" + " Active Visitor Schedule(s) for: <a href='https://aquavisitorsystem.github.io/?userid=" + get_login + "&report=active'>" + get_login + "</a><br><small>(showing schedules for today and beyond)</small></h2><div id='homes'><a href='https://aquavisitorsystem.github.io/'>Go Home</a>" + "<br></div><br>" + msg  +   "<br><br></center>";
   
             document.write(title);
             document.write(printnow);
@@ -1481,6 +1486,7 @@ document.getElementById('back').style.display = 'block';
             var wed = new Date(doc.data().wed)
             var thu = new Date(doc.data().thu)
             var fri = new Date(doc.data().fri)
+            todaysdate.setHours(0,0,0,0);
             if ((date01 >= todaysdate) || (date02 >= todaysdate) || (date03 >= todaysdate) || (date04 >= todaysdate) || (date05 >= todaysdate) || (date06 >= todaysdate) || (date07 >= todaysdate) || (date08 >= todaysdate) || (date09 >= todaysdate) || (date10 >= todaysdate) || (date11 >= todaysdate) || (date12 >= todaysdate)  || (enddates >= todaysdate)){
                 seleceteddate = "";
                 datesorts = "";
@@ -1896,7 +1902,7 @@ document.getElementById('back').style.display = 'block';
             }else if (Datex[i] > todays){
                 datesort = Datex[i]
                 console.log("Datex[i] > todays " + datesort);
-                break;
+                //break;
             }else if (Datex[i] < todays){
                 datesort = Datex[i]
                 console.log("Datex[i] < todays" + datesort);
