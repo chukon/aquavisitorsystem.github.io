@@ -5725,7 +5725,8 @@ var getloginname = function(){
     var username = document.getElementById("login").value;
     console.log("LoginName: " + username.toLowerCase());
     if (username.toLowerCase()  === null || username === '') {
-        alert("Please enter Network Login ID or keyword above & try again!");	  
+        alert("Please do one of the following:\n1) Enter [Aqua User ID] > [Enter] key\n2) Select report from dropdown!");	  
+        document.getElementById("login").focus();
     }else if (username.toLowerCase()  === 'all') {
         loaddbeverything();
     }else if (username.toLowerCase()  === 'alls') {
