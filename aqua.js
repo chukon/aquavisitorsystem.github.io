@@ -1110,6 +1110,9 @@ document.getElementById('back').style.display = 'block';
         if (get_login  === null || get_login === '') {
             alert("Enter your Network Login ID above & try again!");
         }else{
+            var gd = new Date();
+            var gmyDate = new Date(gd).toLocaleDateString('en-US');   
+            var gtodaysdate = gmyDate.toString();
             get_login  = get_login.trim().toLowerCase();
             //https://aquavisitorsystem.github.io/?userid=maylward&report=active
             //get_login.trim().toLowerCase();
@@ -1132,7 +1135,7 @@ document.getElementById('back').style.display = 'block';
 
 
       
-            var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (My VMS Report)</h1><h2>" + "<label id='numcount'></label>" + " Active Visitor Schedule(s) for: <a href='https://aquavisitorsystem.github.io/?userid=" + get_login + "&report=active'>" + get_login + "</a><br><small>(showing schedules for today and beyond)</small></h2><div id='homes'><a href='https://aquavisitorsystem.github.io/'>Go Home</a>" + "<br></div><br>" + msg  +   "<br><br></center>";
+            var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (My VMS Report)</h1><h2>" + "<label id='numcount'></label>" + " Active Visitor Schedule(s) for: <a href='https://aquavisitorsystem.github.io/?userid=" + get_login + "&report=active'>" + get_login + "</a><br><small style='font-size: 16px;color: blue;'>showing schedule(s) from " +  gtodaysdate + " and beyond</small></h2><div id='homes'><a href='https://aquavisitorsystem.github.io/'>Go Home</a>" + "<br></div><br>" + msg  +   "<br><br></center>";
   
             document.write(title);
             document.write(printnow);
@@ -1399,7 +1402,10 @@ document.getElementById('back').style.display = 'block';
             setTimeout(() => {
                 window.location.href = 'https://aquavisitorsystem.github.io/';
         }, 1000);
-        }else{
+    }else{
+        var gd = new Date();
+        var gmyDate = new Date(gd).toLocaleDateString('en-US');   
+        var gtodaysdate = gmyDate.toString();
             get_login  = get_login.toString();
             get_login = get_login.trim().toLowerCase();
             console.log(get_login);
@@ -1445,7 +1451,7 @@ document.getElementById('back').style.display = 'block';
 
 
       
-            var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (My VMS Report)</h1><h2>" + "<label id='numcount'></label>" + " Active Visitor Schedule(s) for: <a href='https://aquavisitorsystem.github.io/?userid=" + get_login + "&report=active'>" + get_login + "</a><br><small>(showing schedules for today and beyond)</small></h2><div id='homes'><a href='https://aquavisitorsystem.github.io/'>Go Home</a>" + "<br></div><br>" + msg  +   "<br><br></center>";
+            var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (My VMS Report)</h1><h2>" + "<label id='numcount'></label>" + " Active Visitor Schedule(s) for: <a href='https://aquavisitorsystem.github.io/?userid=" + get_login + "&report=active'>" + get_login + "</a><br><small style='font-size: 16px;color: blue;'>showing schedule(s) from " +  gtodaysdate + " and beyond</small></h2><div id='homes'><a href='https://aquavisitorsystem.github.io/'>Go Home</a>" + "<br></div><br>" + msg  +   "<br><br></center>";
   
             document.write(title);
             document.write(printnow);
@@ -1722,6 +1728,9 @@ document.getElementById('back').style.display = 'block';
     if (get_login  === null || get_login === '') {
         alert("Enter your Network Login ID above & try again!");
     }else{
+        var gd = new Date();
+        var gmyDate = new Date(gd).toLocaleDateString('en-US');   
+        var gtodaysdate = gmyDate.toString();
         var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
         get_login  = get_login.trim().toLowerCase();
         //get_login.trim().toLowerCase();
@@ -1736,7 +1745,7 @@ document.getElementById('back').style.display = 'block';
    .then((querySnapshot) => {
        cnt = querySnapshot.size;
         var msg = "<input type='button' id='btnPrint' onclick='loaddb();' value='Show All Schedules for: " + fldloginID  + "'/>";
-        var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (My VMS Report)</h1><h2>" + "<label id='numcount'></label>" + " Visitor Schedule(s) for: " + get_login + "<br><small>(showing all schedules for: " + get_login + ")</small></h2><div id='home'><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br></div><br></center>";
+        var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (My VMS Report)</h1><h2>" + "<label id='numcount'></label>" + " Visitor Schedule(s) for: " + get_login + "<br><small>(showing all schedules for: " + get_login + ")</small><br><small style='font-size: 16px;color: blue;'>today's date: " +  gtodaysdate + "</small><br></h2><div id='home'><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br></div><br></center>";
         document.write(title);
         document.write(printnow);
             if (cnt === 0){
