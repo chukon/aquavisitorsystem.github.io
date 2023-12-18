@@ -6234,7 +6234,7 @@ var updatescheduleshome = function(){
 }
        
 var getall = function(){
-     var visitorlist = ['today', 'active', 'myvms','name', 'date', 'all', 'inactive', 'count','activitylog','loguserid', 'logname', 'logall', 'logtoday', 'logweek', 'logdate','printjobs'];
+    var visitorlist = ['today', 'myvms' , 'activitylog' , 'active', 'name', 'date', 'all', 'inactive', 'count','loguserid', 'logname', 'logall', 'logtoday', 'logweek', 'logdate','printjobs'];
      var list = document.getElementById('loginlist');
    
      var logins = document.getElementById('login');
