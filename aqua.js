@@ -32,7 +32,7 @@ firebase.initializeApp(firebaseConfig);
     var fldkey;
     var flddailycheckin;
     var flddailycheckout;
-    var get_fullname; 
+    
 
     var fldloginID;
     var varto_username = "";
@@ -1364,7 +1364,7 @@ document.getElementById('back').style.display = 'block';
                 }
      
                 document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + seleceteddate + '</td><td>' + datesort + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
-                get_fullname  = titleCase(doc.data().message.trim().toLowerCase());  //titleCase('iron man')
+           
             }
         });
         var count = 0;
@@ -1680,7 +1680,7 @@ document.getElementById('back').style.display = 'block';
                 }
      
                 document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + seleceteddate + '</td><td>' + datesort + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
-                get_fullname  = titleCase(doc.data().message.trim().toLowerCase());  //titleCase('iron man')
+                
             }
         });
         var count = 0;
@@ -1751,7 +1751,7 @@ document.getElementById('back').style.display = 'block';
        cnt = querySnapshot.size;
         var msg = "<input type='button' id='btnPrint' onclick='loaddb();' value='Show All Schedules for: " + fldloginID  + "'/>";
       
-        var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (My VMS Report)</h1><h2>" + "<label id='numcount'></label>" + " Visitor Schedule(s) for: <a href='https://aquavisitorsystem.github.io/?userid=" + get_login + "&report=active'>" + get_login + "</a><br><small style='font-size: 17px;color: grey;'>(showing all future,present & past schedules for: " + get_fullname + ")</small><br><small style='font-size: 16px;color: blue;'>report created on " +  gtodaysdate + "</small><br></h2><div id='home'><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br></div><br></center>";
+        var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (My VMS Report)</h1><h2>" + "<label id='numcount'></label>" + " Visitor Schedule(s) for: <a href='https://aquavisitorsystem.github.io/?userid=" + get_login + "&report=active'>" + get_login + "</a><br><small style='font-size: 17px;color: grey;'>(showing all future,present & past schedules for: " + get_login + ")</small><br><small style='font-size: 16px;color: blue;'>report created on " +  gtodaysdate + "</small><br></h2><div id='home'><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br></div><br></center>";
         document.write(title);
         document.write(printnow);
             if (cnt === 0){
