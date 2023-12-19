@@ -32,6 +32,7 @@ firebase.initializeApp(firebaseConfig);
     var fldkey;
     var flddailycheckin;
     var flddailycheckout;
+    var get_fullname; 
 
     var fldloginID;
     var varto_username = "";
@@ -1363,7 +1364,7 @@ document.getElementById('back').style.display = 'block';
                 }
      
                 document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + seleceteddate + '</td><td>' + datesort + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
-
+                get_fullname  = titleCase(doc.data().message.trim().toLowerCase());  //titleCase('iron man')
             }
         });
         var count = 0;
@@ -1679,7 +1680,7 @@ document.getElementById('back').style.display = 'block';
                 }
      
                 document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + seleceteddate + '</td><td>' + datesort + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
-
+                get_fullname  = titleCase(doc.data().message.trim().toLowerCase());  //titleCase('iron man')
             }
         });
         var count = 0;
@@ -1736,6 +1737,7 @@ document.getElementById('back').style.display = 'block';
         var gtodaysdate = gmyDate.toString()
         var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
         get_login  = get_login.trim().toLowerCase();
+     
         //get_login.trim().toLowerCase();
         console.log(get_login);
         //var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style><script src='sorttable.js'></script></head>";
@@ -1748,7 +1750,8 @@ document.getElementById('back').style.display = 'block';
    .then((querySnapshot) => {
        cnt = querySnapshot.size;
         var msg = "<input type='button' id='btnPrint' onclick='loaddb();' value='Show All Schedules for: " + fldloginID  + "'/>";
-        var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (My VMS Report)</h1><h2>" + "<label id='numcount'></label>" + " Visitor Schedule(s) for: <a href='https://aquavisitorsystem.github.io/?userid=" + get_login + "&report=active'>" + get_login + "</a><br><small>(showing all schedules for: " + get_login + ")</small><br><small style='font-size: 16px;color: blue;'>report created on " +  gtodaysdate + "</small><br></h2><div id='home'><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br></div><br></center>";
+      
+        var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (My VMS Report)</h1><h2>" + "<label id='numcount'></label>" + " Visitor Schedule(s) for: <a href='https://aquavisitorsystem.github.io/?userid=" + get_login + "&report=active'>" + get_login + "</a><br><small style='font-size: 17px;color: grey;'>(showing all future,present & past schedules for: " + get_fullname + ")</small><br><small style='font-size: 16px;color: blue;'>report created on " +  gtodaysdate + "</small><br></h2><div id='home'><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br></div><br></center>";
         document.write(title);
         document.write(printnow);
             if (cnt === 0){
@@ -7015,4 +7018,8 @@ function nextDate(dayIndex) {
     var x = new Date(x).toLocaleDateString("fr-CA", options2)
     //  console.log(x);
     return x;
+}
+
+function titleCase(str) {
+    return str.toLowerCase().replace(/\b\w/g, s => s.toUpperCase());
 }
