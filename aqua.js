@@ -1748,7 +1748,7 @@ document.getElementById('back').style.display = 'block';
    .then((querySnapshot) => {
        cnt = querySnapshot.size;
         var msg = "<input type='button' id='btnPrint' onclick='loaddb();' value='Show All Schedules for: " + fldloginID  + "'/>";
-        var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (My VMS Report)</h1><h2>" + "<label id='numcount'></label>" + " Visitor Schedule(s) for: " + get_login + "<br><small>(showing all schedules for: " + get_login + ")</small><br><small style='font-size: 16px;color: blue;'>report created on " +  gtodaysdate + "</small><br></h2><div id='home'><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br></div><br></center>";
+        var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (My VMS Report)</h1><h2>" + "<label id='numcount'></label>" + " Visitor Schedule(s) for: <a href='https://aquavisitorsystem.github.io/?userid=" + get_login + "&report=active'>" + get_login + "</a><br><small>(showing all schedules for: " + get_login + ")</small><br><small style='font-size: 16px;color: blue;'>report created on " +  gtodaysdate + "</small><br></h2><div id='home'><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br></div><br></center>";
         document.write(title);
         document.write(printnow);
             if (cnt === 0){
