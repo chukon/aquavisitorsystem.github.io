@@ -1140,8 +1140,9 @@ document.getElementById('back').style.display = 'block';
 
       
             var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (My VMS Report)</h1><h2>" + "<label id='numcount'></label>" + " Active Visitor Schedule(s) for: <a href='https://aquavisitorsystem.github.io/?userid=" + get_login + "&report=active'>" + get_login + "</a><br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small></h2><div id='homes'><a href='https://aquavisitorsystem.github.io/'>Go Home</a>" + "<br></div><br>" + msg  +   "<br><br></center>";
-  
+            var goback = '<br><center><a href="javascript:history.back();">[Go Back]</a></center><br>';
             document.write(title);
+          //  document.write(printnow);
             document.write(printnow);
             if (cnt === 0){
                 var nodata = "<center><br>No visitor data found<br></center>";
@@ -1680,7 +1681,7 @@ document.getElementById('back').style.display = 'block';
                         break;
                     }
                 }
-     
+          
                 document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + seleceteddate + '</td><td>' + datesort + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
                 
             }
@@ -2592,7 +2593,7 @@ setTimeout("sortByDate2(5)", 3000);
         var gmyDate = new Date(gd).toLocaleString('en-US');   
         var gtodaysdate = gmyDate.toString()
         var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (active report)</h1><h2>" +   "<label id='numcount'></label>" + " Active Visitor Schedule(s)<br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small></h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
-
+        var goback = '<br><center><a href="javascript:history.back();">[Go Back]</a></center><br>';
         document.write(title);
         document.write(printnow);
         if (cnt === 0){
@@ -2813,8 +2814,9 @@ setTimeout("sortByDate2(5)", 3000);
                     break;
                 }
             }
-        
-           document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + seleceteddate + '</td><td>' + datesort + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
+            var glinks = "<a href='https://aquavisitorsystem.github.io/?userid=" + doc.data().login + "&report=active'>" + doc.data().login + "</a>";
+            document.write('<tr><td>' + glinks + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + seleceteddate + '</td><td>' + datesort + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
+           //document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + seleceteddate + '</td><td>' + datesort + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
 
         }
      
