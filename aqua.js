@@ -1399,7 +1399,7 @@ document.getElementById('back').style.display = 'block';
 }
 }
 
-    var loaduseridreport =  function(){
+    var loaddbactivereport =  function(){
         var get_login=prompt("Enter Aqua UserID To View Report","Enter Aqua UserID");
         if (get_login  === null || get_login === "Enter Aqua UserID") {
             alert("Please Try Again! Enter Aqua UserID");
@@ -6223,7 +6223,7 @@ var getloginname = function(){
     }else if (username.toLowerCase()  === 'dailyuseremails') {
         emailtodayschedule();
     }else if (username.toLowerCase()  === 'myvms') {
-        loaduseridreport();
+        loaddbactivereport();
     }else if (username.toLowerCase()  === 'userid') {
         loaduseridreport();
     }else if (username.toLowerCase()  === 'activitylog') {
