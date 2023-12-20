@@ -44,6 +44,8 @@ firebase.initializeApp(firebaseConfig);
     var key_checkout = "";
     var gbit = "";
     var myResponse;
+    var arrayuserid=[];
+    var arrayfullname=[];
 
     function getDateXDaysAgo(numOfDays, date = new Date()) {
         var daysAgo = new Date(date.getTime());
@@ -2264,7 +2266,7 @@ document.getElementById('back').style.display = 'block';
     //document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
     //document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
     document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + datesort + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
-    });
+     });
     var count = 0;
     try {
         var table = document.getElementById("report");
@@ -2274,7 +2276,8 @@ document.getElementById('back').style.display = 'block';
     }
     //var table = document.getElementById("report");
     //var tbodyRowCount = table.tBodies[0].rows.length;
-    //let count = tbodyRowCount; //Visitors.length;
+//let count = tbodyRowCount; //Visitors.length;
+    
 console.log("count: " +  count);
 document.getElementById("numcount").innerHTML = count ;
 document.getElementById("numcount").setAttribute("value",  count );
@@ -2287,8 +2290,284 @@ setTimeout("sortByDate2(5)", 3000);
     .catch((error) => {
         console.log("Error getting documents: ", error);
 });
-
+    console.log("arrayuserid: " +  arrayuserid);
 }
+
+    var loaduseridreport =  function(){
+        var cntrecdays = 0;
+        var db = firebase.firestore();
+        var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: center;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
+        var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>"; var lines = "";
+        var RecordIDs = [];
+        var cnt1;
+        var datesort;
+        var Visitors = [];
+
+
+        let today = new Date().toISOString().slice(0, 10);
+        db.collection("messages").where("remove", "==","No").orderBy("date","desc")
+    .get()
+    .then((querySnapshot) => {
+        var cnt = querySnapshot.size;
+        var gd = new Date();
+        //var gmyDate = new Date(gd).toLocaleDateString('en-US');   
+        var gmyDate = new Date(gd).toLocaleString('en-US');   
+        var gtodaysdate = gmyDate.toString();
+        var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (Aqua UserID Report)</h1><h2><small>(click on UserID to view active VMS report)</small><br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small><br></h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+
+        document.write(title);
+        document.write(printnow);
+
+        if (cnt === 0){
+            var nodata = "<center><br>No visitor data found<br></center>";
+            document.write(nodata);
+        }else{
+            //	  document.write("<table  id='report' style='font-size: small;'>  <tr>    <th>UserID</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th>Date/Time</th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
+            // document.write("<table  id='report' style='font-size: small;'>  <tr>    <th style='cursor: pointer; color: red;' onclick='sortTable(0)'>UserID <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th>Date/Time</th>      <th>Email</th>       <th>Visiting</th><th>Edit</th>  </tr>");
+            document.write("<table id='report' style='font-size: medium;'>  <thead><tr>    <th style='cursor: pointer; color: red;' onclick='sortTable(0)'>UserID <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th></tr></thead>");
+            document.write("<tbody>");
+        }
+        document.getElementsByTagName("body")[0].style.display = "none";
+        querySnapshot.forEach((doc) => {
+            console.log(doc.id, " => ", doc.data());
+        var options = {
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+            hour: "2-digit",
+            minute: "2-digit"
+        };
+        var options2 = {
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit"
+        };
+
+        var d = new Date();
+        var dates;
+        var Datex = [];
+        console.log("date2: " + doc.data().date2);
+        //  var todays = new Date().toDateString();
+        if (typeof doc.data().date !== 'undefined' && doc.data().date !=="") {
+            dates = new Date(doc.data().date).toLocaleDateString("en", options)
+            datesort = new Date(doc.data().date).toLocaleDateString("fr-CA", options2)
+            Datex.push(datesort);
+            Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
+        }
+        if (typeof doc.data().date2 !== 'undefined' && doc.data().date2 !=="") {
+            dates = dates + "<br>" + new Date(doc.data().date2).toLocaleDateString("en", options)
+            datesort = new Date(doc.data().date2).toLocaleDateString("fr-CA", options2)
+            Datex.push(datesort);
+            Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
+        }
+        if (typeof doc.data().date3 !== 'undefined' && doc.data().date3 !=="") {
+            dates = dates + "<br>" + new Date(doc.data().date3).toLocaleDateString("en", options)
+            datesort = new Date(doc.data().date3).toLocaleDateString("fr-CA", options2)
+            Datex.push(datesort);
+            Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
+        }
+        if (typeof doc.data().date4 !== 'undefined' && doc.data().date4 !=="") {
+            dates = dates + "<br>" + new Date(doc.data().date4).toLocaleDateString("en", options)
+            datesort = new Date(doc.data().date4).toLocaleDateString("fr-CA", options2)
+            Datex.push(datesort);
+            Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
+        }
+        if (typeof doc.data().date5 !== 'undefined' && doc.data().date5 !=="") {
+            dates = dates + "<br>" + new Date(doc.data().date5).toLocaleDateString("en", options)
+            datesort = new Date(doc.data().date5).toLocaleDateString("fr-CA", options2)
+            Datex.push(datesort);
+            Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
+        }
+        if (typeof doc.data().date6 !== 'undefined' && doc.data().date6 !=="") {
+            dates = dates + "<br>" + new Date(doc.data().date6).toLocaleDateString("en", options)
+            datesort = new Date(doc.data().date6).toLocaleDateString("fr-CA", options2)
+            Datex.push(datesort);
+            Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
+        }
+        if (typeof doc.data().date7 !== 'undefined' && doc.data().date7 !=="") {
+            dates = dates + "<br>" + new Date(doc.data().date7).toLocaleDateString("en", options)
+            datesort = new Date(doc.data().date7).toLocaleDateString("fr-CA", options2)
+            Datex.push(datesort);
+            Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
+
+        }
+        if (typeof doc.data().date8 !== 'undefined' && doc.data().date8 !=="") {
+            dates = dates + "<br>" + new Date(doc.data().date8).toLocaleDateString("en", options)
+            datesort = new Date(doc.data().date8).toLocaleDateString("fr-CA", options2);
+            Datex.push(datesort);
+            Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
+        }
+        if (typeof doc.data().date9 !== 'undefined' && doc.data().date9 !=="") {
+            dates = dates + "<br>" + new Date(doc.data().date9).toLocaleDateString("en", options)
+            datesort = new Date(doc.data().date9).toLocaleDateString("fr-CA", options2)
+            Datex.push(datesort);
+            Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
+        }
+        if (typeof doc.data().date10 !== 'undefined' && doc.data().date10 !=="") {
+            dates = dates + "<br>" + new Date(doc.data().date10).toLocaleDateString("en", options)
+            datesort = new Date(doc.data().date10).toLocaleDateString("fr-CA", options2)
+            Datex.push(datesort);
+            Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
+        }
+        if (typeof doc.data().date11 !== 'undefined' && doc.data().date11 !=="") {
+            dates = dates + "<br>" + new Date(doc.data().date11).toLocaleDateString("en", options)
+            datesort = new Date(doc.data().date11).toLocaleDateString("fr-CA", options2)
+            Datex.push(datesort);
+            Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
+        }
+        if (typeof doc.data().date12 !== 'undefined' && doc.data().date12 !=="") {
+            dates = dates + "<br>" + new Date(doc.data().date12).toLocaleDateString("en", options)
+            datesort = new Date(doc.data().date12).toLocaleDateString("fr-CA", options2);
+            Datex.push(datesort);
+            Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
+        }
+        if (typeof doc.data().date14 !== 'undefined' && doc.data().date14 !=="") {
+            cntrecdays = 0;
+            h  =  tConvert (doc.data().rectime);
+            var days = "";
+            const datea = new Date(doc.data().date13);
+            const dateb = new Date(doc.data().date14);
+            var date13 = addOneDay(datea).toLocaleDateString("en", options2);
+            var date14 = addOneDay(dateb).toLocaleDateString("en", options2);
+            console.log("date13: " + date13);
+            console.log("date14: " + date14);
+            var mdays = []; 
+            if (doc.data().mon === true) {
+                mdays.push(1);
+                days = "Mon";
+                cntrecdays = RecCount(date13,date14,1);
+            }
+            if (doc.data().tue === true) {
+                mdays.push(2);
+                if (days === ""){
+                    days = "Tue";
+                }else{
+                    days = days + "," + "Tue";
+                }
+                cntrecdays = cntrecdays + RecCount(date13,date14,2);
+            }
+            if (doc.data().wed === true) {
+                mdays.push(3);
+                if (days === ""){
+                    days = "Wed";
+                }else{
+                    days = days + "," + "Wed";
+                } 
+                cntrecdays = cntrecdays + RecCount(date13,date14,3);
+            }
+            if (doc.data().thu === true) {
+                mdays.push(4);
+                if (days === ""){
+                    days = "Thu";
+                }else{
+                    days = days + "," + "Thu";
+                }   
+                cntrecdays = cntrecdays + RecCount(date13,date14,4);
+            }
+            if (doc.data().fri === true) {
+                mdays.push(5);
+                if (days === ""){
+                    days = "Fri";
+                }else{
+                    days = days + "," + "Fri";
+                }  
+                cntrecdays = cntrecdays + RecCount(date13,date14,4);
+            }
+            //dates = cntrecdays + " Recurring Until: " + "<br>" + date14 + "<br>Day(s):" + days + "<br>Time:" + h
+            dates = "Recurring Until: " + "<br>" + date14 + "<br>Day(s):" + days + "<br>Time:" + h
+            const date = new Date();
+            const thisistodayday = date.getDay();
+            var todaysdate77 = new Date().toLocaleDateString("en", options2);
+            var range = date14
+            console.log("range:" + range);
+            console.log("todaysdate77:" + todaysdate77);
+            if (range < todaysdate77){
+                datesorts = new Date(date14).toLocaleDateString("fr-CA", options2); //addOneDay(dateb).toLocaleDateString("fr-CA", options2);
+                console.log("out of range: dateb: " + dateb + " datesorts: " + datesorts);
+            }else{
+                console.log("in range:" + datesorts);
+                if (mdays.includes(thisistodayday)){
+                    datesorts = new Date().toLocaleDateString("fr-CA", options2);
+                }else{
+                    datesorts = nextDate(mdays[0]);
+                }
+            }
+            //datesorts = new Date().toLocaleDateString("fr-CA", options2);;
+            Datex.push(datesorts);
+            Visitors.push(doc.data().login + new Date(doc.data().date14).toLocaleDateString("en", options2) + doc.data().rectime);
+        }
+        //Datex.sort((a, b) => new Date(b) - new Date(a)).reverse()
+        Datex.sort((a, b) => new Date(b) - new Date(a))
+        var todays = new Date().toLocaleDateString("fr-CA", options2);
+        console.log("todays: " + todays);
+        for(var i=0; i<Datex.length; i++){
+            console.log("Datex[i]: " + Datex[i]);
+            //if(Datex[i] === todays){
+            //    datesort = Datex[i]
+            //    break;
+            //}else if (Datex[i] > todays){
+            //    datesort = Datex[i]
+            //    break;
+            //}
+            if(Datex[i] === todays){
+                datesort = Datex[i]
+                console.log("Datex[i] === todays " + datesort);
+                break;
+            }else if (Datex[i] > todays){
+                datesort = Datex[i]
+                console.log("Datex[i] > todays " + datesort);
+                break;
+            }else if (Datex[i] < todays){
+                datesort = Datex[i]
+                console.log("Datex[i] < todays" + datesort);
+                break;
+            }
+        }
+
+
+        // datesort = next_dates;
+
+        //datesort = Datex.reduce((a, b) => (a.MeasureDate > b.MeasureDate ? a : b));
+        //console.log("DateSort: " + Datex.reduce((a, b) => (a.MeasureDate > b.MeasureDate ? a : b)));
+        //console.log("loaddbeverything:" + dates);
+        //document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
+        //document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
+       // document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + datesort + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
+        arrayuserid.push(doc.data().login);
+    });
+    var count = 0;
+    try {
+        var table = document.getElementById("report");
+        count  = table.tBodies[0].rows.length;
+    } catch (error) {
+        count = 0;
+    }
+    //var table = document.getElementById("report");
+    //var tbodyRowCount = table.tBodies[0].rows.length;
+    //let count = tbodyRowCount; //Visitors.length;
+    arrayuserid = [...new Set(arrayuserid)];
+    arrayuserid.sort();
+    console.log("arrayuserid: " +  arrayuserid);
+    for (var i = 0; i < arrayuserid.length; i++) {
+        //console.log(arrayuserid[i]);
+        //Do something
+        var glinks = "<a href='https://aquavisitorsystem.github.io/?userid=" + arrayuserid[i] + "&report=active'>" + arrayuserid[i] + "</a>";
+        document.write('<tr><td>' + glinks + '</td></tr>');
+    }
+    console.log("count: " +  count);
+   // document.getElementById("numcount").innerHTML = count ;
+    //document.getElementById("numcount").setAttribute("value",  count );
+    document.head.innerHTML = header;
+    document.write("</tbody></table>");
+    document.getElementsByTagName("body")[0].style.display = "none";
+    setTimeout("sortByDate2(5)", 3000);
+    // setTimeout("sortByDate(5)", 6000);
+    })
+    .catch((error) => {
+        console.log("Error getting documents: ", error);
+    });
+    console.log("arrayuserid: " +  arrayuserid);
+    }
 
     var loaddbeverythingall =  function(){
         var cntrecdays = 0;
@@ -5945,6 +6224,8 @@ var getloginname = function(){
         emailtodayschedule();
     }else if (username.toLowerCase()  === 'myvms') {
         loaduseridreport();
+    }else if (username.toLowerCase()  === 'userid') {
+        loaduseridreport();
     }else if (username.toLowerCase()  === 'activitylog') {
        //window.open('https://aquavisitorsystem.github.io/aquavisitoractivity.github.io/firestore/', '_blank').focus();
         window.location.href = 'https://aquavisitorsystem.github.io/aquavisitoractivity.github.io/firestore/today.html';
@@ -6237,7 +6518,7 @@ var updatescheduleshome = function(){
 }
        
 var getall = function(){
-    var visitorlist = ['today', 'myvms' , 'activitylog' , 'active', 'name', 'date', 'all', 'inactive', 'count','loguserid', 'logname', 'logall', 'logtoday', 'logweek', 'logdate','printjobs'];
+    var visitorlist = ['today', 'myvms' , 'activitylog' , 'active', 'name', 'date', 'all', 'inactive','userid', 'count','loguserid', 'logname', 'logall', 'logtoday', 'logweek', 'logdate','printjobs'];
      var list = document.getElementById('loginlist');
    
      var logins = document.getElementById('login');
