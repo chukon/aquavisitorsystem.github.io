@@ -6520,7 +6520,9 @@ var updatescheduleshome = function(){
 }
        
 var getall = function(){
-    var visitorlist = ['today', 'myvms' , 'activitylog' , 'active', 'name', 'date', 'all', 'inactive','userid', 'count','loguserid', 'logname', 'logall', 'logtoday', 'logweek', 'logdate','printjobs'];
+    //var visitorlist = ['today', 'myvms' , 'activitylog' , 'active', 'name', 'date', 'all', 'inactive','userid', 'count','loguserid', 'logname', 'logall', 'logtoday', 'logweek', 'logdate','printjobs'];
+   // var visitorlist = ['today', 'myvms' , 'activitylog' , 'active', 'name', 'date', 'all', 'inactive','userid', 'count','loguserid', 'logname', 'logall', 'logtoday', 'logweek', 'logdate','printjobs'];
+    var visitorlist = ['today','myvms' ,'active', 'activitylog' ,'all','count','date','inactive','myvms' ,'name','userid','loguserid', 'logname', 'logall', 'logtoday', 'logweek', 'logdate','printjobs'];
      var list = document.getElementById('loginlist');
    
      var logins = document.getElementById('login');
