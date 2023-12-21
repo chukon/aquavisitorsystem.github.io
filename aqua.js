@@ -1138,10 +1138,10 @@ document.getElementById('back').style.display = 'block';
             var msg = "<input type='button' id='btnPrint' onclick='loaddb();' value='Show All Schedules for: " + fldloginID  + "'/>";
 
 
-            // var goback = ' | <a href="javascript:history.go(-1);">Go Back</a>';
-            var goback = ' | <a href="javascript:window.location=document.referrer;">Go Back</a>';
+            var goback = ' | <a href="javascript:history.go(-1);">Go Back</a>';
+            //var goback = ' | <a href="javascript:window.location=document.referrer;">Go Back</a>';
             var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (My VMS Report)</h1><h2>" + "<label id='numcount'></label>" + " Active Visitor Schedule(s) for: <a href='https://aquavisitorsystem.github.io/?userid=" + get_login + "&report=active'>" + get_login + "</a><br><small style='font-size: 17px;color: grey;'>(showing all present & future schedules for: " + get_login + ")</small><br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small></h2><div id='homes'><a href='https://aquavisitorsystem.github.io/'>Go Home</a>" + goback + "<br></div><br>" + msg  +   "<br><br></center>";
-            var goback = '<br><center><a href="javascript:history.go(-1);">[Go Back]</a></center><br>';
+            var goback = ' | <a href="javascript:history.go(-1);">Go Back</a>';
 
             document.write(title);
           //  document.write(printnow);
@@ -1457,8 +1457,8 @@ document.getElementById('back').style.display = 'block';
       
             var msg = "<input type='button' id='btnPrint' onclick='loaddb();' value='Show All Schedules for: " + fldloginID  + "'/>";
 
-            //var goback = ' | <a href="javascript:history.go(-1);">Go Back</a>';
-            var goback = ' | <a href="javascript:window.location=document.referrer;">Go Back</a>';
+           var goback = ' | <a href="javascript:history.go(-1);">Go Back</a>';
+           // var goback = ' | <a href="javascript:window.location=document.referrer;">Go Back</a>';
             var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (My VMS Report)</h1><h2>" + "<label id='numcount'></label>" + " Active Visitor Schedule(s) for: <a href='https://aquavisitorsystem.github.io/?userid=" + get_login + "&report=active'>" + get_login + "</a><br><small style='font-size: 17px;color: grey;'>(showing all present & future schedules for: " + get_login + ")</small><br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small></h2><div id='homes'><a href='https://aquavisitorsystem.github.io/'>Go Home</a>" + "<br></div><br>" + msg  +   "<br><br></center>";
   
             document.write(title);
@@ -1755,8 +1755,8 @@ document.getElementById('back').style.display = 'block';
    .then((querySnapshot) => {
        cnt = querySnapshot.size;
         var msg = "<input type='button' id='btnPrint' onclick='loaddb();' value='Show All Schedules for: " + fldloginID  + "'/>";
-       // var goback = ' | <a href="javascript:history.go(-1);">Go Back</a>';
-        var goback = ' | <a href="javascript:window.location=document.referrer;">Go Back</a>';
+       var goback = ' | <a href="javascript:history.go(-1);">Go Back</a>';
+       // var goback = ' | <a href="javascript:window.location=document.referrer;">Go Back</a>';
         var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (My VMS Report)</h1><h2>" + "<label id='numcount'></label>" + " Visitor Schedule(s) for: <a href='https://aquavisitorsystem.github.io/?userid=" + get_login + "&report=active'>" + get_login + "</a><br><small style='font-size: 17px;color: grey;'>(showing all future,present & past schedules for: " + get_login + ")</small><br><small style='font-size: 16px;color: blue;'>report created on " +  gtodaysdate + "</small><br></h2><div id='home'><a href='https://aquavisitorsystem.github.io/'>Go Home</a>" + goback + "<br></div><br></center>";
         document.write(title);
         document.write(printnow);
@@ -2579,8 +2579,8 @@ setTimeout("sortByDate2(5)", 3000);
         var gmyDate = new Date(gd).toLocaleString('en-US');   
         var gtodaysdate = gmyDate.toString()
         var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (active report)</h1><h2>" +   "<label id='numcount'></label>" + " Active Visitor Schedule(s)<br><small style='font-size: 17px;color: grey;'>(showing all present & future schedules)</small><br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small></h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
-       // var goback = '<br><center><a href="javascript:history.go(-1);">[Go Back]</a></center><br>';
-        var goback = ' | <a href="javascript:window.location=document.referrer;">Go Back</a>';
+        var goback = '<br><center><a href="javascript:history.go(-1);">[Go Back]</a></center><br>';
+        //var goback = ' | <a href="javascript:window.location=document.referrer;">Go Back</a>';
         document.write(title);
         document.write(printnow);
         if (cnt === 0){
