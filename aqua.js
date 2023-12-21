@@ -2575,7 +2575,7 @@ setTimeout("sortByDate2(5)", 3000);
         //var gmyDate = new Date(gd).toLocaleDateString('en-US');   
         var gmyDate = new Date(gd).toLocaleString('en-US');   
         var gtodaysdate = gmyDate.toString()
-        var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (active report)</h1><h2>" +   "<label id='numcount'></label>" + " Active Visitor Schedule(s)<br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small></h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+        var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (active report)</h1><h2>" +   "<label id='numcount'></label>" + " Active Visitor Schedule(s)<br><small style='font-size: 17px;color: grey;'>(showing all present & future schedules)</small><br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small></h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
         var goback = '<br><center><a href="javascript:history.back();">[Go Back]</a></center><br>';
         document.write(title);
         document.write(printnow);
