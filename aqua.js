@@ -1925,6 +1925,8 @@ document.getElementById('back').style.display = 'block';
             }
             var todaysdate77 = new Date().toLocaleDateString("en", options2);
             var range = date14
+            range = new Date(range);
+            todaysdate77 = new Date(todaysdate77);
             console.log("7777 date14:" + range);
             console.log("7777 todaysdate:" + todaysdate77);
             if (range < todaysdate77){
@@ -1940,13 +1942,10 @@ document.getElementById('back').style.display = 'block';
                 }else{
                     datesorts = nextDate(mdays[0]);
                 }
-                //datesorts = new Date().toLocaleDateString("fr-CA", options2);
                 console.log("in range:" + datesorts);
                 Datex.push(datesorts);
             }
-           // datesorts = new Date().toLocaleDateString("fr-CA", options2);
             Datex.push(datesorts);
-            //Visitors.push(doc.data().login + new Date(doc.data().date13).toLocaleDateString("en", options));
         }
 
         Datex.sort((a, b) => new Date(b) - new Date(a))
@@ -1954,13 +1953,6 @@ document.getElementById('back').style.display = 'block';
         console.log("todays: " + todays);
         for(var i=0; i<Datex.length; i++){
             console.log("Datex[i]: " + Datex[i]);
-            //if(Datex[i] === todays){
-            //    datesort = Datex[i]
-            //    break;
-            //}else if (Datex[i] > todays){
-            //    datesort = Datex[i]
-            //    break;
-            //}
             if(Datex[i] === todays){
                 datesort = Datex[i]
                 console.log("Datex[i] === todays " + datesort);
@@ -1976,26 +1968,6 @@ document.getElementById('back').style.display = 'block';
             }
         }
 
-        ////Datex.sort((a, b) => new Date(b) - new Date(a)).reverse()
-        //Datex.sort((a, b) => new Date(b) - new Date(a))
-        //var todays = new Date().toLocaleDateString("fr-CA", options2);
-        //console.log("todays: " + todays);
-        //for(var i=0; i<Datex.length; i++){
-        //    console.log("Datex[i]: " + Datex[i]);
-        //    if(Datex[i] === todays){
-        //        datesort = Datex[i]
-        //        console.log("Datex[i] === todays " + datesort);
-        //        break;
-        //    }else if (Datex[i] > todays){
-        //        datesort = Datex[i]
-        //        console.log("Datex[i] > todays " + datesort);
-        //        //break;
-        //    }else if (Datex[i] < todays){
-        //        datesort = Datex[i]
-        //        console.log("Datex[i] < todays" + datesort);
-        //        break;
-        //    }
-        //}
           document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + datesort + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
     });
     var count = 0;
@@ -2207,42 +2179,56 @@ document.getElementById('back').style.display = 'block';
             }  
             cntrecdays = cntrecdays + RecCount(date13,date14,4);
         }
-        //dates = cntrecdays + " Recurring Until: " + "<br>" + date14 + "<br>Day(s):" + days + "<br>Time:" + h
-        dates = "Recurring Until: " + "<br>" + date14 + "<br>Day(s):" + days + "<br>Time:" + h
-        const date = new Date();
-        const thisistodayday = date.getDay();
+        if (dates)
+        {
+            console.log("777 dates: " + dates);
+            //dates = dates + "<hr>" + cntrecdays + " Recurring Until: <br>" + date14 + "<br>Day(s):" + days + "<br>Time:" + h
+            dates = dates + "<hr>" + "Recurring Until: <br>" + date14 + "<br>Day(s):" + days + "<br>Time:" + h
+        }else{
+            console.log("888 dates:" + dates);
+
+            // dates = cntrecdays + " Recurring Until: <br>" + date14 + "<br>Day(s):" + days + "<br>Time:" + h
+            dates = "Recurring Until: <br>" + date14 + "<br>Day(s):" + days + "<br>Time:" + h
+        }
         var todaysdate77 = new Date().toLocaleDateString("en", options2);
         var range = date14
-        console.log("range:" + range);
+        console.log("range: " + range);
         console.log("todaysdate77:" + todaysdate77);
+        range = new Date(range);
+        todaysdate77 = new Date(todaysdate77);
+        console.log("(range < todaysdate77):" + (range < todaysdate77));
         if (range < todaysdate77){
-            datesorts = new Date(date14).toLocaleDateString("fr-CA", options2); //addOneDay(dateb).toLocaleDateString("fr-CA", options2);
-            console.log("out of range: dateb: " + dateb + " datesorts: " + datesorts);
+            const dateb = new Date(doc.data().date14);
+            datesorts = addOneDay(dateb).toLocaleDateString("fr-CA", options2);
+            console.log("out of range:" + datesorts);
+            Datex.push(datesorts);
         }else{
-            console.log("in range:" + datesorts);
+             const date = new Date();
+                const thisistodayday = date.getDay();
+                console.log("thisistodayday" + thisistodayday);
+                console.log("mdays.includes(thisistodayday)" + mdays.includes(thisistodayday));
             if (mdays.includes(thisistodayday)){
                 datesorts = new Date().toLocaleDateString("fr-CA", options2);
             }else{
                 datesorts = nextDate(mdays[0]);
             }
+            console.log("in range:" + datesorts);
+            Datex.push(datesorts);
         }
         //datesorts = new Date().toLocaleDateString("fr-CA", options2);;
         Datex.push(datesorts);
         Visitors.push(doc.data().login + new Date(doc.data().date14).toLocaleDateString("en", options2) + doc.data().rectime);
     }
         //Datex.sort((a, b) => new Date(b) - new Date(a)).reverse()
+   // Datex.sort((a, b) => new Date(b) - new Date(a))
+   // var todays = new Date().toLocaleDateString("fr-CA", options2);
+  //  console.log("todays: " + todays);
+
     Datex.sort((a, b) => new Date(b) - new Date(a))
     var todays = new Date().toLocaleDateString("fr-CA", options2);
     console.log("todays: " + todays);
     for(var i=0; i<Datex.length; i++){
         console.log("Datex[i]: " + Datex[i]);
-        //if(Datex[i] === todays){
-        //    datesort = Datex[i]
-        //    break;
-        //}else if (Datex[i] > todays){
-        //    datesort = Datex[i]
-        //    break;
-        //}
         if(Datex[i] === todays){
             datesort = Datex[i]
             console.log("Datex[i] === todays " + datesort);
@@ -2257,6 +2243,7 @@ document.getElementById('back').style.display = 'block';
             break;
         }
     }
+
     //document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + datesort + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
  
     var glinks = "<a href='https://aquavisitorsystem.github.io/?userid=" + doc.data().login + "&report=active'>" + doc.data().login + "</a>";
@@ -2474,6 +2461,8 @@ setTimeout("sortByDate2(5)", 3000);
             const thisistodayday = date.getDay();
             var todaysdate77 = new Date().toLocaleDateString("en", options2);
             var range = date14
+            range = new Date(range);
+            todaysdate77 = new Date(todaysdate77);
             console.log("range:" + range);
             console.log("todaysdate77:" + todaysdate77);
             if (range < todaysdate77){
