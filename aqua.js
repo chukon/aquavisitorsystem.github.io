@@ -6687,7 +6687,8 @@ var dailycheckout =  function(){
     var myDate = new Date(d).toLocaleDateString('en-US');   
     name = myDate.toString();
     var  todays = new Date().toLocaleDateString('en-US');  
-    db.collection("messages").where("date", ">=",start).where("date", "<=",end).where("remove", "==","No").where("checkout", "==","").orderBy("date","asc").orderBy("lastname","asc")
+    //db.collection("messages").where("date", ">=",start).where("date", "<=",end).where("remove", "==","No").where("checkout", "==","").orderBy("date","asc").orderBy("lastname","asc")
+    db.collection("messages").where("remove", "==","No").where("checkout", "==","").orderBy("date","asc").orderBy("lastname","asc")
 .get()
 .then((querySnapshot) => {
      console.log("Snapshot:" + querySnapshot.size); 
