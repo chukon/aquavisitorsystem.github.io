@@ -2005,7 +2005,7 @@ document.getElementById('back').style.display = 'block';
     var loaddbeverything =  function(){
         var cntrecdays = 0;
     var db = firebase.firestore();
-    var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(9){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
+    var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}#gohome{display:none;}#report tr > *:nth-child(9){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
     var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>"; var lines = "";
     var RecordIDs = [];
     var cnt1;
@@ -2022,7 +2022,7 @@ document.getElementById('back').style.display = 'block';
     //var gmyDate = new Date(gd).toLocaleDateString('en-US');   
     var gmyDate = new Date(gd).toLocaleString('en-US');   
     var gtodaysdate = gmyDate.toString();
-    var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (all report)</h1><h2>" + "<label id='numcount'></label>" + " Visitor Schedule(s)<br><small>(showing all schedules)</small><br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small><br></h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+    var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (all report)</h1><h2>" + "<label id='numcount'></label>" + " Visitor Schedule(s)<br><small>(showing all schedules)</small><br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small><br></h2><div id='gohome'><a href='https://aquavisitorsystem.github.io/'>Go Home</a></div><br><br></center>";
 
     document.write(title);
     document.write(printnow);
@@ -2559,7 +2559,7 @@ setTimeout("sortByDate2(5)", 3000);
     var loaddbeverythingall =  function(){
         var cntrecdays = 0;
         var db = firebase.firestore();
-        var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(9){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
+        var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}#gohome{display:none;}#report tr > *:nth-child(9){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
         var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>"; var lines = "";
         var RecordIDs = [];
         var cnt1;
@@ -2578,7 +2578,7 @@ setTimeout("sortByDate2(5)", 3000);
         //var gmyDate = new Date(gd).toLocaleDateString('en-US');   
         var gmyDate = new Date(gd).toLocaleString('en-US');   
         var gtodaysdate = gmyDate.toString()
-        var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (active report)</h1><h2>" +   "<label id='numcount'></label>" + " Active Visitor Schedule(s)<br><small style='font-size: 17px;color: grey;'>(showing all present & future schedules)</small><br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small></h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+        var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (active report)</h1><h2>" +   "<label id='numcount'></label>" + " Active Visitor Schedule(s)<br><small style='font-size: 17px;color: grey;'>(showing all present & future schedules)</small><br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small></h2><div id='gohome'><a href='https://aquavisitorsystem.github.io/'>Go Home</a></div><br><br></center>";
         var goback = '<br><center><a href="javascript:history.go(-1);">[Go Back]</a></center><br>';
         //var goback = ' | <a href="javascript:window.location=document.referrer;">Go Back</a>';
         document.write(title);
@@ -2958,14 +2958,14 @@ document.head.innerHTML = header;
         get_login  = get_login.toString();
         get_login = get_login.trim().toUpperCase();
         console.log(get_login);
-        var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(8){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
+        var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}#gohome{display:none;}#report tr > *:nth-child(8){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
         var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>"; var lines = "";  var lines = "";
         let today = new Date().toISOString().slice(0, 10);
         db.collection("messages").where("lastname", "==",get_login).where("remove", "==","No").orderBy("date","desc")
    .get()
    .then((querySnapshot) => {
        var cnt = querySnapshot.size;
-        var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (name report)</h1><h2>" + "<label id='numcount'></label>" + " Visitor Schedule(s) for: " + get_login + "<br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small><br></h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+        var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (name report)</h1><h2>" + "<label id='numcount'></label>" + " Visitor Schedule(s) for: " + get_login + "<br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small><br></h2><div id='gohome'><a href='https://aquavisitorsystem.github.io/'>Go Home</a></div><br><br></center>";
         //var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (name report)</h1><h2>" + "Visitor Schedule(s) for: " + get_login + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
        
         document.write(title);
@@ -3100,8 +3100,9 @@ document.head.innerHTML = header;
             Visitors.push(doc.data().login + new Date(doc.data().date13).toLocaleDateString("en", options));
         }
         console.log("loadname:" + dates);
+        var glinks = "<a href='https://aquavisitorsystem.github.io/?userid=" + doc.data().login + "&report=active'>" + doc.data().login + "</a>";
         //  document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
-        document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
+        document.write('<tr><td>' + glinks + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
  
     });
     var count = 0;
@@ -3861,7 +3862,7 @@ setTimeout("sortByDate2(4)", 3000);
             }	
             console.log(name);
             var  todays = new Date().toLocaleDateString('en-US');  
-            var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(8){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
+            var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}#gohome{display:none;}#report tr > *:nth-child(8){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
             var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
             var RecordIDs = [];
             var cnt1;
@@ -4076,7 +4077,7 @@ var gd = new Date();
 //var gmyDate = new Date(gd).toLocaleDateString('en-US');   
 var gmyDate = new Date(gd).toLocaleString('en-US');   
 var gtodaysdate = gmyDate.toString();
-var title = "<div id='reptitle'><center><h1>Aqua-Aerobic Systems Visitor Schedule (date report)</h1><h2>" + cnt1 + " Visitor(s) for: " + name + "</h2></center></div><center><a href='https://aquavisitorsystem.github.io/'>Go Home</a></center><br>";         
+var title = "<div id='reptitle'><center><h1>Aqua-Aerobic Systems Visitor Schedule (date report)</h1><h2>" + cnt1 + " Visitor(s) for: " + name + "</h2></center></div><center><div id='gohome'><a href='https://aquavisitorsystem.github.io/'>Go Home</a></div></center><br>";         
     document.write(title);
     document.write(printnow);
     if (cnt1 === 0){
@@ -4272,7 +4273,8 @@ cnt1 = cnt1 - 1
         // document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
            if (dates != "Invalid Date")
     {
-           document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
+       var glinks = "<a href='https://aquavisitorsystem.github.io/?userid=" + doc.data().login + "&report=active'>" + doc.data().login + "</a>";
+           document.write('<tr><td>' + glinks + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
     }
     });
     
@@ -4346,7 +4348,7 @@ var  todays = new Date().toLocaleDateString('en-US');
         //var gmyDate = new Date(gd).toLocaleDateString('en-US');   
             var gmyDate = new Date(gd).toLocaleString('en-US');   
             var gtodaysdate = gmyDate.toString()
- var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(8){display: none;}#report tr > *:nth-child(9){display: none;}#report tr > *:nth-child(10){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
+ var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}#gohome{display:none;}#report tr > *:nth-child(8){display: none;}#report tr > *:nth-child(9){display: none;}#report tr > *:nth-child(10){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
   var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
   var RecordIDs = [];
   var cnt1;
@@ -4554,7 +4556,7 @@ docs = docs.filter(onlyUnique);
 console.log("docs:" + docs);
 const chunkSize = 10;
 var chunk;
-var title = "<div id='reptitle'><center><h1>Aqua-Aerobic Systems Visitor Schedule (today report)</h1><h2>" + cnt1 + " Visitor(s) for: " + name + "</h2></center></div><center><a href='https://aquavisitorsystem.github.io/'>Go Home</a></center><br>";         
+var title = "<div id='reptitle'><center><h1>Aqua-Aerobic Systems Visitor Schedule (today report)</h1><h2>" + cnt1 + " Visitor(s) for: " + name + "</h2></center></div><center><div id='gohome'><a href='https://aquavisitorsystem.github.io/'>Go Home</a></div></center><br>";         
 document.write(title);
 document.write(printnow);
 if (cnt1 === 0){
@@ -4757,7 +4759,8 @@ cnt1 = cnt1 - 1
     //var dates = new Date(doc.data().date).toLocaleTimeString()
     console.log("loadtodayschedule:" + dt);
      if (dates != "Invalid Date"){
-     document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
+     var glinks = "<a href='https://aquavisitorsystem.github.io/?userid=" + doc.data().login + "&report=active'>" + doc.data().login + "</a>";
+     document.write('<tr><td>' + glinks + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
 }
 });
 var count = 0;
@@ -5625,7 +5628,7 @@ var loadjobsfromdate =  function(){
     name = date1.toLocaleDateString('en-US') + ' - ' + date2.toLocaleDateString('en-US');
     console.log(name);
     var  todays = new Date().toLocaleDateString('en-US');  
-    var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(5){display: none;}#report tr > *:nth-child(10){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
+    var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}#gohome{display:none;}#report tr > *:nth-child(5){display: none;}#report tr > *:nth-child(10){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
     var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
     console.log("Start Date: " + end);
     console.log("End Date: " + start);
@@ -5634,7 +5637,7 @@ var loadjobsfromdate =  function(){
    .then((querySnapshot) => {
        console.log("Snapshot:" + querySnapshot.size); 
     var cnt = querySnapshot.size;
-    var title = "<center><h1>Aqua-Aerobic Systems Visitor Count</h1><h2>" + "<label id='numcount'></label>"  + " guests visited over " + Difference_In_Days + " days from:<br>" + name + "<br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small><br></h2></center><center><a href='https://aquavisitorsystem.github.io/'>Go Home</a></center><br>";         
+    var title = "<center><h1>Aqua-Aerobic Systems Visitor Count</h1><h2>" + "<label id='numcount'></label>"  + " guests visited over " + Difference_In_Days + " days from:<br>" + name + "<br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small><br></h2></center><center><div id='gohome'><a href='https://aquavisitorsystem.github.io/'>Go Home</a></div></center><br>";         
     document.write(title);
     document.write(printnow);
     //document.write("<center><h3>Find your name and Tap 'Check-In'</b></center></h3>If your name is not found below, click <a href='" +  "https://ignitemeeting.github.io/?ipad=Yes"   + "'>here</a> to continue!<br><br><center>");
@@ -5664,12 +5667,13 @@ var loadjobsfromdate =  function(){
     console.log("cnt:" + cnt);
     console.log("cnt / 2:" + cnt / 2);
     console.log("loadtodayschedule:" + dates);
+    var glinks = "<a href='https://aquavisitorsystem.github.io/?userid=" + doc.data().login + "&report=active'>" + doc.data().login + "</a>";
     if ((doc.data().checkin !== "") && (doc.data().checkout !== ""))
     {
-        document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td style="color: transparent;">' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().sourcekey + '">Click here</a></td></tr>');
+        document.write('<tr><td>' + glinks + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td style="color: transparent;">' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().sourcekey + '">Click here</a></td></tr>');
  
     }else{
-        document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().sourcekey + '">Click here</a></td></tr>');
+        document.write('<tr><td>' + glinks + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().sourcekey + '">Click here</a></td></tr>');
     }
     document.getElementById("numcount").innerHTML = Math.ceil((cnt / 2));
     document.getElementById("numcount").setAttribute("value", Math.ceil((cnt / 2)));
