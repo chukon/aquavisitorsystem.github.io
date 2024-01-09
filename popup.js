@@ -56,10 +56,8 @@ jQuery.get('notification.txt', function(data) {
     }
  
     createDialog(notifs , Titles);
-            // The popup was displayed. Set the cookie for 1 day.
-    //setCookie('vmspopup', 'yes', 28800);
-    //setCookie('vmspopup', 'yes', 7*24*60*60);
-    setCookie('vmspopup', 'yes', 7*24*60*60);
+            // The popup was displayed. Set the cookie for one year.
+    setCookie('vmspopup', 'yes', 365*24*60*60);
 }
 });
 }
