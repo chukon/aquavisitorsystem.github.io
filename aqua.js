@@ -2227,7 +2227,7 @@ document.getElementById('back').style.display = 'block';
    // var todays = new Date().toLocaleDateString("fr-CA", options2);
   //  console.log("todays: " + todays);
 
-    Datex.sort((a, b) => new Date(b) - new Date(a))
+    Datex.sort((a, b) => new Date(b) - new Date(a)).reverse()
     var todays = new Date().toLocaleDateString("fr-CA", options2);
     console.log("todays: " + todays);
     for(var i=0; i<Datex.length; i++){
