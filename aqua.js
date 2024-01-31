@@ -6185,8 +6185,8 @@ var getloginname = function(){
     }else if (username.toLowerCase()  === 'alls') {
         loaddbeverythings();
     }else if (username.toLowerCase()  === 'bydate') {
-        document.getElementById("login").value = 'date';
-    }else if (username.toLowerCase()  === 'date') {
+        document.getElementById("login").value = 'to search by date, just press the [enter] key';
+    }else if (username.toLowerCase()  === 'to search by date, just press the [enter] key') {
         loadtoday();
     }else if (username.toLowerCase()  === 'inactive') {
         loadinactive();
