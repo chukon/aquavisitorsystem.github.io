@@ -6193,6 +6193,8 @@ var getloginname = function(){
     }else if (username.toLowerCase()  === 'active') {
         loaddbeverythingall();
     }else if (username.toLowerCase()  === 'today') {
+        document.getElementById("login").value = 'today report: just press the [enter] key';
+    }else if (username.toLowerCase()  === 'today report: just press the [enter] key') {
         loadtodayschedule();
     }else if (username.toLowerCase()  === 'name') {
         loadname();
@@ -6214,8 +6216,10 @@ var getloginname = function(){
         removeInactiveUsers();
     }else if (username.toLowerCase()  === 'printjobs') {
         getdateoflabels();
-    }else if (username.toLowerCase()  === 'count') {
+    }else if (username.toLowerCase()  === 'count report: just press the [enter] key') {
         loadjobsfromdate();
+    }else if (username.toLowerCase()  === 'count') {
+        document.getElementById("login").value = 'count report: just press the [enter] key';
     }else if (username.toLowerCase()  === 'dailyuseremails') {
         emailtodayschedule();
     }else if (username.toLowerCase()  === 'myvms') {
@@ -6516,7 +6520,7 @@ var updatescheduleshome = function(){
 var getall = function(){
     //var visitorlist = ['today', 'myvms' , 'activitylog' , 'active', 'name', 'date', 'all', 'inactive','userid', 'count','loguserid', 'logname', 'logall', 'logtoday', 'logweek', 'logdate','printjobs'];
    // var visitorlist = ['today', 'myvms' , 'activitylog' , 'active', 'name', 'date', 'all', 'inactive','userid', 'count','loguserid', 'logname', 'logall', 'logtoday', 'logweek', 'logdate','printjobs'];
-      var visitorlist = ['today','myvms' ,'active', 'activitylog' ,'all','count','bydate','inactive', 'name','userid','loguserid', 'logname', 'logall', 'logtoday', 'logweek', 'logdate','printjobs'];
+      var visitorlist = ['today','myvms' ,'active', 'activitylog' ,'all','count','bydate','inactive', 'name','loguserid', 'logname', 'logall', 'logtoday', 'logweek', 'logdate','printjobs'];
      var list = document.getElementById('loginlist');
    
      var logins = document.getElementById('login');
