@@ -6184,9 +6184,9 @@ var getloginname = function(){
         loaddbeverything();
     }else if (username.toLowerCase()  === 'alls') {
         loaddbeverythings();
-    }else if (username.toLowerCase()  === 'bydate') {
-        document.getElementById("login").value = 'to search by date, just press the [enter] key';
-    }else if (username.toLowerCase()  === 'to search by date, just press the [enter] key') {
+    }else if (username.toLowerCase()  === 'date') {
+        document.getElementById("login").value = 'date report: just press the [enter] key';
+    }else if (username.toLowerCase()  === 'date report: just press the [enter] key') {
         loadtoday();
     }else if (username.toLowerCase()  === 'inactive') {
         loadinactive();
@@ -6520,7 +6520,7 @@ var updatescheduleshome = function(){
 var getall = function(){
     //var visitorlist = ['today', 'myvms' , 'activitylog' , 'active', 'name', 'date', 'all', 'inactive','userid', 'count','loguserid', 'logname', 'logall', 'logtoday', 'logweek', 'logdate','printjobs'];
    // var visitorlist = ['today', 'myvms' , 'activitylog' , 'active', 'name', 'date', 'all', 'inactive','userid', 'count','loguserid', 'logname', 'logall', 'logtoday', 'logweek', 'logdate','printjobs'];
-      var visitorlist = ['today','myvms' ,'active', 'activitylog' ,'all','count','bydate','inactive', 'name','loguserid', 'logname', 'logall', 'logtoday', 'logweek', 'logdate','printjobs'];
+      var visitorlist = ['today','myvms' ,'active', 'activitylog' ,'all','count','date','inactive', 'name','loguserid', 'logname', 'logall', 'logtoday', 'logweek', 'logdate','printjobs'];
      var list = document.getElementById('loginlist');
    
      var logins = document.getElementById('login');
