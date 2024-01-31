@@ -6184,7 +6184,7 @@ var getloginname = function(){
         loaddbeverything();
     }else if (username.toLowerCase()  === 'alls') {
         loaddbeverythings();
-    }else if (username.toLowerCase()  === 'date') {
+    }else if (username.toLowerCase()  === 'dates') {
         loadtoday();
     }else if (username.toLowerCase()  === 'inactive') {
         loadinactive();
@@ -6514,7 +6514,7 @@ var updatescheduleshome = function(){
 var getall = function(){
     //var visitorlist = ['today', 'myvms' , 'activitylog' , 'active', 'name', 'date', 'all', 'inactive','userid', 'count','loguserid', 'logname', 'logall', 'logtoday', 'logweek', 'logdate','printjobs'];
    // var visitorlist = ['today', 'myvms' , 'activitylog' , 'active', 'name', 'date', 'all', 'inactive','userid', 'count','loguserid', 'logname', 'logall', 'logtoday', 'logweek', 'logdate','printjobs'];
-      var visitorlist = ['today','myvms' ,'active', 'activitylog' ,'all','count','date','inactive', 'name','userid','loguserid', 'logname', 'logall', 'logtoday', 'logweek', 'logdate','printjobs'];
+      var visitorlist = ['today','myvms' ,'active', 'activitylog' ,'all','count','dates','inactive', 'name','userid','loguserid', 'logname', 'logall', 'logtoday', 'logweek', 'logdate','printjobs'];
      var list = document.getElementById('loginlist');
    
      var logins = document.getElementById('login');
