@@ -6193,7 +6193,8 @@ var getloginname = function(){
     }else if (username.toLowerCase()  === 'active') {
         loaddbeverythingall();
     }else if (username.toLowerCase()  === 'today') {
-        document.getElementById("login").value = 'today report: please press the [enter] key';
+        loadtodayschedule();
+       // document.getElementById("login").value = 'today report: please press the [enter] key';
     }else if (username.toLowerCase()  === 'today report: please press the [enter] key') {
         loadtodayschedule();
     }else if (username.toLowerCase()  === 'name') {
@@ -6205,7 +6206,8 @@ var getloginname = function(){
     }else if (username.toLowerCase()  === 'logtoday') {
         loadlogtoday();
     }else if (username.toLowerCase()  === 'logweek') {
-        document.getElementById("login").value = 'logweek report: please press the [enter] key';
+        loadweekschedule();
+       // document.getElementById("login").value = 'logweek report: please press the [enter] key';
     }else if (username.toLowerCase()  === 'logweek report: please press the [enter] key') {
         loadweekschedule();
     }else if (username.toLowerCase()  === 'loguserid') {
@@ -6221,7 +6223,8 @@ var getloginname = function(){
     }else if (username.toLowerCase()  === 'count report: please press the [enter] key') {
         loadjobsfromdate();
     }else if (username.toLowerCase()  === 'count') {
-        document.getElementById("login").value = 'count report: please press the [enter] key';
+        loadjobsfromdate();
+       // document.getElementById("login").value = 'count report: please press the [enter] key';
     }else if (username.toLowerCase()  === 'dailyuseremails') {
         emailtodayschedule();
     }else if (username.toLowerCase()  === 'myvms') {
@@ -6577,7 +6580,7 @@ var getall = function(){
         {
             console.log("change logins.valueb: " + logins.value);
             document.getElementsByName('login')[0].value = logins.value;
-            setTimeout("getloginname()", 3000);
+            setTimeout("getloginname()", 1000);
             //getloginname();  
         }
         
