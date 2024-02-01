@@ -6185,16 +6185,16 @@ var getloginname = function(){
     }else if (username.toLowerCase()  === 'alls') {
         loaddbeverythings();
     }else if (username.toLowerCase()  === 'date') {
-        document.getElementById("login").value = 'date report: just press the [enter] key';
-    }else if (username.toLowerCase()  === 'date report: just press the [enter] key') {
+        document.getElementById("login").value = 'date report: please press the [enter] key';
+    }else if (username.toLowerCase()  === 'date report: please press the [enter] key') {
         loadtoday();
     }else if (username.toLowerCase()  === 'inactive') {
         loadinactive();
     }else if (username.toLowerCase()  === 'active') {
         loaddbeverythingall();
     }else if (username.toLowerCase()  === 'today') {
-        document.getElementById("login").value = 'today report: just press the [enter] key';
-    }else if (username.toLowerCase()  === 'today report: just press the [enter] key') {
+        document.getElementById("login").value = 'today report: please press the [enter] key';
+    }else if (username.toLowerCase()  === 'today report: please press the [enter] key') {
         loadtodayschedule();
     }else if (username.toLowerCase()  === 'name') {
         loadname();
@@ -6205,6 +6205,8 @@ var getloginname = function(){
     }else if (username.toLowerCase()  === 'logtoday') {
         loadlogtoday();
     }else if (username.toLowerCase()  === 'logweek') {
+        document.getElementById("login").value = 'logweek report: please press the [enter] key';
+    }else if (username.toLowerCase()  === 'logweek report: please press the [enter] key') {
         loadweekschedule();
     }else if (username.toLowerCase()  === 'loguserid') {
         loadloguserid();
@@ -6216,10 +6218,10 @@ var getloginname = function(){
         removeInactiveUsers();
     }else if (username.toLowerCase()  === 'printjobs') {
         getdateoflabels();
-    }else if (username.toLowerCase()  === 'count report: just press the [enter] key') {
+    }else if (username.toLowerCase()  === 'count report: please press the [enter] key') {
         loadjobsfromdate();
     }else if (username.toLowerCase()  === 'count') {
-        document.getElementById("login").value = 'count report: just press the [enter] key';
+        document.getElementById("login").value = 'count report: please press the [enter] key';
     }else if (username.toLowerCase()  === 'dailyuseremails') {
         emailtodayschedule();
     }else if (username.toLowerCase()  === 'myvms') {
