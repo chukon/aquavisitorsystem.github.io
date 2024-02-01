@@ -6183,7 +6183,7 @@ var getloginname = function(){
     }else if (username.toLowerCase()  === 'alls') {
         loaddbeverythings();
     }else if (username.toLowerCase()  === 'date') {
-        loadtoday();
+       //loadtoday();
        // document.getElementById("login").value = 'date report: please press the [enter] key';
     }else if (username.toLowerCase()  === 'date report: please press the [enter] key') {
         loadtoday();
