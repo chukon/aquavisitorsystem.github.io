@@ -2286,6 +2286,7 @@ setTimeout("sortByDate2(5)", 3000);
         var RecordIDs = [];
         var cnt1;
         var datesort;
+        var datesorts;
         var Visitors = [];
 
 
