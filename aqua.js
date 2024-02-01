@@ -6184,8 +6184,8 @@ var getloginname = function(){
     }else if (username.toLowerCase()  === 'alls') {
         loaddbeverythings();
     }else if (username.toLowerCase()  === 'date') {
-       //loadtoday();
-       document.getElementById("login").value = 'date report: please press the [enter] key';
+       loadtoday();
+       //document.getElementById("login").value = 'date report: please press the [enter] key';
     }else if (username.toLowerCase()  === 'date report: please press the [enter] key') {
         loadtoday();
     }else if (username.toLowerCase()  === 'inactive') {
@@ -6576,7 +6576,9 @@ var getall = function(){
         if(logins.value != "undefined")
         {
             console.log("change logins.valueb: " + logins.value);
-            getloginname();  
+            document.getElementsByName('login')[0].value = logins.value;
+            setTimeout("getloginname()", 3000);
+            //getloginname();  
         }
         
         
