@@ -4284,9 +4284,7 @@ cnt1 = cnt1 - 1
     document.getElementById("report").innerHTML = "<center><br>No visitor data found<br></center>";
     }
 	document.head.innerHTML = header;
-    document.write("</table>");
-     document.getElementsByTagName("body")[0].style.display = "none";
-     setTimeout("sortByDate(4)", 3000);
+   
     }) 
     .catch((error) => {
          console.log("Error getting documents: ", error);
@@ -4296,7 +4294,10 @@ cnt1 = cnt1 - 1
       document.head.innerHTML = header;
     });
     }
+      document.getElementsByTagName("body")[0].style.display = "none";
     });
+     setTimeout("sortByDate(4)", 3000);
+     document.write("</table>");
     }
     catch(err) {
         var nodata = "<center><br>Incorrect Date Format. Please try again.<br><br> <a href='https://aquavisitorsystem.github.io/'>Go Home</a><br></center>";
@@ -6184,7 +6185,7 @@ var getloginname = function(){
         loaddbeverythings();
     }else if (username.toLowerCase()  === 'date') {
        //loadtoday();
-       // document.getElementById("login").value = 'date report: please press the [enter] key';
+       document.getElementById("login").value = 'date report: please press the [enter] key';
     }else if (username.toLowerCase()  === 'date report: please press the [enter] key') {
         loadtoday();
     }else if (username.toLowerCase()  === 'inactive') {
