@@ -3,8 +3,8 @@
   <li><b>Latest updates</b></li>
    <ul><li><b>New Feature(s):</b></li></ul>
   <ul style="padding-left:60px">
-    <li>New report: "userid:Shows all Aqua User ID reports in VMS system</li>
-    <li>New report: "myvms:Shows active schedules for [aqua user id]</li>
+    <li>New report: company - Search by Full or Partial Start of Company Name</li>
+    <li>New report: name - Search by Full or Partial Start of guest Last Name</li>
     <li>Reminder morning email sent to Aqua employee that has guest visiting that day.</li>
   </ul>
   <br>
