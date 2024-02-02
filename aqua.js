@@ -2943,13 +2943,14 @@ document.head.innerHTML = header;
         console.log("Error getting documents: ", error);
 });
 }
-       
+// var get_login=prompt("Search Company Name","Type Here Full or Start of Guest Last Name");
     var loadname =  function(){
         var cntrecdays = 0;
     var db = firebase.firestore();
     var Visitors = [];	
-    var get_login=prompt("Enter Guest Last Name To Search","Enter Full or Partial Start of Last Name");
-    if (get_login  === null || get_login === "Enter Full or Partial Start of Last Name") {
+    //var get_login=prompt("Search Guest Last Name","Type Here Full or Start of Guest Last Name");
+    var get_login=prompt("Search Guest Last Name\r\n1) Enter Full or Start of Guest Last Name\r\n    Example: Smith or Sm\r\n2) Click [Ok] or [Enter] key", "Enter Guest Last Name Here");
+    if (get_login  === null || get_login === "Enter Guest Last Name Here") {
         alert("Please Try Again! Enter Guest Last Name.");
     }else{
         var gd = new Date();
@@ -3135,8 +3136,9 @@ document.head.innerHTML = header;
         var cntrecdays = 0;
         var db = firebase.firestore();
         var Visitors = [];	
-        var get_login=prompt("Enter Guest Company Name To Search","Enter Full or Partial Start of Company Name");
-        if (get_login  === null || get_login === "Enter Full or Partial Start of Company Name") {
+       // var get_login=prompt("Search Company Name","Type Here Full or Start of Company Name");
+        var get_login=prompt("Search Guest Company Name\r\n1) Enter Full or Start of Guest Company Name\r\n    Example: ABC Company or ABC\r\n2) Click [Ok] or [Enter] key", "Enter Guest Company Name Here");
+        if (get_login  === null || get_login === "Enter Guest Company Name Here") {
             alert("Please Try Again! Enter Guest Company Name.");
         }else{
             var gd = new Date();
@@ -4025,7 +4027,7 @@ setTimeout("sortByDate2(4)", 3000);
             document.write("");
             var choosedate  = new Date();
           
-            var name=prompt("Please choose one of the following\r\n1) Enter date to search (Example: 10/12/2022) > Click [Ok]\r\n2) Click [Ok] for today's date","Enter Date");
+            var name=prompt("Please choose one of the following\r\n1) Enter date to search\r\n    Example: 10/12/2022\r\n2) Click [Ok] or [Enter] key","Enter Date");
             if (name!="Enter Date"){
                 start = new Date(name);
                 choosedate   = new Date(name).toDateString();
@@ -6716,7 +6718,7 @@ var updatescheduleshome = function(){
 var getall = function(){
     //var visitorlist = ['today', 'myvms' , 'activitylog' , 'active', 'name', 'date', 'all', 'inactive','userid', 'count','loguserid', 'logname', 'logall', 'logtoday', 'logweek', 'logdate','printjobs'];
    // var visitorlist = ['today', 'myvms' , 'activitylog' , 'active', 'name', 'date', 'all', 'inactive','userid', 'count','loguserid', 'logname', 'logall', 'logtoday', 'logweek', 'logdate','printjobs'];
-    var visitorlist = ['today','myvms' ,'active', 'activitylog' ,'all','count','date','name','company','inactive','userid','loguserid', 'logname', 'logall', 'logtoday', 'logweek', 'logdate','printjobs'];
+    var visitorlist = ['today','active','myvms','date','name','company','activitylog','all','count','inactive','userid','loguserid','logname','logall','logtoday','logweek','logdate','printjobs'];
      var list = document.getElementById('loginlist');
    
      var logins = document.getElementById('login');
