@@ -4362,6 +4362,7 @@ var title = "<div id='reptitle'><center><h1>Aqua-Aerobic Systems Visitor Schedul
      dt = new Date(choosedate).toLocaleDateString("en", options2);
 
  var dt1 = new Date(choosedate).toLocaleDateString("en", options2);
+  name = new Date(name).toLocaleDateString("en", options2)
   if (doc.data().mon === true) {
         var dt = new Date(dt1);
         var ndt = dt.getDay();
