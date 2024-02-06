@@ -1353,8 +1353,8 @@ document.getElementById('back').style.display = 'block';
           
                 console.log(seleceteddate);
             
-               // Datex.sort((a, b) => new Date(b) - new Date(a)).reverse()
-                Datex.sort((a, b) => new Date(b) - new Date(a))
+                Datex.sort((a, b) => new Date(b) - new Date(a)).reverse()
+                //Datex.sort((a, b) => new Date(b) - new Date(a))
                 var todays = new Date().toLocaleDateString("fr-CA", options2);
                 console.log("todays: " + todays);
                 for(var i=0; i<Datex.length; i++){
