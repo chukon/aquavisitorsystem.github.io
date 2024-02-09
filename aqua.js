@@ -1951,6 +1951,9 @@ document.getElementById('back').style.display = 'block';
             Datex.push(datesorts);
         }
 
+
+
+
         Datex.sort((a, b) => new Date(b) - new Date(a))
         var todays = new Date().toLocaleDateString("fr-CA", options2);
         console.log("todays: " + todays);
@@ -1963,11 +1966,11 @@ document.getElementById('back').style.display = 'block';
             }else if (Datex[i] > todays){
                 datesort = Datex[i]
                 console.log("Datex[i] > todays " + datesort);
-                break;
+                //break;
             }else if (Datex[i] < todays){
                 datesort = Datex[i]
                 console.log("Datex[i] < todays" + datesort);
-                break;
+               // break;
             }
         }
 
