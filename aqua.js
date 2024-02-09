@@ -2949,6 +2949,8 @@ document.head.innerHTML = header;
 // var get_login=prompt("Search Company Name","Type Here Full or Start of Guest Last Name");
     var loadname =  function(){
         var cntrecdays = 0;
+        var datesorts;
+       
     var db = firebase.firestore();
     var Visitors = [];	
     //var get_login=prompt("Search Guest Last Name","Type Here Full or Start of Guest Last Name");
@@ -2981,7 +2983,7 @@ document.head.innerHTML = header;
             document.write(nodata);
         }else{
             //document.write("<table id='report' style='font-size: small;'>  <tr>    <th>UserID</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
-            document.write("<table id='report' style='font-size: small;'>  <thead><tr>    <th style='cursor: pointer; color: red;' onclick='sortTable(0)'>UserID <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortByDate2(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>Edit</th>  </tr></thead>");
+            document.write("<table id='report' style='font-size: small;'>  <thead><tr>    <th style='cursor: pointer; color: red;' onclick='sortTable(0)'>UserID <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortByDate2(4)'>LastMeetingDate<i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>Edit</th>  </tr></thead>");
         }
         querySnapshot.forEach((doc) => {
             // doc.data() is never undefined for query doc snapshots
@@ -2992,58 +2994,85 @@ document.head.innerHTML = header;
             day: "2-digit",
         };
         var options2 = {
-            hour: "2-digit",
-            minute: "2-digit"
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit"
         };
         var dates;// = new Date(doc.data().date).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date).toLocaleTimeString("en", options2)
         console.log("loadinactive:" + dates);
+        var Datex = [];
         //Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
         if (typeof doc.data().date !== 'undefined' && doc.data().date !=="") {
-            dates = new Date(doc.data().date).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date).toLocaleTimeString("en", options2)
+            dates = new Date(doc.data().date).toLocaleDateString("en", options)
+            datesort = new Date(doc.data().date).toLocaleDateString("fr-CA", options2)
+            Datex.push(datesort);
             Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
         }
         if (typeof doc.data().date2 !== 'undefined' && doc.data().date2 !=="") {
-            dates = dates + "<hr>" + new Date(doc.data().date2).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date2).toLocaleTimeString("en", options2)
+            dates = dates + "<br>" + new Date(doc.data().date2).toLocaleDateString("en", options)
+            datesort = new Date(doc.data().date2).toLocaleDateString("fr-CA", options2)
+            Datex.push(datesort);
             Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
         }
         if (typeof doc.data().date3 !== 'undefined' && doc.data().date3 !=="") {
-            dates = dates + "<hr>" + new Date(doc.data().date3).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date3).toLocaleTimeString("en", options2)
+            dates = dates + "<br>" + new Date(doc.data().date3).toLocaleDateString("en", options)
+            datesort = new Date(doc.data().date3).toLocaleDateString("fr-CA", options2)
+            Datex.push(datesort);
             Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
         }
         if (typeof doc.data().date4 !== 'undefined' && doc.data().date4 !=="") {
-            dates = dates + "<hr>" + new Date(doc.data().date4).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date4).toLocaleTimeString("en", options2)
+            dates = dates + "<br>" + new Date(doc.data().date4).toLocaleDateString("en", options)
+            datesort = new Date(doc.data().date4).toLocaleDateString("fr-CA", options2)
+            Datex.push(datesort);
             Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
         }
         if (typeof doc.data().date5 !== 'undefined' && doc.data().date5 !=="") {
-            dates = dates + "<hr>" + new Date(doc.data().date5).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date5).toLocaleTimeString("en", options2)
+            dates = dates + "<br>" + new Date(doc.data().date5).toLocaleDateString("en", options)
+            datesort = new Date(doc.data().date5).toLocaleDateString("fr-CA", options2)
+            Datex.push(datesort);
             Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
         }
         if (typeof doc.data().date6 !== 'undefined' && doc.data().date6 !=="") {
-            dates = dates + "<hr>" + new Date(doc.data().date6).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date6).toLocaleTimeString("en", options2)
+            dates = dates + "<br>" + new Date(doc.data().date6).toLocaleDateString("en", options)
+            datesort = new Date(doc.data().date6).toLocaleDateString("fr-CA", options2)
+            Datex.push(datesort);
             Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
         }
         if (typeof doc.data().date7 !== 'undefined' && doc.data().date7 !=="") {
-            dates = dates + "<hr>" + new Date(doc.data().date7).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date7).toLocaleTimeString("en", options2)
+            dates = dates + "<br>" + new Date(doc.data().date7).toLocaleDateString("en", options)
+            datesort = new Date(doc.data().date7).toLocaleDateString("fr-CA", options2)
+            Datex.push(datesort);
             Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
+
         }
         if (typeof doc.data().date8 !== 'undefined' && doc.data().date8 !=="") {
-            dates = dates + "<hr>" + new Date(doc.data().date8).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date8).toLocaleTimeString("en", options2)
+            dates = dates + "<br>" + new Date(doc.data().date8).toLocaleDateString("en", options)
+            datesort = new Date(doc.data().date8).toLocaleDateString("fr-CA", options2);
+            Datex.push(datesort);
             Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
         }
         if (typeof doc.data().date9 !== 'undefined' && doc.data().date9 !=="") {
-            dates = dates + "<hr>" + new Date(doc.data().date9).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date9).toLocaleTimeString("en", options2)
+            dates = dates + "<br>" + new Date(doc.data().date9).toLocaleDateString("en", options)
+            datesort = new Date(doc.data().date9).toLocaleDateString("fr-CA", options2)
+            Datex.push(datesort);
             Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
         }
         if (typeof doc.data().date10 !== 'undefined' && doc.data().date10 !=="") {
-            dates = dates + "<hr>" + new Date(doc.data().date10).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date10).toLocaleTimeString("en", options2)
+            dates = dates + "<br>" + new Date(doc.data().date10).toLocaleDateString("en", options)
+            datesort = new Date(doc.data().date10).toLocaleDateString("fr-CA", options2)
+            Datex.push(datesort);
             Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
         }
         if (typeof doc.data().date11 !== 'undefined' && doc.data().date11 !=="") {
-            dates = dates + "<hr>" + new Date(doc.data().date11).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date11).toLocaleTimeString("en", options2)
+            dates = dates + "<br>" + new Date(doc.data().date11).toLocaleDateString("en", options)
+            datesort = new Date(doc.data().date11).toLocaleDateString("fr-CA", options2)
+            Datex.push(datesort);
             Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
         }
         if (typeof doc.data().date12 !== 'undefined' && doc.data().date12 !=="") {
-            dates = dates + "<hr>" + new Date(doc.data().date12).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date12).toLocaleTimeString("en", options2)
+            dates = dates + "<br>" + new Date(doc.data().date12).toLocaleDateString("en", options)
+            datesort = new Date(doc.data().date12).toLocaleDateString("fr-CA", options2);
+            Datex.push(datesort);
             Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
         }
         if (typeof doc.data().date13 !== 'undefined' && doc.data().date13 !=="") {
@@ -3056,11 +3085,14 @@ document.head.innerHTML = header;
             var date14 = addOneDay(dateb).toLocaleDateString("en", options);
             console.log("date13: " + date13);
             console.log("date14: " + date14);
+            var mdays = []; 
             if (doc.data().mon === true) {
+                mdays.push(1);
                 days = "Mon";
                 cntrecdays = RecCount(date13,date14,1);
             }
             if (doc.data().tue === true) {
+                mdays.push(2);
                 if (days === ""){
                     days = "Tue";
                 }else{
@@ -3069,6 +3101,7 @@ document.head.innerHTML = header;
                 cntrecdays = cntrecdays + RecCount(date13,date14,2);
             }
             if (doc.data().wed === true) {
+                mdays.push(3);
                 if (days === ""){
                     days = "Wed";
                 }else{
@@ -3077,6 +3110,7 @@ document.head.innerHTML = header;
                 cntrecdays = cntrecdays + RecCount(date13,date14,3);
             }
             if (doc.data().thu === true) {
+                mdays.push(4);
                 if (days === ""){
                     days = "Thu";
                 }else{
@@ -3085,6 +3119,7 @@ document.head.innerHTML = header;
                 cntrecdays = cntrecdays + RecCount(date13,date14,4);
             }
             if (doc.data().fri === true) {
+                mdays.push(5);
                 if (days === ""){
                     days = "Fri";
                 }else{
@@ -3102,13 +3137,60 @@ document.head.innerHTML = header;
                 //dates = cntrecdays + " Recurring Until: <br>" + date14 + "<br>Day(s):" + days + "<br>Time:" + h;
                 dates = "Recurring Until: <br>" + date14 + "<br>Day(s):" + days + "<br>Time:" + h;
             }
-          
+
+            var todaysdate77 = new Date().toLocaleDateString("en", options2);
+            var range = date14
+            console.log("range: " + range);
+            console.log("todaysdate77:" + todaysdate77);
+            range = new Date(range);
+            todaysdate77 = new Date(todaysdate77);
+            console.log("(range < todaysdate77):" + (range < todaysdate77));
+            if (range < todaysdate77){
+                const dateb = new Date(doc.data().date14);
+                datesorts = addOneDay(dateb).toLocaleDateString("fr-CA", options2);
+                console.log("out of range:" + datesorts);
+                Datex.push(datesorts);
+            }else{
+                 const date = new Date();
+                    const thisistodayday = date.getDay();
+                console.log("thisistodayday" + thisistodayday);
+                console.log("mdays.includes(thisistodayday)" + mdays.includes(thisistodayday));
+                if (mdays.includes(thisistodayday)){
+                    datesorts = new Date().toLocaleDateString("fr-CA", options2);
+                }else{
+                    datesorts = nextDate(mdays[0]);
+                }
+                console.log("in range:" + datesorts);
+                Datex.push(datesorts);
+            }
+            //datesorts = new Date().toLocaleDateString("fr-CA", options2);;
+            Datex.push(datesorts);
             Visitors.push(doc.data().login + new Date(doc.data().date13).toLocaleDateString("en", options));
         }
         console.log("loadname:" + dates);
+
+        Datex.sort((a, b) => new Date(b) - new Date(a)).reverse()
+        var todays = new Date().toLocaleDateString("fr-CA", options2);
+        console.log("todays: " + todays);
+        for(var i=0; i<Datex.length; i++){
+            console.log("Datex[i]: " + Datex[i]);
+            if(Datex[i] === todays){
+                datesort = Datex[i]
+                console.log("Datex[i] === todays " + datesort);
+                break;
+            }else if (Datex[i] > todays){
+                datesort = Datex[i]
+                console.log("Datex[i] > todays " + datesort);
+                //break;
+            }else if (Datex[i] < todays){
+                datesort = Datex[i]
+                console.log("Datex[i] < todays" + datesort);
+                //break;
+            }
+        }
         var glinks = "<a href='https://aquavisitorsystem.github.io/?userid=" + doc.data().login + "&report=active'>" + doc.data().login + "</a>";
         //  document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
-        document.write('<tr><td>' + glinks + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
+        document.write('<tr><td>' + glinks + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + datesort + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
  
     });
     var count = 0;
@@ -3127,7 +3209,7 @@ document.head.innerHTML = header;
     document.head.innerHTML = header;
     document.write("</table>");
     document.getElementsByTagName("body")[0].style.display = "none";
-    setTimeout("sortByDate2(2)", 3000);
+    setTimeout("sortByDate2(4)", 3000);
 })
     .catch((error) => {
         console.log("Error getting documents: ", error);
@@ -3139,6 +3221,9 @@ document.head.innerHTML = header;
         var cntrecdays = 0;
         var db = firebase.firestore();
         var Visitors = [];	
+        var datesorts;
+       
+
        // var get_login=prompt("Search Company Name","Type Here Full or Start of Company Name");
         var get_login=prompt("Search Guest Company Name\r\n1) Enter Full or Start of Guest Company Name\r\n    Example: ABC Company or ABC\r\n2) Click [Ok] or [Enter] key", "Enter Guest Company Name Here");
         if (get_login  === null || get_login === "Enter Guest Company Name Here") {
@@ -3169,7 +3254,7 @@ document.head.innerHTML = header;
                 document.write(nodata);
             }else{
                 //document.write("<table id='report' style='font-size: small;'>  <tr>    <th>UserID</th>    <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortTable(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
-                document.write("<table id='report' style='font-size: small;'>  <thead><tr>    <th style='cursor: pointer; color: red;' onclick='sortTable(0)'>UserID <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortByDate2(4)'>Date/Time <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>Edit</th>  </tr></thead>");
+                document.write("<table id='report' style='font-size: small;'>  <thead><tr>    <th style='cursor: pointer; color: red;' onclick='sortTable(0)'>UserID <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>First Name</th>    <th style='cursor: pointer; color: red;' onclick='sortTable(2)'>Last Name <i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>    <th>Company</th>     <th style='cursor: pointer; color: red;' onclick='sortByDate2(4)'>LastMeetingDate<i class='fa fa-sort' style='font-size:20px;color:blue'></i></th>      <th>Email</th>       <th>Visiting</th><th>Edit</th>  </tr></thead>");
             }
             querySnapshot.forEach((doc) => {
                 // doc.data() is never undefined for query doc snapshots
@@ -3180,58 +3265,85 @@ document.head.innerHTML = header;
                 day: "2-digit",
             };
             var options2 = {
-                hour: "2-digit",
-                minute: "2-digit"
+                year: "numeric",
+                month: "2-digit",
+                day: "2-digit"
             };
             var dates;// = new Date(doc.data().date).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date).toLocaleTimeString("en", options2)
+            var Datex = [];
             console.log("loadinactive:" + dates);
             //Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
             if (typeof doc.data().date !== 'undefined' && doc.data().date !=="") {
-                dates = new Date(doc.data().date).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date).toLocaleTimeString("en", options2)
+                dates = new Date(doc.data().date).toLocaleDateString("en", options)
+                datesort = new Date(doc.data().date).toLocaleDateString("fr-CA", options2)
+                Datex.push(datesort);
                 Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
             }
             if (typeof doc.data().date2 !== 'undefined' && doc.data().date2 !=="") {
-                dates = dates + "<hr>" + new Date(doc.data().date2).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date2).toLocaleTimeString("en", options2)
+                dates = dates + "<br>" + new Date(doc.data().date2).toLocaleDateString("en", options)
+                datesort = new Date(doc.data().date2).toLocaleDateString("fr-CA", options2)
+                Datex.push(datesort);
                 Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
             }
             if (typeof doc.data().date3 !== 'undefined' && doc.data().date3 !=="") {
-                dates = dates + "<hr>" + new Date(doc.data().date3).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date3).toLocaleTimeString("en", options2)
+                dates = dates + "<br>" + new Date(doc.data().date3).toLocaleDateString("en", options)
+                datesort = new Date(doc.data().date3).toLocaleDateString("fr-CA", options2)
+                Datex.push(datesort);
                 Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
             }
             if (typeof doc.data().date4 !== 'undefined' && doc.data().date4 !=="") {
-                dates = dates + "<hr>" + new Date(doc.data().date4).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date4).toLocaleTimeString("en", options2)
+                dates = dates + "<br>" + new Date(doc.data().date4).toLocaleDateString("en", options)
+                datesort = new Date(doc.data().date4).toLocaleDateString("fr-CA", options2)
+                Datex.push(datesort);
                 Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
             }
             if (typeof doc.data().date5 !== 'undefined' && doc.data().date5 !=="") {
-                dates = dates + "<hr>" + new Date(doc.data().date5).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date5).toLocaleTimeString("en", options2)
+                dates = dates + "<br>" + new Date(doc.data().date5).toLocaleDateString("en", options)
+                datesort = new Date(doc.data().date5).toLocaleDateString("fr-CA", options2)
+                Datex.push(datesort);
                 Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
             }
             if (typeof doc.data().date6 !== 'undefined' && doc.data().date6 !=="") {
-                dates = dates + "<hr>" + new Date(doc.data().date6).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date6).toLocaleTimeString("en", options2)
+                dates = dates + "<br>" + new Date(doc.data().date6).toLocaleDateString("en", options)
+                datesort = new Date(doc.data().date6).toLocaleDateString("fr-CA", options2)
+                Datex.push(datesort);
                 Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
             }
             if (typeof doc.data().date7 !== 'undefined' && doc.data().date7 !=="") {
-                dates = dates + "<hr>" + new Date(doc.data().date7).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date7).toLocaleTimeString("en", options2)
+                dates = dates + "<br>" + new Date(doc.data().date7).toLocaleDateString("en", options)
+                datesort = new Date(doc.data().date7).toLocaleDateString("fr-CA", options2)
+                Datex.push(datesort);
                 Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
+
             }
             if (typeof doc.data().date8 !== 'undefined' && doc.data().date8 !=="") {
-                dates = dates + "<hr>" + new Date(doc.data().date8).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date8).toLocaleTimeString("en", options2)
+                dates = dates + "<br>" + new Date(doc.data().date8).toLocaleDateString("en", options)
+                datesort = new Date(doc.data().date8).toLocaleDateString("fr-CA", options2);
+                Datex.push(datesort);
                 Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
             }
             if (typeof doc.data().date9 !== 'undefined' && doc.data().date9 !=="") {
-                dates = dates + "<hr>" + new Date(doc.data().date9).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date9).toLocaleTimeString("en", options2)
+                dates = dates + "<br>" + new Date(doc.data().date9).toLocaleDateString("en", options)
+                datesort = new Date(doc.data().date9).toLocaleDateString("fr-CA", options2)
+                Datex.push(datesort);
                 Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
             }
             if (typeof doc.data().date10 !== 'undefined' && doc.data().date10 !=="") {
-                dates = dates + "<hr>" + new Date(doc.data().date10).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date10).toLocaleTimeString("en", options2)
+                dates = dates + "<br>" + new Date(doc.data().date10).toLocaleDateString("en", options)
+                datesort = new Date(doc.data().date10).toLocaleDateString("fr-CA", options2)
+                Datex.push(datesort);
                 Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
             }
             if (typeof doc.data().date11 !== 'undefined' && doc.data().date11 !=="") {
-                dates = dates + "<hr>" + new Date(doc.data().date11).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date11).toLocaleTimeString("en", options2)
+                dates = dates + "<br>" + new Date(doc.data().date11).toLocaleDateString("en", options)
+                datesort = new Date(doc.data().date11).toLocaleDateString("fr-CA", options2)
+                Datex.push(datesort);
                 Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
             }
             if (typeof doc.data().date12 !== 'undefined' && doc.data().date12 !=="") {
-                dates = dates + "<hr>" + new Date(doc.data().date12).toLocaleDateString("fr-CA", options) + ', ' + new Date(doc.data().date12).toLocaleTimeString("en", options2)
+                dates = dates + "<br>" + new Date(doc.data().date12).toLocaleDateString("en", options)
+                datesort = new Date(doc.data().date12).toLocaleDateString("fr-CA", options2);
+                Datex.push(datesort);
                 Visitors.push(doc.data().login + new Date(doc.data().date).toLocaleDateString("en", options));
             }
             if (typeof doc.data().date13 !== 'undefined' && doc.data().date13 !=="") {
@@ -3244,11 +3356,14 @@ document.head.innerHTML = header;
                 var date14 = addOneDay(dateb).toLocaleDateString("en", options);
                 console.log("date13: " + date13);
                 console.log("date14: " + date14);
+                var mdays = []; 
                 if (doc.data().mon === true) {
+                    mdays.push(1);
                     days = "Mon";
                     cntrecdays = RecCount(date13,date14,1);
                 }
                 if (doc.data().tue === true) {
+                    mdays.push(2);
                     if (days === ""){
                         days = "Tue";
                     }else{
@@ -3257,6 +3372,7 @@ document.head.innerHTML = header;
                     cntrecdays = cntrecdays + RecCount(date13,date14,2);
                 }
                 if (doc.data().wed === true) {
+                    mdays.push(3);
                     if (days === ""){
                         days = "Wed";
                     }else{
@@ -3265,6 +3381,7 @@ document.head.innerHTML = header;
                     cntrecdays = cntrecdays + RecCount(date13,date14,3);
                 }
                 if (doc.data().thu === true) {
+                    mdays.push(4);
                     if (days === ""){
                         days = "Thu";
                     }else{
@@ -3273,6 +3390,7 @@ document.head.innerHTML = header;
                     cntrecdays = cntrecdays + RecCount(date13,date14,4);
                 }
                 if (doc.data().fri === true) {
+                    mdays.push(5);
                     if (days === ""){
                         days = "Fri";
                     }else{
@@ -3290,13 +3408,61 @@ document.head.innerHTML = header;
                     //dates = cntrecdays + " Recurring Until: <br>" + date14 + "<br>Day(s):" + days + "<br>Time:" + h;
                     dates = "Recurring Until: <br>" + date14 + "<br>Day(s):" + days + "<br>Time:" + h;
                 }
+
+                var todaysdate77 = new Date().toLocaleDateString("en", options2);
+                var range = date14
+                console.log("range: " + range);
+                console.log("todaysdate77:" + todaysdate77);
+                range = new Date(range);
+                todaysdate77 = new Date(todaysdate77);
+                console.log("(range < todaysdate77):" + (range < todaysdate77));
+                if (range < todaysdate77){
+                    const dateb = new Date(doc.data().date14);
+                    datesorts = addOneDay(dateb).toLocaleDateString("fr-CA", options2);
+                    console.log("out of range:" + datesorts);
+                    Datex.push(datesorts);
+                }else{
+                     const date = new Date();
+                        const thisistodayday = date.getDay();
+                    console.log("thisistodayday" + thisistodayday);
+                    console.log("mdays.includes(thisistodayday)" + mdays.includes(thisistodayday));
+                    if (mdays.includes(thisistodayday)){
+                        datesorts = new Date().toLocaleDateString("fr-CA", options2);
+                    }else{
+                        datesorts = nextDate(mdays[0]);
+                    }
+                    console.log("in range:" + datesorts);
+                    Datex.push(datesorts);
+                }
+                //datesorts = new Date().toLocaleDateString("fr-CA", options2);;
+                Datex.push(datesorts);
           
                 Visitors.push(doc.data().login + new Date(doc.data().date13).toLocaleDateString("en", options));
             }
             console.log("loadname:" + dates);
+            Datex.sort((a, b) => new Date(b) - new Date(a)).reverse()
+            var todays = new Date().toLocaleDateString("fr-CA", options2);
+            console.log("todays: " + todays);
+            for(var i=0; i<Datex.length; i++){
+                console.log("Datex[i]: " + Datex[i]);
+                if(Datex[i] === todays){
+                    datesort = Datex[i]
+                    console.log("Datex[i] === todays " + datesort);
+                    break;
+                }else if (Datex[i] > todays){
+                    datesort = Datex[i]
+                    console.log("Datex[i] > todays " + datesort);
+                    //break;
+                }else if (Datex[i] < todays){
+                    datesort = Datex[i]
+                    console.log("Datex[i] < todays" + datesort);
+                    //break;
+                }
+            }
+
             var glinks = "<a href='https://aquavisitorsystem.github.io/?userid=" + doc.data().login + "&report=active'>" + doc.data().login + "</a>";
             //  document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
-            document.write('<tr><td>' + glinks + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
+            document.write('<tr><td>' + glinks + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + datesort + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
  
         });
         var count = 0;
@@ -3315,7 +3481,7 @@ document.head.innerHTML = header;
         document.head.innerHTML = header;
         document.write("</table>");
         document.getElementsByTagName("body")[0].style.display = "none";
-        setTimeout("sortByDate2(3)", 3000);
+        setTimeout("sortByDate2(4)", 3000);
     })
     .catch((error) => {
         console.log("Error getting documents: ", error);
