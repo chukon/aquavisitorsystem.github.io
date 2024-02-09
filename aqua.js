@@ -2969,7 +2969,7 @@ document.head.innerHTML = header;
         var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>"; var lines = "";  var lines = "";
         let today = new Date().toISOString().slice(0, 10);
         //db.collection("messages").where("lastname", "==",get_login).where("remove", "==","No").orderBy("date","desc")
-        db.collection("messages").orderBy('lastname').startAt(get_login).endAt(get_login+'\uf8ff')
+        db.collection("messages").where("remove", "==","No").orderBy('lastname').startAt(get_login).endAt(get_login+'\uf8ff')
       .get()
    .then((querySnapshot) => {
        var cnt = querySnapshot.size;
@@ -3240,7 +3240,8 @@ document.head.innerHTML = header;
             var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>"; var lines = "";  var lines = "";
             let today = new Date().toISOString().slice(0, 10);
             //db.collection("messages").where("company", "==",get_login).where("remove", "==","No").orderBy("date","desc")
-            db.collection("messages").orderBy('company').startAt(get_login).endAt(get_login+'\uf8ff')
+            //db.collection("messages").orderBy('company').startAt(get_login).endAt(get_login+'\uf8ff')
+            db.collection("messages").where("remove", "==","No").orderBy('company').startAt(get_login).endAt(get_login+'\uf8ff')
        .get()
        .then((querySnapshot) => {
            var cnt = querySnapshot.size;
