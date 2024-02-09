@@ -1933,13 +1933,15 @@ document.getElementById('back').style.display = 'block';
             console.log("7777 date14:" + range);
             console.log("7777 todaysdate:" + todaysdate77);
             if (range < todaysdate77){
-                const dateb = new Date(doc.data().date14);
+         const dateb = new Date(doc.data().date14);
                 datesorts = addOneDay(dateb).toLocaleDateString("fr-CA", options2);
                 console.log("out of range:" + datesorts);
                 Datex.push(datesorts);
             }else{
-                 const date = new Date();
-                    const thisistodayday = date.getDay();
+          const date = new Date();
+             const thisistodayday = date.getDay();
+                console.log("thisistodayday" + thisistodayday);
+                console.log("mdays.includes(thisistodayday)" + mdays.includes(thisistodayday));
                 if (mdays.includes(thisistodayday)){
                     datesorts = new Date().toLocaleDateString("fr-CA", options2);
                 }else{
@@ -1948,13 +1950,14 @@ document.getElementById('back').style.display = 'block';
                 console.log("in range:" + datesorts);
                 Datex.push(datesorts);
             }
+            //datesorts = new Date().toLocaleDateString("fr-CA", options2);;
             Datex.push(datesorts);
         }
 
 
 
 
-        Datex.sort((a, b) => new Date(b) - new Date(a))
+        Datex.sort((a, b) => new Date(b) - new Date(a)).reverse()
         var todays = new Date().toLocaleDateString("fr-CA", options2);
         console.log("todays: " + todays);
         for(var i=0; i<Datex.length; i++){
@@ -1966,11 +1969,11 @@ document.getElementById('back').style.display = 'block';
             }else if (Datex[i] > todays){
                 datesort = Datex[i]
                 console.log("Datex[i] > todays " + datesort);
-                //break;
+                break;
             }else if (Datex[i] < todays){
                 datesort = Datex[i]
                 console.log("Datex[i] < todays" + datesort);
-               // break;
+                //break;
             }
         }
 
@@ -2012,8 +2015,7 @@ document.getElementById('back').style.display = 'block';
     var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>"; var lines = "";
     var RecordIDs = [];
     var cnt1;
-    var datesort;
-    var Visitors = [];
+
 
 
     let today = new Date().toISOString().slice(0, 10);
@@ -2022,6 +2024,8 @@ document.getElementById('back').style.display = 'block';
 .then((querySnapshot) => {
     var cnt = querySnapshot.size;
     var gd = new Date();
+    var datesort;
+    var Visitors = [];
     //var gmyDate = new Date(gd).toLocaleDateString('en-US');   
     var gmyDate = new Date(gd).toLocaleString('en-US');   
     var gtodaysdate = gmyDate.toString();
@@ -2242,7 +2246,7 @@ document.getElementById('back').style.display = 'block';
         }else if (Datex[i] > todays){
             datesort = Datex[i]
             console.log("Datex[i] > todays " + datesort);
-            //break;
+            break;
         }else if (Datex[i] < todays){
             datesort = Datex[i]
             console.log("Datex[i] < todays" + datesort);
