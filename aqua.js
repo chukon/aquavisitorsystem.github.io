@@ -3190,7 +3190,7 @@ document.head.innerHTML = header;
             }else if (Datex[i] > todays){
                 datesort = Datex[i]
                 console.log("Datex[i] > todays " + datesort);
-                //break;
+                break;
             }else if (Datex[i] < todays){
                 datesort = Datex[i]
                 console.log("Datex[i] < todays" + datesort);
@@ -3466,7 +3466,7 @@ document.head.innerHTML = header;
                 }else if (Datex[i] > todays){
                     datesort = Datex[i]
                     console.log("Datex[i] > todays " + datesort);
-                    //break;
+                   break;
                 }else if (Datex[i] < todays){
                     datesort = Datex[i]
                     console.log("Datex[i] < todays" + datesort);
