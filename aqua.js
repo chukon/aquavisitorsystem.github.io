@@ -5679,6 +5679,7 @@ function addOneDay(date) {
 }
 
 var loadweekschedule =  function(){
+  try {
            var db = firebase.firestore();
             var Visitors = [];
 	 let todaysdate = new Date();
@@ -5785,6 +5786,11 @@ var nodata = "<center><br>No visitor data found<br></center>";
 document.write(nodata);
 document.head.innerHTML = header;
 });
+}
+    catch(err) {
+    var nodata = "<center><br>Incorrect Date Format. Please try again.<br><br> <a href='https://aquavisitorsystem.github.io/'>Go Home</a><br></center>";
+    document.write(nodata);
+}
 }
 
 var loadprintjobs = function(text) {
@@ -5935,6 +5941,7 @@ function  getdateoflabels() {
 }
 
 var loadjobsfromdate =  function(){
+    try {
     var db = firebase.firestore();
     var Visitors = [];
     let todaysdate = new Date();
@@ -6007,6 +6014,7 @@ var loadjobsfromdate =  function(){
     var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
     console.log("Start Date: " + end);
     console.log("End Date: " + start);
+
     db.collection("log").where("date", ">=",end).where("date", "<=",start).where("remove", "==","No").orderBy("date","desc").orderBy("lastname","asc")
    .get()
    .then((querySnapshot) => {
@@ -6067,6 +6075,11 @@ var nodata = "<center><br>No visitor data found<br></center>";
 document.write(nodata);
 document.head.innerHTML = header;
 });
+}
+    catch(err) {
+    var nodata = "<center><br>Incorrect Date Format. Please try again.<br><br> <a href='https://aquavisitorsystem.github.io/'>Go Home</a><br></center>";
+    document.write(nodata);
+}
 }
   
 var loaddbtoday =  function(){
