@@ -16,6 +16,7 @@ firebase.initializeApp(firebaseConfig);
     document.getElementById('update_db').style.visibility = 'hidden';
       
 //Add Log File
+    var datelabelchanged;
     var cntsend = [];
     var datelabels="";
     var fldlogin;
@@ -5793,7 +5794,7 @@ document.head.innerHTML = header;
 }
 }
 
-var loadprintjobs = function(text) {
+var loadprintjobs = function() {
     var db = firebase.firestore();
     var Visitors = [];
     let todaysdate = new Date();
@@ -5801,6 +5802,7 @@ var loadprintjobs = function(text) {
     var lines = "";
     var today = new Date();
     var x;
+    var text = datelabelchanged;
     document.write("");
     var date = new Date();
     // date.setHours(0,0,0,0);
@@ -5935,8 +5937,10 @@ function  getdateoflabels() {
         //alert(data.length);
         // initialize title and body variables
         if (data.length > 3){
+            datelabelchanged = data
             var text = data;
-            setTimeout("loadprintjobs(" + text + ")", 1000);
+            setTimeout("loadprintjobs()", 1000);
+            //setTimeout("loadprintjobs(text)", 1000);
             //loadprintjobs(text);
         }
     });
