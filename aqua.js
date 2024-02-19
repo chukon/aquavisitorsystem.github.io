@@ -5936,7 +5936,8 @@ function  getdateoflabels() {
         // initialize title and body variables
         if (data.length > 3){
             var text = data;
-            loadprintjobs(text);
+            setTimeout("loadprintjobs(" + text + ")", 1000);
+            //loadprintjobs(text);
         }
     });
 }
