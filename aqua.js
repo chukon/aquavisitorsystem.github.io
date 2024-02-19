@@ -5817,8 +5817,9 @@ var loadprintjobs = function(text) {
     var end2 = new Date();
     var d = new Date();
     var name=text;//prompt("PrintJobs:\r\n1) The date when labels were last replaced was:\r\n" + text + "\r\n2) Click [Ok] to View Report\r\n", text);
+    alert("PrintJobs:\r\n1) The date when labels were last replaced was:\r\n" + text + "\r\n2) Click [Ok] to View Report\r\n", text);
    // var name=prompt("Visitor Count:\r\n1) Please enter date < today\r\n(example: 01/09/2023)\r\n2) Click [Ok]\r\n","Enter Date");
-    if (name!="Enter Date"){
+    if (text!="Enter Date"){
         d = new Date(name);
         var enddate = new Date(name);
         start = new Date();
