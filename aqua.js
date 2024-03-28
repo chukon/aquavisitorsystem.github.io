@@ -4154,7 +4154,7 @@ setTimeout("sortByDate2(4)", 3000);
        .then((querySnapshot) => {
            cnt = querySnapshot.size;
             var msg = "<input type='button' id='btnPrint' onclick='loaddb();' value='Show All Schedules for: " + fldloginID  + "'/>";
-            var goback = ' | <a href="javascript:history.go(-1);">Go Back</a>';
+            var goback = ' | <a href="index.html?report=removedreport">Go Back</a>';
             // var goback = ' | <a href="javascript:window.location=document.referrer;">Go Back</a>';
             var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (Removed Report)</h1><h2>" + "<label id='numcount'></label>" + " Removed Visitor Schedule(s) for: <a href='https://aquavisitorsystem.github.io/?userid=" + get_login + "&report=removed'>" + get_login + "</a><br><small style='font-size: 17px;color: grey;'>(showing all future,present & past schedules for: " + get_login + ")</small><br><small style='font-size: 16px;color: blue;'>report created on " +  gtodaysdate + "</small><br></h2><div id='home'><a href='https://aquavisitorsystem.github.io/'>Go Home</a>" + goback + "<br></div><br></center>";
             document.write(title);
@@ -4652,7 +4652,7 @@ setTimeout("sortByDate2(4)", 3000);
 
         //document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + datesort + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
  
-        var glinks = "<a href='https://aquavisitorsystem.github.io/?userid=" + doc.data().login + "&report=removed'>" + doc.data().login + "</a>";
+        var glinks = "<a href='index.html?userid=" + doc.data().login + "&report=removed'>" + doc.data().login + "</a>";
         document.write('<tr><td>' + glinks  + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + datesort + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
     });
 var count = 0;
@@ -7780,6 +7780,12 @@ if (g_report === 'checkins') {
 
 if (g_report === 'inactive') {
     loadinactive();
+} else {
+    console.log('string IS empty');
+}  
+
+if (g_report === 'removedreport') {
+    loadremoved()
 } else {
     console.log('string IS empty');
 }  
