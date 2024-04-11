@@ -5703,7 +5703,7 @@ document.getElementById("reptitle").innerHTML = "<center><h1>Aqua-Aerobic System
 }
 
 var spinnow = function(waitseconds){
-  var spinner = "<body><div id='spin'><img src='aqua.png' width='250'><center><h1 style='font-family: sans-serif;font-size:35px;font-weight: bold;'>Aqua Visitor Management System</h1><img src='spinner.gif' width='100'><p style='font-size:24px;color: blue;font-weight: bold;'>...Loading, Please Wait!</p></div></center></div></body>"
+  var spinner = "<body><div id='spin'><img src='aqua.png' width='250'><center><h1 style='font-family: sans-serif;font-size:38px;font-weight: bold;'>Aqua Visitor Management System</h1><img src='spinner.gif' width='100'><p style='font-size:24px;color: blue;font-weight: bold;'>...Loading, Please Wait!</p></div></center></div></body>"
         document.write(spinner);
         sleep(waitseconds).then(() => {
         var element = document.getElementById('spin');
