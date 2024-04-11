@@ -1386,7 +1386,8 @@ document.getElementById('back').style.display = 'block';
         document.head.innerHTML = header;
         document.write("</tbody></table>");
         document.getElementsByTagName("body")[0].style.display = "none";
-        setTimeout("sortByDate(5)", 3000);
+       // spinnow(3000);
+       // setTimeout("sortByDate(5)", 3000);
         if (count === 0){
             document.getElementById("printbtn").style.display = "none";
             // document.getElementById("report").style.display = "none";
@@ -1401,6 +1402,8 @@ document.getElementById('back').style.display = 'block';
         console.log("Error getting documents: ", error);
     });
 }
+    spinnow(3000);
+    setTimeout("sortByDate(5)", 3000);
 }
 
     var loaddbactivereport =  function(){
@@ -1702,7 +1705,8 @@ document.getElementById('back').style.display = 'block';
         document.head.innerHTML = header;
         document.write("</tbody></table>");
         document.getElementsByTagName("body")[0].style.display = "none";
-        setTimeout("sortByDate(5)", 3000);
+        //spinnow(3000);
+        //setTimeout("sortByDate(5)", 3000);
         if (count === 0){
             document.getElementById("printbtn").style.display = "none";
             // document.getElementById("report").style.display = "none";
@@ -1718,6 +1722,8 @@ document.getElementById('back').style.display = 'block';
     });
 }
 }
+    spinnow(3000);
+    setTimeout("sortByDate(5)", 3000);
     }
       
     var loaddb =  function(data){
@@ -1997,7 +2003,8 @@ document.getElementById('back').style.display = 'block';
     document.head.innerHTML = header;
     document.write("</tbody></table>");
     document.getElementsByTagName("body")[0].style.display = "none";
-    setTimeout("sortByDate2(5)", 3000);
+    //spinnow(3000);
+    //setTimeout("sortByDate2(5)", 3000);
 })
     .catch((error) => {
         console.log("Error getting documents: ", error);
@@ -2006,7 +2013,8 @@ document.getElementById('back').style.display = 'block';
     //setTimeout("sortTable(5)", 2000);
    // setTimeout("sortTable(5)", 2000);
 //sortdate
-   
+    spinnow(3000);
+    setTimeout("sortByDate2(5)", 3000);
 }
        
     var loaddbeverything =  function(){
@@ -2277,13 +2285,16 @@ document.getElementById("numcount").setAttribute("value",  count );
 document.head.innerHTML = header;
 document.write("</tbody></table>");
 document.getElementsByTagName("body")[0].style.display = "none";
-setTimeout("sortByDate2(5)", 3000);
+//spinnow(3000);
+//setTimeout("sortByDate2(5)", 3000);
 // setTimeout("sortByDate(5)", 6000);
 })
     .catch((error) => {
         console.log("Error getting documents: ", error);
 });
     console.log("arrayuserid: " +  arrayuserid);
+    spinnow(3000);
+    setTimeout("sortByDate2(5)", 3000);
 }
 
     var loaduseridreport =  function(){
@@ -2556,13 +2567,16 @@ setTimeout("sortByDate2(5)", 3000);
     document.head.innerHTML = header;
     document.write("</tbody></table>");
     document.getElementsByTagName("body")[0].style.display = "none";
-    setTimeout("sortByDate2(5)", 3000);
+    //spinnow(3000);
+    //setTimeout("sortByDate2(5)", 3000);
     // setTimeout("sortByDate(5)", 6000);
     })
     .catch((error) => {
         console.log("Error getting documents: ", error);
     });
     console.log("arrayuserid: " +  arrayuserid);
+    spinnow(3000);
+    setTimeout("sortByDate2(5)", 3000);
     }
 
     var loaddbeverythingall =  function(){
@@ -2833,12 +2847,14 @@ document.getElementById("numcount").setAttribute("value", count );
     document.head.innerHTML = header;
     document.write("</tbody></table>");
     document.getElementsByTagName("body")[0].style.display = "none";
-    setTimeout("sortTable(5)", 3000);
+   // spinnow(3000);
+   // setTimeout("sortTable(5)", 3000);
     })
     .catch((error) => {
         console.log("Error getting documents: ", error);
     });
-
+    spinnow(3000);
+    setTimeout("sortTable(5)", 3000);
 }
        
     var loaddbeverythings =  function(){
@@ -3219,12 +3235,15 @@ document.head.innerHTML = header;
     document.head.innerHTML = header;
     document.write("</table>");
     document.getElementsByTagName("body")[0].style.display = "none";
-    setTimeout("sortByDate2(4)", 3000);
+    //spinnow(3000);
+    //setTimeout("sortByDate2(4)", 3000);
 })
     .catch((error) => {
         console.log("Error getting documents: ", error);
 });
 }
+    spinnow(3000);
+    setTimeout("sortByDate2(4)", 3000);
 }
 
     var mycompany =  function(){
@@ -3496,12 +3515,15 @@ document.head.innerHTML = header;
         document.head.innerHTML = header;
         document.write("</table>");
         document.getElementsByTagName("body")[0].style.display = "none";
-        setTimeout("sortByDate2(4)", 3000);
+        //spinnow(3000);
+        //setTimeout("sortByDate2(4)", 3000);
     })
     .catch((error) => {
         console.log("Error getting documents: ", error);
     });
-    }
+}
+    spinnow(3000);
+    setTimeout("sortByDate2(4)", 3000);
     }
 	
     var loadlogname =  function(){
@@ -3566,13 +3588,16 @@ document.head.innerHTML = header;
     document.head.innerHTML = header;
     document.write("</table>");
     document.getElementsByTagName("body")[0].style.display = "none";
-    setTimeout("sortByDate2(7)", 3000);
+    //spinnow(3000);
+    //setTimeout("sortByDate2(7)", 3000);
 
 })
     .catch((error) => {
         console.log("Error getting documents: ", error);
 });
 }
+    spinnow(3000);
+    setTimeout("sortByDate2(7)", 3000);
 }
 
 var loadloguserid =  function(){
@@ -3636,12 +3661,15 @@ var loadloguserid =  function(){
     document.head.innerHTML = header;
     document.write("</table>");
     document.getElementsByTagName("body")[0].style.display = "none";
-    setTimeout("sortByDate2(7)",3000);
+    //spinnow(3000);
+    //setTimeout("sortByDate2(7)",3000);
 })
     .catch((error) => {
         console.log("Error getting documents: ", error);
 });
 }
+    spinnow(3000);
+    setTimeout("sortByDate2(7)",3000);
 }
 
 function countUnique(iterable) {
@@ -3738,11 +3766,14 @@ function Lookup(){
 document.head.innerHTML = header;
 document.write("</table>");
 document.getElementsByTagName("body")[0].style.display = "none";
-setTimeout("sortByDate2(7)", 3000);
+//spinnow(3000);
+//setTimeout("sortByDate2(7)", 3000);
 })
     .catch((error) => {
         console.log("Error getting documents: ", error);
 });
+    spinnow(3000);
+    setTimeout("sortByDate2(7)", 3000);
 }
 
     var loadlogdate =  function(){
@@ -3837,7 +3868,8 @@ setTimeout("sortByDate2(7)", 3000);
         document.write("</table>");
         document.head.innerHTML = header;
         document.getElementsByTagName("body")[0].style.display = "none";
-        setTimeout("sortByDate2(7)", 3000);
+        //spinnow(3000);
+        //setTimeout("sortByDate2(7)", 3000);
     })
     .catch((error) => {
         console.log("Error getting documents: ", error);
@@ -3848,6 +3880,8 @@ setTimeout("sortByDate2(7)", 3000);
         // loadlogdate();
        
     }
+    spinnow(3000);
+    setTimeout("sortByDate2(7)", 3000);
     }
 		
     var loadlogall_OLD =  function(){
@@ -3901,11 +3935,14 @@ setTimeout("sortByDate2(7)", 3000);
     document.head.innerHTML = header;
     document.write("</table>");
     document.getElementsByTagName("body")[0].style.display = "none";
-    setTimeout("sortByDate2(7)", 3000);
+    //spinnow(3000);
+    //setTimeout("sortByDate2(7)", 3000);
     })
     .catch((error) => {
         console.log("Error getting documents: ", error);
-    });
+});
+    spinnow(3000);
+    setTimeout("sortByDate2(7)", 3000);
     }
 
     
@@ -3964,12 +4001,15 @@ setTimeout("sortByDate2(7)", 3000);
 
     document.head.innerHTML = header;
     document.write("</table>");
-document.getElementsByTagName("body")[0].style.display = "none";
-setTimeout("sortByDate2(7)", 3000);
+    document.getElementsByTagName("body")[0].style.display = "none";
+//    spinnow(3000);
+//setTimeout("sortByDate2(7)", 3000);
 })
     .catch((error) => {
         console.log("Error getting documents: ", error);
 });
+    spinnow(3000);
+    setTimeout("sortByDate2(7)", 3000);
 }
        
     var loadinactive =  function(){
@@ -4109,13 +4149,15 @@ setTimeout("sortByDate2(7)", 3000);
 document.head.innerHTML = header;
 document.write("</table>");
 document.getElementsByTagName("body")[0].style.display = "none";
-setTimeout("sortByDate2(4)", 3000);
+//spinnow(3000);
+//setTimeout("sortByDate2(4)", 3000);
 //setTimeout("sortTable(4)", 2000);
 })
     .catch((error) => {
         console.log("Error getting documents: ", error);
 });
-    
+    spinnow(3000);
+    setTimeout("sortByDate2(4)", 3000);
 }
 
     var loaddbremoved =  function(data){
@@ -4395,7 +4437,8 @@ setTimeout("sortByDate2(4)", 3000);
         document.head.innerHTML = header;
         document.write("</tbody></table>");
         document.getElementsByTagName("body")[0].style.display = "none";
-        setTimeout("sortByDate2(5)", 3000);
+        //spinnow(3000);
+        //setTimeout("sortByDate2(5)", 3000);
     })
     .catch((error) => {
         console.log("Error getting documents: ", error);
@@ -4404,7 +4447,8 @@ setTimeout("sortByDate2(4)", 3000);
     //setTimeout("sortTable(5)", 2000);
     // setTimeout("sortTable(5)", 2000);
     //sortdate
-   
+    spinnow(3000);
+    setTimeout("sortByDate2(5)", 3000);
     }
 
     var loadremoved =  function(){
@@ -4672,13 +4716,15 @@ document.getElementById("numcount").setAttribute("value",  count );
 document.head.innerHTML = header;
 document.write("</tbody></table>");
 document.getElementsByTagName("body")[0].style.display = "none";
-setTimeout("sortByDate2(5)", 3000);
-// setTimeout("sortByDate(5)", 6000);
+//spinnow(3000);
+//setTimeout("sortByDate2(5)", 3000);
 })
     .catch((error) => {
         console.log("Error getting documents: ", error);
 });
-console.log("arrayuserid: " +  arrayuserid);
+    console.log("arrayuserid: " +  arrayuserid);
+    spinnow(3000);
+    setTimeout("sortByDate2(5)", 3000);
     }
 
 
@@ -5156,13 +5202,16 @@ cnt1 = cnt1 - 1
     }
       document.getElementsByTagName("body")[0].style.display = "none";
     });
-     setTimeout("sortByDate(4)", 3000);
+     //spinnow(3000);
+     //setTimeout("sortByDate(4)", 3000);
      document.write("</table>");
     }
     catch(err) {
         var nodata = "<center><br>Incorrect Date Format. Please try again.<br><br> <a href='https://aquavisitorsystem.github.io/'>Go Home</a><br></center>";
         document.write(nodata);
     }
+         spinnow(3000);
+     setTimeout("sortByDate(4)", 3000);
     }
   
 function tConvert (time) {
@@ -5630,8 +5679,8 @@ count  = table.tBodies[0].rows.length;
 } catch (error) {
   count = 0;
 }
-//var table = document.getElementById("report");
-//var tbodyRowCount = table.tBodies[0].rows.length;
+    //var table = document.getElementById("report");
+    //var tbodyRowCount = table.tBodies[0].rows.length;
 document.getElementById("reptitle").innerHTML = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (today report)</h1><h2>" + count + " Visitor(s) for: " + name + "<br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small><br></h2></center>";
     if (cnt1 === 0){
     document.getElementById("report").innerHTML = "<center><br>No visitor data found<br></center>";
@@ -5649,11 +5698,20 @@ document.getElementById("reptitle").innerHTML = "<center><h1>Aqua-Aerobic System
  document.getElementsByTagName("body")[0].style.display = "none";
 });
 
-  // setTimeout("sortByDate(4)", 2000);
+    // setTimeout("sortByDate(4)", 2000);
     
        document.write("</table>");
-      //  setTimeout("sortTable(4)", 2000);
+      spinnow(2000);
         setTimeout("sortByDate(4)", 2000);
+}
+
+var spinnow = function(waitseconds){
+  var spinner = "<div id='spin'><br><br><center><img src='spinner.gif' width='100'><p style='font-size:24px;color: blue;font-weight: bold;'>...Loading, Please Wait!</p></div></center></div>"
+        document.write(spinner);
+        sleep(waitseconds).then(() => {
+      document.getElementById('spin').style.display = 'none';
+});
+
 }
 
 var emailtodayschedule =  function(){
@@ -6262,7 +6320,8 @@ document.write("<table id='report' style='font-size: small;'>  <tr>     <th styl
 document.head.innerHTML = header;
 document.write("</table>");
 document.getElementsByTagName("body")[0].style.display = "none";
-setTimeout("sortByDate2(7)", 3000);
+//spinnow(3000);
+//setTimeout("sortByDate2(7)", 3000);
 }) 
     .catch((error) => {
         console.log("Error getting documents: ", error);
@@ -6271,6 +6330,8 @@ var nodata = "<center><br>No visitor data found<br></center>";
 document.write(nodata);
 document.head.innerHTML = header;
 });
+spinnow(3000);
+setTimeout("sortByDate2(7)", 3000);
 }
     catch(err) {
     var nodata = "<center><br>Incorrect Date Format. Please try again.<br><br> <a href='https://aquavisitorsystem.github.io/'>Go Home</a><br></center>";
@@ -6405,7 +6466,8 @@ var loadprintjobs = function() {
 document.head.innerHTML = header;
 document.write("</table>");
 document.getElementsByTagName("body")[0].style.display = "none";
-setTimeout("sortByDate2(7)", 3000);
+//spinnow(3000);
+//setTimeout("sortByDate2(7)", 3000);
 }) 
     .catch((error) => {
         console.log("Error getting documents: ", error);
@@ -6414,6 +6476,8 @@ var nodata = "<center><br>No visitor data found<br></center>";
 document.write(nodata);
 document.head.innerHTML = header;
 });
+spinnow(3000);
+setTimeout("sortByDate2(7)", 3000);
 }
 
 function  getdateoflabels() {
@@ -6556,7 +6620,8 @@ var loadjobsfromdate =  function(){
 document.head.innerHTML = header;
 document.write("</table>");
 document.getElementsByTagName("body")[0].style.display = "none";
-setTimeout("sortByDate2(7)", 3000);
+//spinnow(3000);
+//setTimeout("sortByDate2(7)", 3000);
 }) 
     .catch((error) => {
         console.log("Error getting documents: ", error);
@@ -6569,7 +6634,9 @@ document.head.innerHTML = header;
     catch(err) {
     var nodata = "<center><br>Incorrect Date Format. Please try again.<br><br> <a href='https://aquavisitorsystem.github.io/'>Go Home</a><br></center>";
     document.write(nodata);
-}
+    }
+    spinnow(3000);
+    setTimeout("sortByDate2(7)", 3000);
 }
   
 var loaddbtoday =  function(){
@@ -6997,6 +7064,7 @@ document.write(nodata);
 });
    document.write("</table>");
    document.getElementsByTagName("body")[0].style.display = "none";
+ //  spinnow(3000);
   setTimeout("sortByDate(3)", 3000);
 }
        
@@ -8105,6 +8173,7 @@ function convertDate(d) {
 
 function sortByDate(n) {
     try {
+       
     console.log(n);
     //document.getElementById("report").value = "";
     //document.querySelectorAll("#report tbody").forEach(el => el.remove());
@@ -8125,11 +8194,15 @@ function sortByDate(n) {
 
   
     } catch (error) {
-       // console.log(error);
+        // console.log(error);
         document.getElementsByTagName("body")[0].style.display = "block";
+       
     } finally {
         document.getElementsByTagName("body")[0].style.display = "block";
+       
+
     }
+  
 
 }
 
