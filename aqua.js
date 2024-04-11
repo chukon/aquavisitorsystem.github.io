@@ -2030,7 +2030,7 @@ document.getElementById('back').style.display = 'block';
     //var gmyDate = new Date(gd).toLocaleDateString('en-US');   
     var gmyDate = new Date(gd).toLocaleString('en-US');   
     var gtodaysdate = gmyDate.toString();
-    var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (all report)</h1><h2>" + "<label id='numcount'></label>" + " Visitor Schedule(s)<br><small>(showing all schedules)</small><br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small><br></h2><div id='gohome'><a href='https://aquavisitorsystem.github.io/'>Go Home</a></div><br><br></center>";
+    var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (all report)</h1><h2>" + "<label id='numcount'></label>" + " Visitor Schedule(s)<br><small>(showing all future, present & past schedules)</small><br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small><br></h2><div id='gohome'><a href='https://aquavisitorsystem.github.io/'>Go Home</a></div><br><br></center>";
 
     document.write(title);
     document.write(printnow);
