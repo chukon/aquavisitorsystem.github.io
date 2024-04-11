@@ -1386,8 +1386,6 @@ document.getElementById('back').style.display = 'block';
         document.head.innerHTML = header;
         document.write("</tbody></table>");
         document.getElementsByTagName("body")[0].style.display = "none";
-       // spinnow(3000);
-       // setTimeout("sortByDate(5)", 3000);
         if (count === 0){
             document.getElementById("printbtn").style.display = "none";
             // document.getElementById("report").style.display = "none";
@@ -1396,7 +1394,6 @@ document.getElementById('back').style.display = 'block';
             document.getElementById("report").style.display = "none";
             // document.getElementById("btnPrint").style.display = "none";
         }
-       
     })
     .catch((error) => {
         console.log("Error getting documents: ", error);
@@ -5706,10 +5703,13 @@ document.getElementById("reptitle").innerHTML = "<center><h1>Aqua-Aerobic System
 }
 
 var spinnow = function(waitseconds){
-  var spinner = "<div id='spin'><br><br><center><img src='spinner.gif' width='100'><p style='font-size:24px;color: blue;font-weight: bold;'>...Loading, Please Wait!</p></div></center></div>"
+  var spinner = "<body><div id='spin'><br><br><center><img src='spinner.gif' width='100'><p style='font-size:24px;color: blue;font-weight: bold;'>...Loading, Please Wait!</p></div></center></div></body>"
         document.write(spinner);
         sleep(waitseconds).then(() => {
-      document.getElementById('spin').style.display = 'none';
+        var element = document.getElementById('spin');
+if (element != null && element.value != '') {
+document.getElementById('spin').style.display = 'none';
+}
 });
 
 }
