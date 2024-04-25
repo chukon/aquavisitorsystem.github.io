@@ -5698,8 +5698,8 @@ document.getElementById("reptitle").innerHTML = "<center><h1>Aqua-Aerobic System
     // setTimeout("sortByDate(4)", 2000);
     
        document.write("</table>");
-      spinnow(2000);
-        setTimeout("sortByDate(4)", 2000);
+      spinnow(3000);
+        setTimeout("sortByDate(4)", 3000);
 }
 
 var spinnow = function(waitseconds){
