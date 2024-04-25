@@ -7180,8 +7180,10 @@ var getloginname = function(){
     }else if (username.toLowerCase()  === 'userid') {
         loaduseridreport();
     }else if (username.toLowerCase()  === 'activitylog') {
-       //window.open('https://aquavisitorsystem.github.io/aquavisitoractivity.github.io/firestore/', '_blank').focus();
-        window.location.href = 'https://aquavisitorsystem.github.io/activity/';
+        //window.open('https://aquavisitorsystem.github.io/aquavisitoractivity.github.io/firestore/', '_blank').focus();
+        spinnow(3000);
+        //window.location.href = './activity/index.html';
+        setTimeout("window.location.href = './activity/';", 3000);
     }else{
         var data = {
             "userid": username
