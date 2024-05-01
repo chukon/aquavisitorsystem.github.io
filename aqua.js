@@ -6816,7 +6816,9 @@ console.log("mon SnapshotPromise:" + querySnapshot.size);
 cnt1 = querySnapshot.size + cnt1;
 querySnapshot.forEach(doc => {
     console.log("mon docid:" + doc.id, ' => ', doc.data());
-RecordIDs.push( doc.id);
+if (typeof doc.data().date14 !== 'undefined' && doc.data().date14 !=="" && new Date(doc.data().date14) >= todaysdate) {
+    RecordIDs.push( doc.id);
+}
 });
 //resolve(RecordIDs);
 });
@@ -6829,7 +6831,9 @@ console.log("tue SnapshotPromise:" + querySnapshot.size);
 cnt1 = querySnapshot.size + cnt1;
 querySnapshot.forEach(doc => {
     console.log("tue docid:" + doc.id, ' => ', doc.data());
-RecordIDs.push( doc.id);
+if (typeof doc.data().date14 !== 'undefined' && doc.data().date14 !=="" && new Date(doc.data().date14) >= todaysdate) {
+    RecordIDs.push( doc.id);
+}
 });
 //resolve(RecordIDs);
 });
@@ -6842,7 +6846,9 @@ console.log("wed SnapshotPromise:" + querySnapshot.size);
 cnt1 = querySnapshot.size + cnt1;
 querySnapshot.forEach(doc => {
     console.log("wed docid:" + doc.id, ' => ', doc.data());
-RecordIDs.push( doc.id);
+if (typeof doc.data().date14 !== 'undefined' && doc.data().date14 !=="" && new Date(doc.data().date14) >= todaysdate) {
+    RecordIDs.push( doc.id);
+}
 });
 ///resolve(RecordIDs);
 });
@@ -6855,7 +6861,9 @@ console.log("thu SnapshotPromise:" + querySnapshot.size);
 cnt1 = querySnapshot.size + cnt1;
 querySnapshot.forEach(doc => {
     console.log("thu docid:" + doc.id, ' => ', doc.data());
-RecordIDs.push( doc.id);
+if (typeof doc.data().date14 !== 'undefined' && doc.data().date14 !=="" && new Date(doc.data().date14) >= todaysdate) {
+    RecordIDs.push( doc.id);
+}
 });
 //resolve(RecordIDs);
 });
@@ -6868,7 +6876,9 @@ console.log("fri SnapshotPromise:" + querySnapshot.size);
 cnt1 = querySnapshot.size + cnt1;
 querySnapshot.forEach(doc => {
     console.log("fri docid:" + doc.id, ' => ', doc.data());
-RecordIDs.push( doc.id);
+if (typeof doc.data().date14 !== 'undefined' && doc.data().date14 !=="" && new Date(doc.data().date14) >= todaysdate) {
+    RecordIDs.push( doc.id);
+}
 });
 resolve(RecordIDs);
 });
