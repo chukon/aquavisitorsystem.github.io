@@ -3793,7 +3793,7 @@ document.getElementsByTagName("body")[0].style.display = "none";
             var end = new Date();
             var strStart = new Date();
             var strEnd = new Date();
-            var name=prompt("Please choose one of the following\r\n1) Enter date to search (Example: 10/12/2022) > Click [Ok]\r\n2) Click [Ok] for today's date","Enter Date");
+            var name=prompt("Please choose one of the following\r\n1) Enter date to search (Example: 05/01/2024) > Click [Ok]\r\n2) Click [Ok] for today's date","Enter Date");
             if (name!="Enter Date"){
                 start = new Date(name);
                 choosedate   = new Date(name).toDateString();
@@ -4742,7 +4742,7 @@ document.getElementsByTagName("body")[0].style.display = "none";
             document.write("");
             var choosedate  = new Date();
           
-            var name=prompt("Please choose one of the following\r\n1) Enter date to search\r\n    Example: 10/12/2022\r\n2) Click [Ok] or [Enter] key","Enter Date");
+            var name=prompt("Please choose one of the following\r\n1) Enter date to search\r\n    Example: 05/01/2024\r\n2) Click [Ok] or [Enter] key","Enter Date");
             if (name!="Enter Date"){
                 start = new Date(name);
                 choosedate   = new Date(name).toDateString();
@@ -6538,7 +6538,7 @@ var loadjobsfromdate =  function(){
     var end = new Date();
     var end2 = new Date();
     var d = new Date();
-    var name=prompt("Visitor Count:\r\n1) Please enter date < today\r\n(example: 01/09/2023)\r\n2) Click [Ok]\r\n","Enter Date");
+    var name=prompt("Visitor Count:\r\n1) Please enter date <= today\r\n(example: 05/01/2024)\r\n2) Click [Ok]\r\n","Enter Date");
     if (name!="Enter Date"){
         d = new Date(name);
         var enddate = new Date(name);
