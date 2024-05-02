@@ -1385,7 +1385,7 @@ document.getElementById('back').style.display = 'block';
         document.getElementById("numcount").setAttribute("value",  count);
         document.head.innerHTML = header;
         document.write("</tbody></table>");
-        document.getElementsByTagName("body")[0].style.display = "none";
+       document.getElementsByTagName("body")[0].style.display = "none";
         if (count === 0){
             document.getElementById("printbtn").style.display = "none";
             // document.getElementById("report").style.display = "none";
@@ -1400,7 +1400,11 @@ document.getElementById('back').style.display = 'block';
     });
 }
     spinnow(3000);
+    spinnow(3000);
+       //alert("test");
     setTimeout("sortByDate(5)", 3000);
+   // spinnow(3000);
+    //spinnow(3000);
 }
 
     var loaddbactivereport =  function(){
