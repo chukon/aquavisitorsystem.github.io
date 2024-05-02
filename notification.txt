@@ -3,9 +3,9 @@
   <li><b>Latest updates</b></li>
    <ul><li><b>New Feature(s):</b></li></ul>
   <ul style="padding-left:60px">
-    <li>New report: activitylog - shows live visitor log</li>
-    <li>New report: company - search by full or partial start of company name</li>
-    <li>New report: name - search by full or partial start of guest last name</li>
+    <li>New report: activitylog - shows live visitor dashboard log.</li>
+    <li>New report: company - search by full or partial start of company name.</li>
+    <li>New report: name - search by full or partial start of guest last name.</li>
     <li>Reminder morning email sent to Aqua employee that has guest visiting that day.</li>
   </ul>
   <br>
