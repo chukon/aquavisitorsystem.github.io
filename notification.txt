@@ -3,14 +3,15 @@
   <li><b>Latest updates</b></li>
    <ul><li><b>New Feature(s):</b></li></ul>
   <ul style="padding-left:60px">
-    <li>New report: company - Search by Full or Partial Start of Company Name</li>
-    <li>New report: name - Search by Full or Partial Start of guest Last Name</li>
+    <li>New report: activitylog - shows live visitor log</li>
+    <li>New report: company - search by full or partial start of company name</li>
+    <li>New report: name - search by full or partial start of guest last name</li>
     <li>Reminder morning email sent to Aqua employee that has guest visiting that day.</li>
   </ul>
   <br>
   <ul><b>View Reports:</b></ul> 
   <ul><li>Click on 'View Scheduled Visits'</li></ul> 
-  <ul><li>Use keyword(s) listed (dropdown available)</li></ul>
+  <ul><li>Select dropdown list of available reports</li></ul>
   <br>
  <ul><b>Manage Schedules:</b></ul> 
   <ul><li>Schedule A Visitor. <a href="https://aquavisitorsystem.github.io/help/Aqua%20Visitor%20Check.htm#_Toc132347444">click here</a></li></ul>
