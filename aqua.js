@@ -4900,7 +4900,7 @@ document.getElementsByTagName("body")[0].style.display = "none";
     //resolve(RecordIDs);
     });
 //END
-
+    let todaysdate2 = new Date();
     //START
     db.collection("messages").where("mon", "==",true).where("remove", "==","No").get().then((querySnapshot) => {
         console.log("mon cnt1:" + cnt1);
@@ -4908,7 +4908,7 @@ document.getElementsByTagName("body")[0].style.display = "none";
     cnt1 = querySnapshot.size + cnt1;
     querySnapshot.forEach(doc => {
         console.log("mon docid:" + doc.id, ' => ', doc.data());
-    if (typeof doc.data().date14 !== 'undefined' && doc.data().date14 !=="" && new Date(doc.data().date14) >= todaysdate) {
+    if (typeof doc.data().date14 !== 'undefined' && doc.data().date14 !=="" && new Date(doc.data().date14) >= todaysdate2) {
         RecordIDs.push( doc.id);
     }
     });
@@ -4923,7 +4923,7 @@ document.getElementsByTagName("body")[0].style.display = "none";
     cnt1 = querySnapshot.size + cnt1;
     querySnapshot.forEach(doc => {
         console.log("tue docid:" + doc.id, ' => ', doc.data());
-    if (typeof doc.data().date14 !== 'undefined' && doc.data().date14 !=="" && new Date(doc.data().date14) >= todaysdate) {
+    if (typeof doc.data().date14 !== 'undefined' && doc.data().date14 !=="" && new Date(doc.data().date14) >= todaysdate2) {
         RecordIDs.push( doc.id);
     }
     });
@@ -4938,7 +4938,7 @@ document.getElementsByTagName("body")[0].style.display = "none";
     cnt1 = querySnapshot.size + cnt1;
     querySnapshot.forEach(doc => {
         console.log("wed docid:" + doc.id, ' => ', doc.data());
-    if (typeof doc.data().date14 !== 'undefined' && doc.data().date14 !=="" && new Date(doc.data().date14) >= todaysdate) {
+    if (typeof doc.data().date14 !== 'undefined' && doc.data().date14 !=="" && new Date(doc.data().date14) >= todaysdate2) {
         RecordIDs.push( doc.id);
     }
     });
@@ -4953,7 +4953,7 @@ document.getElementsByTagName("body")[0].style.display = "none";
     cnt1 = querySnapshot.size + cnt1;
     querySnapshot.forEach(doc => {
         console.log("thu docid:" + doc.id, ' => ', doc.data());
-    if (typeof doc.data().date14 !== 'undefined' && doc.data().date14 !=="" && new Date(doc.data().date14) >= todaysdate) {
+    if (typeof doc.data().date14 !== 'undefined' && doc.data().date14 !=="" && new Date(doc.data().date14) >= todaysdate2) {
         RecordIDs.push( doc.id);
     }
     });
@@ -4968,7 +4968,7 @@ document.getElementsByTagName("body")[0].style.display = "none";
     cnt1 = querySnapshot.size + cnt1;
     querySnapshot.forEach(doc => {
         console.log("fri docid:" + doc.id, ' => ', doc.data());
-    if (typeof doc.data().date14 !== 'undefined' && doc.data().date14 !=="" && new Date(doc.data().date14) >= todaysdate) {
+    if (typeof doc.data().date14 !== 'undefined' && doc.data().date14 !=="" && new Date(doc.data().date14) >= todaysdate2) {
         RecordIDs.push( doc.id);
     }
     });
@@ -6810,13 +6810,14 @@ RecordIDs.push( doc.id);
 });
 //END
 //START
+let todaysdate2 = new Date();
 db.collection("messages").where("mon", "==",true).where("remove", "==","No").get().then((querySnapshot) => {
     console.log("mon cnt1:" + cnt1);
 console.log("mon SnapshotPromise:" + querySnapshot.size); 
 cnt1 = querySnapshot.size + cnt1;
 querySnapshot.forEach(doc => {
     console.log("mon docid:" + doc.id, ' => ', doc.data());
-if (typeof doc.data().date14 !== 'undefined' && doc.data().date14 !=="" && new Date(doc.data().date14) >= todaysdate) {
+if (typeof doc.data().date14 !== 'undefined' && doc.data().date14 !=="" && new Date(doc.data().date14) >= todaysdate2) {
     RecordIDs.push( doc.id);
 }
 });
@@ -6831,7 +6832,7 @@ console.log("tue SnapshotPromise:" + querySnapshot.size);
 cnt1 = querySnapshot.size + cnt1;
 querySnapshot.forEach(doc => {
     console.log("tue docid:" + doc.id, ' => ', doc.data());
-if (typeof doc.data().date14 !== 'undefined' && doc.data().date14 !=="" && new Date(doc.data().date14) >= todaysdate) {
+if (typeof doc.data().date14 !== 'undefined' && doc.data().date14 !=="" && new Date(doc.data().date14) >= todaysdate2) {
     RecordIDs.push( doc.id);
 }
 });
@@ -6846,7 +6847,7 @@ console.log("wed SnapshotPromise:" + querySnapshot.size);
 cnt1 = querySnapshot.size + cnt1;
 querySnapshot.forEach(doc => {
     console.log("wed docid:" + doc.id, ' => ', doc.data());
-if (typeof doc.data().date14 !== 'undefined' && doc.data().date14 !=="" && new Date(doc.data().date14) >= todaysdate) {
+if (typeof doc.data().date14 !== 'undefined' && doc.data().date14 !=="" && new Date(doc.data().date14) >= todaysdate2) {
     RecordIDs.push( doc.id);
 }
 });
@@ -6861,7 +6862,7 @@ console.log("thu SnapshotPromise:" + querySnapshot.size);
 cnt1 = querySnapshot.size + cnt1;
 querySnapshot.forEach(doc => {
     console.log("thu docid:" + doc.id, ' => ', doc.data());
-if (typeof doc.data().date14 !== 'undefined' && doc.data().date14 !=="" && new Date(doc.data().date14) >= todaysdate) {
+if (typeof doc.data().date14 !== 'undefined' && doc.data().date14 !=="" && new Date(doc.data().date14) >= todaysdate2) {
     RecordIDs.push( doc.id);
 }
 });
@@ -6876,7 +6877,7 @@ console.log("fri SnapshotPromise:" + querySnapshot.size);
 cnt1 = querySnapshot.size + cnt1;
 querySnapshot.forEach(doc => {
     console.log("fri docid:" + doc.id, ' => ', doc.data());
-if (typeof doc.data().date14 !== 'undefined' && doc.data().date14 !=="" && new Date(doc.data().date14) >= todaysdate) {
+if (typeof doc.data().date14 !== 'undefined' && doc.data().date14 !=="" && new Date(doc.data().date14) >= todaysdate2) {
     RecordIDs.push( doc.id);
 }
 });
