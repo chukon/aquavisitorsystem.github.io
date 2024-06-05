@@ -8264,6 +8264,7 @@ if (g_cname != null) {
     var data = {
         "companyname": g_cname,
     }
+    clear();
     mycompanylink(data);
 } else {
     console.log('string IS empty');
