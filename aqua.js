@@ -3278,8 +3278,7 @@ document.head.innerHTML = header;
             var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>"; var lines = "";  var lines = "";
             let today = new Date().toISOString().slice(0, 10);
             //db.collection("messages").where("company", "==",get_login).where("remove", "==","No").orderBy("date","desc")
-            //db.collection("messages").orderBy('company').startAt(get_login).endAt(get_login+'\uf8ff')
-            db.collection("messages").where("remove", "==","No").orderBy('company').startAt(get_login).endAt(get_login+'\uf8ff')
+            db.collection("messages").orderBy('company').startAt(get_login).endAt(get_login+'\uf8ff')
        .get()
        .then((querySnapshot) => {
            var cnt = querySnapshot.size;
@@ -3543,7 +3542,8 @@ document.head.innerHTML = header;
         var gtodaysdate = gmyDate.toString()
         var Visitors = [];
     var db = firebase.firestore();
-    var get_login=prompt("Enter Guest Last Name To Search","Enter Guest Last Name");
+        //var get_login=prompt("Enter Guest Last Name To Search","Enter Guest Last Name");
+    var get_login=prompt("Search Guest Last Name\r\n1) Enter Full or Start of Guest Last Name\r\n    Example: Smith or Sm\r\n2) Click [Ok] or [Enter] key", "Enter Guest Last Name Here");
     if (get_login  === null || get_login === "Enter Guest Last Name") {
         alert("Please Try Again! Enter Guest Last Name.");
     }else{
@@ -3554,7 +3554,8 @@ document.head.innerHTML = header;
         var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
         var lines = "";
         let today = new Date().toISOString().slice(0, 10);
-        db.collection("log").where("lastname", "==",get_login).orderBy("date","desc")
+        //db.collection("log").where("lastname", "==",get_login).orderBy("date","desc")
+        db.collection("log").orderBy("lastname").orderBy("date","desc").startAt(get_login).endAt(get_login+'\uf8ff')
    .get()
    .then((querySnapshot) => {
        var cnt = querySnapshot.size;
@@ -3619,7 +3620,8 @@ document.head.innerHTML = header;
         var gtodaysdate = gmyDate.toString()
         var Visitors = [];
         var db = firebase.firestore();
-        var get_login=prompt("Enter Guest Company Name To Search","Enter Guest Company Name");
+        //var get_login=prompt("Enter Guest Company Name To Search","Enter Guest Company Name");
+        var get_login=prompt("Search Guest Company Name\r\n1) Enter Full or Start of Guest Company Name\r\n    Example: ABC Company or ABC\r\n2) Click [Ok] or [Enter] key", "Enter Guest Company Name Here");
         if (get_login  === null || get_login === "Enter Guest Company Name") {
             alert("Please Try Again! Enter Guest Company Name.");
         }else{
@@ -3630,7 +3632,8 @@ document.head.innerHTML = header;
             var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
             var lines = "";
             let today = new Date().toISOString().slice(0, 10);
-            db.collection("log").where("company", "==",get_login).orderBy("date","desc")
+            //db.collection("log").where("company", "==",get_login).orderBy("date","desc")
+            db.collection("log").orderBy("company").orderBy("date","desc").startAt(get_login).endAt(get_login+'\uf8ff')
        .get()
        .then((querySnapshot) => {
            var cnt = querySnapshot.size;
