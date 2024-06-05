@@ -3559,7 +3559,7 @@ document.head.innerHTML = header;
    .get()
    .then((querySnapshot) => {
        var cnt = querySnapshot.size;
-        var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (logname report)</h1><h2>Check-in/Check-out logs (" +  "<label id='numcount'></label>" + " visits) for: " + get_login + "<br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small><br></h2><br><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+        var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (logname report)</h1><h2><label id='numcount'></label>" + " visitor log(s) for Last names(s) starting with:  " + get_login + "<br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small><br></h2><br><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
         var logo = '<a href="https://aquavisitorsystem.github.io/"><img id="logo" src="aqua.png" width="250px" alt="Go Home"></a>'
         document.write(logo);
         document.write(title);
@@ -3637,7 +3637,7 @@ document.head.innerHTML = header;
        .get()
        .then((querySnapshot) => {
            var cnt = querySnapshot.size;
-            var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (logcompany report)</h1><h2>Check-in/Check-out logs (" +  "<label id='numcount'></label>" + " visits) for: " + get_login + "<br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small><br></h2><br><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+            var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (logcompany report)</h1><h2><label id='numcount'></label>" + " visitor log(s) for Company names(s) starting with:  " + get_login + "<br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small><br></h2><br><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
             var logo = '<a href="https://aquavisitorsystem.github.io/"><img id="logo" src="aqua.png" width="250px" alt="Go Home"></a>'
             document.write(logo);
             document.write(title);
