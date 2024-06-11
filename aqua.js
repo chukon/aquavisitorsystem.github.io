@@ -1369,8 +1369,8 @@ document.getElementById('back').style.display = 'block';
                         break;
                     }
                 }
-                var namelinks = "<a href='./index.html?lname=" + doc.data().lastname + "'>" + doc.data().lastname + "</a>";
-                var companylinks = "<a href='./index.html?company=" + doc.data().company + "'>" + doc.data().company + "</a>";
+                var namelinks = "<a href='https://aquavisitorsystem.github.io/?lname=" + doc.data().lastname + "'>" + doc.data().lastname + "</a>";
+                var companylinks = "<a href='https://aquavisitorsystem.github.io/?company=" + doc.data().company + "'>" + doc.data().company + "</a>";
                 document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + namelinks + '</td><td>' + companylinks + '</td><td>' + seleceteddate + '</td><td>' + datesort + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
            
             }
@@ -1690,8 +1690,8 @@ document.getElementById('back').style.display = 'block';
                         break;
                     }
                 }
-                var namelinks = "<a href='./index.html?lname=" + doc.data().lastname + "'>" + doc.data().lastname + "</a>";
-                var companylinks = "<a href='./index.html?company=" + doc.data().company + "'>" + doc.data().company + "</a>";
+                var namelinks = "<a href='https://aquavisitorsystem.github.io/?lname=" + doc.data().lastname + "'>" + doc.data().lastname + "</a>";
+                var companylinks = "<a href='https://aquavisitorsystem.github.io/?company=" + doc.data().company + "'>" + doc.data().company + "</a>";
                 document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + namelinks + '</td><td>' + companylinks + '</td><td>' + seleceteddate + '</td><td>' + datesort + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
                 
             }
@@ -2271,8 +2271,8 @@ document.getElementById('back').style.display = 'block';
     }
 
     //document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + datesort + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
-    var namelinks = "<a href='./index.html?lname=" + doc.data().lastname + "'>" + doc.data().lastname + "</a>";
-    var companylinks = "<a href='./index.html?company=" + doc.data().company + "'>" + doc.data().company + "</a>";
+    var namelinks = "<a href='https://aquavisitorsystem.github.io/?lname=" + doc.data().lastname + "'>" + doc.data().lastname + "</a>";
+    var companylinks = "<a href='https://aquavisitorsystem.github.io/?company=" + doc.data().company + "'>" + doc.data().company + "</a>";
     var glinks = "<a href='https://aquavisitorsystem.github.io/?userid=" + doc.data().login + "&report=active'>" + doc.data().login + "</a>";
     document.write('<tr><td>' + glinks  + '</td><td>' + doc.data().firstname + '</td><td>' + namelinks + '</td><td>' + companylinks + '</td><td>' + dates + '</td><td>' + datesort + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
      });
@@ -2835,8 +2835,10 @@ document.getElementsByTagName("body")[0].style.display = "none";
                     break;
                 }
             }
+            var namelinks = "<a href='https://aquavisitorsystem.github.io/?lname=" + doc.data().lastname + "'>" + doc.data().lastname + "</a>";
+            var companylinks = "<a href='https://aquavisitorsystem.github.io/?company=" + doc.data().company + "'>" + doc.data().company + "</a>";
             var glinks = "<a href='https://aquavisitorsystem.github.io/?userid=" + doc.data().login + "&report=active'>" + doc.data().login + "</a>";
-            document.write('<tr><td>' + glinks + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + seleceteddate + '</td><td>' + datesort + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
+            document.write('<tr><td>' + glinks + '</td><td>' + doc.data().firstname + '</td><td>' + namelinks + '</td><td>' + companylinks + '</td><td>' + seleceteddate + '</td><td>' + datesort + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
            //document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + seleceteddate + '</td><td>' + datesort + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
 
         }
@@ -3226,11 +3228,11 @@ document.head.innerHTML = header;
                 //break;
             }
         }
-        var namelinks = "<a href='./index.html?lname=" + doc.data().lastname + "'>" + doc.data().lastname + "</a>";
-        
+        var namelinks = "<a href='https://aquavisitorsystem.github.io/?lname=" + doc.data().lastname + "'>" + doc.data().lastname + "</a>";
+        var companylinks = "<a href='https://aquavisitorsystem.github.io/?company=" + doc.data().company + "'>" + doc.data().company + "</a>";
         var glinks = "<a href='https://aquavisitorsystem.github.io/?userid=" + doc.data().login + "&report=active'>" + doc.data().login + "</a>";
         //  document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
-        document.write('<tr><td>' + glinks + '</td><td>' + doc.data().firstname + '</td><td>' + namelinks + '</td><td>' + doc.data().company + '</td><td>' + datesort + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
+        document.write('<tr><td>' + glinks + '</td><td>' + doc.data().firstname + '</td><td>' + namelinks + '</td><td>' + companylinks + '</td><td>' + datesort + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
  
     });
     var count = 0;
@@ -3509,8 +3511,8 @@ document.head.innerHTML = header;
                     //break;
                 }
             }
-            var namelinks = "<a href='./index.html?lname=" + doc.data().lastname + "'>" + doc.data().lastname + "</a>";
-            var companylinks = "<a href='./index.html?company=" + doc.data().company + "'>" + doc.data().company + "</a>";
+            var namelinks = "<a href='https://aquavisitorsystem.github.io/?lname=" + doc.data().lastname + "'>" + doc.data().lastname + "</a>";
+            var companylinks = "<a href='https://aquavisitorsystem.github.io/?company=" + doc.data().company + "'>" + doc.data().company + "</a>";
             var glinks = "<a href='https://aquavisitorsystem.github.io/?userid=" + doc.data().login + "&report=active'>" + doc.data().login + "</a>";
             //  document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
             document.write('<tr><td>' + glinks + '</td><td>' + doc.data().firstname + '</td><td>' + namelinks + '</td><td>' + companylinks + '</td><td>' + datesort + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
@@ -3793,8 +3795,8 @@ document.head.innerHTML = header;
                     //break;
                 }
             }
-            var namelinks = "<a href='./index.html?lname=" + doc.data().lastname + "'>" + doc.data().lastname + "</a>";
-            var companylinks = "<a href='./index.html?company=" + doc.data().company + "'>" + doc.data().company + "</a>";
+            var namelinks = "<a href='https://aquavisitorsystem.github.io/?lname=" + doc.data().lastname + "'>" + doc.data().lastname + "</a>";
+            var companylinks = "<a href='https://aquavisitorsystem.github.io/?company=" + doc.data().company + "'>" + doc.data().company + "</a>";
             var glinks = "<a href='https://aquavisitorsystem.github.io/?userid=" + doc.data().login + "&report=active'>" + doc.data().login + "</a>";
             //  document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
             document.write('<tr><td>' + glinks + '</td><td>' + doc.data().firstname + '</td><td>' + namelinks + '</td><td>' + companylinks + '</td><td>' + datesort + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
@@ -4074,11 +4076,11 @@ document.head.innerHTML = header;
                     //break;
                 }
             }
-            var companylinks = "<a href='./index.html?company=" + doc.data().company + "'>" + doc.data().company + "</a>";
-        
+            var companylinks = "<a href='https://aquavisitorsystem.github.io/?company=" + doc.data().company + "'>" + doc.data().company + "</a>";
+            var namelinks = "<a href='https://aquavisitorsystem.github.io/?lname=" + doc.data().lastname + "'>" + doc.data().lastname + "</a>";
             var glinks = "<a href='https://aquavisitorsystem.github.io/?userid=" + doc.data().login + "&report=active'>" + doc.data().login + "</a>";
             //  document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
-            document.write('<tr><td>' + glinks + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + companylinks + '</td><td>' + datesort + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
+            document.write('<tr><td>' + glinks + '</td><td>' + doc.data().firstname + '</td><td>' + namelinks + '</td><td>' + companylinks + '</td><td>' + datesort + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
  
         });
         var count = 0;
@@ -5864,8 +5866,8 @@ cnt1 = cnt1 - 1
         // document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
            if (dates != "Invalid Date")
     {
-    var namelinks = "<a href='./index.html?lname=" + doc.data().lastname + "'>" + doc.data().lastname + "</a>";
-   var companylinks = "<a href='./index.html?company=" + doc.data().company + "'>" + doc.data().company + "</a>";
+    var namelinks = "<a href='https://aquavisitorsystem.github.io/?lname=" + doc.data().lastname + "'>" + doc.data().lastname + "</a>";
+   var companylinks = "<a href='https://aquavisitorsystem.github.io/?company=" + doc.data().company + "'>" + doc.data().company + "</a>";
        var glinks = "<a href='https://aquavisitorsystem.github.io/?userid=" + doc.data().login + "&report=active'>" + doc.data().login + "</a>";
            document.write('<tr><td>' + glinks + '</td><td>' + doc.data().firstname + '</td><td>' + namelinks + '</td><td>' + companylinks + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
     }
@@ -6363,8 +6365,8 @@ cnt1 = cnt1 - 1
     //var dates = new Date(doc.data().date).toLocaleTimeString()
     console.log("loadtodayschedule:" + dt);
      if (dates != "Invalid Date"){
-      var namelinks = "<a href='./index.html?lname=" + doc.data().lastname + "'>" + doc.data().lastname + "</a>";
-   var companylinks = "<a href='./index.html?company=" + doc.data().company + "'>" + doc.data().company + "</a>";
+      var namelinks = "<a href='https://aquavisitorsystem.github.io/?lname=" + doc.data().lastname + "'>" + doc.data().lastname + "</a>";
+   var companylinks = "<a href='https://aquavisitorsystem.github.io/?company=" + doc.data().company + "'>" + doc.data().company + "</a>";
      var glinks = "<a href='https://aquavisitorsystem.github.io/?userid=" + doc.data().login + "&report=active'>" + doc.data().login + "</a>";
      document.write('<tr><td>' + glinks + '</td><td>' + doc.data().firstname + '</td><td>' + namelinks + '</td><td>' + companylinks + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
 }
@@ -7308,8 +7310,8 @@ var loadjobsfromdate =  function(){
     console.log("cnt:" + cnt);
     console.log("cnt / 2:" + cnt / 2);
     console.log("loadtodayschedule:" + dates);
-    var namelinks = "<a href='./index.html?lname=" + doc.data().lastname + "'>" + doc.data().lastname + "</a>";
-    var companylinks = "<a href='./index.html?company=" + doc.data().company + "'>" + doc.data().company + "</a>";
+    var namelinks = "<a href='https://aquavisitorsystem.github.io/?lname=" + doc.data().lastname + "'>" + doc.data().lastname + "</a>";
+    var companylinks = "<a href='https://aquavisitorsystem.github.io/?company=" + doc.data().company + "'>" + doc.data().company + "</a>";
     var glinks = "<a href='https://aquavisitorsystem.github.io/?userid=" + doc.data().login + "&report=active'>" + doc.data().login + "</a>";
     if ((doc.data().checkin !== "") && (doc.data().checkout !== ""))
     {
