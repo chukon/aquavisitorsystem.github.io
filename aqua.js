@@ -2989,8 +2989,13 @@ document.head.innerHTML = header;
     var Visitors = [];	
     //var get_login=prompt("Search Guest Last Name","Type Here Full or Start of Guest Last Name");
     var get_login=prompt("Search Guest Last Name\r\n1) Enter Full or Start of Guest Last Name\r\n    Example: Smith or Sm\r\n2) Click [Ok] or [Enter] key", "Enter Guest Last Name Here");
-    if (get_login  === null || get_login === "Enter Guest Last Name Here") {
+    if (get_login === "Enter Guest Last Name Here") {
         alert("Please Try Again! Enter Guest Last Name.");
+        loadname();
+    }else if (get_login  === null){
+        clear();
+        spinnow(3000);
+        setTimeout("window.location.reload();", 3000);
     }else{
         var gd = new Date();
         //var gmyDate = new Date(gd).toLocaleDateString('en-US');   
@@ -3257,9 +3262,11 @@ document.head.innerHTML = header;
     .catch((error) => {
         console.log("Error getting documents: ", error);
 });
-}
     spinnow(3000);
     setTimeout("sortByDate2(4)", 3000);
+}
+    //spinnow(3000);
+    //setTimeout("sortByDate2(4)", 3000);
 }
 
     var loadnamelink =  function(){
@@ -3838,8 +3845,14 @@ document.head.innerHTML = header;
 
        // var get_login=prompt("Search Company Name","Type Here Full or Start of Company Name");
         var get_login=prompt("Search Guest Company Name\r\n1) Enter Full or Start of Guest Company Name\r\n    Example: ABC Company or ABC\r\n2) Click [Ok] or [Enter] key", "Enter Guest Company Name Here");
-        if (get_login  === null || get_login === "Enter Guest Company Name Here") {
+        if (get_login === "Enter Guest Company Name Here") {
+            clear();
             alert("Please Try Again! Enter Guest Company Name.");
+            mycompany();
+        }else if (get_login  === null){
+            clear();
+            spinnow(3000);
+            setTimeout("window.location.reload();", 3000);
         }else{
             var gd = new Date();
             //var gmyDate = new Date(gd).toLocaleDateString('en-US');   
@@ -4105,9 +4118,11 @@ document.head.innerHTML = header;
     .catch((error) => {
         console.log("Error getting documents: ", error);
     });
-}
     spinnow(3000);
     setTimeout("sortByDate2(4)", 3000);
+}
+    //spinnow(3000);
+    //setTimeout("sortByDate2(4)", 3000);
     }
 	
     var loadlogname =  function(){
@@ -5418,7 +5433,13 @@ document.getElementsByTagName("body")[0].style.display = "none";
             var choosedate  = new Date();
           
             var name=prompt("Please choose one of the following\r\n1) Enter date to search\r\n    Example: 05/01/2024\r\n2) Click [Ok] or [Enter] key","Enter Date");
-            if (name!="Enter Date"){
+            if (name === null){
+                //clear();
+                //spinnow(3000);
+                setTimeout("window.location.reload();", 3000);
+          
+                
+            }else if (name!="Enter Date"){
                 start = new Date(name);
                 choosedate   = new Date(name).toDateString();
                 start.setHours(0,0,0,0);
@@ -5890,16 +5911,24 @@ cnt1 = cnt1 - 1
     }
       document.getElementsByTagName("body")[0].style.display = "none";
     });
-     //spinnow(3000);
-     //setTimeout("sortByDate(4)", 3000);
+        //spinnow(3000);
+        //setTimeout("sortByDate(4)", 3000);
      document.write("</table>");
+        spinnow(3000);
+     setTimeout("sortByDate(4)", 3000);
     }
     catch(err) {
-        var nodata = "<center><br>Incorrect Date Format. Please try again.<br><br> <a href='https://aquavisitorsystem.github.io/'>Go Home</a><br></center>";
-        document.write(nodata);
+   // alert("Incorrect Date Format. Please try again.");
+    var title = "<div id='reptitle'><center><h1>Aqua-Aerobic Systems Visitor Schedule (date report)</h1><center><br>Incorrect Date Format. Please try again.<br><br><a href='https://aquavisitorsystem.github.io/'>Go Home</a></div></center><br>";         
+
+     //var nodata = "<center><br>Incorrect Date Format. Please try again.<br><br> <a href='https://aquavisitorsystem.github.io/'>Go Home</a><br></center>";
+      document.write(title);
+      
+      // setTimeout("window.location.reload();", 3000);
+       //setTimeout("loadtoday();", 3000);
     }
-         spinnow(3000);
-     setTimeout("sortByDate(4)", 3000);
+        // spinnow(3000);
+    // setTimeout("sortByDate(4)", 3000);
     }
   
 function tConvert (time) {
