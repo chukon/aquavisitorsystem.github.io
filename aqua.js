@@ -1989,8 +1989,9 @@ document.getElementById('back').style.display = 'block';
                 //break;
             }
         }
-
-          document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + datesort + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
+        var namelinks = "<a href='https://aquavisitorsystem.github.io/?lname=" + doc.data().lastname + "'>" + doc.data().lastname + "</a>";
+        var companylinks = "<a href='https://aquavisitorsystem.github.io/?company=" + doc.data().company + "'>" + doc.data().company + "</a>";
+        document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + namelinks + '</td><td>' + companylinks + '</td><td>' + dates + '</td><td>' + datesort + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
     });
     var count = 0;
         try {
