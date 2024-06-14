@@ -1410,19 +1410,21 @@ document.getElementById('back').style.display = 'block';
 
     var loaddbactivereport =  function(){
         var get_login=prompt("Enter Aqua UserID To View Report","Enter Aqua UserID");
-        if (get_login  === null || get_login === "Enter Aqua UserID") {
-            alert("Please Try Again! Enter Aqua UserID");
-            setTimeout(() => {
-                window.location.href = 'https://aquavisitorsystem.github.io/';
-        }, 1000);
+        if (get_login  === null) {
+            setTimeout("window.location.reload();", 1000);
+            //setTimeout(() => {window.location.href = 'https://aquavisitorsystem.github.io/';}, 1000);
+    }else if (get_login === "Enter Aqua UserID"){
+        alert("Please Try Again! Enter Aqua UserID");
+        setTimeout("window.location.reload();", 1000);
+        //setTimeout(() => {window.location.href = 'https://aquavisitorsystem.github.io/';}, 1000);
     }else{
         var gd = new Date();
         //var gmyDate = new Date(gd).toLocaleDateString('en-US');   
         var gmyDate = new Date(gd).toLocaleString('en-US');   
         var gtodaysdate = gmyDate.toString()
-            get_login  = get_login.toString();
-            get_login = get_login.trim().toLowerCase();
-            console.log(get_login);
+        get_login  = get_login.toString();
+        get_login = get_login.trim().toLowerCase();
+        console.log(get_login);
         var cntrecdays = 0;
         var db = firebase.firestore();
         // var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(8){display: none;}#report tr > *:nth-child(9){display: none;}#report tr > *:nth-child(10){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
@@ -1435,7 +1437,7 @@ document.getElementById('back').style.display = 'block';
         var datesorts;
         var Visitors = [];
         var seleceteddate;
-       // var mydata = data;
+        // var mydata = data;
         fldloginID = get_login;//data["userid"];
         let today = new Date().toISOString().slice(0, 10);
         var get_login  = get_login;// data["userid"];
@@ -1463,8 +1465,8 @@ document.getElementById('back').style.display = 'block';
       
             var msg = "<input type='button' id='btnPrint' onclick='loaddb();' value='Show All Schedules for: " + fldloginID  + "'/>";
 
-           var goback = ' | <a href="javascript:history.go(-1);">Go Back</a>';
-           // var goback = ' | <a href="javascript:window.location=document.referrer;">Go Back</a>';
+            var goback = ' | <a href="javascript:history.go(-1);">Go Back</a>';
+            // var goback = ' | <a href="javascript:window.location=document.referrer;">Go Back</a>';
             var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (My VMS Report)</h1><h2>" + "<label id='numcount'></label>" + " Active Visitor Schedule(s) for: <a href='https://aquavisitorsystem.github.io/?userid=" + get_login + "&report=active'>" + get_login + "</a><br><small style='font-size: 17px;color: grey;'>(showing all present & future schedules for: " + get_login + ")</small><br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small></h2><div id='homes'><a href='https://aquavisitorsystem.github.io/'>Go Home</a>" + "<br></div><br>" + msg  +   "<br><br></center>";
             var logo = '<a href="https://aquavisitorsystem.github.io/"><img id="logo" src="aqua.png" width="250px" alt="Go Home"></a>'
             document.write(logo);
@@ -1614,7 +1616,7 @@ document.getElementById('back').style.display = 'block';
                         mdays.push(1);
                         days = "Mon";
                         cntrecdays = RecCount(date13,date14,1);
-                       }
+                    }
                     if (doc.data().tue === true) {
                         mdays.push(2);
                         if (days === ""){
@@ -1661,7 +1663,7 @@ document.getElementById('back').style.display = 'block';
                     }else{
                         datesorts = nextDate(mdays[0]);
                     }
-                   // datesorts = nextDate(mdays[0]); //new Date().toLocaleDateString("fr-CA", options2);
+                    // datesorts = nextDate(mdays[0]); //new Date().toLocaleDateString("fr-CA", options2);
                     Datex.push(datesorts);
                     //Visitors.push(doc.data().login + new Date(doc.data().date14).toLocaleDateString("en", options2) + rectime);
                 }
@@ -1675,7 +1677,7 @@ document.getElementById('back').style.display = 'block';
           
                 console.log(seleceteddate);
             
-             //   Datex.sort((a, b) => new Date(b) - new Date(a)).reverse()
+                //   Datex.sort((a, b) => new Date(b) - new Date(a)).reverse()
                 
                 Datex.sort((a, b) => new Date(b) - new Date(a))
                 var todays = new Date().toLocaleDateString("fr-CA", options2);
