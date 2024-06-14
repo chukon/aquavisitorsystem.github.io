@@ -1412,10 +1412,12 @@ document.getElementById('back').style.display = 'block';
         var get_login=prompt("Enter Aqua UserID To View Report","Enter Aqua UserID");
         if (get_login  === null) {
             setTimeout("window.location.reload();", 1000);
+            spinnow(3000);
             //setTimeout(() => {window.location.href = 'https://aquavisitorsystem.github.io/';}, 1000);
     }else if (get_login === "Enter Aqua UserID"){
         alert("Please Try Again! Enter Aqua UserID");
-        setTimeout("window.location.reload();", 1000);
+        loaddbactivereport();
+        //setTimeout("window.location.reload();", 1000);
         //setTimeout(() => {window.location.href = 'https://aquavisitorsystem.github.io/';}, 1000);
     }else{
         var gd = new Date();
@@ -1727,9 +1729,10 @@ document.getElementById('back').style.display = 'block';
         console.log("Error getting documents: ", error);
     });
 }
-}
     spinnow(3000);
     setTimeout("sortByDate(5)", 3000);
+}
+
     }
       
     var loaddb =  function(data){
