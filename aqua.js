@@ -9161,7 +9161,7 @@ if ((g_logreport === 'loguserid') && (g_logvalue != null && g_logvalue!= '')) {
     var data = {
         "logvalue": g_logvalue
     }
-    clear();
+
 loadloguseridlink(data);
 } else {
     console.log('string IS empty');
@@ -9171,7 +9171,7 @@ if ((g_logreport === 'logname') && (g_logvalue != null && g_logvalue!= '')) {
     var data = {
         "logvalue": g_logvalue
     }
-    clear();
+ 
     loadlognamelink(data);
 } else {
     console.log('string IS empty');
@@ -9181,7 +9181,7 @@ if ((g_logreport === 'logcompany') && (g_logvalue != null && g_logvalue!= '')) {
     var data = {
         "logvalue": g_logvalue
     }
-    clear();
+ 
     loadlogcompanylink(data);
 } else {
     console.log('string IS empty');
