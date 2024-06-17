@@ -1404,6 +1404,7 @@ document.getElementById('back').style.display = 'block';
     spinnow(3000);
        //alert("test");
     setTimeout("sortByDate(5)", 3000);
+    spinnow(3000);
    // spinnow(3000);
     //spinnow(3000);
 }
@@ -3556,6 +3557,7 @@ document.head.innerHTML = header;
     }
     spinnow(3000);
     setTimeout("sortByDate2(4)", 3000);
+    spinnow(3000);
     }
 
 
@@ -3840,6 +3842,7 @@ document.head.innerHTML = header;
     }
     spinnow(3000);
     setTimeout("sortByDate2(4)", 3000);
+    spinnow(3000);
     }
 
     var mycompany =  function(){
@@ -4211,6 +4214,7 @@ document.head.innerHTML = header;
     }
     spinnow(3000);
     setTimeout("sortByDate2(7)", 3000);
+    spinnow(3000);
     }
 	
     var loadlogname =  function(){
@@ -4375,6 +4379,7 @@ document.head.innerHTML = header;
     }
     spinnow(3000);
     setTimeout("sortByDate2(7)", 3000);
+    spinnow(3000);
     }
 
     var loadlogcompany =  function(){
@@ -4531,10 +4536,12 @@ document.head.innerHTML = header;
     })
     .catch((error) => {
         console.log("Error getting documents: ", error);
-    });
+});
+
     }
     spinnow(3000);
     setTimeout("sortByDate2(7)",3000);
+    spinnow(3000);
     }
 
 
@@ -8486,6 +8493,12 @@ var clear = function(){
     document.getElementById('help').style.display = 'none';
     document.getElementById('loading').style.display = 'none';
 }
+
+var clearlogheader = function(){
+    document.getElementById('schedule').style.display = 'none';
+    document.getElementById('getall').style.display = 'none';
+    document.getElementById('help').style.display = 'none';
+}
 	 
 var updatescheduleshome = function(){
     document.getElementById('logins').style.display = 'contents';
@@ -9161,8 +9174,8 @@ if ((g_logreport === 'loguserid') && (g_logvalue != null && g_logvalue!= '')) {
     var data = {
         "logvalue": g_logvalue
     }
-
-loadloguseridlink(data);
+    clear();
+    loadloguseridlink(data);
 } else {
     console.log('string IS empty');
 } 
@@ -9171,7 +9184,7 @@ if ((g_logreport === 'logname') && (g_logvalue != null && g_logvalue!= '')) {
     var data = {
         "logvalue": g_logvalue
     }
- 
+    clear();
     loadlognamelink(data);
 } else {
     console.log('string IS empty');
@@ -9181,7 +9194,7 @@ if ((g_logreport === 'logcompany') && (g_logvalue != null && g_logvalue!= '')) {
     var data = {
         "logvalue": g_logvalue
     }
- 
+    clear();
     loadlogcompanylink(data);
 } else {
     console.log('string IS empty');
