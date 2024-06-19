@@ -1404,7 +1404,7 @@ document.getElementById('back').style.display = 'block';
     spinnow(3000);
        //alert("test");
     setTimeout("sortByDate(5)", 3000);
-    spinnow(3000);
+    //spinnow(3000);
    // spinnow(3000);
     //spinnow(3000);
 }
@@ -8226,6 +8226,7 @@ var getloginname = function(){
             "userid": username
         }
         //loaddb(data);
+        clear();
         loaddbactive(data);
     
     }
