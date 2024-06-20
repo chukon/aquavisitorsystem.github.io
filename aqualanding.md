@@ -22,7 +22,4 @@ E-mail: ckonkol@aqua-aerobic.com
 www.aqua-aerobic.com
 Follow Us: LinkedIn and Twitter
 
-[this link](./al.bat)
-
-[link](launchpad.application)
  
