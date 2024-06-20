@@ -20,15 +20,15 @@ Below are the steps to install the Aqua Landing App I showed in training.
 <img src="99.png" width="200">
 <br>
 If you have any questions let me know. 
-
-Chuck Konkol
-Senior Programmer/Analyst II
-AQUA-AEROBIC SYSTEMS, INC.
-6306 N. Alpine Rd.
-Loves Park, IL 61111-7655
-Ph: 815-639-4574
-E-mail: ckonkol@aqua-aerobic.com 
-www.aqua-aerobic.com
+<br><br>
+Chuck Konkol<br>
+Senior Programmer/Analyst II<br>
+AQUA-AEROBIC SYSTEMS, INC.<br>
+6306 N. Alpine Rd.<br>
+Loves Park, IL 61111-7655<br>
+Ph: 815-639-4574<br>
+E-mail: ckonkol@aqua-aerobic.com <br>
+www.aqua-aerobic.com<br>
 Follow Us: LinkedIn and Twitter
 
  
