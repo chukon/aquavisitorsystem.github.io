@@ -4,7 +4,7 @@ As discussed in the training, I suggest using the Aqua Landing app to launch Vis
 
 Below are the steps to install the Aqua Landing App I showed in training. This app allows easily access the Visitor Management System (VMS) as well as other Aqua apps!
 
-1.	Click on this link & click “Yes” to continue if prompted
+1.	Click on [this link](aqualanding.application) to save
 2.	Click Install button  (see below)
  
 3.	After Aqua Landing is installed, I suggest pin to your taskbar (see below)
