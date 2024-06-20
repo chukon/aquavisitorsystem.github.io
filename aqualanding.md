@@ -1,4 +1,4 @@
-Hopefully you enjoyed the VMS training  today!  
+# Hopefully you enjoyed the VMS training  today!  
 
 As discussed in the training, I suggest using the Aqua Landing app to launch Visitor Management System (VMS).
 
@@ -21,5 +21,7 @@ Ph: 815-639-4574
 E-mail: ckonkol@aqua-aerobic.com 
 www.aqua-aerobic.com
 Follow Us: LinkedIn and Twitter
+
+[this link](\\aqua26\Neptune\Dashboards\AquaLanding\launchpad.application)
 
  
