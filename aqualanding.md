@@ -6,9 +6,9 @@ Below are the steps to install the Aqua Landing App I showed in training.
 <br>
 1. Click on [this link](aqualanding.application) to save & open (see below)
 <br>
--Click "Save" to download file to <i>Downloads</i> folder.
+-Click "Save" to download file to <i>Downloads</i> folder.<br>
 <img src="77.png" width="400">
--Left click on downloaded file to open file to install
+-Left click on downloaded file to open file to install<br>
 <img src="55.png" width="400">
 <br>
 2.	Click Install button  (see below)
