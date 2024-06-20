@@ -17,7 +17,7 @@ Below are the steps to install the Aqua Landing App I showed in training.
 3.	After Aqua Landing is installed, I suggest pin to your taskbar (see below)
 <br>
 <img src="99.png" width="200">
-<br>
+<br><br>
 If you have any questions let me know. 
 <br><br>
 Chuck Konkol<br>
