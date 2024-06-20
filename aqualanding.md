@@ -1,7 +1,6 @@
-# Hopefully you enjoyed the VMS training!  
-As discussed in the training, I suggest using the Aqua Landing app to launch Visitor Management System (VMS).
+# Aqua Landing
 <br><br>
-Below are the steps to install the Aqua Landing App I showed in training. 
+Below are the steps to install the Aqua Landing App which allows Aqua employees to launch our most common used apps & websites! 
 <br>This app allows easily access the Visitor Management System (VMS) as well as other Aqua apps!
 <br>
 1. Click on [this link](aqualanding.application) to save & open (see below)
