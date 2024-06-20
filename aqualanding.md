@@ -1,5 +1,4 @@
-#
-# Hopefully you enjoyed the VMS training  today!  
+# Hopefully you enjoyed the VMS training!  
 
 As discussed in the training, I suggest using the Aqua Landing app to launch Visitor Management System (VMS).
 
