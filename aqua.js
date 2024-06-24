@@ -4149,7 +4149,7 @@ document.head.innerHTML = header;
             get_login  = get_login.toString();
             get_login = get_login.trim().toUpperCase();
             console.log(get_login);
-            var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(5){display: none;}#report tr > *:nth-child(10){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
+            var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}#gohome{display:none;}#report tr > *:nth-child(5){display: none;}#report tr > *:nth-child(10){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
             var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
             var lines = "";
             let today = new Date().toISOString().slice(0, 10);
@@ -4158,7 +4158,7 @@ document.head.innerHTML = header;
        .get()
        .then((querySnapshot) => {
            var cnt = querySnapshot.size;
-            var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (logname report)</h1><h2><label id='numcount'></label>" + " visitor log(s) for Last names(s) starting with:  " + get_login + "<br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small><br></h2><br><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+            var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (logname report)</h1><h2><label id='numcount'></label>" + " visitor log(s) for Last names(s) starting with:  " + get_login + "<br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small><br></h2><br><div id='gohome'><a href='https://aquavisitorsystem.github.io/'>Go Home</a></div><br><br></center>";
             var logo = '<a href="https://aquavisitorsystem.github.io/"><img id="logo" src="aqua.png" width="250px" alt="Go Home"></a>'
             document.write(logo);
             document.write(title);
@@ -4232,7 +4232,7 @@ document.head.innerHTML = header;
         get_login  = get_login.toString();
         get_login = get_login.trim().toUpperCase();
         console.log(get_login);
-        var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(5){display: none;}#report tr > *:nth-child(10){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
+        var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}#gohome{display:none;}#report tr > *:nth-child(5){display: none;}#report tr > *:nth-child(10){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
         var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
         var lines = "";
         let today = new Date().toISOString().slice(0, 10);
@@ -4241,7 +4241,7 @@ document.head.innerHTML = header;
    .get()
    .then((querySnapshot) => {
        var cnt = querySnapshot.size;
-        var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (logname report)</h1><h2><label id='numcount'></label>" + " visitor log(s) for Last names(s) starting with:  " + get_login + "<br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small><br></h2><br><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+        var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (logname report)</h1><h2><label id='numcount'></label>" + " visitor log(s) for Last names(s) starting with:  " + get_login + "<br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small><br></h2><br><div id='gohome'><a href='https://aquavisitorsystem.github.io/'>Go Home</a></div><br><br></center>";
         var logo = '<a href="https://aquavisitorsystem.github.io/"><img id="logo" src="aqua.png" width="250px" alt="Go Home"></a>'
         document.write(logo);
         document.write(title);
@@ -4314,7 +4314,7 @@ document.head.innerHTML = header;
             get_login  = get_login.toString();
             get_login = get_login.trim().toUpperCase();
             console.log(get_login);
-            var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(5){display: none;}#report tr > *:nth-child(10){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
+            var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}#gohome{display:none;}#report tr > *:nth-child(5){display: none;}#report tr > *:nth-child(10){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
             var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
             var lines = "";
             let today = new Date().toISOString().slice(0, 10);
@@ -4323,7 +4323,7 @@ document.head.innerHTML = header;
        .get()
        .then((querySnapshot) => {
            var cnt = querySnapshot.size;
-            var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (logcompany report)</h1><h2><label id='numcount'></label>" + " visitor log(s) for Company names(s) starting with:  " + get_login + "<br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small><br></h2><br><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+            var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (logcompany report)</h1><h2><label id='numcount'></label>" + " visitor log(s) for Company names(s) starting with:  " + get_login + "<br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small><br></h2><br><div id='gohome'><a href='https://aquavisitorsystem.github.io/'>Go Home</a></div><br><br></center>";
             var logo = '<a href="https://aquavisitorsystem.github.io/"><img id="logo" src="aqua.png" width="250px" alt="Go Home"></a>'
             document.write(logo);
             document.write(title);
@@ -4397,7 +4397,7 @@ document.head.innerHTML = header;
             get_login  = get_login.toString();
             get_login = get_login.trim().toUpperCase();
             console.log(get_login);
-            var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(5){display: none;}#report tr > *:nth-child(10){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
+            var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}#gohome{display:none;}#report tr > *:nth-child(5){display: none;}#report tr > *:nth-child(10){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
             var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
             var lines = "";
             let today = new Date().toISOString().slice(0, 10);
@@ -4407,7 +4407,7 @@ document.head.innerHTML = header;
        .get()
        .then((querySnapshot) => {
            var cnt = querySnapshot.size;
-            var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (logcompany report)</h1><h2><label id='numcount'></label>" + " visitor log(s) for Company names(s) starting with:  " + get_login + "<br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small><br></h2><br><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+            var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (logcompany report)</h1><h2><label id='numcount'></label>" + " visitor log(s) for Company names(s) starting with:  " + get_login + "<br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small><br></h2><br><div id='gohome'><a href='https://aquavisitorsystem.github.io/'>Go Home</a></div><br><br></center>";
             var logo = '<a href="https://aquavisitorsystem.github.io/"><img id="logo" src="aqua.png" width="250px" alt="Go Home"></a>'
             document.write(logo);
             document.write(title);
@@ -4475,7 +4475,7 @@ document.head.innerHTML = header;
             get_login  = get_login.toString();
             get_login = get_login.trim().toLowerCase();
             console.log(get_login);
-            var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(1){display: none;}#report tr > *:nth-child(5){display: none;}#report tr > *:nth-child(10){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
+            var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}#gohome{display:none;}#report tr > *:nth-child(1){display: none;}#report tr > *:nth-child(5){display: none;}#report tr > *:nth-child(10){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
             var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
             var lines = "";
             let today = new Date().toISOString().slice(0, 10);
@@ -4487,7 +4487,7 @@ document.head.innerHTML = header;
             //var gmyDate = new Date(gd).toLocaleDateString('en-US');   
             var gmyDate = new Date(gd).toLocaleString('en-US');   
             var gtodaysdate = gmyDate.toString();
-            var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (loguserid)</h1><h2>Check-in/Check-out logs (" + "<label id='numcount'></label>"  + " visits) for: " + get_login + "<br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small><br></h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+            var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (loguserid)</h1><h2>Check-in/Check-out logs (" + "<label id='numcount'></label>"  + " visits) for: " + get_login + "<br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small><br></h2><div id='gohome'><a href='https://aquavisitorsystem.github.io/'>Go Home</a></div><br><br></center>";
             var logo = '<a href="https://aquavisitorsystem.github.io/"><img id="logo" src="aqua.png" width="250px" alt="Go Home"></a>'
             document.write(logo);
             document.write(title);
@@ -4556,7 +4556,7 @@ var loadloguserid =  function(){
         get_login  = get_login.toString();
         get_login = get_login.trim().toLowerCase();
         console.log(get_login);
-        var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(1){display: none;}#report tr > *:nth-child(5){display: none;}#report tr > *:nth-child(10){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
+        var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}#gohome{display:none;}#report tr > *:nth-child(1){display: none;}#report tr > *:nth-child(5){display: none;}#report tr > *:nth-child(10){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
         var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
         var lines = "";
         let today = new Date().toISOString().slice(0, 10);
@@ -4568,7 +4568,7 @@ var loadloguserid =  function(){
         //var gmyDate = new Date(gd).toLocaleDateString('en-US');   
         var gmyDate = new Date(gd).toLocaleString('en-US');   
         var gtodaysdate = gmyDate.toString();
-        var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (loguserid)</h1><h2>Check-in/Check-out logs (" + "<label id='numcount'></label>"  + " visits) for: " + get_login + "<br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small><br></h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+        var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (loguserid)</h1><h2>Check-in/Check-out logs (" + "<label id='numcount'></label>"  + " visits) for: " + get_login + "<br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small><br></h2><div id='gohome'><a href='https://aquavisitorsystem.github.io/'>Go Home</a></div><br><br></center>";
         var logo = '<a href="https://aquavisitorsystem.github.io/"><img id="logo" src="aqua.png" width="250px" alt="Go Home"></a>'
         document.write(logo);
         document.write(title);
@@ -4655,7 +4655,7 @@ function Lookup(){
         var gmyDate = new Date(gd).toLocaleString('en-US');   
         var gtodaysdate = gmyDate.toString();
         var db = firebase.firestore();
-        var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(5){display: none;}#report tr > *:nth-child(10){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
+        var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}#gohome{display:none;}#report tr > *:nth-child(5){display: none;}#report tr > *:nth-child(10){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
         var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
         var lines = "";
         var Dates = [];
@@ -4674,7 +4674,7 @@ function Lookup(){
     .get()
     .then((querySnapshot) => {
         var cnt = querySnapshot.size;
-        var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (logtoday report)</h1><h2>Check-in/Check-out logs  for  " +  "<label id='numcount'></label>"   + "  guest(s)<br>Date: " + todays + "<br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small><br></h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+        var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (logtoday report)</h1><h2>Check-in/Check-out logs  for  " +  "<label id='numcount'></label>"   + "  guest(s)<br>Date: " + todays + "<br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small><br></h2><div id='gohome'><a href='https://aquavisitorsystem.github.io/'>Go Home</a></div><br><br></center>";
         var logo = '<a href="https://aquavisitorsystem.github.io/"><img id="logo" src="aqua.png" width="250px" alt="Go Home"></a>'
         document.write(logo);
         document.write(title);
@@ -4735,7 +4735,7 @@ document.getElementsByTagName("body")[0].style.display = "none";
         try 
         {
             var db = firebase.firestore();
-            var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(5){display: none;}#report tr > *:nth-child(10){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
+            var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}#gohome{display:none;}#report tr > *:nth-child(5){display: none;}#report tr > *:nth-child(10){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
             var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
             var lines = "";
             var Dates = [];
@@ -4784,7 +4784,7 @@ document.getElementsByTagName("body")[0].style.display = "none";
             var gtodaysdate = gmyDate.toString();
             var logo = '<a href="https://aquavisitorsystem.github.io/"><img id="logo" src="aqua.png" width="250px" alt="Go Home"></a>'
             document.write(logo);
-            var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (logdate report)</h1><h2>Check-in/Check-out logs for  " +  "<label id='numcount'></label>"   + "  visits(s)<br>" + name + "<br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small><br></h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+            var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (logdate report)</h1><h2>Check-in/Check-out logs for  " +  "<label id='numcount'></label>"   + "  visits(s)<br>" + name + "<br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small><br></h2><div id='gohome'><a href='https://aquavisitorsystem.github.io/'>Go Home</a></div><br><br></center>";
             document.write(title);
             //document.write("<center><div id='numcount'></div></center>");
             document.write(printnow);
@@ -4914,7 +4914,7 @@ document.getElementsByTagName("body")[0].style.display = "none";
         var gtodaysdate = gmyDate.toString()
         var Visitors = [];
     var db = firebase.firestore();
-    var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(5){display: none;}#report tr > *:nth-child(10){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
+    var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}#gohome{display:none;}#report tr > *:nth-child(5){display: none;}#report tr > *:nth-child(10){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
     var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
     var lines = "";
     let today = new Date().toISOString().slice(0, 10);
@@ -4922,7 +4922,7 @@ document.getElementsByTagName("body")[0].style.display = "none";
 .get()
 .then((querySnapshot) => {
     var cnt = querySnapshot.size;
-    var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (logall report)</h1><h2>Check-in/Check-out logs for " + "<label id='numcount'></label>"   + " visits(s)<br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small><br></h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
+    var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (logall report)</h1><h2>Check-in/Check-out logs for " + "<label id='numcount'></label>"   + " visits(s)<br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small><br></h2><div id='gohome'><a href='https://aquavisitorsystem.github.io/'>Go Home</a></div><br><br></center>";
     var logo = '<a href="https://aquavisitorsystem.github.io/"><img id="logo" src="aqua.png" width="250px" alt="Go Home"></a>'
     document.write(logo);
     document.write(title);
@@ -7277,7 +7277,7 @@ var name=prompt("Please choose one of the following\r\n1) Enter end search date 
      name = smyDate + ' - ' + myDate.toString();
 	console.log(name);
 	var  todays = new Date().toLocaleDateString('en-US');  
-         var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}a{display:none;}#report tr > *:nth-child(5){display: none;}#report tr > *:nth-child(10){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
+         var header = "<head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;} @media print{input#btnPrint{display: none;}#gohome{display:none;}#report tr > *:nth-child(5){display: none;}#report tr > *:nth-child(10){display: none;}body {zoom: 80%;}@page{size: landscape;}}</style></head>";
 	 var printnow = "<center><input type='button' id='btnPrint' onclick='window.print();' value='Print' /></center><br>";
     console.log("Start Date: " + start);
 	console.log("End Date: " + end);
@@ -7286,7 +7286,7 @@ var name=prompt("Please choose one of the following\r\n1) Enter end search date 
     .then((querySnapshot) => {
 	 console.log("Snapshot:" + querySnapshot.size); 
         var cnt = querySnapshot.size;
-	 var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (logweek report)</h1><h2>Check-in/Check-out logs for " + "<label id='numcount'></label>"  + " visit(s)<br>" + name + "<br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small><br></h2></center><center><a href='https://aquavisitorsystem.github.io/'>Go Home</a></center><br>";         
+	 var title = "<center><h1>Aqua-Aerobic Systems Visitor Check-in/out Log (logweek report)</h1><h2>Check-in/Check-out logs for " + "<label id='numcount'></label>"  + " visit(s)<br>" + name + "<br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small><br></h2></center><center><div id='gohome'><a href='https://aquavisitorsystem.github.io/'>Go Home</a></div></center><br>";         
      var logo = '<a href="https://aquavisitorsystem.github.io/"><img id="logo" src="aqua.png" width="250px" alt="Go Home"></a>'
             document.write(logo);
 	document.write(title);
