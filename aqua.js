@@ -280,12 +280,12 @@ firebase.initializeApp(firebaseConfig);
                 "to_email" : varto_email,
                 "cc_email" : cc_email
             };
-            emailjs.send('service_aqua', 'template_checkedin', templateParams)
-             .then(function(response) {
-                 console.log('SUCCESS!', response.status, response.text);
-             }, function(error) {
-                 console.log('FAILED...', error);
-             });
+            //emailjs.send('service_aqua', 'template_checkedin', templateParams)
+            // .then(function(response) {
+            //     console.log('SUCCESS!', response.status, response.text);
+            // }, function(error) {
+            //     console.log('FAILED...', error);
+            // });
 		
         }
    
@@ -302,12 +302,12 @@ firebase.initializeApp(firebaseConfig);
                 "cc_email" : cc_email,
                 "reset" : reset
             };
-            emailjs.send('service_aqua', 'template_checkedout', templateParams)
-             .then(function(response) {
-                 console.log('SUCCESS!', response.status, response.text);
-             }, function(error) {
-                 console.log('FAILED...', error);
-             });
+            //emailjs.send('service_aqua', 'template_checkedout', templateParams)
+            // .then(function(response) {
+            //     console.log('SUCCESS!', response.status, response.text);
+            // }, function(error) {
+            //     console.log('FAILED...', error);
+            // });
 		
         }
       
