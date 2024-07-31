@@ -196,7 +196,7 @@ firebase.initializeApp(firebaseConfig);
 
         var updateallcheckindata = function(){
             var db = firebase.firestore();
-            db.collection("messages").where("remove", "==","No").get().then(function(querySnapshot) {
+            db.collection("messages").get().then(function(querySnapshot) {
                 querySnapshot.forEach(function(doc) {
                     doc.ref.update({
                         checkin: "",
