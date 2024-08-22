@@ -4949,7 +4949,8 @@ document.getElementsByTagName("body")[0].style.display = "none";
         minute: "2-digit"
     };
     var dates = new Date(doc.data().date).toLocaleDateString("fr-CA", options) + ' ' + new Date(doc.data().date).toLocaleTimeString("en", options2)
-    Visitors.push(doc.data().firstname + ' ' + doc.data().lastname + ' '  + doc.data().checkin);
+    var datecounts = new Date(doc.data().date).toLocaleDateString("fr-CA", options);
+    Visitors.push(doc.data().firstname + ' ' + doc.data().lastname + ' '  + datecounts);
     console.log("loadlogall:" + dates);
     var companylinks = "<a href='https://aquavisitorsystem.github.io/?logreport=logcompany" + "&logvalue=" + doc.data().company+ "'>" + doc.data().company + "</a>";
     var namelinks = "<a href='https://aquavisitorsystem.github.io/?logreport=logname" + "&logvalue=" + doc.data().lastname + "'>" + doc.data().lastname + "</a>";
@@ -4965,8 +4966,8 @@ document.getElementsByTagName("body")[0].style.display = "none";
     }else{
         document.write('<tr><td>' + glinks + '</td><td>' + doc.data().firstname + '</td><td>' + namelinks + '</td><td>' + companylinks + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().sourcekey + '">Click here</a></td></tr>');
     }
-     document.getElementById("numcount").innerHTML = countUnique(Visitors);
-        document.getElementById("numcount").setAttribute("value", countUnique(Visitors));
+     //document.getElementById("numcount").innerHTML = countUnique(Visitors);
+     //   document.getElementById("numcount").setAttribute("value", countUnique(Visitors));
         // document.getElementById("numcount").innerHTML = Math.ceil(cnt / 2);
         //document.getElementById("numcount").setAttribute("value", Math.ceil((cnt / 2)));
     });
@@ -4974,6 +4975,10 @@ document.getElementsByTagName("body")[0].style.display = "none";
     document.head.innerHTML = header;
     document.write("</table>");
     document.getElementsByTagName("body")[0].style.display = "none";
+    const uniqueArray = [...new Set(Visitors)];
+    const uniqueSet2 = new Set(uniqueArray);
+    document.getElementById("numcount").innerHTML = uniqueSet2.size;
+    document.getElementById("numcount").setAttribute("value", uniqueSet2.size);
 //    spinnow(3000);
 //setTimeout("sortByDate2(7)", 3000);
 })
