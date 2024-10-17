@@ -4285,7 +4285,7 @@ document.head.innerHTML = header;
         //document.getElementById("numcount").setAttribute("value", countUnique(Visitors));
         var growCount = document.getElementById('report').rows.length;
         if (growCount > 0){
-            growCount = growCount - 1;
+            growCount = Math.ceil((growCount - 1));
         }
         document.getElementById("numcount").innerHTML = growCount; //uniqueSet2.size;
         document.getElementById("numcount").setAttribute("value", growCount);
@@ -4372,7 +4372,7 @@ document.head.innerHTML = header;
            // document.getElementById("numcount").setAttribute("value", countUnique(Visitors));
             var growCount = document.getElementById('report').rows.length;
             if (growCount > 0){
-                growCount = growCount - 1;
+                growCount = Math.ceil((growCount - 1));
             }
             document.getElementById("numcount").innerHTML = growCount; //uniqueSet2.size;
             document.getElementById("numcount").setAttribute("value", growCount);
@@ -4621,7 +4621,7 @@ var loadloguserid =  function(){
         }
         var growCount = document.getElementById('report').rows.length;
         if (growCount > 0){
-            growCount = growCount - 1;
+            growCount = Math.ceil((growCount - 1));
         }
         document.getElementById("numcount").innerHTML = growCount; //uniqueSet2.size;
         document.getElementById("numcount").setAttribute("value", growCount);
@@ -4733,7 +4733,7 @@ function Lookup(){
         }
         var growCount = document.getElementById('report').rows.length;
         if (growCount > 0){
-            growCount = growCount - 1;
+            growCount = Math.ceil((growCount - 1));
         }
         document.getElementById("numcount").innerHTML = growCount; //uniqueSet2.size;
         document.getElementById("numcount").setAttribute("value", growCount);
@@ -4843,7 +4843,7 @@ document.getElementsByTagName("body")[0].style.display = "none";
             }      // document.getElementById("numcount").innerHTML = Math.ceil(cnt / 2);
             var growCount = document.getElementById('report').rows.length;
             if (growCount > 0){
-                growCount = growCount - 1;
+                growCount = Math.ceil((growCount - 1));
             }
             document.getElementById("numcount").innerHTML = growCount; //uniqueSet2.size;
             document.getElementById("numcount").setAttribute("value", growCount);
@@ -4997,7 +4997,7 @@ document.getElementsByTagName("body")[0].style.display = "none";
     //const uniqueSet2 = new Set(uniqueArray);
     var growCount = document.getElementById('report').rows.length;
     if (growCount > 0){
-        growCount = growCount - 1;
+        growCount = Math.ceil((growCount - 1));
     }
     document.getElementById("numcount").innerHTML = growCount; //uniqueSet2.size;
     document.getElementById("numcount").setAttribute("value", growCount);
@@ -7362,7 +7362,7 @@ var glinks = "<a href='https://aquavisitorsystem.github.io/?logreport=loguserid"
 }
          var growCount = document.getElementById('report').rows.length;
             if (growCount > 0){
-                growCount = growCount - 1;
+                growCount = Math.ceil((growCount - 1));
         }
             document.getElementById("numcount").innerHTML = growCount; //uniqueSet2.size;
             document.getElementById("numcount").setAttribute("value", growCount);
@@ -7673,7 +7673,7 @@ var loadjobsfromdate =  function(){
     var growCount = document.getElementById('report').rows.length;
     if (growCount > 0){
         growCount = growCount - 1;
-        growCount = (growCount / 2);
+        growCount = Math.ceil((growCount / 2));
     }
     document.getElementById("numcount").innerHTML = growCount; //uniqueSet2.size;
     document.getElementById("numcount").setAttribute("value", growCount);
