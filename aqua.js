@@ -4999,8 +4999,8 @@ document.getElementsByTagName("body")[0].style.display = "none";
     if (growCount > 0){
         growCount = Math.ceil((growCount - 1));
     }
-    document.getElementById("numcount").innerHTML = growCount; //uniqueSet2.size;
-    document.getElementById("numcount").setAttribute("value", growCount);
+    document.getElementById("numcount").innerHTML = growCount / 2; //uniqueSet2.size;
+    document.getElementById("numcount").setAttribute("value", growCount / 2);
 })
     .catch((error) => {
         console.log("Error getting documents: ", error);
