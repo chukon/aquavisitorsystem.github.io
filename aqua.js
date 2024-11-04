@@ -4202,7 +4202,9 @@ document.head.innerHTML = header;
             if (growCount > 0){
                 growCount = Math.ceil((growCount - 1));
             }
-            growCount = Math.ceil(growCount / 2);
+            //countUnique(Visitors);
+            growCount = countUnique(Visitors);
+            //growCount = Math.ceil(growCount / 2);
             document.getElementById("numcount").innerHTML = growCount; //uniqueSet2.size;
             document.getElementById("numcount").setAttribute("value", growCount);
         });
@@ -4367,7 +4369,7 @@ document.head.innerHTML = header;
   
             if ((doc.data().checkin !== "") && (doc.data().checkout !== ""))
             {
-                document.write('<tr><td>' + glinks + '</td><td>' + doc.data().firstname + '</td><td>' + namelinks + '</td><td>' + companylinks + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().sourcekey + '">Click here</a></td></tr>');
+                document.write('<tr><td>' + glinks + '</td><td>' + doc.data().firstname + '</td><td>' + namelinks + '</td><td>' + companylinks + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td style="opacity: 0;">' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().sourcekey + '">Click here</a></td></tr>');
  
             }else{
                 document.write('<tr><td>' + glinks + '</td><td>' + doc.data().firstname + '</td><td>' + namelinks + '</td><td>' + companylinks + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().sourcekey + '">Click here</a></td></tr>');
@@ -4376,7 +4378,10 @@ document.head.innerHTML = header;
             if (growCount > 0){
                 growCount = Math.ceil((growCount - 1));
             }
-            growCount = Math.ceil(growCount / 2);
+            //growCount = Math.ceil(growCount / 2);
+            //countUnique(Visitors);
+            growCount = countUnique(Visitors);
+            //growCount = Math.ceil(growCount / 2);
             document.getElementById("numcount").innerHTML = growCount; //uniqueSet2.size;
             document.getElementById("numcount").setAttribute("value", growCount);
         });
@@ -4464,7 +4469,10 @@ document.head.innerHTML = header;
             if (growCount > 0){
                 growCount = Math.ceil((growCount - 1));
             }
-            growCount = Math.ceil(growCount / 2);
+            //growCount = Math.ceil(growCount / 2);
+            //countUnique(Visitors);
+            growCount = countUnique(Visitors);
+            //growCount = Math.ceil(growCount / 2);
             document.getElementById("numcount").innerHTML = growCount; //uniqueSet2.size;
             document.getElementById("numcount").setAttribute("value", growCount);
         });
@@ -4549,7 +4557,10 @@ document.head.innerHTML = header;
             if (growCount > 0){
                 growCount = Math.ceil((growCount - 1));
             }
-            growCount = Math.ceil(growCount / 2);
+            //growCount = Math.ceil(growCount / 2);
+            //countUnique(Visitors);
+            growCount = countUnique(Visitors);
+            //growCount = Math.ceil(growCount / 2);
             document.getElementById("numcount").innerHTML = growCount; //uniqueSet2.size;
             document.getElementById("numcount").setAttribute("value", growCount);
         });
@@ -4634,7 +4645,10 @@ var loadloguserid =  function(){
         if (growCount > 0){
             growCount = Math.ceil((growCount - 1));
         }
-        growCount = Math.ceil(growCount / 2);
+        //growCount = Math.ceil(growCount / 2);
+        //countUnique(Visitors);
+        growCount = countUnique(Visitors);
+        //growCount = Math.ceil(growCount / 2);
         document.getElementById("numcount").innerHTML = growCount; //uniqueSet2.size;
         document.getElementById("numcount").setAttribute("value", growCount);
     });
@@ -4747,7 +4761,10 @@ function Lookup(){
         if (growCount > 0){
             growCount = Math.ceil((growCount - 1));
         }
-        growCount = Math.ceil(growCount / 2);
+        //growCount = Math.ceil(growCount / 2);
+        //countUnique(Visitors);
+        growCount = countUnique(Visitors);
+        //growCount = Math.ceil(growCount / 2);
         document.getElementById("numcount").innerHTML = growCount; //uniqueSet2.size;
         document.getElementById("numcount").setAttribute("value", growCount);
 });
@@ -4858,7 +4875,10 @@ document.getElementsByTagName("body")[0].style.display = "none";
             if (growCount > 0){
                 growCount = Math.ceil((growCount - 1));
             }
-            growCount = Math.ceil(growCount / 2);
+            //growCount = Math.ceil(growCount / 2);
+            //countUnique(Visitors);
+            growCount = countUnique(Visitors);
+            //growCount = Math.ceil(growCount / 2);
             document.getElementById("numcount").innerHTML = growCount; //uniqueSet2.size;
             document.getElementById("numcount").setAttribute("value", growCount);
         });
@@ -5013,7 +5033,8 @@ document.getElementsByTagName("body")[0].style.display = "none";
     if (growCount > 0){
         growCount = Math.ceil((growCount - 1));
     }
-    growCount = Math.ceil(growCount / 2);
+   // growCount = Math.ceil(growCount / 2);
+    growCount = countUnique(Visitors);
     document.getElementById("numcount").innerHTML = growCount; //uniqueSet2.size;
     document.getElementById("numcount").setAttribute("value", growCount);
 })
