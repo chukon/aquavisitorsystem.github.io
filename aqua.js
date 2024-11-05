@@ -3200,6 +3200,7 @@ document.head.innerHTML = header;
             range = new Date(range);
             todaysdate77 = new Date(todaysdate77);
             console.log("(range < todaysdate77):" + (range < todaysdate77));
+            var hh  =  tConvert (doc.data().rectime);
             if (range < todaysdate77){
                 const dateb = new Date(doc.data().date14);
                 datesorts = addOneDay(dateb).toLocaleDateString("fr-CA", options2) + "," + addOneDay(dateb).toLocaleTimeString("en", options3);
@@ -3211,7 +3212,7 @@ document.head.innerHTML = header;
                 console.log("thisistodayday" + thisistodayday);
                 console.log("mdays.includes(thisistodayday)" + mdays.includes(thisistodayday));
                 if (mdays.includes(thisistodayday)){
-                    datesorts = new Date().toLocaleDateString("fr-CA", options2) + "," + new Date().toLocaleTimeString("en", options3);
+                    datesorts = new Date().toLocaleDateString("fr-CA", options2) + "," + hh;
                 }else{
                     datesorts = nextDate(mdays[0]);
                 }
@@ -3507,6 +3508,7 @@ document.head.innerHTML = header;
                 range = new Date(range);
                 todaysdate77 = new Date(todaysdate77);
                 console.log("(range < todaysdate77):" + (range < todaysdate77));
+                var hh  =  tConvert (doc.data().rectime);
                 if (range < todaysdate77){
                     const dateb = new Date(doc.data().date14);
                     datesorts = addOneDay(dateb).toLocaleDateString("fr-CA", options2) + "," + addOneDay(dateb).toLocaleTimeString("en", options3);
@@ -3518,7 +3520,7 @@ document.head.innerHTML = header;
                     console.log("thisistodayday" + thisistodayday);
                     console.log("mdays.includes(thisistodayday)" + mdays.includes(thisistodayday));
                     if (mdays.includes(thisistodayday)){
-                        datesorts = new Date().toLocaleDateString("fr-CA", options2) + "," + new Date().toLocaleTimeString("en", options3);
+                        datesorts = new Date().toLocaleDateString("fr-CA", options2) + "," + hh;
                     }else{
                         datesorts = nextDate(mdays[0]);
                     }
@@ -3816,6 +3818,7 @@ document.head.innerHTML = header;
                 range = new Date(range);
                 todaysdate77 = new Date(todaysdate77);
                 console.log("(range < todaysdate77):" + (range < todaysdate77));
+                var hh  =  tConvert (doc.data().rectime);
                 if (range < todaysdate77){
                     const dateb = new Date(doc.data().date14);
                     datesorts = addOneDay(dateb).toLocaleDateString("fr-CA", options2) + "," + addOneDay(dateb).toLocaleTimeString("en", options3);
@@ -3827,7 +3830,7 @@ document.head.innerHTML = header;
                     console.log("thisistodayday" + thisistodayday);
                     console.log("mdays.includes(thisistodayday)" + mdays.includes(thisistodayday));
                     if (mdays.includes(thisistodayday)){
-                        datesorts = new Date().toLocaleDateString("fr-CA", options2) + "," + new Date().toLocaleTimeString("en", options3);
+                        datesorts = new Date().toLocaleDateString("fr-CA", options2) + "," + hh;
                     }else{
                         datesorts = nextDate(mdays[0]);
                     }
@@ -4128,6 +4131,7 @@ document.head.innerHTML = header;
                 range = new Date(range);
                 todaysdate77 = new Date(todaysdate77);
                 console.log("(range < todaysdate77):" + (range < todaysdate77));
+                var hh  =  tConvert (doc.data().rectime);
                 if (range < todaysdate77){
                     const dateb = new Date(doc.data().date14);
                     datesorts = addOneDay(dateb).toLocaleDateString("fr-CA", options2) + "," + addOneDay(dateb).toLocaleTimeString("en", options3);
@@ -4139,7 +4143,7 @@ document.head.innerHTML = header;
                     console.log("thisistodayday" + thisistodayday);
                     console.log("mdays.includes(thisistodayday)" + mdays.includes(thisistodayday));
                     if (mdays.includes(thisistodayday)){
-                        datesorts = new Date().toLocaleDateString("fr-CA", options2) + "," + new Date().toLocaleTimeString("en", options3);
+                        datesorts = new Date().toLocaleDateString("fr-CA", options2) + "," + hh;
                     }else{
                         datesorts = nextDate(mdays[0]);
                     }
