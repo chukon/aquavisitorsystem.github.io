@@ -3022,7 +3022,7 @@ document.head.innerHTML = header;
       .get()
    .then((querySnapshot) => {
        var cnt = querySnapshot.size;
-        var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (name report)</h1><h2>" + "<label id='numcount'></label>" + " Visitor Schedule(s) for Last name(s) starting with: " + get_login + "<br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small><br></h2><div id='gohome'><a href='https://aquavisitorsystem.github.io/'>Go Home</a></div><br><br></center>";
+        var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (name report)</h1><h2>" + "<label id='numcount'></label>" + " Active Visitor Schedule(s) for Last name(s) starting with: " + get_login + "<br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small><br></h2><div id='gohome'><a href='https://aquavisitorsystem.github.io/'>Go Home</a></div><br><br></center>";
         //var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (name report)</h1><h2>" + "Visitor Schedule(s) for: " + get_login + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
         var logo = '<a href="https://aquavisitorsystem.github.io/"><img id="logo" src="aqua.png" width="250px" alt="Go Home"></a>'
         document.write(logo);
@@ -3279,7 +3279,10 @@ document.head.innerHTML = header;
     //var table = document.getElementById("report");
     //var tbodyRowCount = table.tBodies[0].rows.length;
     //let count = tbodyRowCount; //Visitors.length;
-    console.log("count: " +  count);
+        console.log("count: " +  count);
+        const rows = document.querySelectorAll('[title="ACTIVE SCHEDULE(S)"]');
+        count =  rows.length
+
     document.getElementById("numcount").innerHTML = count;
     document.getElementById("numcount").setAttribute("value",  count);
     document.head.innerHTML = header;
@@ -3326,7 +3329,7 @@ document.head.innerHTML = header;
           .get()
        .then((querySnapshot) => {
            var cnt = querySnapshot.size;
-            var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (name report)</h1><h2>" + "<label id='numcount'></label>" + " Visitor Schedule(s) for Last name(s) starting with: " + get_login + "<br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small><br></h2><div id='gohome'><a href='https://aquavisitorsystem.github.io/'>Go Home</a></div><br><br></center>";
+            var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (name report)</h1><h2>" + "<label id='numcount'></label>" + " Active Visitor Schedule(s) for Last name(s) starting with: " + get_login + "<br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small><br></h2><div id='gohome'><a href='https://aquavisitorsystem.github.io/'>Go Home</a></div><br><br></center>";
             //var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (name report)</h1><h2>" + "Visitor Schedule(s) for: " + get_login + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
             var logo = '<a href="https://aquavisitorsystem.github.io/"><img id="logo" src="aqua.png" width="250px" alt="Go Home"></a>'
             document.write(logo);
@@ -3586,6 +3589,9 @@ document.head.innerHTML = header;
         //var tbodyRowCount = table.tBodies[0].rows.length;
         //let count = tbodyRowCount; //Visitors.length;
         console.log("count: " +  count);
+        const rows = document.querySelectorAll('[title="ACTIVE SCHEDULE(S)"]');
+        count =  rows.length
+
         document.getElementById("numcount").innerHTML = count;
         document.getElementById("numcount").setAttribute("value",  count);
         document.head.innerHTML = header;
@@ -3633,7 +3639,7 @@ document.head.innerHTML = header;
        .get()
        .then((querySnapshot) => {
            var cnt = querySnapshot.size;
-            var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (company report)</h1><h2>" + "<label id='numcount'></label>" + " Visitor Schedule(s) for Company names(s) starting with: " + get_login + "<br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small><br></h2><div id='gohome'><a href='https://aquavisitorsystem.github.io/'>Go Home</a></div><br><br></center>";
+            var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (company report)</h1><h2>" + "<label id='numcount'></label>" + " Active Visitor Schedule(s) for Company names(s) starting with: " + get_login + "<br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small><br></h2><div id='gohome'><a href='https://aquavisitorsystem.github.io/'>Go Home</a></div><br><br></center>";
             //var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (name report)</h1><h2>" + "Visitor Schedule(s) for: " + get_login + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
             var logo = '<a href="https://aquavisitorsystem.github.io/"><img id="logo" src="aqua.png" width="250px" alt="Go Home"></a>'
             document.write(logo);
@@ -3892,6 +3898,9 @@ document.head.innerHTML = header;
         //var tbodyRowCount = table.tBodies[0].rows.length;
         //let count = tbodyRowCount; //Visitors.length;
         console.log("count: " +  count);
+        const rows = document.querySelectorAll('[title="ACTIVE SCHEDULE(S)"]');
+        count =  rows.length
+
         document.getElementById("numcount").innerHTML = count;
         document.getElementById("numcount").setAttribute("value",  count);
         document.head.innerHTML = header;
@@ -3942,7 +3951,7 @@ document.head.innerHTML = header;
        .get()
        .then((querySnapshot) => {
            var cnt = querySnapshot.size;
-            var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (company report)</h1><h2>" + "<label id='numcount'></label>" + " Visitor Schedule(s) for Company names(s) starting with: " + get_login + "<br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small><br></h2><div id='gohome'><a href='https://aquavisitorsystem.github.io/'>Go Home</a></div><br><br></center>";
+            var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (company report)</h1><h2>" + "<label id='numcount'></label>" + " Active Visitor Schedule(s) for Company names(s) starting with: " + get_login + "<br><small style='font-size: 16px;color: blue;'>report created on: " +  gtodaysdate + "</small><br></h2><div id='gohome'><a href='https://aquavisitorsystem.github.io/'>Go Home</a></div><br><br></center>";
             //var title = "<center><h1>Aqua-Aerobic Systems Visitor Schedule (name report)</h1><h2>" + "Visitor Schedule(s) for: " + get_login + "</h2><a href='https://aquavisitorsystem.github.io/'>Go Home</a><br><br></center>";
             var logo = '<a href="https://aquavisitorsystem.github.io/"><img id="logo" src="aqua.png" width="250px" alt="Go Home"></a>'
             document.write(logo);
@@ -4200,11 +4209,17 @@ document.head.innerHTML = header;
         //var tbodyRowCount = table.tBodies[0].rows.length;
         //let count = tbodyRowCount; //Visitors.length;
         console.log("count: " +  count);
+
+        const rows = document.querySelectorAll('[title="ACTIVE SCHEDULE(S)"]');
+        count =  rows.length
         document.getElementById("numcount").innerHTML = count;
         document.getElementById("numcount").setAttribute("value",  count);
         document.head.innerHTML = header;
         document.write("</table>");
         document.getElementsByTagName("body")[0].style.display = "none";
+       
+         console.log(" rows.value: " +  rows);
+         console.log(" rows.length: " +   rows.length);
         //spinnow(3000);
         //setTimeout("sortByDate2(4)", 3000);
     })
@@ -9563,3 +9578,7 @@ function titleCase(str) {
     return str.toLowerCase().replace(/\b\w/g, s => s.toUpperCase());
 }
 
+function countTrWithTitle() {
+  const rows = document.querySelectorAll('tr[title]');
+    return rows.length;
+}
