@@ -1051,7 +1051,7 @@ var set_checkout = function(data){
     var db = firebase.firestore();
     var key = data["id"];
     var d = new Date();
-    myTime = new Date(d).toLocaleString();
+    myTime = data["checkout"];
     fldcheckout = myTime;
     flddailycheckout = myTime;  
     db.collection("messages").doc(key).update({
@@ -8920,6 +8920,9 @@ var dailycheckout =  function(){
     var myDate = new Date(d).toLocaleDateString('en-US');   
     name = myDate.toString();
     var  todays = new Date().toLocaleDateString('en-US');  
+    myTime = new Date(d).toLocaleString();
+    fldcheckout = myTime;
+    flddailycheckout = myTime;  
     //db.collection("messages").where("date", ">=",start).where("date", "<=",end).where("remove", "==","No").where("checkout", "==","").orderBy("date","asc").orderBy("lastname","asc")
     db.collection("messages").where("remove", "==","No").where("checkout", "==","").orderBy("date","asc").orderBy("lastname","asc")
 .get()
@@ -8931,7 +8934,8 @@ var dailycheckout =  function(){
     }else{
         querySnapshot.forEach((doc) => {
             var data3 = {
-                "id": doc.data().key
+                "id": doc.data().key,
+                "checkout": fldcheckout
             }
         key_checkin = doc.data().checkin;
         key_checkout = doc.data().checkout;
@@ -8950,6 +8954,11 @@ var dailycheckout =  function(){
         if ((key_checkin !=null && key_checkin != '') && (key_checkout === null || key_checkout === '')){
             set_checkout(data3);	
             log_create();	
+            var varFName = doc.data().firstname;
+            var varLName = doc.data().lastname;  
+            varfrom_name = varFName + ' ' + varLName;
+            varto_email = 'ckonkol@aqua-aerobic.com';
+            varto_name = "Chuck Konkol";
             sendcheckedout();	
         }
      });
