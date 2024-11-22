@@ -8920,8 +8920,9 @@ var dailycheckout =  function(){
     var myDate = new Date(d).toLocaleDateString('en-US');   
     name = myDate.toString();
     var  todays = new Date().toLocaleDateString('en-US');  
-    //db.collection("messages").where("date", ">=",start).where("date", "<=",end).where("remove", "==","No").where("checkout", "==","").orderBy("date","asc").orderBy("lastname","asc")
-    db.collection("messages").where("remove", "==","No").where("checkout", "==","").orderBy("date","asc").orderBy("lastname","asc")
+    //db.collection("messages").where("date", ">=",start).where("date", "<=",end).where("remove", "==","No").where("checkout", "==","")
+    //db.collection("messages").where("remove", "==","No").where("checkin", "<>","").where("checkout", "==","")
+    db.collection("messages").where("remove", "==","No").where("checkout", "==","")
 .get()
 .then((querySnapshot) => {
      console.log("Snapshot:" + querySnapshot.size); 
@@ -8947,10 +8948,10 @@ var dailycheckout =  function(){
         fldcheckout = flddailycheckout;
         fldremove =  doc.data().remove;
         fldkey = doc.data().key;
-        if ((key_checkin !=null && key_checkin != '') && (key_checkout === null || key_checkout === '')){
+     if ((key_checkin !=null && key_checkin != '')){
             set_checkout(data3);	
             log_create();	
-            sendcheckedout();	
+            //sendcheckedout();	
         }
      });
 }
