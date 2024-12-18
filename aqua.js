@@ -9078,6 +9078,47 @@ var g_logvalue= urlParams.get('logvalue')
 console.log(g_logvalue);
 	    
 //loaddbtoday
+
+if ((checkin != null && checkin != '') &&  (keyid != null && keyid != '')) {
+    console.log('string is NOT empty');	
+    if (checkin === 'walkin'){
+        document.getElementById('schedule').style.display = 'none';
+        document.getElementById('getall').style.display = 'none';
+        document.getElementById('header').style.display = 'none';
+        document.getElementById('logo').style.display = 'none';
+        var data = {
+            "login": 'walkin',
+            "key": g_fname.trim().toUpperCase() + g_lname.trim().toUpperCase() + g_date,
+            "fname": g_fname.trim().toUpperCase(),
+            "lname": g_lname.trim().toUpperCase(),
+            "email": g_email.trim().toUpperCase(),
+            "cname": g_cname.trim().toUpperCase(),
+            "msg": g_message.trim().toUpperCase(), 
+            "date": g_date
+        }
+	var data1 = {
+                "checkin": checkin,
+                "id": g_fname.trim().toUpperCase() + g_lname.trim().toUpperCase() + g_date
+            }
+        push_to_firebase(data);
+        sleep(3000).then(() => {
+  get_checkin_data(data1);
+    });
+}else{
+    document.getElementById('schedule').style.display = 'none';
+    document.getElementById('getall').style.display = 'none';
+    document.getElementById('header').style.display = 'none';
+    document.getElementById('logo').style.display = 'none';
+    var data3 = {
+        "checkin": checkin,
+        "id": keyid
+    }
+    get_checkin_data(data3);
+}
+ 
+} else {
+    console.log('string IS empty');
+}
 	    
 	    
 function sleep (time) {
@@ -9308,46 +9349,7 @@ if (g_iPadid != null && g_iPadid != '') {
 }
       
 // empty string
-if ((checkin != null && checkin != '') &&  (keyid != null && keyid != '')) {
-    console.log('string is NOT empty');	
-    if (checkin === 'walkin'){
-        document.getElementById('schedule').style.display = 'none';
-        document.getElementById('getall').style.display = 'none';
-        document.getElementById('header').style.display = 'none';
-        document.getElementById('logo').style.display = 'none';
-        var data = {
-            "login": 'walkin',
-            "key": g_fname.trim().toUpperCase() + g_lname.trim().toUpperCase() + g_date,
-            "fname": g_fname.trim().toUpperCase(),
-            "lname": g_lname.trim().toUpperCase(),
-            "email": g_email.trim().toUpperCase(),
-            "cname": g_cname.trim().toUpperCase(),
-            "msg": g_message.trim().toUpperCase(), 
-            "date": g_date
-        }
-        push_to_firebase(data);
-        sleep(3000).then(() => {
-            var data1 = {
-                "checkin": checkin,
-                "id": g_fname.trim().toUpperCase() + g_lname.trim().toUpperCase() + g_date
-            }
-  get_checkin_data(data1);
-    });
-}else{
-    document.getElementById('schedule').style.display = 'none';
-    document.getElementById('getall').style.display = 'none';
-    document.getElementById('header').style.display = 'none';
-    document.getElementById('logo').style.display = 'none';
-    var data3 = {
-        "checkin": checkin,
-        "id": keyid
-    }
-    get_checkin_data(data3);
-}
- 
-} else {
-    console.log('string IS empty');
-}
+
 
 // empty string
 if ((checkin === null || checkin === '') &&  (keyid != null && keyid != '')) {
